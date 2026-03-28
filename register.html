@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | SOLARA TV - Premium IPTV 4K Service</title>
+  <meta name="description" content="Create your SOLARA TV account. Join thousands of satisfied customers enjoying premium IPTV service.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://solaratv.tv/register.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-box">
+      <a href="/" class="logo">SOLARA TV</a>
+      <h2>Create Account</h2>
+      <p class="subtitle">Join SOLARA TV today</p>
+
+      <div id="alertBox" class="alert"></div>
+
+      <form id="registerForm" onsubmit="return handleRegister(event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Choose a username" required autocomplete="username" minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password (min 6 characters)" required autocomplete="new-password" minlength="6">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+      </form>
+
+      <div style="text-align:center;margin-top:24px;color:var(--text-muted);font-size:0.9rem;">
+        <p>Already have an account? <a href="login.html" style="color:var(--primary);font-weight:600;">Sign In</a></p>
+        <p style="margin-top:16px;"><a href="/" style="color:var(--text-muted);">&larr; Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script>
+    if (Auth.isLoggedIn()) {
+      const session = Auth.getSession();
+      window.location.href = session.role === 'admin' ? 'admin/' : 'client/';
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('alertBox');
+      alertBox.style.display = 'none';
+      alertBox.className = 'alert';
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (!username || !email || !password) {
+        alertBox.textContent = 'Please fill in all fields.';
+        alertBox.classList.add('alert-error');
+        alertBox.style.display = 'block';
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alertBox.textContent = 'Passwords do not match.';
+        alertBox.classList.add('alert-error');
+        alertBox.style.display = 'block';
+        return false;
+      }
+
+      if (password.length < 6) {
+        alertBox.textContent = 'Password must be at least 6 characters.';
+        alertBox.classList.add('alert-error');
+        alertBox.style.display = 'block';
+        return false;
+      }
+
+      const result = await Auth.createUser(username, email, password, 'client');
+      if (result.success) {
+        alertBox.textContent = 'Account created successfully! Redirecting to login...';
+        alertBox.classList.add('alert-success');
+        alertBox.style.display = 'block';
+        setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+      } else {
+        alertBox.textContent = result.message;
+        alertBox.classList.add('alert-error');
+        alertBox.style.display = 'block';
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>

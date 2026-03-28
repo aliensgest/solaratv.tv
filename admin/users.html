@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users | Admin - SOLARA TV</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="logo">SOLARA TV</a>
+      <nav class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="blog-editor.html"><i class="fas fa-pen-fancy"></i> Blog Manager</a>
+        <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+        <a href="users.html" class="active"><i class="fas fa-users"></i> Users</a>
+        <div class="sidebar-divider"></div>
+        <a href="/"><i class="fas fa-globe"></i> View Site</a>
+        <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+          <h1>Users Management</h1>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <span class="stat-card" style="padding:12px 20px;display:flex;align-items:center;gap:8px;">
+            <i class="fas fa-users" style="color:var(--primary);"></i>
+            <strong id="userCount">0</strong> Users
+          </span>
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Joined</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script>
+    if (!Auth.requireAuth('admin')) {
+      document.body.innerHTML = '';
+    }
+
+    function loadUsers() {
+      const users = Auth.getUsers();
+      document.getElementById('userCount').textContent = users.length;
+      const table = document.getElementById('usersTable');
+      
+      if (users.length === 0) {
+        table.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;">No users found.</td></tr>';
+        return;
+      }
+
+      table.innerHTML = users.map(u => {
+        const roleClass = u.role === 'admin' ? 'badge-admin' : 'badge-client';
+        const date = new Date(u.createdAt).toLocaleDateString();
+        const currentSession = Auth.getSession();
+        const isSelf = currentSession && currentSession.userId === u.id;
+        return '<tr>' +
+          '<td><strong>' + escapeHtml(u.username) + '</strong>' + (isSelf ? ' <span style="color:var(--primary);font-size:0.8rem;">(you)</span>' : '') + '</td>' +
+          '<td>' + escapeHtml(u.email) + '</td>' +
+          '<td><span class="badge ' + roleClass + '">' + u.role + '</span></td>' +
+          '<td>' + date + '</td>' +
+          '<td>' +
+            (isSelf ? '<span style="color:#666;font-size:0.85rem;">—</span>' :
+              '<button class="btn btn-sm" style="padding:4px 12px;background:rgba(255,77,77,0.1);color:#ff4d4d;border:1px solid rgba(255,77,77,0.3);border-radius:8px;" onclick="deleteUser(\'' + u.id + '\')"><i class="fas fa-trash"></i></button>') +
+          '</td></tr>';
+      }).join('');
+    }
+
+    function deleteUser(id) {
+      const session = Auth.getSession();
+      if (session && session.userId === id) {
+        alert('Cannot delete your own account.');
+        return;
+      }
+      if (confirm('Delete this user permanently?')) {
+        const users = Auth.getUsers().filter(u => u.id !== id);
+        Auth.saveUsers(users);
+        loadUsers();
+      }
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+    if (window.innerWidth <= 992) {
+      document.getElementById('sidebarToggle').style.display = 'inline-block';
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    loadUsers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | SOLARA TV</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="logo">SOLARA TV</a>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="active"><i class="fas fa-home"></i> My Account</a>
+        <a href="/blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+        <div class="sidebar-divider"></div>
+        <a href="/"><i class="fas fa-globe"></i> View Site</a>
+        <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+          <h1>My Account</h1>
+        </div>
+        <div class="user-info">
+          <span id="welcomeMsg">Welcome</span>
+          <div class="avatar" id="userAvatar">U</div>
+        </div>
+      </div>
+
+      <!-- Account Info -->
+      <div class="stats-grid" style="margin-bottom:30px;">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-user"></i></div>
+          <div class="stat-value" id="accountName" style="font-size:1.3rem;">—</div>
+          <div class="stat-label">Username</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-envelope"></i></div>
+          <div class="stat-value" id="accountEmail" style="font-size:1rem;">—</div>
+          <div class="stat-label">Email</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+          <div class="stat-value" id="accountDate" style="font-size:1rem;">—</div>
+          <div class="stat-label">Member Since</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <h3 style="margin-bottom:16px;"><i class="fas fa-bolt" style="color:var(--primary);margin-right:8px;"></i> Quick Actions</h3>
+      <div class="grid-4" style="margin-bottom:30px;">
+        <div class="card" style="cursor:pointer;" onclick="App.openWhatsApp('I want to subscribe to SOLARA TV')">
+          <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>Subscribe</h3>
+          <p>Contact us to start your IPTV subscription</p>
+        </div>
+        <div class="card" style="cursor:pointer;" onclick="App.openWhatsApp('I want a free trial for SOLARA TV')">
+          <div class="card-icon"><i class="fas fa-gift"></i></div>
+          <h3>Free Trial</h3>
+          <p>Get 24 hours free trial to test our service</p>
+        </div>
+        <div class="card" style="cursor:pointer;" onclick="App.openWhatsApp('I need support for my SOLARA TV subscription')">
+          <div class="card-icon"><i class="fas fa-headset"></i></div>
+          <h3>Support</h3>
+          <p>Get help with your subscription or setup</p>
+        </div>
+        <div class="card" style="cursor:pointer;" onclick="window.location.href='/blog.html'">
+          <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+          <h3>Blog</h3>
+          <p>Read guides, tips, and IPTV news</p>
+        </div>
+      </div>
+
+      <!-- Subscription Info -->
+      <div style="background:var(--bg-card);padding:30px;border-radius:var(--radius);border:1px solid var(--border);">
+        <h3 style="margin-bottom:12px;"><i class="fas fa-tv" style="color:var(--primary);margin-right:8px;"></i> Subscription Status</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;">To activate or manage your IPTV subscription, please contact us via WhatsApp.</p>
+        <button class="btn btn-whatsapp" onclick="App.openWhatsApp('I want to check my SOLARA TV subscription status')">
+          <i class="fab fa-whatsapp"></i> Contact Support
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script>
+    if (!Auth.requireAuth('client')) {
+      document.body.innerHTML = '';
+    }
+
+    const session = Auth.getSession();
+    if (session) {
+      document.getElementById('welcomeMsg').textContent = 'Welcome, ' + session.username;
+      document.getElementById('userAvatar').textContent = session.username.charAt(0).toUpperCase();
+      document.getElementById('accountName').textContent = session.username;
+      document.getElementById('accountEmail').textContent = session.email;
+      document.getElementById('accountDate').textContent = new Date(session.loginAt).toLocaleDateString();
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+    if (window.innerWidth <= 992) {
+      document.getElementById('sidebarToggle').style.display = 'inline-block';
+    }
+  </script>
+</body>
+</html>

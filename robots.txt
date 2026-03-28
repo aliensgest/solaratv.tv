@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /client/
+Disallow: /examples/
+
+Sitemap: https://solaratv.tv/sitemap.xml

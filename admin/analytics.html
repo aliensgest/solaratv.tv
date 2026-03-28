@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics | Admin - SOLARA TV</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="logo">SOLARA TV</a>
+      <nav class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="blog-editor.html"><i class="fas fa-pen-fancy"></i> Blog Manager</a>
+        <a href="analytics.html" class="active"><i class="fas fa-chart-line"></i> Analytics</a>
+        <a href="users.html"><i class="fas fa-users"></i> Users</a>
+        <div class="sidebar-divider"></div>
+        <a href="/"><i class="fas fa-globe"></i> View Site</a>
+        <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+          <h1>Analytics</h1>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="if(confirm('Clear all analytics data?')){Analytics.clearData();location.reload();}"><i class="fas fa-trash"></i> Clear Data</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-eye"></i></div>
+          <div class="stat-value" id="totalViews">0</div>
+          <div class="stat-label">Total Page Views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+          <div class="stat-value" id="todayViews">0</div>
+          <div class="stat-label">Today's Views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-mouse-pointer"></i></div>
+          <div class="stat-value" id="totalClicks">0</div>
+          <div class="stat-label">Total Clicks</div>
+        </div>
+      </div>
+
+      <!-- Views Chart -->
+      <div style="margin-bottom:30px;">
+        <h3 style="margin-bottom:16px;"><i class="fas fa-chart-bar" style="color:var(--primary);margin-right:8px;"></i> Page Views (Last 14 Days)</h3>
+        <div id="viewsChart" style="display:flex;align-items:flex-end;gap:6px;height:220px;padding:20px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="analytics-grid">
+        <!-- Top Pages -->
+        <div>
+          <h3 style="margin-bottom:16px;"><i class="fas fa-file" style="color:var(--primary);margin-right:8px;"></i> Top Pages</h3>
+          <table class="data-table">
+            <thead><tr><th>Page</th><th>Views</th></tr></thead>
+            <tbody id="topPagesTable"></tbody>
+          </table>
+        </div>
+
+        <!-- Top Clicks -->
+        <div>
+          <h3 style="margin-bottom:16px;"><i class="fas fa-hand-pointer" style="color:var(--primary);margin-right:8px;"></i> Top Clicked Elements</h3>
+          <table class="data-table">
+            <thead><tr><th>Element</th><th>Page</th><th>Clicks</th></tr></thead>
+            <tbody id="topClicksTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script>
+    if (!Auth.requireAuth('admin')) {
+      document.body.innerHTML = '';
+    }
+
+    // Stats
+    document.getElementById('totalViews').textContent = Analytics.getTotalViews();
+    document.getElementById('todayViews').textContent = Analytics.getTodayViews();
+    document.getElementById('totalClicks').textContent = Analytics.getTotalClicks();
+
+    // Chart
+    const chartData = Analytics.getViewsByDay(14);
+    const maxViews = Math.max(...chartData.map(d => d.count), 1);
+    const chart = document.getElementById('viewsChart');
+    chartData.forEach(d => {
+      const height = Math.max((d.count / maxViews) * 170, 4);
+      const day = new Date(d.date).toLocaleDateString('en', { month: 'short', day: 'numeric' });
+      chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:6px;transition:height 0.3s;"></div><div style="font-size:0.65rem;color:var(--text-muted);white-space:nowrap;">' + day + '</div><div style="font-size:0.75rem;font-weight:600;">' + d.count + '</div></div>';
+    });
+
+    // Top Pages
+    const pages = Analytics.getPageViewStats().slice(0, 10);
+    const pagesTable = document.getElementById('topPagesTable');
+    if (pages.length === 0) {
+      pagesTable.innerHTML = '<tr><td colspan="2" style="text-align:center;">No data yet</td></tr>';
+    } else {
+      pages.forEach(p => {
+        pagesTable.innerHTML += '<tr><td>' + escapeHtml(p.page || '/') + '</td><td><strong>' + p.count + '</strong></td></tr>';
+      });
+    }
+
+    // Top Clicks
+    const clicks = Analytics.getClickStats().slice(0, 10);
+    const clicksTable = document.getElementById('topClicksTable');
+    if (clicks.length === 0) {
+      clicksTable.innerHTML = '<tr><td colspan="3" style="text-align:center;">No data yet</td></tr>';
+    } else {
+      clicks.forEach(c => {
+        clicksTable.innerHTML += '<tr><td>' + escapeHtml(c.label.substring(0, 30)) + '</td><td>' + escapeHtml(c.page) + '</td><td><strong>' + c.count + '</strong></td></tr>';
+      });
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+    if (window.innerWidth <= 992) {
+      document.getElementById('sidebarToggle').style.display = 'inline-block';
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+
+  <style>
+    @media (max-width: 768px) { .analytics-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</body>
+</html>

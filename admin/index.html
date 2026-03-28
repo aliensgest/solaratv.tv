@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | SOLARA TV</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="logo">SOLARA TV</a>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="blog-editor.html"><i class="fas fa-pen-fancy"></i> Blog Manager</a>
+        <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+        <a href="users.html"><i class="fas fa-users"></i> Users</a>
+        <div class="sidebar-divider"></div>
+        <a href="/"><i class="fas fa-globe"></i> View Site</a>
+        <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div>
+          <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="user-info">
+          <span id="welcomeMsg">Welcome, Admin</span>
+          <div class="avatar" id="userAvatar">A</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-eye"></i></div>
+          <div class="stat-value" id="totalViews">0</div>
+          <div class="stat-label">Total Page Views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+          <div class="stat-value" id="todayViews">0</div>
+          <div class="stat-label">Today's Views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-mouse-pointer"></i></div>
+          <div class="stat-value" id="totalClicks">0</div>
+          <div class="stat-label">Total Clicks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+          <div class="stat-value" id="totalBlogs">0</div>
+          <div class="stat-label">Blog Posts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-value" id="totalUsers">0</div>
+          <div class="stat-label">Registered Users</div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="dashboard-grid">
+        <!-- Top Pages -->
+        <div>
+          <h3 style="margin-bottom:16px;"><i class="fas fa-chart-bar" style="color:var(--primary);margin-right:8px;"></i> Top Pages</h3>
+          <table class="data-table">
+            <thead><tr><th>Page</th><th>Views</th></tr></thead>
+            <tbody id="topPagesTable"></tbody>
+          </table>
+        </div>
+
+        <!-- Recent Blog Posts -->
+        <div>
+          <h3 style="margin-bottom:16px;"><i class="fas fa-pen-fancy" style="color:var(--primary);margin-right:8px;"></i> Recent Blog Posts</h3>
+          <table class="data-table">
+            <thead><tr><th>Title</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="recentBlogsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Views Chart (Simple bar chart) -->
+      <div style="margin-top:30px;">
+        <h3 style="margin-bottom:16px;"><i class="fas fa-chart-line" style="color:var(--primary);margin-right:8px;"></i> Page Views (Last 7 Days)</h3>
+        <div id="viewsChart" style="display:flex;align-items:flex-end;gap:8px;height:200px;padding:20px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script src="../assets/js/blog.js"></script>
+  <script>
+    // Auth check
+    if (!Auth.requireAuth('admin')) {
+      document.body.innerHTML = '';
+    }
+
+    const session = Auth.getSession();
+    if (session) {
+      document.getElementById('welcomeMsg').textContent = 'Welcome, ' + session.username;
+      document.getElementById('userAvatar').textContent = session.username.charAt(0).toUpperCase();
+    }
+
+    // Stats
+    document.getElementById('totalViews').textContent = Analytics.getTotalViews();
+    document.getElementById('todayViews').textContent = Analytics.getTodayViews();
+    document.getElementById('totalClicks').textContent = Analytics.getTotalClicks();
+    document.getElementById('totalBlogs').textContent = Blog.getAll().length;
+    document.getElementById('totalUsers').textContent = Auth.getUsers().length;
+
+    // Top Pages
+    const topPages = Analytics.getPageViewStats().slice(0, 5);
+    const topPagesTable = document.getElementById('topPagesTable');
+    if (topPages.length === 0) {
+      topPagesTable.innerHTML = '<tr><td colspan="2" style="text-align:center;">No data yet</td></tr>';
+    } else {
+      topPages.forEach(p => {
+        topPagesTable.innerHTML += '<tr><td>' + escapeHtml(p.page) + '</td><td>' + p.count + '</td></tr>';
+      });
+    }
+
+    // Recent Blogs
+    const blogs = Blog.getAll().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
+    const recentBlogsTable = document.getElementById('recentBlogsTable');
+    if (blogs.length === 0) {
+      recentBlogsTable.innerHTML = '<tr><td colspan="3" style="text-align:center;">No posts yet</td></tr>';
+    } else {
+      blogs.forEach(b => {
+        const statusClass = b.status === 'published' ? 'badge-published' : 'badge-draft';
+        const date = new Date(b.createdAt).toLocaleDateString();
+        recentBlogsTable.innerHTML += '<tr><td>' + escapeHtml(b.title.substring(0, 40)) + '</td><td><span class="badge ' + statusClass + '">' + b.status + '</span></td><td>' + date + '</td></tr>';
+      });
+    }
+
+    // Simple Bar Chart
+    const chartData = Analytics.getViewsByDay(7);
+    const maxViews = Math.max(...chartData.map(d => d.count), 1);
+    const chart = document.getElementById('viewsChart');
+    chartData.forEach(d => {
+      const height = Math.max((d.count / maxViews) * 150, 4);
+      const day = new Date(d.date).toLocaleDateString('en', { weekday: 'short' });
+      chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:8px;"></div><div style="font-size:0.75rem;color:var(--text-muted);">' + day + '</div><div style="font-size:0.8rem;font-weight:600;">' + d.count + '</div></div>';
+    });
+
+    // Sidebar toggle for mobile
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+
+    // Show sidebar toggle on mobile
+    if (window.innerWidth <= 992) {
+      document.getElementById('sidebarToggle').style.display = 'inline-block';
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+
+  <style>
+    @media (max-width: 768px) {
+      .dashboard-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</body>
+</html>

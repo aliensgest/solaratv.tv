@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>IPTV Blog | SOLARA TV - Guides, Tips & News for Premium IPTV 2026</title>
+  <meta name="description" content="SOLARA TV Blog: Expert IPTV guides, setup tutorials, streaming tips, and news. Learn how to setup IPTV on Firestick, Smart TV, and more. Best IPTV blog 2026.">
+  <meta name="keywords" content="IPTV blog, IPTV guide, IPTV setup, IPTV tutorial, Firestick IPTV setup, Smart TV IPTV, IPTV tips, IPTV news, SOLARA TV blog, streaming guide 2026">
+  <meta name="author" content="SOLARA TV">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://solaratv.tv/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://solaratv.tv/blog.html">
+  <meta property="og:title" content="IPTV Blog | SOLARA TV - Guides, Tips & News">
+  <meta property="og:description" content="Expert IPTV guides, setup tutorials, and streaming tips. Best IPTV blog 2026.">
+  <meta property="og:site_name" content="SOLARA TV">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IPTV Blog | SOLARA TV - Guides, Tips & News">
+  <meta name="twitter:description" content="Expert IPTV guides, setup tutorials, and streaming tips. Best IPTV blog 2026.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "SOLARA TV Blog",
+    "url": "https://solaratv.tv/blog.html",
+    "description": "Expert IPTV guides, tutorials, tips and news",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SOLARA TV",
+      "url": "https://solaratv.tv"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="/" class="logo">SOLARA TV</a>
+      <button class="hamburger" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="cta-buttons">
+        <button class="btn btn-primary btn-sm" onclick="App.openWhatsApp('I want a free trial for SOLARA TV')">Free Trial</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="App.openWhatsApp('I want to subscribe to SOLARA TV')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Blog Hero -->
+  <section class="blog-post-hero" style="padding:80px 0 40px;">
+    <div class="container">
+      <h1>SOLARA TV <span class="highlight">Blog</span></h1>
+      <p style="color:var(--text-muted);font-size:1.1rem;margin-top:12px;">IPTV guides, tutorials, tips & streaming news</p>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section style="padding:40px 0 80px;">
+    <div class="container">
+      <div class="blog-grid" id="blogGrid">
+        <!-- Posts loaded dynamically -->
+      </div>
+      <div id="noPosts" class="hidden" style="text-align:center;padding:60px 0;">
+        <i class="fas fa-newspaper" style="font-size:3rem;color:var(--primary);opacity:0.3;margin-bottom:16px;"></i>
+        <p style="color:var(--text-muted);font-size:1.1rem;">No blog posts yet. Check back soon!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="/" class="logo">SOLARA TV</a>
+      <p style="margin-top:8px;">Premium IPTV 4K Service - 25,000+ Channels</p>
+      <a href="https://wa.me/212600160196?text=Hello%2C%20I%27m%20interested%20in%20SOLARA%20TV" class="btn btn-whatsapp" style="margin:24px 0;display:inline-flex;">
+        <i class="fab fa-whatsapp"></i> Contact Us on WhatsApp
+      </a>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="copyright">&copy; 2026 solaratv.tv - All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/212600160196?text=Hello%2C%20I%27m%20interested%20in%20SOLARA%20TV" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script>
+    function loadBlogPosts() {
+      const posts = Blog.getPublished();
+      const grid = document.getElementById('blogGrid');
+      const noPosts = document.getElementById('noPosts');
+
+      if (posts.length === 0) {
+        noPosts.classList.remove('hidden');
+        return;
+      }
+
+      grid.innerHTML = posts.map(post => {
+        const date = new Date(post.createdAt).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
+        const excerpt = escapeHtml(post.excerpt || post.title).substring(0, 150);
+        return '<article class="blog-card">' +
+          '<img src="' + escapeHtml(post.image) + '" alt="' + escapeHtml(post.title) + '" class="blog-card-image" loading="lazy" onerror="this.src=\'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800\'">' +
+          '<div class="blog-card-body">' +
+            '<div class="blog-card-meta">' +
+              '<span><i class="fas fa-folder"></i> ' + escapeHtml(post.category) + '</span>' +
+              '<span><i class="fas fa-calendar"></i> ' + date + '</span>' +
+            '</div>' +
+            '<h3>' + escapeHtml(post.title) + '</h3>' +
+            '<p>' + excerpt + '...</p>' +
+            '<a href="blog-post.html?id=' + post.id + '" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>' +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+
+    loadBlogPosts();
+  </script>
+</body>
+</html>

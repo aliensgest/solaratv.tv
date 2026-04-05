@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<script>
+// حل شامل لإزالة .html من جميع الصفحات والروابط
+(function() {
+  // إصلاح الرابط الحالي
+  if (location.pathname.endsWith('.html')) {
+    history.replaceState({}, '', location.pathname.replace('.html', ''));
+  }
+  
+  // إصلاح جميع الروابط في الصفحة
+  for (let link of document.querySelectorAll('a[href]')) {
+    let href = link.getAttribute('href');
+    if (href && href.includes('.html') && !href.includes('://')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  }
+})();
+</script>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOLARA TV | Best IPTV Service 2026 for Europe, USA, Australia & GCC – 25,000+ Live Channels & 60,000+ VOD (4K Ultra HD)</title>

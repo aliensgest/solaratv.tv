@@ -3,168 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Dynamic SEO (populated by JS) -->
-  <title>Blog Post | SOLARA TV</title>
-  <meta name="description" id="metaDescription" content="Read this IPTV article on SOLARA TV Blog.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="SOLARA TV">
-  
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="SOLARA TV">
-  <meta property="og:title" id="ogTitle" content="Blog Post | SOLARA TV">
-  <meta property="og:description" id="ogDescription" content="">
-  <meta property="og:image" id="ogImage" content="">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="twitterTitle" content="">
-  <meta name="twitter:description" id="twitterDescription" content="">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>SOLARA TV | Blog Post</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}.container{max-width:800px;margin:0 auto;padding:0 20px}
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav-c{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    .post-header{padding:50px 0 30px;text-align:center}.post-header h1{font-size:2rem;margin-bottom:15px;color:var(--accent-gold)}.post-meta{display:flex;justify-content:center;gap:20px;font-size:.8rem;color:#888;margin-bottom:20px}.post-meta span{display:flex;align-items:center;gap:5px}
+    .post-image{width:100%;height:350px;object-fit:cover;border-radius:16px;margin-bottom:30px;border:1px solid rgba(255,215,0,.3)}
+    .post-body{font-size:1rem;color:#ddd;line-height:1.8}.post-body p{margin-bottom:18px}.post-body h2{color:var(--accent-gold);margin:30px 0 15px}.post-body ul,.post-body ol{margin:15px 0 15px 25px;color:#ccc}.post-body li{margin-bottom:8px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent-gold);text-decoration:none;font-weight:600;margin-top:30px;transition:gap .3s}.back-link:hover{gap:12px}
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold);margin-top:50px}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    @media(max-width:768px){.nav-links{display:none}.post-header h1{font-size:1.5rem}.post-image{height:220px}}
+  </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <a href="/" class="logo">SOLARA TV</a>
-      <button class="hamburger" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/#features">Features</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="/#faq">FAQ</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <div class="cta-buttons">
-        <button class="btn btn-primary btn-sm" onclick="App.openWhatsApp('I want a free trial for SOLARA TV')">Free Trial</button>
-        <button class="btn btn-whatsapp btn-sm" onclick="App.openWhatsApp('I want to subscribe to SOLARA TV')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-      </div>
-    </div>
-  </header>
+<header><div class="nav-c"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html" class="active">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="login.html">Login</a></div></div></header>
 
-  <!-- Blog Post Hero -->
-  <section class="blog-post-hero" id="postHero">
-    <div class="container">
-      <div style="margin-bottom:12px;"><a href="blog.html" style="color:var(--primary);font-size:0.9rem;"><i class="fas fa-arrow-left"></i> Back to Blog</a></div>
-      <h1 id="postTitle">Loading...</h1>
-      <div class="blog-post-meta" id="postMeta"></div>
+<div class="container">
+  <div class="post-header">
+    <h1 id="postTitle">Loading...</h1>
+    <div class="post-meta">
+      <span id="postDate"><i class="fas fa-calendar"></i> —</span>
+      <span id="postAuthor"><i class="fas fa-user"></i> —</span>
+      <span id="postCategory"><i class="fas fa-tag"></i> —</span>
     </div>
-  </section>
-
-  <!-- Blog Post Content -->
-  <div class="blog-post-content" id="postContent">
-    <p style="text-align:center;color:var(--text-muted);">Loading post...</p>
   </div>
+  <img id="postImage" class="post-image" src="" alt="" style="display:none">
+  <div class="post-body" id="postBody"></div>
+  <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+</div>
 
-  <!-- CTA Section -->
-  <section style="padding:60px 0;text-align:center;background:var(--bg-card);">
-    <div class="container">
-      <h2 style="margin-bottom:12px;">Ready to Try <span style="color:var(--primary);">SOLARA TV</span>?</h2>
-      <p style="color:var(--text-muted);margin-bottom:24px;">Get 25,000+ 4K channels with a free 24-hour trial.</p>
-      <button class="btn btn-primary btn-lg" onclick="App.openWhatsApp('I want a free trial for SOLARA TV')">
-        🚀 Start Free Trial
-      </button>
-    </div>
-  </section>
+<footer><div style="max-width:1200px;margin:0 auto;padding:0 20px"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><p style="margin:20px 0;color:#aaa;font-size:.8rem">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <a href="/" class="logo">SOLARA TV</a>
-      <p style="margin-top:8px;">Premium IPTV 4K Service - 25,000+ Channels</p>
-      <a href="https://wa.me/212600160196?text=Hello%2C%20I%27m%20interested%20in%20SOLARA%20TV" class="btn btn-whatsapp" style="margin:24px 0;display:inline-flex;">
-        <i class="fab fa-whatsapp"></i> Contact Us on WhatsApp
-      </a>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="login.html">Login</a>
-      </div>
-      <div class="copyright">&copy; 2026 solaratv.tv - All Rights Reserved.</div>
-    </div>
-  </footer>
-
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/212600160196?text=Hello%2C%20I%27m%20interested%20in%20SOLARA%20TV" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/auth.js"></script>
-  <script src="assets/js/blog.js"></script>
-  <script src="assets/js/analytics.js"></script>
-  <script>
-    function loadPost() {
-      const params = new URLSearchParams(window.location.search);
-      const postId = params.get('id');
-      
-      if (!postId) {
-        showNotFound();
-        return;
-      }
-
-      const post = Blog.getById(postId);
-      if (!post || post.status !== 'published') {
-        showNotFound();
-        return;
-      }
-
-      // Update page content
-      document.getElementById('postTitle').textContent = post.title;
-      document.title = post.title + ' | SOLARA TV Blog';
-      
-      const date = new Date(post.createdAt).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
-      document.getElementById('postMeta').innerHTML =
-        '<span><i class="fas fa-user"></i> ' + escapeHtml(post.author) + '</span>' +
-        '<span><i class="fas fa-calendar"></i> ' + date + '</span>' +
-        '<span><i class="fas fa-folder"></i> ' + escapeHtml(post.category) + '</span>';
-
-      // Sanitize and set content (blog content is admin-generated)
-      document.getElementById('postContent').innerHTML = post.content;
-
-      // Update SEO meta tags
-      const excerpt = post.excerpt || post.title;
-      document.getElementById('metaDescription').content = excerpt;
-      document.getElementById('ogTitle').content = post.title + ' | SOLARA TV Blog';
-      document.getElementById('ogDescription').content = excerpt;
-      document.getElementById('ogImage').content = post.image || '';
-      document.getElementById('twitterTitle').content = post.title;
-      document.getElementById('twitterDescription').content = excerpt;
-
-      // Add Article structured data
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.title,
-        "description": excerpt,
-        "image": post.image,
-        "author": { "@type": "Organization", "name": "SOLARA TV" },
-        "publisher": { "@type": "Organization", "name": "SOLARA TV", "url": "https://solaratv.tv" },
-        "datePublished": post.createdAt,
-        "dateModified": post.updatedAt || post.createdAt
-      };
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
-    }
-
-    function showNotFound() {
-      document.getElementById('postTitle').textContent = 'Post Not Found';
-      document.getElementById('postContent').innerHTML = '<div style="text-align:center;padding:40px 0;"><p style="color:var(--text-muted);margin-bottom:20px;">This blog post could not be found.</p><a href="blog.html" class="btn btn-outline">Back to Blog</a></div>';
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text || '';
-      return div.innerHTML;
-    }
-
-    loadPost();
-  </script>
+<script src="assets/js/blog.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id || typeof Blog === 'undefined') { document.getElementById('postTitle').textContent = 'Post not found'; return; }
+    const post = Blog.getById(id);
+    if (!post) { document.getElementById('postTitle').textContent = 'Post not found'; return; }
+    document.getElementById('postTitle').textContent = post.title;
+    document.title = post.title + ' | SOLARA TV Blog';
+    document.getElementById('postDate').innerHTML = '<i class="fas fa-calendar"></i> ' + new Date(post.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+    document.getElementById('postAuthor').innerHTML = '<i class="fas fa-user"></i> ' + (post.author || 'SOLARA TV');
+    document.getElementById('postCategory').innerHTML = '<i class="fas fa-tag"></i> ' + (post.category || 'IPTV');
+    if (post.image) { const img = document.getElementById('postImage'); img.src = post.image; img.alt = post.title; img.style.display = 'block'; }
+    document.getElementById('postBody').innerHTML = post.content || '<p>No content available.</p>';
+  });
+</script>
 </body>
 </html>

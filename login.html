@@ -3,80 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | SOLARA TV - Premium IPTV 4K Service</title>
-  <meta name="description" content="Login to your SOLARA TV account. Access your premium IPTV dashboard, manage your subscription, and more.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://solaratv.tv/login.html">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>SOLARA TV | Login – Access Your IPTV Account</title>
+  <meta name="description" content="Login to your SOLARA TV account. Access your IPTV dashboard with 25,000+ channels.">
+  <link rel="canonical" href="https://www.solaratv.tv/login">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    .login-section{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,rgba(10,10,10,.95),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover}
+    .login-box{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:24px;padding:40px 35px;width:100%;max-width:420px;text-align:center}.login-box h2{font-size:1.6rem;margin-bottom:8px;color:var(--accent-gold)}.login-box .subtitle{color:#aaa;font-size:.85rem;margin-bottom:25px}
+    .form-group{margin-bottom:18px;text-align:left}.form-group label{display:block;font-size:.8rem;font-weight:600;color:var(--accent-gold);margin-bottom:6px}.form-group input{width:100%;padding:12px 16px;background:#1a1a1a;border:1px solid rgba(255,215,0,.3);border-radius:12px;color:white;font-size:.9rem;transition:border-color .3s}.form-group input:focus{outline:none;border-color:var(--accent-gold);box-shadow:0 0 10px rgba(255,215,0,.15)}
+    .login-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;border:none;border-radius:12px;font-weight:bold;font-size:1rem;cursor:pointer;transition:all .3s;margin-top:5px}.login-btn:hover{transform:scale(1.01);box-shadow:0 0 15px rgba(255,215,0,.3)}
+    .divider{display:flex;align-items:center;gap:10px;margin:20px 0;color:#666;font-size:.75rem}.divider::before,.divider::after{content:'';flex:1;height:1px;background:#333}
+    .whatsapp-btn{width:100%;padding:12px;background:#25D366;color:white;border:none;border-radius:12px;font-weight:bold;font-size:.9rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}.whatsapp-btn:hover{background:#20bd5a}
+    .links{margin-top:20px;font-size:.8rem;color:#888}.links a{color:var(--accent-gold);text-decoration:none;font-weight:600}.links a:hover{text-decoration:underline}
+    .error-msg{background:rgba(255,0,0,.1);border:1px solid rgba(255,0,0,.3);padding:10px;border-radius:10px;color:#ff6b6b;font-size:.8rem;margin-bottom:15px;display:none}
+    footer{padding:25px 0;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:15px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    @media(max-width:768px){.nav-links{display:none}.login-box{padding:30px 22px}}
+  </style>
 </head>
 <body>
 
-  <div class="auth-page">
-    <div class="auth-box">
-      <a href="/" class="logo">SOLARA TV</a>
-      <h2>Welcome Back</h2>
-      <p class="subtitle">Sign in to your account</p>
+<header><div class="nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="login.html" class="active">Login</a></div></div></header>
 
-      <div id="alertBox" class="alert alert-error"></div>
-
-      <form id="loginForm" onsubmit="return handleLogin(event)">
-        <div class="form-group">
-          <label for="username">Username or Email</label>
-          <input type="text" id="username" name="username" placeholder="Enter your username or email" required autocomplete="username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
-          <i class="fas fa-sign-in-alt"></i> Sign In
-        </button>
-      </form>
-
-      <div style="text-align:center;margin-top:24px;color:var(--text-muted);font-size:0.9rem;">
-        <p>Don't have an account? <a href="register.html" style="color:var(--primary);font-weight:600;">Sign Up</a></p>
-        <p style="margin-top:16px;"><a href="/" style="color:var(--text-muted);">&larr; Back to Home</a></p>
-      </div>
-
-      <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
-        <p style="color:#666;font-size:0.82rem;">Admin: admin / SolaraAdmin2026!</p>
-      </div>
+<section class="login-section">
+  <div class="login-box">
+    <h2>🔐 Welcome Back</h2>
+    <p class="subtitle">Login to your SOLARA TV account</p>
+    <div class="error-msg" id="errorMsg"></div>
+    <form id="loginForm">
+      <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" id="loginEmail" placeholder="your@email.com" required></div>
+      <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+      <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+    </form>
+    <div class="divider">or</div>
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/212600160196?text=I%20need%20help%20with%20my%20SOLARA%20TV%20account','_blank')"><i class="fab fa-whatsapp"></i> Contact via WhatsApp</button>
+    <div class="links">
+      <p>Don't have an account? <a href="register.html">Register here</a></p>
     </div>
   </div>
+</section>
 
-  <script src="assets/js/auth.js"></script>
-  <script src="assets/js/analytics.js"></script>
-  <script>
-    // Redirect if already logged in
-    if (Auth.isLoggedIn()) {
-      const session = Auth.getSession();
-      window.location.href = session.role === 'admin' ? 'admin/' : 'client/';
-    }
+<footer><div style="max-width:1200px;margin:0 auto;padding:0 20px"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><p style="color:#aaa;font-size:.75rem">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
 
-    async function handleLogin(e) {
-      e.preventDefault();
-      const alertBox = document.getElementById('alertBox');
-      alertBox.style.display = 'none';
-
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-
-      if (!username || !password) {
-        alertBox.textContent = 'Please fill in all fields.';
-        alertBox.style.display = 'block';
-        return false;
-      }
-
-      const result = await Auth.login(username, password);
+<script src="assets/js/auth.js"></script>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    const errEl = document.getElementById('errorMsg');
+    errEl.style.display = 'none';
+    if (typeof Auth !== 'undefined') {
+      const result = await Auth.login(email, password);
       if (result.success) {
-        window.location.href = result.session.role === 'admin' ? 'admin/' : 'client/';
+        window.location.href = result.user.role === 'admin' ? 'admin/index.html' : 'client/index.html';
       } else {
-        alertBox.textContent = result.message;
-        alertBox.style.display = 'block';
+        errEl.textContent = result.message || 'Invalid email or password';
+        errEl.style.display = 'block';
       }
-      return false;
+    } else {
+      errEl.textContent = 'Authentication system unavailable';
+      errEl.style.display = 'block';
     }
-  </script>
+  });
+</script>
 </body>
 </html>

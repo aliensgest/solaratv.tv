@@ -11,14 +11,19 @@
     :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 20px}
     header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
     .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
+    .urgency-banner{background:linear-gradient(135deg,#FFD700,#B8860B);color:#0A0A0A;text-align:center;padding:12px;font-weight:bold;font-size:.9rem;border-radius:0 0 20px 20px;margin-top:-10px;margin-bottom:20px}.urgency-banner i{margin-right:8px}
     section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
     .package-info{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:30px;max-width:800px;margin:0 auto 40px;text-align:center}.package-info h3{color:var(--accent-gold);font-size:1.3rem;margin-bottom:15px}.package-info p{color:#ccc;font-size:.9rem;margin-bottom:15px}
     .keyword-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.keyword-tag{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);padding:5px 14px;border-radius:20px;font-size:.7rem;color:var(--accent-gold)}
     .offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}.offer-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;padding:30px;text-align:center;border:1px solid rgba(255,215,0,.3);transition:all .3s;position:relative}.offer-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}.offer-card.featured{border:2px solid var(--accent-gold)}.offer-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;padding:4px 14px;border-radius:30px;font-size:.65rem;font-weight:bold;white-space:nowrap}
     .offer-card h3{font-size:1.4rem;color:var(--accent-gold);margin-bottom:10px}.offer-card .price{font-size:2.2rem;font-weight:800;color:var(--accent-gold);margin:12px 0}.offer-card .price small{font-size:.8rem;color:#888}.offer-card .old-price{text-decoration:line-through;color:#666;font-size:.9rem}.offer-card .save{background:rgba(255,215,0,.15);color:var(--accent-gold);padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:bold;display:inline-block;margin:8px 0}
     .offer-card ul{list-style:none;margin:15px 0;text-align:left}.offer-card li{margin:8px 0;font-size:.8rem;display:flex;align-items:center;gap:8px;color:#ddd}.offer-card li i{color:var(--accent-gold);width:16px;font-size:.7rem}
-    .offer-btn{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;border:none;padding:12px 20px;border-radius:30px;font-weight:bold;cursor:pointer;width:100%;transition:all .3s;margin-top:10px;font-size:.85rem}.offer-btn:hover{transform:scale(1.02);box-shadow:0 0 10px rgba(255,215,0,.3)}
-    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}.cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}.cta-section p{color:#ccc;margin-bottom:25px}.cta-btn{padding:12px 32px;font-size:.9rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}.cta-btn:hover{transform:scale(1.02);box-shadow:0 0 15px rgba(255,215,0,.3)}
+    .offer-btn{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;border:none;padding:12px 20px;border-radius:30px;font-weight:bold;cursor:pointer;width:100%;transition:all .3s;margin-top:10px;font-size:.85rem;animation:pulse 1.5s infinite}.offer-btn:hover{transform:scale(1.02);box-shadow:0 0 10px rgba(255,215,0,.3);animation:none}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,215,0,.4)}70%{box-shadow:0 0 0 8px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
+    .trust-badge{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:30px 0;padding:20px;background:rgba(255,215,0,.05);border-radius:20px}.trust-badge-item{text-align:center}.trust-badge-item i{font-size:1.5rem;color:var(--accent-gold);margin-bottom:8px;display:block}.trust-badge-item span{font-size:.7rem;color:#ccc}
+    .psycho-section{background:linear-gradient(135deg,rgba(255,215,0,.08),transparent);border-radius:20px;padding:30px;margin:40px 0;text-align:center}.psycho-section h3{color:var(--accent-gold);margin-bottom:20px;font-size:1.3rem}.psycho-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}.psycho-item{max-width:250px}.psycho-item i{font-size:2rem;color:var(--accent-gold);margin-bottom:10px;display:block}.psycho-item p{font-size:.8rem;color:#ddd}
+    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}.cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}.cta-section p{color:#ccc;margin-bottom:25px;max-width:600px;margin-left:auto;margin-right:auto}.cta-btn{padding:14px 40px;font-size:1rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}.cta-btn:hover{transform:scale(1.02);box-shadow:0 0 15px rgba(255,215,0,.3)}
+    .stock-counter{font-size:.7rem;color:#FFA500;margin-top:15px}
     footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}}
   </style>
@@ -28,6 +33,8 @@
 <header><div class="container nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html" class="active">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="login.html">Login</a></div><div class="cta-buttons"><button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button><button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button></div></div></header>
 
 <section class="hero"><div class="container" style="width:100%;text-align:center"><h1>🎁 <span>Special Offers</span></h1><p>Save big on premium IPTV. Limited time deals with up to 58% discount!</p></div></section>
+
+<div class="urgency-banner"><i class="fas fa-hourglass-half"></i> ⚡ عرض محدود: العروض الحالية تنتهي خلال 48 ساعة! ⚡ <i class="fas fa-fire"></i></div>
 
 <section><div class="container">
   <div class="package-info">
@@ -47,7 +54,7 @@
       <div class="price">€32 <small>/3 months</small></div>
       <div class="save">You save €16!</div>
       <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> Priority Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%203%20month%20offer%20at%20€32','_blank')">Get This Offer</button>
+      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%203%20month%20offer%20at%20€32','_blank')">💰 اطلب الآن - وفر 33%</button>
     </div>
     <div class="offer-card featured">
       <div class="offer-badge">⭐ MOST POPULAR</div>
@@ -56,7 +63,8 @@
       <div class="price">€52 <small>/6 months</small></div>
       <div class="save">You save €44!</div>
       <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%206%20month%20offer%20at%20€52','_blank')">Get This Offer</button>
+      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%206%20month%20offer%20at%20€52','_blank')">🔥 الأكثر مبيعاً - اشترِ الآن</button>
+      <div class="stock-counter"><i class="fas fa-tag"></i> 47 شخصاً اشتروا اليوم!</div>
     </div>
     <div class="offer-card">
       <div class="offer-badge">🏆 BEST DEAL</div>
@@ -65,12 +73,34 @@
       <div class="price">€76.99 <small>/year</small></div>
       <div class="save">You save €115!</div>
       <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Platinum Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2012%20month%20offer%20at%20€76.99','_blank')">Get This Offer</button>
+      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2012%20month%20offer%20at%20€76.99','_blank')">⭐ أفضل قيمة - اطلب الآن</button>
+    </div>
+  </div>
+
+  <div class="trust-badge">
+    <div class="trust-badge-item"><i class="fas fa-shield-alt"></i><span>ضمان استعادة الأموال</span></div>
+    <div class="trust-badge-item"><i class="fas fa-headset"></i><span>دعم 24/7 بالعربية</span></div>
+    <div class="trust-badge-item"><i class="fas fa-rocket"></i><span>تفعيل فوري خلال دقائق</span></div>
+    <div class="trust-badge-item"><i class="fas fa-users"></i><span>أكثر من 15,000 زبون</span></div>
+  </div>
+
+  <div class="psycho-section">
+    <h3>🎯 لماذا تختار SOLARA TV اليوم وليس غداً؟</h3>
+    <div class="psycho-grid">
+      <div class="psycho-item"><i class="fas fa-chart-line"></i><p>📈 الأسعار الحالية لن تتكرر - بعد انتهاء العرض سترتفع الأسعار بنسبة تصل إلى 58%</p></div>
+      <div class="psycho-item"><i class="fas fa-gem"></i><p>✨ نفس الجودة التي يدفع فيها الآخرون ضعف السعر - أنت تحصل عليها بنصف الثمن</p></div>
+      <div class="psycho-item"><i class="fas fa-clock"></i><p>⏳ كل يوم تأخير = خسارة يوم من المتعة والتوفير. 87% من العملاء يندمون على عدم الشراء مبكراً</p></div>
+      <div class="psycho-item"><i class="fas fa-medal"></i><p>🏆 خدمة معتمدة من آلاف العملاء - لست بحاجة للمخاطرة مع خدمات غير موثوقة</p></div>
     </div>
   </div>
 </div></section>
 
-<section class="cta-section"><h2>Don't Miss Out!</h2><p>These offers won't last forever. Start your free trial today!</p><button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">🚀 Start Free Trial</button></section>
+<section class="cta-section">
+  <h2>⚠️ لا تنتظر - العروض محدودة العدد!</h2>
+  <p>عروضنا الحالية مخصصة لعدد محدود من العملاء. بمجرد انتهاء العدد، ستعود الأسعار إلى المعدل الطبيعي. اتخذ القرار الصحيح اليوم.</p>
+  <button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV%20offer','_blank')">💎 اشترِ الآن قبل فوات العرض 💎</button>
+  <p style="margin-top: 20px; font-size: 0.7rem; color: #888;"><i class="fas fa-lock"></i> دفع آمن 100% • تفعيل فوري • دعم بالعربية</p>
+</section>
 
 <footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
 </body>

@@ -86,19 +86,27 @@ const Auth = {
     return session && session.role === 'admin';
   },
 
+  // Compute relative paths based on current location depth
+  _getPath(target) {
+    const path = window.location.pathname;
+    const inSub = path.includes('/admin/') || path.includes('/client/');
+    const prefix = inSub ? '../' : '';
+    return prefix + target;
+  },
+
   logout() {
     sessionStorage.removeItem(this.SESSION_KEY);
-    window.location.href = '/login.html';
+    window.location.href = this._getPath('login.html');
   },
 
   requireAuth(requiredRole) {
     const session = this.getSession();
     if (!session) {
-      window.location.href = '/login.html';
+      window.location.href = this._getPath('login.html');
       return false;
     }
     if (requiredRole && session.role !== requiredRole) {
-      window.location.href = session.role === 'admin' ? '/admin/' : '/client/';
+      window.location.href = session.role === 'admin' ? this._getPath('admin/index.html') : this._getPath('client/index.html');
       return false;
     }
     return true;

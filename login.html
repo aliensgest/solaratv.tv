@@ -74,7 +74,7 @@
     if (typeof Auth !== 'undefined') {
       const result = await Auth.login(email, password);
       if (result.success) {
-        window.location.href = result.user.role === 'admin' ? 'admin/index.html' : 'client/index.html';
+        window.location.href = result.session.role === 'admin' ? 'admin/index.html' : 'client/index.html';
       } else {
         errEl.textContent = result.message || 'Invalid email or password';
         errEl.style.display = 'block';

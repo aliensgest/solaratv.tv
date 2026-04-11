@@ -16,9 +16,12 @@
       <a href="/" class="logo">SOLARA TV</a>
       <nav class="sidebar-nav">
         <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="subscriptions.html"><i class="fas fa-ticket-alt"></i> Subscriptions</a>
+        <a href="device-lookup.html"><i class="fas fa-search"></i> Device Lookup</a>
         <a href="blog-editor.html"><i class="fas fa-pen-fancy"></i> Blog Manager</a>
         <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
         <a href="users.html"><i class="fas fa-users"></i> Users</a>
+        <a href="api-settings.html"><i class="fas fa-cog"></i> API Settings</a>
         <div class="sidebar-divider"></div>
         <a href="/"><i class="fas fa-globe"></i> View Site</a>
         <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -43,6 +46,11 @@
       <!-- Stats -->
       <div class="stats-grid">
         <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-coins"></i></div>
+          <div class="stat-value" id="apiCredits" style="color:var(--primary);">—</div>
+          <div class="stat-label">API Credits</div>
+        </div>
+        <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-eye"></i></div>
           <div class="stat-value" id="totalViews">0</div>
           <div class="stat-label">Total Page Views</div>
@@ -53,9 +61,9 @@
           <div class="stat-label">Today's Views</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-mouse-pointer"></i></div>
-          <div class="stat-value" id="totalClicks">0</div>
-          <div class="stat-label">Total Clicks</div>
+          <div class="stat-icon"><i class="fas fa-ticket-alt"></i></div>
+          <div class="stat-value" id="totalSubs">0</div>
+          <div class="stat-label">Subscriptions Created</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
@@ -69,6 +77,30 @@
         </div>
       </div>
 
+      <!-- Quick Actions -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:30px;">
+        <a href="subscriptions.html" class="card" style="text-decoration:none;text-align:center;cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
+          <h3>New Subscription</h3>
+          <p>Create M3U, MAG or Protocol</p>
+        </a>
+        <a href="device-lookup.html" class="card" style="text-decoration:none;text-align:center;cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-search"></i></div>
+          <h3>Device Lookup</h3>
+          <p>Check device info &amp; expiry</p>
+        </a>
+        <a href="subscriptions.html" class="card" style="text-decoration:none;text-align:center;cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+          <h3>Renew</h3>
+          <p>Renew existing subscriptions</p>
+        </a>
+        <a href="api-settings.html" class="card" style="text-decoration:none;text-align:center;cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-cog"></i></div>
+          <h3>API Settings</h3>
+          <p>Configure your API key</p>
+        </a>
+      </div>
+
       <!-- Recent Activity -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="dashboard-grid">
         <!-- Top Pages -->
@@ -80,12 +112,12 @@
           </table>
         </div>
 
-        <!-- Recent Blog Posts -->
+        <!-- Recent Subscriptions -->
         <div>
-          <h3 style="margin-bottom:16px;"><i class="fas fa-pen-fancy" style="color:var(--primary);margin-right:8px;"></i> Recent Blog Posts</h3>
+          <h3 style="margin-bottom:16px;"><i class="fas fa-ticket-alt" style="color:var(--primary);margin-right:8px;"></i> Recent Subscriptions</h3>
           <table class="data-table">
-            <thead><tr><th>Title</th><th>Status</th><th>Date</th></tr></thead>
-            <tbody id="recentBlogsTable"></tbody>
+            <thead><tr><th>Type</th><th>Action</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="recentSubsTable"></tbody>
           </table>
         </div>
       </div>
@@ -101,6 +133,7 @@
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/analytics.js"></script>
   <script src="../assets/js/blog.js"></script>
+  <script src="../assets/js/activation-api.js"></script>
   <script>
     // Auth check
     if (!Auth.requireAuth('admin')) {
@@ -116,9 +149,23 @@
     // Stats
     document.getElementById('totalViews').textContent = Analytics.getTotalViews();
     document.getElementById('todayViews').textContent = Analytics.getTodayViews();
-    document.getElementById('totalClicks').textContent = Analytics.getTotalClicks();
     document.getElementById('totalBlogs').textContent = Blog.getAll().length;
     document.getElementById('totalUsers').textContent = Auth.getUsers().length;
+
+    // Subscription history count
+    const subHistory = ActivationAPI.getHistory();
+    document.getElementById('totalSubs').textContent = subHistory.filter(h => h.action === 'new' && h.status === 'success').length;
+
+    // API Credits
+    (async () => {
+      const info = await ActivationAPI.getResellerInfo();
+      if (info && info.status === 'true') {
+        document.getElementById('apiCredits').textContent = info.credits;
+      } else {
+        document.getElementById('apiCredits').textContent = '—';
+        document.getElementById('apiCredits').style.fontSize = '1rem';
+      }
+    })();
 
     // Top Pages
     const topPages = Analytics.getPageViewStats().slice(0, 5);
@@ -131,16 +178,16 @@
       });
     }
 
-    // Recent Blogs
-    const blogs = Blog.getAll().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
-    const recentBlogsTable = document.getElementById('recentBlogsTable');
-    if (blogs.length === 0) {
-      recentBlogsTable.innerHTML = '<tr><td colspan="3" style="text-align:center;">No posts yet</td></tr>';
+    // Recent Subscriptions
+    const recentSubsTable = document.getElementById('recentSubsTable');
+    if (!subHistory.length) {
+      recentSubsTable.innerHTML = '<tr><td colspan="4" style="text-align:center;">No subscriptions yet. <a href="subscriptions.html" style="color:var(--primary);">Create one</a></td></tr>';
     } else {
-      blogs.forEach(b => {
-        const statusClass = b.status === 'published' ? 'badge-published' : 'badge-draft';
-        const date = new Date(b.createdAt).toLocaleDateString();
-        recentBlogsTable.innerHTML += '<tr><td>' + escapeHtml(b.title.substring(0, 40)) + '</td><td><span class="badge ' + statusClass + '">' + b.status + '</span></td><td>' + date + '</td></tr>';
+      subHistory.slice(0, 8).forEach(h => {
+        const date = new Date(h.date).toLocaleDateString();
+        const statusClass = h.status === 'success' ? 'badge-published' : 'badge-draft';
+        const actionClass = h.action === 'new' ? 'badge-admin' : 'badge-client';
+        recentSubsTable.innerHTML += '<tr><td>' + escapeHtml(h.type) + '</td><td><span class="badge ' + actionClass + '">' + escapeHtml(h.action) + '</span></td><td><span class="badge ' + statusClass + '">' + escapeHtml(h.status) + '</span></td><td>' + date + '</td></tr>';
       });
     }
 

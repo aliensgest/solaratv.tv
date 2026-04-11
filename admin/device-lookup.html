@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Lookup | Admin - SOLARA TV</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .lookup-tabs{display:flex;gap:8px;margin-bottom:24px}
+    .lookup-tab{padding:10px 24px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);border-radius:var(--radius-full);cursor:pointer;font-weight:600;transition:var(--transition);font-size:.9rem}
+    .lookup-tab.active,.lookup-tab:hover{background:var(--gradient);color:var(--text-dark);border-color:transparent}
+    .lookup-panel{display:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
+    .lookup-panel.active{display:block;animation:fadeUp .3s ease}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .device-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:20px;display:none}
+    .device-card.active{display:block;animation:fadeUp .3s ease}
+    .device-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px}
+    .info-item{background:var(--bg-card);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border)}
+    .info-item label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px}
+    .info-item .value{font-size:1.1rem;font-weight:600;color:var(--text);word-break:break-all}
+    .info-item .value.active-status{color:#25D366}
+    .info-item .value.expired-status{color:#ff4d4d}
+    .error-msg{margin-top:16px;padding:14px;border-radius:var(--radius-sm);background:rgba(255,77,77,.1);border:1px solid rgba(255,77,77,.3);color:#ff6b6b;display:none}
+    .loading{color:var(--primary);margin-top:16px;display:none}
+    @media(max-width:768px){.form-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="logo">SOLARA TV</a>
+      <nav class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="subscriptions.html"><i class="fas fa-ticket-alt"></i> Subscriptions</a>
+        <a href="device-lookup.html" class="active"><i class="fas fa-search"></i> Device Lookup</a>
+        <a href="blog-editor.html"><i class="fas fa-pen-fancy"></i> Blog Manager</a>
+        <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+        <a href="users.html"><i class="fas fa-users"></i> Users</a>
+        <a href="api-settings.html"><i class="fas fa-cog"></i> API Settings</a>
+        <div class="sidebar-divider"></div>
+        <a href="/"><i class="fas fa-globe"></i> View Site</a>
+        <a href="#" onclick="Auth.logout();return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+          <h1>Device Lookup</h1>
+        </div>
+      </div>
+
+      <div class="lookup-tabs">
+        <div class="lookup-tab active" data-panel="m3uLookup">M3U Lookup</div>
+        <div class="lookup-tab" data-panel="magLookup">MAG Lookup</div>
+      </div>
+
+      <!-- M3U LOOKUP -->
+      <div class="lookup-panel active" id="m3uLookup">
+        <h3 style="margin-bottom:20px;"><i class="fas fa-tv" style="color:var(--primary);margin-right:8px;"></i> M3U Device Info</h3>
+        <form id="m3uForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="m3uUsername" placeholder="Enter M3U username" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="text" id="m3uPassword" placeholder="Enter M3U password" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Lookup Device</button>
+        </form>
+        <div class="loading" id="m3uLoading"><i class="fas fa-spinner fa-spin"></i> Looking up device...</div>
+        <div class="error-msg" id="m3uError"></div>
+        <div class="device-card" id="m3uResult">
+          <h3 style="margin-bottom:4px;"><i class="fas fa-info-circle" style="color:var(--primary);margin-right:8px;"></i> Device Information</h3>
+          <div class="device-info-grid" id="m3uInfoGrid"></div>
+        </div>
+      </div>
+
+      <!-- MAG LOOKUP -->
+      <div class="lookup-panel" id="magLookup">
+        <h3 style="margin-bottom:20px;"><i class="fas fa-hdd" style="color:var(--primary);margin-right:8px;"></i> MAG Device Info</h3>
+        <form id="magForm">
+          <div class="form-group">
+            <label>MAC Address</label>
+            <input type="text" id="magMac" placeholder="XX:XX:XX:XX:XX:XX" required>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Lookup Device</button>
+        </form>
+        <div class="loading" id="magLoading"><i class="fas fa-spinner fa-spin"></i> Looking up device...</div>
+        <div class="error-msg" id="magError"></div>
+        <div class="device-card" id="magResult">
+          <h3 style="margin-bottom:4px;"><i class="fas fa-info-circle" style="color:var(--primary);margin-right:8px;"></i> Device Information</h3>
+          <div class="device-info-grid" id="magInfoGrid"></div>
+        </div>
+      </div>
+
+      <!-- BOUQUET LIST -->
+      <div style="margin-top:30px;">
+        <h3 style="margin-bottom:16px;"><i class="fas fa-list" style="color:var(--primary);margin-right:8px;"></i> Available Bouquets / Packages</h3>
+        <table class="data-table">
+          <thead><tr><th>ID</th><th>Package Name</th></tr></thead>
+          <tbody id="bouquetTable"><tr><td colspan="2" style="text-align:center;">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/activation-api.js"></script>
+  <script>
+    if (!Auth.requireAuth('admin')) document.body.innerHTML = '';
+
+    // Tab switching
+    document.querySelectorAll('.lookup-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.lookup-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.lookup-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      });
+    });
+
+    function renderDeviceInfo(grid, data) {
+      const now = new Date();
+      const expDate = data.expire ? new Date(data.expire) : null;
+      const isExpired = expDate && expDate < now;
+
+      const fields = [
+        { label: 'Username', value: data.username || '—' },
+        { label: 'Password', value: data.password || '—' },
+        { label: 'User ID', value: data.user_id || '—' },
+        { label: 'Country', value: data.country || '—' },
+        { label: 'Expires', value: data.expire || '—', class: isExpired ? 'expired-status' : 'active-status' },
+        { label: 'Status', value: data.enabled === '1' ? 'Active' : 'Disabled', class: data.enabled === '1' ? 'active-status' : 'expired-status' },
+        { label: 'Note', value: data.note || '—' },
+        { label: 'Server URL', value: data.url || '—' }
+      ];
+
+      grid.innerHTML = fields.map(f =>
+        '<div class="info-item"><label>' + escapeHtml(f.label) + '</label><div class="value' + (f.class ? ' ' + f.class : '') + '">' + escapeHtml(f.value) + '</div></div>'
+      ).join('');
+    }
+
+    // M3U LOOKUP
+    document.getElementById('m3uForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const u = document.getElementById('m3uUsername').value.trim();
+      const p = document.getElementById('m3uPassword').value.trim();
+      document.getElementById('m3uLoading').style.display = 'block';
+      document.getElementById('m3uError').style.display = 'none';
+      document.getElementById('m3uResult').classList.remove('active');
+
+      const result = await ActivationAPI.getDeviceInfoM3U(u, p);
+      document.getElementById('m3uLoading').style.display = 'none';
+
+      if (result.status === 'true') {
+        renderDeviceInfo(document.getElementById('m3uInfoGrid'), result);
+        document.getElementById('m3uResult').classList.add('active');
+      } else {
+        const err = document.getElementById('m3uError');
+        err.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + escapeHtml(result.message || 'Device not found.');
+        err.style.display = 'block';
+      }
+    });
+
+    // MAG LOOKUP
+    document.getElementById('magForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const mac = document.getElementById('magMac').value.trim();
+      document.getElementById('magLoading').style.display = 'block';
+      document.getElementById('magError').style.display = 'none';
+      document.getElementById('magResult').classList.remove('active');
+
+      const result = await ActivationAPI.getDeviceInfoMAG(mac);
+      document.getElementById('magLoading').style.display = 'none';
+
+      if (result.status === 'true') {
+        renderDeviceInfo(document.getElementById('magInfoGrid'), result);
+        document.getElementById('magResult').classList.add('active');
+      } else {
+        const err = document.getElementById('magError');
+        err.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + escapeHtml(result.message || 'Device not found.');
+        err.style.display = 'block';
+      }
+    });
+
+    // BOUQUETS
+    async function loadBouquets() {
+      const bouquets = await ActivationAPI.getBouquets();
+      const table = document.getElementById('bouquetTable');
+      if (!Array.isArray(bouquets) || !bouquets.length) {
+        table.innerHTML = '<tr><td colspan="2" style="text-align:center;">No bouquets found. Check API key in settings.</td></tr>';
+        return;
+      }
+      table.innerHTML = bouquets.map(b =>
+        '<tr><td><strong>' + escapeHtml(b.id) + '</strong></td><td>' + escapeHtml(b.name) + '</td></tr>'
+      ).join('');
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+    if (window.innerWidth <= 992) document.getElementById('sidebarToggle').style.display = 'inline-block';
+
+    function escapeHtml(text) { const d = document.createElement('div'); d.textContent = text; return d.innerHTML; }
+
+    loadBouquets();
+  </script>
+</body>
+</html>

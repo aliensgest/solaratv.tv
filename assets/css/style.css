@@ -753,6 +753,8 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
   margin: 16px 20px;
 }
 
+.sidebar-overlay { display: none; }
+
 .dashboard-main {
   padding: 30px;
   background: var(--bg);

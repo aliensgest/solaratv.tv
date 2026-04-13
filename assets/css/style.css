@@ -753,7 +753,14 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
   margin: 16px 20px;
 }
 
-.sidebar-overlay { display: none; }
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+.sidebar-overlay.active { display: block; }
 
 .dashboard-main {
   padding: 30px;
@@ -949,14 +956,6 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
     transition: left 0.3s ease;
   }
   .sidebar.open { left: 0; }
-  .sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 1000;
-  }
-  .sidebar-overlay.active { display: block; }
 }
 
 @media (max-width: 768px) {

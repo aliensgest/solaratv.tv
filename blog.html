@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -17,18 +14,15 @@
   }
 })();
 </script>
-  <head>
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5CDJ1NBM5B');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOLARA TV | Blog – IPTV News, Tips & Guides 2026</title>
@@ -64,56 +58,64 @@
 <section>
   <div class="container">
     <h2 class="section-title">Latest Articles</h2>
-    <div class="blog-grid" id="blogGrid">
-      <!-- Dynamic posts loaded by blog.js, fallback static content below -->
-    </div>
+    <div class="blog-grid" id="blogGrid"></div>
   </div>
 </section>
 
 <footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
 
-<script src="assets/js/blog.js"></script>
 <script>
-  // Load blog posts dynamically from Blog class
-  document.addEventListener('DOMContentLoaded', function() {
-    const grid = document.getElementById('blogGrid');
-    const defaultImages = [
-      'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600',
-      'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600',
-      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600',
-      'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600',
-      'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600'
-    ];
-    if (typeof Blog !== 'undefined') {
-      const posts = Blog.getPublished();
-      if (posts.length > 0) {
-        grid.innerHTML = posts.map((post, i) => `
-          <div class="blog-card">
-            <div class="blog-image" style="background-image:url('${post.image || defaultImages[i % defaultImages.length]}')">
-              <div class="blog-badge">${post.category || 'IPTV'}</div>
-            </div>
-            <div class="blog-content">
-              <h3><a href="blog-post.html?id=${post.id}">${post.title}</a></h3>
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> ${new Date(post.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}</span><span><i class="fas fa-user"></i> ${post.author || 'SOLARA TV'}</span></div>
-              <p>${(post.content || '').substring(0, 120)}...</p>
-              <a href="blog-post.html?id=${post.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        `).join('');
-        return;
-      }
+  // قائمة المقالات - جميع المقالات مضافاً إليها المقال الجديد
+  const articles = [
+    {
+      id: "best-iptv-2026-review",
+      title: "Best IPTV 2026: Honest In-Depth Review for Australia, UK & USA",
+      date: "May 2026",
+      category: "⭐ In-Depth Review",
+      image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600",
+      excerpt: "After weeks of real-world testing across Australia, the UK, and the USA, discover why SolaraTV is our top recommendation for 4K streaming, sports coverage, and reliability."
+    },
+    {
+      id: "best-iptv-service-2026",
+      title: "Best IPTV Service 2026: Complete Guide",
+      date: "January 15, 2026",
+      category: "IPTV Guide",
+      image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600",
+      excerpt: "Discover the best IPTV services in 2026 with our comprehensive guide covering features, pricing, and quality."
+    },
+    {
+      id: "how-to-install-iptv-on-firestick",
+      title: "How to Install IPTV on Firestick",
+      date: "January 20, 2026",
+      category: "Setup Guide",
+      image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600",
+      excerpt: "Step-by-step guide to install and configure IPTV on Amazon Fire Stick for the best streaming experience."
+    },
+    {
+      id: "4k-iptv-streaming-guide",
+      title: "4K IPTV Streaming: Everything You Need to Know",
+      date: "January 25, 2026",
+      category: "4K Streaming",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600",
+      excerpt: "Learn about 4K IPTV streaming requirements, compatible devices, and how to get the best picture quality."
     }
-    // Fallback static content
-    grid.innerHTML = `
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[0]}')"><div class="blog-badge">IPTV Guide</div></div><div class="blog-content"><h3>Best IPTV Service 2026: Complete Guide</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Discover the best IPTV services in 2026 with our comprehensive guide covering features, pricing, and quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[1]}')"><div class="blog-badge">Setup Guide</div></div><div class="blog-content"><h3>How to Install IPTV on Firestick</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Step-by-step guide to install and configure IPTV on Amazon Fire Stick for the best streaming experience.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[2]}')"><div class="blog-badge">4K Streaming</div></div><div class="blog-content"><h3>4K IPTV Streaming: Everything You Need to Know</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Learn about 4K IPTV streaming requirements, compatible devices, and how to get the best picture quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[3]}')"><div class="blog-badge">Sports</div></div><div class="blog-content"><h3>Watch Premier League Live in 4K</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> February 2026</span></div><p>Complete guide for EPL fans. Watch every Premier League match live in 4K Ultra HD with SOLARA TV.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[4]}')"><div class="blog-badge">Europe</div></div><div class="blog-content"><h3>Best IPTV for Netherlands & Belgium</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> February 2026</span></div><p>All Dutch and Belgian channels including NPO, RTL, VTM, and Eredivisie in stunning HD and 4K quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[5]}')"><div class="blog-badge">Devices</div></div><div class="blog-content"><h3>Best Devices for IPTV Streaming 2026</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> March 2026</span></div><p>Discover the best devices for IPTV streaming including Firestick 4K, Nvidia Shield, and Apple TV 4K.</p></div></div>
-    `;
-  });
+  ];
+
+  // عرض المقالات في الصفحة
+  const grid = document.getElementById('blogGrid');
+  grid.innerHTML = articles.map(article => `
+    <div class="blog-card">
+      <div class="blog-image" style="background-image:url('${article.image}')">
+        <div class="blog-badge">${article.category}</div>
+      </div>
+      <div class="blog-content">
+        <h3><a href="blog-post.html?id=${article.id}">${article.title}</a></h3>
+        <div class="blog-meta"><span><i class="fas fa-calendar"></i> ${article.date}</span></div>
+        <p>${article.excerpt}</p>
+        <a href="blog-post.html?id=${article.id}" class="read-more">Read More →</a>
+      </div>
+    </div>
+  `).join('');
 </script>
 </body>
 </html>

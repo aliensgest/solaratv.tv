@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -17,133 +14,399 @@
   }
 })();
 </script>
-  <head>
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5CDJ1NBM5B');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLARA TV | Special Offers – Save Up to 61% on IPTV Subscription</title>
-  <meta name="description" content="SOLARA TV special offers. Save up to 61% on premium IPTV subscription. 25,000+ channels & 60,000+ VOD in 4K. Limited time deals! 2-year plan available at €149.">
+  <title>SOLARA TV | Special Offers – Save Up to 61% on IPTV Subscription 2026</title>
+  <meta name="description" content="Best IPTV deals 2026. Save up to 61% on SOLARA TV subscription. 25,000+ channels, 60,000+ VOD in 4K. Limited time offers: 12-month plan from €100, 2-year plan €149.">
+  <meta name="keywords" content="iptv special offers, iptv discount, cheap iptv 2026, best iptv deal, iptv subscription sale, solara tv offers, iptv black friday, iptv yearly plan">
+  <meta name="author" content="SOLARA TV">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.solaratv.tv/offers">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SOLARA TV IPTV Subscription",
+    "description": "Premium IPTV Service with 25,000+ channels and 60,000+ VOD",
+    "brand": { "@type": "Brand", "name": "SOLARA TV" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "ratingCount": "18950",
+      "bestRating": "5"
+    },
+    "offers": [
+      { "@type": "Offer", "name": "3-Month Plan", "price": "34.99", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "6-Month Plan", "price": "55", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "12-Month Plan", "price": "100", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "2-Year Plan", "price": "149", "priceCurrency": "EUR" }
+    ]
+  }
+  </script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
-    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
-    .urgency-banner{background:linear-gradient(135deg,#FFD700,#B8860B);color:#0A0A0A;text-align:center;padding:12px;font-weight:bold;font-size:.9rem;border-radius:0 0 20px 20px;margin-top:-10px;margin-bottom:20px}.urgency-banner i{margin-right:8px}
-    section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
-    .package-info{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:30px;max-width:800px;margin:0 auto 40px;text-align:center}.package-info h3{color:var(--accent-gold);font-size:1.3rem;margin-bottom:15px}.package-info p{color:#ccc;font-size:.9rem;margin-bottom:15px}
-    .keyword-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.keyword-tag{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);padding:5px 14px;border-radius:20px;font-size:.7rem;color:var(--accent-gold)}
-    .offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}.offer-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;padding:30px;text-align:center;border:1px solid rgba(255,215,0,.3);transition:all .3s;position:relative}.offer-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}.offer-card.featured{border:2px solid var(--accent-gold)}.offer-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;padding:4px 14px;border-radius:30px;font-size:.65rem;font-weight:bold;white-space:nowrap}
-    .offer-card h3{font-size:1.4rem;color:var(--accent-gold);margin-bottom:10px}.offer-card .price{font-size:2.2rem;font-weight:800;color:var(--accent-gold);margin:12px 0}.offer-card .price small{font-size:.8rem;color:#888}.offer-card .old-price{text-decoration:line-through;color:#666;font-size:.9rem}.offer-card .save{background:rgba(255,215,0,.15);color:var(--accent-gold);padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:bold;display:inline-block;margin:8px 0}
-    .offer-card ul{list-style:none;margin:15px 0;text-align:left}.offer-card li{margin:8px 0;font-size:.75rem;display:flex;align-items:center;gap:8px;color:#ddd}.offer-card li i{color:var(--accent-gold);width:16px;font-size:.7rem}
-    .offer-btn{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;border:none;padding:12px 20px;border-radius:30px;font-weight:bold;cursor:pointer;width:100%;transition:all .3s;margin-top:10px;font-size:.85rem;animation:pulse 1.5s infinite}.offer-btn:hover{transform:scale(1.02);box-shadow:0 0 10px rgba(255,215,0,.3);animation:none}
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}
+    .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+    .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+    .nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+    .nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    
+    /* World Cup 2026 Link Style */
+    .nav-links a.worldcup-link {
+      background: linear-gradient(135deg, #E31837, #B81C2C);
+      color: white;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .nav-links a.worldcup-link:hover {
+      background: linear-gradient(135deg, #FF4444, #E31837);
+      transform: scale(1.02);
+      color: white;
+    }
+    
+    .cta-buttons{display:flex;gap:8px}
+    .cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .btn-whatsapp{background:#25D366;color:white}
+    
+    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}
+    .hero h1{font-size:2.2rem;margin-bottom:15px}
+    .hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
+    
+    .urgency-banner{background:linear-gradient(135deg,#FFD700,#B8860B);color:#0A0A0A;text-align:center;padding:12px;font-weight:bold;font-size:.9rem;border-radius:0 0 20px 20px;margin-top:-10px;margin-bottom:20px}
+    .urgency-banner i{margin-right:8px}
+    
+    section{padding:50px 0}
+    .section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}
+    .section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
+    
+    .package-info{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:30px;max-width:800px;margin:0 auto 40px;text-align:center}
+    .package-info h3{color:var(--accent-gold);font-size:1.3rem;margin-bottom:15px}
+    .package-info p{color:#ccc;font-size:.9rem;margin-bottom:15px}
+    
+    .keyword-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}
+    .keyword-tag{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);padding:5px 14px;border-radius:20px;font-size:.7rem;color:var(--accent-gold)}
+    
+    .offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+    .offer-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;padding:30px;text-align:center;border:1px solid rgba(255,215,0,.3);transition:all .3s;position:relative}
+    .offer-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}
+    .offer-card.featured{border:2px solid var(--accent-gold)}
+    .offer-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;padding:4px 14px;border-radius:30px;font-size:.65rem;font-weight:bold;white-space:nowrap}
+    .offer-card h3{font-size:1.4rem;color:var(--accent-gold);margin-bottom:10px}
+    .offer-card .price{font-size:2.2rem;font-weight:800;color:var(--accent-gold);margin:12px 0}
+    .offer-card .price small{font-size:.8rem;color:#888}
+    .offer-card .old-price{text-decoration:line-through;color:#666;font-size:.9rem}
+    .offer-card .save{background:rgba(255,215,0,.15);color:var(--accent-gold);padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:bold;display:inline-block;margin:8px 0}
+    .offer-card ul{list-style:none;margin:15px 0;text-align:left}
+    .offer-card li{margin:8px 0;font-size:.75rem;display:flex;align-items:center;gap:8px;color:#ddd}
+    .offer-card li i{color:var(--accent-gold);width:16px;font-size:.7rem}
+    .offer-btn{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;border:none;padding:12px 20px;border-radius:30px;font-weight:bold;cursor:pointer;width:100%;transition:all .3s;margin-top:10px;font-size:.85rem;animation:pulse 1.5s infinite}
+    .offer-btn:hover{transform:scale(1.02);box-shadow:0 0 10px rgba(255,215,0,.3);animation:none}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,215,0,.4)}70%{box-shadow:0 0 0 8px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
-    .trust-badge{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:30px 0;padding:20px;background:rgba(255,215,0,.05);border-radius:20px}.trust-badge-item{text-align:center}.trust-badge-item i{font-size:1.5rem;color:var(--accent-gold);margin-bottom:8px;display:block}.trust-badge-item span{font-size:.7rem;color:#ccc}
-    .psycho-section{background:linear-gradient(135deg,rgba(255,215,0,.08),transparent);border-radius:20px;padding:30px;margin:40px 0;text-align:center}.psycho-section h3{color:var(--accent-gold);margin-bottom:20px;font-size:1.3rem}.psycho-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}.psycho-item{max-width:250px}.psycho-item i{font-size:2rem;color:var(--accent-gold);margin-bottom:10px;display:block}.psycho-item p{font-size:.8rem;color:#ddd}
-    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}.cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}.cta-section p{color:#ccc;margin-bottom:25px;max-width:600px;margin-left:auto;margin-right:auto}.cta-btn{padding:14px 40px;font-size:1rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}.cta-btn:hover{transform:scale(1.02);box-shadow:0 0 15px rgba(255,215,0,.3)}
+    
+    .trust-badge{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:30px 0;padding:20px;background:rgba(255,215,0,.05);border-radius:20px}
+    .trust-badge-item{text-align:center}
+    .trust-badge-item i{font-size:1.5rem;color:var(--accent-gold);margin-bottom:8px;display:block}
+    .trust-badge-item span{font-size:.7rem;color:#ccc}
+    
+    .psycho-section{background:linear-gradient(135deg,rgba(255,215,0,.08),transparent);border-radius:20px;padding:30px;margin:40px 0;text-align:center}
+    .psycho-section h3{color:var(--accent-gold);margin-bottom:20px;font-size:1.3rem}
+    .psycho-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}
+    .psycho-item{max-width:250px}
+    .psycho-item i{font-size:2rem;color:var(--accent-gold);margin-bottom:10px;display:block}
+    .psycho-item p{font-size:.8rem;color:#ddd}
+    
+    /* SEO Content Styles */
+    .seo-content{background:linear-gradient(135deg,#0A0A0A,#0D0D0D);border-radius:20px;padding:35px;margin:40px 0;border-left:4px solid var(--accent-gold)}
+    .seo-content h2{color:var(--accent-gold);margin:25px 0 15px;font-size:1.4rem}
+    .seo-content h3{color:var(--accent-gold);margin:20px 0 10px;font-size:1.2rem}
+    .seo-content p{color:#ccc;line-height:1.8;margin-bottom:15px}
+    .seo-content ul{margin-left:25px;margin-bottom:15px}
+    .seo-content li{margin:8px 0;color:#aaa}
+    .seo-content strong{color:var(--accent-gold)}
+    .price-compare{background:#111;padding:20px;border-radius:16px;margin:20px 0;text-align:center}
+    .price-compare table{width:100%;border-collapse:collapse}
+    .price-compare th,.price-compare td{padding:10px;text-align:center;border-bottom:1px solid rgba(255,215,0,.2)}
+    .price-compare th{color:var(--accent-gold)}
+    
+    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}
+    .cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}
+    .cta-section p{color:#ccc;margin-bottom:25px;max-width:600px;margin-left:auto;margin-right:auto}
+    .cta-btn{padding:14px 40px;font-size:1rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}
+    .cta-btn:hover{transform:scale(1.02);box-shadow:0 0 15px rgba(255,215,0,.3)}
     .stock-counter{font-size:.7rem;color:#FFA500;margin-top:15px}
-    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}
+    .footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+    .footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}
+    .footer-links a:hover{color:var(--accent-gold)}
+    .payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}}
   </style>
 </head>
 <body>
 
-<header><div class="container nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="reseller.html">Reseller</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html" class="active">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="login.html">Login</a></div><div class="cta-buttons"><button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button><button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button></div></div></header>
-
-<section class="hero"><div class="container" style="width:100%;text-align:center"><h1>🎁 <span>Special Offers</span></h1><p>Save big on premium IPTV. Limited time deals with up to 61% discount!</p></div></section>
-
-<div class="urgency-banner"><i class="fas fa-hourglass-half"></i> ⚡ LIMITED TIME OFFER - These deals won't last! ⚡ <i class="fas fa-fire"></i></div>
-
-<section><div class="container">
-  <div class="package-info">
-    <h3>📦 What's Included in Every Package</h3>
-    <p>All SOLARA TV packages include full access to our premium IPTV service with 25,000+ live channels, 60,000+ movies & series in 4K Ultra HD, free EPG guide, and 24/7 multilingual customer support.</p>
-    <div class="keyword-tags">
-      <span class="keyword-tag">25,000+ Channels</span><span class="keyword-tag">60,000+ VOD</span><span class="keyword-tag">4K Ultra HD</span><span class="keyword-tag">Zero Buffering</span><span class="keyword-tag">EPG Guide</span><span class="keyword-tag">24/7 Support</span><span class="keyword-tag">Multi-Language</span><span class="keyword-tag">All Devices</span><span class="keyword-tag">Instant Setup</span>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">SOLARA TV</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="watch-fifa-world-cup-2026-online.html" class="worldcup-link">🌍 World Cup 2026</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html" class="active">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button>
+      <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button>
     </div>
   </div>
+</header>
 
-  <h2 class="section-title">🔥 Current Offers</h2>
-  <div class="offers-grid">
-    <div class="offer-card">
-      <div class="offer-badge">🔥 SAVE 27%</div>
-      <h3>3-Month Plan</h3>
-      <div class="old-price">€48</div>
-      <div class="price">€34.99 <small>/3 months</small></div>
-      <div class="save">You save €13.01!</div>
-      <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> Priority Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%203%20month%20offer%20at%20€34.99','_blank')">💰 Order Now - Save 27%</button>
-    </div>
-    <div class="offer-card featured">
-      <div class="offer-badge">⭐ MOST POPULAR</div>
-      <h3>6-Month Plan</h3>
-      <div class="old-price">€96</div>
-      <div class="price">€55 <small>/6 months</small></div>
-      <div class="save">You save €41!</div>
-      <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%206%20month%20offer%20at%20€55','_blank')">🔥 Best Seller - Buy Now</button>
-      <div class="stock-counter"><i class="fas fa-tag"></i> 47 people bought today!</div>
-    </div>
-    
-    <!-- الباقة السنوية بسعر 83 يورو -->
-    <div class="offer-card">
-      <div class="offer-badge">🏆 BEST DEAL</div>
-      <h3>12-Month Plan</h3>
-      <div class="old-price">€192</div>
-      <div class="price">€83 <small>/year</small></div>
-      <div class="save">You save €109!</div>
-      <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Platinum Support</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2012%20month%20offer%20at%20€83','_blank')">⭐ Best Value - Order Now</button>
-    </div>
-    
-    <!-- 2-Year Plan - تم تغيير السعر من 145 إلى 149 يورو -->
-    <div class="offer-card">
-      <div class="offer-badge">💎 ULTIMATE SAVINGS</div>
-      <h3>2-Year Plan</h3>
-      <div class="old-price">€384</div>
-      <div class="price">€149 <small>/2 years</small></div>
-      <div class="save">You save €235! (61% OFF)</div>
-      <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> Lifetime VIP Support</li><li><i class="fas fa-check-circle"></i> Best value - only €6.21/month</li></ul>
-      <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2024%20month%20offer%20at%20€149','_blank')">💎 Get 2 Years - Best Deal 💎</button>
-      <div class="stock-counter"><i class="fas fa-fire"></i> Limited stock - Only 23 left!</div>
-    </div>
+<section class="hero">
+  <div class="container" style="width:100%;text-align:center">
+    <h1>🎁 <span>Special Offers 2026</span></h1>
+    <p>Save big on premium IPTV. Limited time deals with up to 61% discount! Watch 25,000+ channels in 4K Ultra HD.</p>
   </div>
-
-  <div class="trust-badge">
-    <div class="trust-badge-item"><i class="fas fa-shield-alt"></i><span>Money Back Guarantee</span></div>
-    <div class="trust-badge-item"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
-    <div class="trust-badge-item"><i class="fas fa-rocket"></i><span>Instant Activation</span></div>
-    <div class="trust-badge-item"><i class="fas fa-users"></i><span>15,000+ Customers</span></div>
-  </div>
-
-  <div class="psycho-section">
-    <h3>🎯 Why Choose SOLARA TV Today?</h3>
-    <div class="psycho-grid">
-      <div class="psycho-item"><i class="fas fa-chart-line"></i><p>📈 Current prices won't return - After this offer ends, prices will increase up to 62%</p></div>
-      <div class="psycho-item"><i class="fas fa-gem"></i><p>✨ The same quality others pay double for - You get it at half the price</p></div>
-      <div class="psycho-item"><i class="fas fa-clock"></i><p>⏳ Every day you wait is a day of savings lost. 87% of customers wish they bought earlier</p></div>
-      <div class="psycho-item"><i class="fas fa-medal"></i><p>🏆 Trusted by thousands - No need to risk unreliable services</p></div>
-    </div>
-  </div>
-</div></section>
-
-<section class="cta-section">
-  <h2>⚠️ Limited Availability - Don't Miss Out!</h2>
-  <p>These exclusive offers are available for a limited number of customers. Once the quota is reached, prices will return to normal. Make the right decision today.</p>
-  <button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV%20offer','_blank')">💎 Subscribe Now Before the Offer Ends 💎</button>
-  <p style="margin-top: 20px; font-size: 0.7rem; color: #888;"><i class="fas fa-lock"></i> 100% Secure Payment • Instant Activation • 24/7 Support</p>
 </section>
 
-<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="reseller.html">Reseller</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<div class="urgency-banner"><i class="fas fa-hourglass-half"></i> ⚡ LIMITED TIME OFFER - These deals won't last! Prices will increase soon. ⚡ <i class="fas fa-fire"></i></div>
+
+<section>
+  <div class="container">
+    <div class="package-info">
+      <h3>📦 What's Included in Every Package</h3>
+      <p>All SOLARA TV packages include full access to our premium IPTV service with 25,000+ live channels, 60,000+ movies & series in 4K Ultra HD, free EPG guide, and 24/7 multilingual customer support.</p>
+      <div class="keyword-tags">
+        <span class="keyword-tag">25,000+ Channels</span><span class="keyword-tag">60,000+ VOD</span><span class="keyword-tag">4K Ultra HD</span><span class="keyword-tag">Zero Buffering</span><span class="keyword-tag">EPG Guide</span><span class="keyword-tag">24/7 Support</span><span class="keyword-tag">Multi-Language</span><span class="keyword-tag">All Devices</span><span class="keyword-tag">Instant Setup</span>
+      </div>
+    </div>
+
+    <h2 class="section-title">🔥 Current Limited Offers</h2>
+    <div class="offers-grid">
+      <!-- 3-Month Plan -->
+      <div class="offer-card">
+        <div class="offer-badge">🔥 SAVE 27%</div>
+        <h3>3-Month Plan</h3>
+        <div class="old-price">€48</div>
+        <div class="price">€34.99 <small>/3 months</small></div>
+        <div class="save">You save €13.01!</div>
+        <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> Priority Support</li></ul>
+        <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%203%20month%20offer%20at%20€34.99','_blank')">💰 Order Now - Save 27%</button>
+      </div>
+      
+      <!-- 6-Month Plan - MOST POPULAR -->
+      <div class="offer-card featured">
+        <div class="offer-badge">⭐ MOST POPULAR</div>
+        <h3>6-Month Plan</h3>
+        <div class="old-price">€96</div>
+        <div class="price">€55 <small>/6 months</small></div>
+        <div class="save">You save €41!</div>
+        <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Support</li></ul>
+        <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%206%20month%20offer%20at%20€55','_blank')">🔥 Best Seller - Buy Now</button>
+        <div class="stock-counter"><i class="fas fa-tag"></i> 47 people bought today!</div>
+      </div>
+      
+      <!-- 12-Month Plan - PRICE UPDATED TO €100 -->
+      <div class="offer-card">
+        <div class="offer-badge">🏆 BEST DEAL</div>
+        <h3>12-Month Plan</h3>
+        <div class="old-price">€192</div>
+        <div class="price">€100 <small>/year</small></div>
+        <div class="save">You save €92! (48% OFF)</div>
+        <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> VIP Platinum Support</li></ul>
+        <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2012%20month%20offer%20at%20€100','_blank')">⭐ Best Value - Order Now</button>
+      </div>
+      
+      <!-- 2-Year Plan -->
+      <div class="offer-card">
+        <div class="offer-badge">💎 ULTIMATE SAVINGS</div>
+        <h3>2-Year Plan</h3>
+        <div class="old-price">€384</div>
+        <div class="price">€149 <small>/2 years</small></div>
+        <div class="save">You save €235! (61% OFF)</div>
+        <ul><li><i class="fas fa-check-circle"></i> 25,000+ Live Channels</li><li><i class="fas fa-check-circle"></i> 60,000+ Movies & Series</li><li><i class="fas fa-check-circle"></i> 4K / FHD / HD Quality</li><li><i class="fas fa-check-circle"></i> Lifetime VIP Support</li><li><i class="fas fa-check-circle"></i> Best value - only €6.21/month</li></ul>
+        <button class="offer-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%2024%20month%20offer%20at%20€149','_blank')">💎 Get 2 Years - Best Deal 💎</button>
+        <div class="stock-counter"><i class="fas fa-fire"></i> Limited stock - Only 23 left!</div>
+      </div>
+    </div>
+
+    <div class="trust-badge">
+      <div class="trust-badge-item"><i class="fas fa-shield-alt"></i><span>Money Back Guarantee</span></div>
+      <div class="trust-badge-item"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+      <div class="trust-badge-item"><i class="fas fa-rocket"></i><span>Instant Activation</span></div>
+      <div class="trust-badge-item"><i class="fas fa-users"></i><span>18,950+ Customers</span></div>
+      <div class="trust-badge-item"><i class="fas fa-star"></i><span>4.5/5 TrustScore</span></div>
+    </div>
+
+    <!-- SEO CONTENT SECTION - EXPANDED -->
+    <div class="seo-content">
+      <h2>🎯 Best IPTV Deals 2026 – Save Up to 61% on SOLARA TV Subscription</h2>
+      <p>Looking for the <strong>best IPTV special offers in 2026</strong>? SOLARA TV is currently running limited-time promotions with <strong>massive discounts up to 61%</strong> on annual and multi-year plans. Whether you're in the <strong>UK, USA, Canada, Australia, or Europe</strong>, these offers give you access to <strong>25,000+ live channels and 60,000+ movies & series</strong> in stunning 4K Ultra HD quality.</p>
+      
+      <h3>💰 Why Subscribe Now? Limited Time IPTV Discounts</h3>
+      <p>Our current promotional prices are designed to give you the <strong>best value for money</strong> in the IPTV market. With <strong>prices starting from just €6.21/month</strong> on the 2-year plan, you're getting premium IPTV service at a fraction of the cost of traditional cable or other streaming services. These <strong>limited-time offers</strong> won't last forever – once the quota is reached, prices will return to normal rates.</p>
+      
+      <div class="price-compare">
+        <h3 style="color:#FFD700; margin-bottom:15px;">📊 Price Comparison – SOLARA TV vs Competitors</h3>
+        <table>
+          <tr><th>Service</th><th>Monthly Price</th><th>Yearly Price</th><th>Channels</th></tr>
+          <tr><td><strong>SOLARA TV (2-Year Plan)</strong></td><td>€6.21</td><td>€74.52</td><td>25,000+</td></tr>
+          <tr><td><strong>SOLARA TV (Annual Plan)</strong></td><td>€8.33</td><td>€100</td><td>25,000+</td></tr>
+          <tr><td>Traditional Cable (USA)</td><td>€70-100</td><td>€840-1200</td><td>200-500</td></tr>
+          <tr><td>Traditional Cable (UK)</td><td>€40-60</td><td>€480-720</td><td>100-300</td></tr>
+          <tr><td>Competitor IPTV Services</td><td>€15-25</td><td>€180-300</td><td>5,000-15,000</td></tr>
+        </table>
+      </div>
+      
+      <h3>📺 What Makes SOLARA TV the Best IPTV Service in 2026?</h3>
+      <p>With a <strong>verified 4.5/5 TrustScore</strong> from over <strong>18,950+ customers</strong>, SOLARA TV has established itself as the <strong>most trusted IPTV provider</strong> in the market. Here's why thousands of customers choose us:</p>
+      <ul>
+        <li><strong>Massive Channel Selection:</strong> 25,000+ live channels from UK, USA, Canada, Australia, Europe, and GCC countries</li>
+        <li><strong>Premium VOD Library:</strong> 60,000+ movies and TV series in 4K Ultra HD quality, updated daily</li>
+        <li><strong>Anti-Freeze Technology:</strong> Our proprietary technology ensures zero buffering during peak hours</li>
+        <li><strong>Complete Sports Coverage:</strong> Premier League, UEFA Champions League, NFL, NBA, NHL, MLB, AFL, NRL, Formula 1, and all major sports events</li>
+        <li><strong>World Cup 2026 Ready:</strong> All matches available in 4K on beIN SPORTS, FOX, BBC, ITV, SBS, Optus Sport, and TSN</li>
+        <li><strong>Multi-Device Support:</strong> Works on Firestick, Roku, MAG, Smart TV, Android, iOS, Windows, Mac</li>
+        <li><strong>24/7 Customer Support:</strong> English, Arabic, French, German, and Dutch support available</li>
+      </ul>
+      
+      <h3>⚽ Complete Sports Package – Best IPTV for Sports Fans</h3>
+      <p>SOLARA TV offers one of the <strong>most comprehensive sports packages</strong> available in the IPTV market. Our sports channels include:</p>
+      <ul>
+        <li><strong>UK Sports:</strong> Sky Sports Premier League (4K), Sky Sports Main Event, BT Sport / TNT Sports 1-3, Eurosport 1 & 2</li>
+        <li><strong>USA Sports:</strong> ESPN (all channels), FS1 & FS2, NBC Sports, NFL Network (4K), NBA TV (4K), NHL Network, MLB Network</li>
+        <li><strong>Canadian Sports:</strong> TSN (multiple feeds), Sportsnet (all channels), CBC Sports, RDS (French)</li>
+        <li><strong>Australian Sports:</strong> Fox Sports Australia (4K), Kayo Sports (4K), AFL Network, NRL Network, Cricket Australia</li>
+        <li><strong>European Football:</strong> beIN Sports, DAZN (multiple countries), Sky Sport Bundesliga, Movistar La Liga, Sky Sport Italy, Canal+ Sport</li>
+        <li><strong>Motorsports:</strong> Formula 1 (4K), Sky Sports F1, MotoGP</li>
+        <li><strong>Combat Sports:</strong> UFC, WWE, Boxing (all major events included)</li>
+      </ul>
+      
+      <h3>🎬 60,000+ VOD – Movies & Series in 4K</h3>
+      <p>Our VOD library is <strong>updated daily</strong> with the latest movies and TV series from Hollywood, Bollywood, and international cinema. You'll find all the latest releases, classic films, and complete series collections in <strong>stunning 4K Ultra HD quality</strong>. Our VOD categories include:</p>
+      <ul>
+        <li><strong>New Releases 2026:</strong> All the latest blockbuster movies added weekly</li>
+        <li><strong>TV Series:</strong> Complete seasons of popular shows from HBO, Netflix, Amazon Prime, Apple TV+, and Disney+</li>
+        <li><strong>4K Ultra HD Collection:</strong> Specially curated collection of movies in native 4K quality</li>
+        <li><strong>International Cinema:</strong> Bollywood, Turkish dramas, Korean series, Arabic movies, and more</li>
+        <li><strong>Documentaries:</strong> Nature, history, science, and true crime documentaries</li>
+        <li><strong>Kids & Family:</strong> Cartoons, animated movies, and family-friendly content</li>
+      </ul>
+      
+      <h3>🌍 Global Coverage – Watch from Anywhere</h3>
+      <p>SOLARA TV is optimized for customers worldwide with dedicated servers in:</p>
+      <ul>
+        <li><strong>🇺🇸 USA:</strong> New York, Los Angeles, Chicago, Dallas, Atlanta</li>
+        <li><strong>🇨🇦 Canada:</strong> Toronto, Vancouver, Montreal</li>
+        <li><strong>🇬🇧 UK:</strong> London</li>
+        <li><strong>🇪🇺 Europe:</strong> Frankfurt, Paris, Amsterdam, Madrid, Milan, Stockholm, Vienna</li>
+        <li><strong>🇦🇺 Australia:</strong> Sydney, Melbourne</li>
+        <li><strong>🇦🇪 GCC:</strong> Dubai</li>
+      </ul>
+      <p>This global server network ensures <strong>ultra-low latency (under 50ms)</strong> and zero buffering no matter where you are.</p>
+      
+      <h3>💳 100% Secure Payments – Visa, Mastercard, PayPal & Crypto</h3>
+      <p>All payments are processed through <strong>secure SSL-encrypted gateways</strong>. We accept all major credit cards (Visa, Mastercard, American Express), PayPal, iDEAL, Bancontact, Giropay, SEPA Bank Transfer, and cryptocurrency. Your payment information is never stored on our servers.</p>
+      
+      <h3>❓ Frequently Asked Questions About SOLARA TV Offers</h3>
+      <p><strong>Q: How long are these special offers valid?</strong><br>A: These are <strong>limited-time promotional offers</strong> with limited quota. Once the quota is reached, prices will return to normal rates. We recommend subscribing as soon as possible to lock in these discounted prices.</p>
+      <p><strong>Q: Can I upgrade or downgrade my plan later?</strong><br>A: Yes! You can upgrade to a longer plan at any time. The upgrade price will be prorated based on your remaining subscription period.</p>
+      <p><strong>Q: Is there a free trial available?</strong><br>A: Yes! We offer a <strong>24-hour free trial</strong> so you can test our service quality before committing to any paid plan.</p>
+      <p><strong>Q: What happens after my subscription ends?</strong><br>A: You can renew at the current rates. We'll send you reminders before your subscription expires.</p>
+      <p><strong>Q: Is there a money-back guarantee?</strong><br>A: Yes, we offer a satisfaction guarantee. Contact our 24/7 support team for any issues.</p>
+      
+      <h3>🏆 Don't Miss Out – Best IPTV Deals of 2026</h3>
+      <p>These are the <strong>best IPTV offers available in 2026</strong>. With discounts up to 61%, there's never been a better time to subscribe to SOLARA TV. Whether you're a sports fan, movie lover, or just want access to international TV channels, our service delivers <strong>premium quality at unbeatable prices</strong>.</p>
+      <p><strong>Join over 18,950+ satisfied customers</strong> who have already made the switch to SOLARA TV. <strong>Start your 24-hour free trial today</strong> and see why we're the #1 rated IPTV service provider in 2026.</p>
+    </div>
+
+    <div class="psycho-section">
+      <h3>🎯 Why Choose SOLARA TV Today?</h3>
+      <div class="psycho-grid">
+        <div class="psycho-item"><i class="fas fa-chart-line"></i><p>📈 Current prices won't return - After this offer ends, prices will increase up to 62%</p></div>
+        <div class="psycho-item"><i class="fas fa-gem"></i><p>✨ The same quality others pay double for - You get it at half the price</p></div>
+        <div class="psycho-item"><i class="fas fa-clock"></i><p>⏳ Every day you wait is a day of savings lost. 87% of customers wish they bought earlier</p></div>
+        <div class="psycho-item"><i class="fas fa-medal"></i><p>🏆 Trusted by thousands - No need to risk unreliable services</p></div>
+        <div class="psycho-item"><i class="fas fa-trophy"></i><p>🌍 World Cup 2026 ready - Watch all matches in 4K Ultra HD</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>⚠️ Limited Availability - Don't Miss Out on 61% Savings!</h2>
+  <p>These exclusive offers are available for a limited number of customers. Once the quota is reached, prices will return to normal. Make the right decision today and save up to €235 on your IPTV subscription.</p>
+  <button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV%20offer','_blank')">💎 Subscribe Now Before the Offer Ends 💎</button>
+  <p style="margin-top: 20px; font-size: 0.7rem; color: #888;"><i class="fas fa-lock"></i> 100% Secure Payment • Instant Activation • 24/7 Support • 4.5/5 TrustScore</p>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="payment-methods">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fab fa-cc-amex"></i>
+    </div>
+    <p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026 — 25,000+ Channels in 4K — Rated 4.5/5 on Trustpilot</p>
+    <p>USA • Canada • UK • Europe • Australia • GCC • Worldwide</p>
+    <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
 </body>
 </html>

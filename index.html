@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+// حل شامل لإزالة .html من جميع الصفحات والروابط
+(function() {
+  if (location.pathname.endsWith('.html')) {
+    history.replaceState({}, '', location.pathname.replace('.html', ''));
+  }
+  for (let link of document.querySelectorAll('a[href]')) {
+    let href = link.getAttribute('href');
+    if (href && href.includes('.html') && !href.includes('://')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  }
+})();
+</script>
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
@@ -73,6 +87,22 @@
     .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
     .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.75rem; padding: 5px 8px; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    
+    /* World Cup 2026 Link Style - NEW */
+    .nav-links a.worldcup-link {
+      background: linear-gradient(135deg, #E31837, #B81C2C);
+      color: white;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .nav-links a.worldcup-link:hover {
+      background: linear-gradient(135deg, #FF4444, #E31837);
+      transform: scale(1.02);
+      color: white;
+    }
+    
     .cta-buttons { display: flex; gap: 8px; }
     .cta-buttons button { padding: 6px 14px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem; }
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
@@ -229,6 +259,7 @@
       <a href="index.html" class="active">Home</a>
       <a href="movies.html">Movies</a>
       <a href="channels.html">Channels</a>
+      <a href="watch-fifa-world-cup-2026-online.html" class="worldcup-link">🌍 World Cup 2026</a>
       <a href="pricing.html">Pricing</a>
       <a href="reseller.html">Reseller</a>
       <a href="blog.html">Blog</a>
@@ -294,17 +325,10 @@
           <tr><th>Region</th><th>Broadcaster</th><th>Channels</th><th>4K Available</th></tr>
         </thead>
         <tbody>
-          <tr><td class="channel-flag">🇦🇪 MENA / GCC</td><td>beIN SPORTS</td><td>beIN Sports MAX 1-10, beIN 4K</td><td class="check">✓ 4K</td></tr>
-          <tr><td class="channel-flag">🇸🇦 Saudi Arabia</td><td>SSC / Shahid</td><td>SSC 1-5 HD, Shahid VIP</td><td class="check">✓ 4K</td></tr>
-          <tr><td class="channel-flag">🇬🇧 United Kingdom</td><td>BBC / ITV</td><td>BBC One, BBC iPlayer, ITV1, ITVX</td><td class="check">✓ HD</td></tr>
-          <tr><td class="channel-flag">🇺🇸 USA</td><td>FOX / Telemundo</td><td>FOX Sports 1, FOX Sports 2, Telemundo</td><td class="check">✓ 4K</td></tr>
-          <tr><td class="channel-flag">🇦🇺 Australia</td><td>SBS / Optus Sport</td><td>SBS HD, SBS On Demand, Optus Sport 4K</td><td class="check">✓ 4K</td></tr>
-          <tr><td class="channel-flag">🇨🇦 Canada</td><td>CTV / TSN / RDS</td><td>CTV, TSN1-5, RDS</td><td class="check">✓ HD</td></tr>
-          <tr><td class="channel-flag">🇩🇪 Germany</td><td>ARD / ZDF / MagentaTV</td><td>Das Erste, ZDF, Magenta Sport</td><td class="check">✓ 4K</td></tr>
-        </tbody>
-      </table>
+          <tr><td class="channel-flag">🇦🇪 MENA / GCC</div><div class="match-date"><i class="far fa-calendar"></i> 11 June 2026 – 16:00 EST • MetLife Stadium, New York</div><div style="color:#FFD700; font-size:0.7rem;">📺 FOX Sports • Telemundo • beIN SPORTS</div></div>
+      </div>
     </div>
-    <p style="font-size: 0.75rem; margin-top: 15px; color: #FFD700;"><i class="fas fa-check-circle"></i> Subscribe now and watch ALL World Cup 2026 matches LIVE with SOLARA TV!</p>
+    <p style="text-align: center; margin-top: 20px; color: #FFD700;"><i class="fas fa-check-circle"></i> Subscribe to SOLARA TV and never miss a single World Cup 2026 match in Ultra HD!</p>
   </div>
 </div>
 

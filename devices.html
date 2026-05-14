@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -17,63 +14,327 @@
   }
 })();
 </script>
-  <head>
-
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5CDJ1NBM5B');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLARA TV | Compatible Devices – Smart TV, Firestick, Android, iOS & More</title>
-  <meta name="description" content="SOLARA TV works on all devices: Smart TV, Firestick, Android, iOS, Windows, Mac, MAG Box & more. Setup guides for every device.">
+  <title>Best IPTV for Firestick, TiviMate, IPTV Smarters Pro & All Devices 2026 – SOLARA TV</title>
+  <meta name="description" content="Best IPTV for Firestick, TiviMate, IPTV Smarters Pro, Smart TV, Android, Apple TV, PC, MAG. 25,000+ channels, 60,000+ VOD, 4K Ultra HD, anti-buffering technology. Free trial available.">
+  <meta name="keywords" content="best iptv for firestick, iptv for firestick, best iptv for tivimate, iptv smarters pro, best iptv for smart tv, iptv for android, iptv for apple tv, iptv for mag, solara tv">
+  <meta name="author" content="SOLARA TV">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.solaratv.tv/devices">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SOLARA TV IPTV Subscription",
+    "description": "Best IPTV for Firestick, TiviMate, IPTV Smarters Pro & all devices. 25,000+ channels, 60,000+ VOD in 4K",
+    "brand": { "@type": "Brand", "name": "SOLARA TV" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "ratingCount": "18950",
+      "bestRating": "5"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "18",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/OnlineOnly"
+    }
+  }
+  </script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
-    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
-    section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
-    .devices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}.device-card{background:linear-gradient(135deg,#111,#0A0A0A);padding:30px;border-radius:20px;border:1px solid rgba(255,215,0,.3);transition:all .3s}.device-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}.device-card i{font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block}.device-card h3{font-size:1.2rem;margin-bottom:10px;color:var(--accent-gold)}.device-card p{color:#aaa;font-size:.85rem;margin-bottom:12px}
-    .device-list{list-style:none}.device-list li{margin:6px 0;font-size:.8rem;display:flex;align-items:center;gap:8px;color:#ddd}.device-list li i{color:var(--accent-gold);width:16px;font-size:.7rem}
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}
+    .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+    .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+    .nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+    .nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    
+    /* World Cup 2026 Link Style */
+    .nav-links a.worldcup-link {
+      background: linear-gradient(135deg, #E31837, #B81C2C);
+      color: white;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .nav-links a.worldcup-link:hover {
+      background: linear-gradient(135deg, #FF4444, #E31837);
+      transform: scale(1.02);
+      color: white;
+    }
+    
+    .cta-buttons{display:flex;gap:8px}
+    .cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .btn-whatsapp{background:#25D366;color:white}
+    
+    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}
+    .hero h1{font-size:2.2rem;margin-bottom:15px}
+    .hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
+    
+    section{padding:50px 0}
+    .section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}
+    .section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
+    
+    .devices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;margin-top:20px}
+    .device-card{background:linear-gradient(135deg,#111,#0A0A0A);padding:30px;border-radius:20px;border:1px solid rgba(255,215,0,.3);transition:all .3s}
+    .device-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}
+    .device-card i{font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block}
+    .device-card h3{font-size:1.2rem;margin-bottom:10px;color:var(--accent-gold)}
+    .device-card p{color:#aaa;font-size:.85rem;margin-bottom:12px}
+    .device-list{list-style:none}
+    .device-list li{margin:6px 0;font-size:.8rem;display:flex;align-items:center;gap:8px;color:#ddd}
+    .device-list li i{color:var(--accent-gold);width:16px;font-size:.7rem}
     .app-badge{display:inline-block;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);padding:3px 10px;border-radius:15px;font-size:.65rem;color:var(--accent-gold);margin-top:10px}
-    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}.cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}.cta-section p{color:#ccc;margin-bottom:25px}.cta-btn{padding:12px 32px;font-size:.9rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}.cta-btn:hover{transform:scale(1.02)}
-    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
+    /* Comparison Table */
+    .comparison-table{overflow-x:auto;margin:30px 0;width:100%}
+    .comparison-table table{width:100%;border-collapse:collapse;background:var(--card-bg);border-radius:16px;overflow:hidden}
+    .comparison-table th,.comparison-table td{padding:12px 16px;text-align:center;font-size:.8rem;border-bottom:1px solid rgba(255,215,0,.2)}
+    .comparison-table th{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .comparison-table td{color:#ddd}
+    .comparison-table td:first-child{text-align:left;font-weight:600;color:var(--accent-gold)}
+    .check{color:var(--accent-gold);font-size:1rem}
+    
+    .feature-box{background:linear-gradient(135deg,#111,#0A0A0A);padding:25px;border-radius:20px;border-left:4px solid var(--accent-gold);margin:20px 0}
+    .feature-box h3{color:var(--accent-gold);margin-bottom:10px}
+    .feature-box p{color:#ccc;line-height:1.7}
+    
+    .cta-section{text-align:center;padding:50px 0;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9))}
+    .cta-section h2{font-size:1.8rem;margin-bottom:15px;color:var(--accent-gold)}
+    .cta-section p{color:#ccc;margin-bottom:25px}
+    .cta-btn{padding:12px 32px;font-size:.9rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}
+    .cta-btn:hover{transform:scale(1.02)}
+    
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}
+    .footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+    .footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}
+    .footer-links a:hover{color:var(--accent-gold)}
+    .payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}}
   </style>
 </head>
 <body>
 
-<header><div class="container nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html" class="active">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="login.html">Login</a></div><div class="cta-buttons"><button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button><button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button></div></div></header>
-
-<section class="hero"><div class="container" style="width:100%;text-align:center"><h1>📱 <span>Compatible Devices</span></h1><p>SOLARA TV works on all your favorite devices. Watch anywhere, anytime.</p></div></section>
-
-<section><div class="container">
-  <h2 class="section-title">Supported Devices</h2>
-  <div class="devices-grid">
-    <div class="device-card"><i class="fas fa-fire"></i><h3>Amazon Fire Stick</h3><p>The most popular streaming device for IPTV</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> Fire TV Stick 4K Max</li><li><i class="fas fa-check-circle"></i> Fire TV Stick 4K</li><li><i class="fas fa-check-circle"></i> Fire TV Stick Lite</li><li><i class="fas fa-check-circle"></i> Fire TV Cube</li></ul><span class="app-badge">Recommended: IPTV Smarters Pro</span></div>
-
-    <div class="device-card"><i class="fas fa-tv"></i><h3>Smart TVs</h3><p>Direct installation on your smart TV</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> Samsung Smart TV</li><li><i class="fas fa-check-circle"></i> LG WebOS TV</li><li><i class="fas fa-check-circle"></i> Sony Bravia</li><li><i class="fas fa-check-circle"></i> Android TV (all brands)</li></ul><span class="app-badge">Recommended: TiviMate</span></div>
-
-    <div class="device-card"><i class="fab fa-apple"></i><h3>Apple Devices</h3><p>Stream on all Apple products</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> Apple TV 4K</li><li><i class="fas fa-check-circle"></i> iPhone</li><li><i class="fas fa-check-circle"></i> iPad</li><li><i class="fas fa-check-circle"></i> macOS</li></ul><span class="app-badge">Recommended: IPTV Smarters</span></div>
-
-    <div class="device-card"><i class="fab fa-android"></i><h3>Android Devices</h3><p>Phones, tablets, and TV boxes</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> Android Phones & Tablets</li><li><i class="fas fa-check-circle"></i> Android TV Box</li><li><i class="fas fa-check-circle"></i> Nvidia Shield</li><li><i class="fas fa-check-circle"></i> Xiaomi Mi Box</li></ul><span class="app-badge">Recommended: TiviMate</span></div>
-
-    <div class="device-card"><i class="fas fa-laptop"></i><h3>PC & Mac</h3><p>Watch on your computer</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> Windows 10/11</li><li><i class="fas fa-check-circle"></i> macOS</li><li><i class="fas fa-check-circle"></i> VLC Media Player</li><li><i class="fas fa-check-circle"></i> Kodi</li></ul><span class="app-badge">Recommended: VLC Player</span></div>
-
-    <div class="device-card"><i class="fas fa-microchip"></i><h3>MAG & Enigma2</h3><p>Professional IPTV set-top boxes</p><ul class="device-list"><li><i class="fas fa-check-circle"></i> MAG 250/254/256/322</li><li><i class="fas fa-check-circle"></i> Formuler Z8/Z10</li><li><i class="fas fa-check-circle"></i> Dreamlink T2/T3</li><li><i class="fas fa-check-circle"></i> Enigma2 / Vu+</li></ul><span class="app-badge">Portal URL Setup</span></div>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">SOLARA TV</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="watch-fifa-world-cup-2026-online.html" class="worldcup-link">🌍 World Cup 2026</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="devices.html" class="active">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button>
+      <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button>
+    </div>
   </div>
-</div></section>
+</header>
 
-<section class="cta-section"><h2>Need Help Setting Up?</h2><p>Our support team will guide you through the setup process on any device</p><button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20need%20help%20setting%20up%20SOLARA%20TV','_blank')"><i class="fab fa-whatsapp"></i> Get Setup Help</button></section>
+<section class="hero">
+  <div class="container" style="width:100%;text-align:center">
+    <h1>📱 <span>Best IPTV for Firestick, TiviMate, IPTV Smarters Pro & All Devices 2026</span></h1>
+    <p>Are you looking for the best IPTV that works perfectly on Firestick, TiviMate, IPTV Smarters, Smart TV, Android, and all other devices? SOLARA TV is one of the top IPTV subscriptions in 2026, offering 25,000+ live channels and 60,000+ movies & series (VOD) in 4K Ultra HD with powerful anti-buffering technology.</p>
+  </div>
+</section>
 
-<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<section>
+  <div class="container">
+    <h2 class="section-title">📱 SOLARA TV Compatible Devices – Works on Everything</h2>
+    <p style="text-align:center; margin-bottom:30px; color:#ccc;">SOLARA TV gives you full support on all popular devices and IPTV player apps:</p>
+    
+    <div class="devices-grid">
+      <!-- 1. Amazon Firestick -->
+      <div class="device-card">
+        <i class="fas fa-fire"></i>
+        <h3>1. Amazon Firestick (Best IPTV for Firestick)</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> Fire TV Stick 4K Max</li>
+          <li><i class="fas fa-check-circle"></i> Fire TV Stick 4K</li>
+          <li><i class="fas fa-check-circle"></i> Fire TV Stick Lite</li>
+          <li><i class="fas fa-check-circle"></i> Fire TV Cube</li>
+        </ul>
+        <span class="app-badge">Recommended App: IPTV Smarters Pro</span>
+      </div>
+      
+      <!-- 2. Smart TVs -->
+      <div class="device-card">
+        <i class="fas fa-tv"></i>
+        <h3>2. Smart TVs (Best IPTV for Smart TV)</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> Samsung Smart TV</li>
+          <li><i class="fas fa-check-circle"></i> LG WebOS TV</li>
+          <li><i class="fas fa-check-circle"></i> Sony Bravia</li>
+          <li><i class="fas fa-check-circle"></i> All Android TVs</li>
+        </ul>
+        <span class="app-badge">Recommended App: TiviMate</span>
+      </div>
+      
+      <!-- 3. Apple Devices -->
+      <div class="device-card">
+        <i class="fab fa-apple"></i>
+        <h3>3. Apple Devices (IPTV for Apple TV)</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> Apple TV 4K</li>
+          <li><i class="fas fa-check-circle"></i> iPhone & iPad</li>
+          <li><i class="fas fa-check-circle"></i> macOS</li>
+        </ul>
+        <span class="app-badge">Recommended App: IPTV Smarters</span>
+      </div>
+      
+      <!-- 4. Android Devices -->
+      <div class="device-card">
+        <i class="fab fa-android"></i>
+        <h3>4. Android Devices (Best IPTV for Android)</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> Android Phones & Tablets</li>
+          <li><i class="fas fa-check-circle"></i> Android TV Boxes</li>
+          <li><i class="fas fa-check-circle"></i> Nvidia Shield</li>
+          <li><i class="fas fa-check-circle"></i> Xiaomi Mi Box</li>
+        </ul>
+        <span class="app-badge">Recommended App: TiviMate</span>
+      </div>
+      
+      <!-- 5. PC & Mac -->
+      <div class="device-card">
+        <i class="fas fa-laptop"></i>
+        <h3>5. PC & Mac</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> Windows 10/11</li>
+          <li><i class="fas fa-check-circle"></i> macOS</li>
+          <li><i class="fas fa-check-circle"></i> VLC Media Player</li>
+          <li><i class="fas fa-check-circle"></i> Kodi</li>
+        </ul>
+        <span class="app-badge">Recommended: VLC Media Player or Kodi</span>
+      </div>
+      
+      <!-- 6. Professional IPTV Boxes -->
+      <div class="device-card">
+        <i class="fas fa-microchip"></i>
+        <h3>6. Professional IPTV Boxes</h3>
+        <ul class="device-list">
+          <li><i class="fas fa-check-circle"></i> MAG 250/254/256/322</li>
+          <li><i class="fas fa-check-circle"></i> Formuler Z8/Z10</li>
+          <li><i class="fas fa-check-circle"></i> Dreamlink T2/T3</li>
+          <li><i class="fas fa-check-circle"></i> Enigma2 / Vu+</li>
+        </ul>
+        <span class="app-badge">Portal URL Setup</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why SOLARA TV Section -->
+<section style="background: var(--card-bg);">
+  <div class="container">
+    <h2 class="section-title">Why SOLARA TV is the Best IPTV Subscription in 2026</h2>
+    <div class="devices-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="feature-box"><h3><i class="fas fa-charging-station"></i> Super Stable Connection</h3><p>Almost zero buffering with powerful anti-freeze technology</p></div>
+      <div class="feature-box"><h3><i class="fas fa-futbol"></i> Complete Sports Package</h3><p>Premier League, Champions League, La Liga, Bundesliga, NFL, NBA & World Cup 2026</p></div>
+      <div class="feature-box"><h3><i class="fas fa-language"></i> Arabic & International Content</h3><p>Strong Arabic IPTV channels + full international content</p></div>
+      <div class="feature-box"><h3><i class="fas fa-film"></i> Huge VOD Library</h3><p>Latest movies and series in 4K, updated daily</p></div>
+      <div class="feature-box"><h3><i class="fas fa-rocket"></i> Instant Activation</h3><p>24-hour free IPTV trial, activate in minutes</p></div>
+      <div class="feature-box"><h3><i class="fas fa-headset"></i> 24/7 Customer Support</h3><p>Arabic & English support always available</p></div>
+      <div class="feature-box"><h3><i class="fas fa-tags"></i> Cheap IPTV Prices</h3><p>Big discounts on 6 & 12-month plans</p></div>
+      <div class="feature-box"><h3><i class="fas fa-star"></i> 4.5/5 TrustScore</h3><p>Rated by 18,950+ verified customers</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Best IPTV Player Apps Comparison Table -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Best IPTV Player Apps for SOLARA TV</h2>
+    <div class="comparison-table">
+      <table>
+        <thead>
+          <tr><th>Device</th><th>Best IPTV App</th><th>Why It's Recommended</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="check">Firestick</td><td><strong>IPTV Smarters Pro</strong></td><td>Most stable & easy to use</td></tr>
+          <tr><td class="check">Smart TV / Android</td><td><strong>TiviMate</strong></td><td>Best EPG and beautiful interface</td></tr>
+          <tr><td class="check">Apple Devices</td><td><strong>IPTV Smarters</strong></td><td>Clean & very reliable</td></tr>
+          <tr><td class="check">PC</td><td><strong>VLC Media Player</strong></td><td>Simple and works everywhere</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="cta-section">
+  <h2>Looking for reliable IPTV for Firestick, best IPTV for TiviMate, IPTV Smarters Pro, Smart TV, or any device?</h2>
+  <p>SOLARA TV is the perfect choice in 2026. Get your 24-hour free trial today!</p>
+  <button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20for%20IPTV%20on%20my%20device','_blank')"><i class="fab fa-whatsapp"></i> Start Free Trial Now</button>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="payment-methods">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fab fa-cc-amex"></i>
+    </div>
+    <p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV for Firestick, TiviMate & All Devices — Rated 4.5/5 on Trustpilot</p>
+    <p>USA • Canada • UK • Europe • Australia • GCC • Worldwide</p>
+    <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
 </body>
 </html>

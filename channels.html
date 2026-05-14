@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -17,47 +14,182 @@
   }
 })();
 </script>
-  <head>
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5CDJ1NBM5B');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLARA TV | 25,000+ Live Channels – Europe, Australia, USA & GCC in 4K</title>
-  <meta name="description" content="Browse 25,000+ live channels from Europe (UK, Netherlands, Germany, France), Australia, USA & GCC. Sports, news, entertainment in 4K quality.">
+  <title>Best IPTV 2026: 25,000+ Live Channels in 4K – Europe, UK, USA, Canada, Australia – SOLARA TV</title>
+  <meta name="description" content="Best IPTV 2026 with 25,000+ live channels in 4K Ultra HD. Complete coverage of Europe, UK, USA, Canada, Australia. Premier League, NFL, NBA, Champions League. Free trial available.">
+  <meta name="keywords" content="best iptv 2026, 25000 live channels, iptv 4k, iptv europe, iptv uk, iptv usa, iptv canada, iptv australia, premier league iptv, nfl iptv, champions league iptv, solara tv">
+  <meta name="author" content="SOLARA TV">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.solaratv.tv/channels">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SOLARA TV IPTV Service",
+    "description": "25,000+ live channels in 4K Ultra HD covering Europe, UK, USA, Canada, Australia",
+    "brand": { "@type": "Brand", "name": "SOLARA TV" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "ratingCount": "18950",
+      "bestRating": "5"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "18",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/OnlineOnly"
+    }
+  }
+  </script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
-    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto 20px;color:#e0e0e0}
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}
+    .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+    .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+    .nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+    .nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    
+    /* World Cup 2026 Link Style */
+    .nav-links a.worldcup-link {
+      background: linear-gradient(135deg, #E31837, #B81C2C);
+      color: white;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .nav-links a.worldcup-link:hover {
+      background: linear-gradient(135deg, #FF4444, #E31837);
+      transform: scale(1.02);
+      color: white;
+    }
+    
+    .cta-buttons{display:flex;gap:8px}
+    .cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .btn-whatsapp{background:#25D366;color:white}
+    
+    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}
+    .hero h1{font-size:2.2rem;margin-bottom:15px}
+    .hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1rem;max-width:850px;margin:0 auto 20px;color:#e0e0e0}
     .quality-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.6);border:1px solid var(--accent-gold);padding:8px 20px;border-radius:40px;margin-top:15px;font-size:.8rem;color:var(--accent-gold)}
-    .stats-banner{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:25px 0;background:var(--card-bg);border-bottom:1px solid rgba(255,215,0,.2)}.stat{text-align:center}.stat-num{font-size:1.6rem;font-weight:800;color:var(--accent-gold)}.stat-lbl{font-size:.75rem;color:#aaa}
-    section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
-    .region-selector{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:35px}.region-btn{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid rgba(255,215,0,.3);padding:10px 25px;border-radius:40px;cursor:pointer;transition:all .3s;text-align:center;min-width:100px;color:white;font-size:.85rem}.region-btn:hover{transform:translateY(-2px);background:rgba(255,215,0,.1)}.region-btn.active{border-color:var(--accent-gold);background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.region-flag{font-size:1.3rem;display:block;margin-bottom:5px}.region-name{font-weight:600;font-size:.8rem}
-    .channels-container{display:none;animation:fadeIn .3s ease}.channels-container.active{display:block}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    .channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}.channel-category{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;padding:20px;border:1px solid rgba(255,215,0,.3);transition:all .3s}.channel-category:hover{transform:translateY(-3px);border-color:var(--accent-gold)}.category-header{display:flex;align-items:center;gap:10px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(255,215,0,.3)}.category-header i{font-size:1.3rem;color:var(--accent-gold)}.category-header h3{font-size:1.1rem;color:var(--accent-gold)}.channel-list{list-style:none}.channel-list li{margin:8px 0;display:flex;align-items:center;gap:10px;padding:5px 8px;border-radius:10px;transition:all .3s;font-size:.8rem}.channel-list li:hover{background:rgba(255,215,0,.1);transform:translateX(3px)}.channel-list li i{color:var(--accent-gold);width:20px;font-size:.7rem}.channel-list li span{color:#ddd}.quality-tag{background:rgba(255,215,0,.15);color:var(--accent-gold);padding:2px 8px;border-radius:10px;font-size:.6rem;font-weight:600;margin-left:auto}
-    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem;transition:color .3s}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
+    .stats-banner{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:25px 0;background:var(--card-bg);border-bottom:1px solid rgba(255,215,0,.2)}
+    .stat{text-align:center}
+    .stat-num{font-size:1.6rem;font-weight:800;color:var(--accent-gold)}
+    .stat-lbl{font-size:.75rem;color:#aaa}
+    
+    section{padding:50px 0}
+    .section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}
+    .section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
+    
+    .region-selector{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:35px}
+    .region-btn{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid rgba(255,215,0,.3);padding:10px 25px;border-radius:40px;cursor:pointer;transition:all .3s;text-align:center;min-width:100px;color:white;font-size:.85rem}
+    .region-btn:hover{transform:translateY(-2px);background:rgba(255,215,0,.1)}
+    .region-btn.active{border-color:var(--accent-gold);background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .region-flag{font-size:1.3rem;display:block;margin-bottom:5px}
+    .region-name{font-weight:600;font-size:.8rem}
+    
+    .channels-container{display:none;animation:fadeIn .3s ease}
+    .channels-container.active{display:block}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    
+    .channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .channel-category{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;padding:20px;border:1px solid rgba(255,215,0,.3);transition:all .3s}
+    .channel-category:hover{transform:translateY(-3px);border-color:var(--accent-gold)}
+    .category-header{display:flex;align-items:center;gap:10px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid rgba(255,215,0,.3)}
+    .category-header i{font-size:1.3rem;color:var(--accent-gold)}
+    .category-header h3{font-size:1.1rem;color:var(--accent-gold)}
+    .channel-list{list-style:none}
+    .channel-list li{margin:8px 0;display:flex;align-items:center;gap:10px;padding:5px 8px;border-radius:10px;transition:all .3s;font-size:.8rem}
+    .channel-list li:hover{background:rgba(255,215,0,.1);transform:translateX(3px)}
+    .channel-list li i{color:var(--accent-gold);width:20px;font-size:.7rem}
+    .channel-list li span{color:#ddd}
+    .quality-tag{background:rgba(255,215,0,.15);color:var(--accent-gold);padding:2px 8px;border-radius:10px;font-size:.6rem;font-weight:600;margin-left:auto}
+    
+    /* SEO Content Styles */
+    .seo-content{background:linear-gradient(135deg,#0A0A0A,#0D0D0D);border-radius:20px;padding:30px;margin-top:30px}
+    .seo-content h3{color:var(--accent-gold);margin:20px 0 15px;font-size:1.2rem}
+    .seo-content p{color:#ccc;line-height:1.7;margin-bottom:15px}
+    .seo-content ul{margin-left:25px;margin-bottom:15px}
+    .seo-content li{margin:8px 0;color:#aaa}
+    .seo-content strong{color:var(--accent-gold)}
+    .country-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin:20px 0}
+    .country-item{background:#111;padding:12px;border-radius:12px;border-left:3px solid var(--accent-gold)}
+    .country-item strong{color:var(--accent-gold);display:block;margin-bottom:5px}
+    .country-item span{font-size:.8rem;color:#aaa}
+    
+    .cta-section{text-align:center;padding:40px;background:linear-gradient(135deg,rgba(255,215,0,.05),rgba(0,0,0,.9));border-radius:20px;margin-top:30px}
+    .cta-btn{padding:12px 32px;font-size:.9rem;border-radius:50px;background:linear-gradient(135deg,var(--accent-gold),#B8860B);border:none;color:#0A0A0A;font-weight:bold;cursor:pointer;transition:all .3s}
+    .cta-btn:hover{transform:scale(1.02)}
+    
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}
+    .footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+    .footer-links a{color:#aaa;text-decoration:none;font-size:.7rem;transition:color .3s}
+    .footer-links a:hover{color:var(--accent-gold)}
+    .payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
+    
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.region-btn{padding:6px 15px;min-width:70px}}
   </style>
 </head>
 <body>
 
-<header><div class="container nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html" class="active">Channels</a><a href="pricing.html">Pricing</a><a href="reseller.html">Reseller</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="login.html">Login</a></div><div class="cta-buttons"><button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button><button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button></div></div></header>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">SOLARA TV</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html" class="active">Channels</a>
+      <a href="watch-fifa-world-cup-2026-online.html" class="worldcup-link">🌍 World Cup 2026</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button>
+      <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button>
+    </div>
+  </div>
+</header>
 
 <section class="hero">
   <div class="container" style="width:100%;text-align:center">
-    <h1>📺 <span>25,000+ Live Channels</span> in 4K Ultra HD</h1>
-    <p>Europe, UK, Netherlands, Germany, France, Italy, Spain, Australia, USA, Canada & GCC – All in stunning 4K/FHD/HD quality.</p>
-    <div class="quality-badge"><i class="fas fa-gem"></i> 4K Ultra HD • FHD 1080p • HD 720p</div>
+    <h1>📺 <span>Best IPTV 2026: 25,000+ Live Channels</span> in 4K Ultra HD</h1>
+    <p>Are you looking for a powerful IPTV service with 25,000+ live channels and strong coverage of Europe, UK, USA, Canada, and Australia? SOLARA TV stands out in 2026 with one of the largest and most stable live channel packages, delivering crystal-clear 4K Ultra HD, FHD, and HD streaming with 99.9% uptime.</p>
+    <div class="quality-badge"><i class="fas fa-gem"></i> 4K Ultra HD • FHD 1080p • HD 720p • 99.9% Uptime</div>
   </div>
 </section>
 
@@ -70,75 +202,191 @@
 
 <section>
   <div class="container">
-    <h2 class="section-title">Browse Channels by Region</h2>
-    <p style="text-align:center;margin-bottom:30px;font-size:.85rem">Click on any region to explore its channels</p>
+    <h2 class="section-title">📺 25,000+ Live Channels in True 4K Ultra HD</h2>
+    <p style="text-align:center;margin-bottom:30px;font-size:.85rem">SOLARA TV offers extensive live TV coverage across the most popular regions</p>
+    
     <div class="region-selector">
       <div class="region-btn active" data-region="europe"><span class="region-flag">🇪🇺</span><span class="region-name">Europe</span></div>
       <div class="region-btn" data-region="uknl"><span class="region-flag">🇬🇧🇳🇱</span><span class="region-name">UK & NL</span></div>
       <div class="region-btn" data-region="defr"><span class="region-flag">🇩🇪🇫🇷</span><span class="region-name">DE & FR</span></div>
       <div class="region-btn" data-region="ites"><span class="region-flag">🇮🇹🇪🇸</span><span class="region-name">IT & ES</span></div>
       <div class="region-btn" data-region="australia"><span class="region-flag">🇦🇺</span><span class="region-name">Australia</span></div>
-      <div class="region-btn" data-region="usa"><span class="region-flag">🇺🇸</span><span class="region-name">USA</span></div>
+      <div class="region-btn" data-region="usa"><span class="region-flag">🇺🇸🇨🇦</span><span class="region-name">USA & Canada</span></div>
       <div class="region-btn" data-region="gcc"><span class="region-flag">🇦🇪</span><span class="region-name">GCC</span></div>
     </div>
 
+    <!-- Europe Channels -->
     <div id="europe-channels" class="channels-container active">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>⚽ European Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Premier League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Champions League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Formula 1</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Bundesliga</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>La Liga</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Serie A</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Eredivisie</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Ligue 1</span><span class="quality-tag">HD</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-newspaper"></i><h3>📰 European News</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>BBC News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Euronews</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>France 24</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>DW News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NOS Nieuws</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RAI News</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>⚽ European Sports (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Premier League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>UEFA Champions League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>UEFA Europa League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Formula 1</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Bundesliga</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>La Liga</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Serie A</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Ligue 1</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Eredivisie</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-newspaper"></i><h3>📰 European News</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>BBC News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Euronews</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>France 24</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>DW News</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NOS Nieuws</span><span class="quality-tag">HD</span></li></ul></div>
         <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🎭 Entertainment</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>BBC One</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>ITV</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Channel 4</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RTL</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>ProSieben</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>TF1</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
 
+    <!-- UK & NL Channels -->
     <div id="uknl-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>🇬🇧 UK Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Sky Sports Main Event</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports Premier League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports F1</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>BT Sport 1-3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>TNT Sports</span><span class="quality-tag">HD</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇳🇱 Dutch Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>NPO 1, 2, 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RTL 4, 5, 7, 8</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>SBS 6, 9, Veronica</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Ziggo Sport</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>ESPN 1-4 NL</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>🇬🇧 UK Sports (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Sky Sports Premier League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports Main Event</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports Football</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports F1</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sports Cricket</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>BT Sport / TNT Sports 1-3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Eurosport 1 & 2</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇳🇱 Dutch Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>NPO 1, 2, 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RTL 4, 5, 7, 8</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>SBS 6, 9, Veronica</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Ziggo Sport</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>ESPN 1-4 NL</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Eredivisie channels</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
 
+    <!-- Germany & France Channels -->
     <div id="defr-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇩🇪 German Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ARD, ZDF</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RTL, ProSieben, SAT.1</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sport Deutschland</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN Bundesliga</span><span class="quality-tag">4K</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇫🇷 French Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>TF1, France 2, 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Canal+, Canal+ Sport</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>beIN Sports 1-3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RMC Sport</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇩🇪 German Channels (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ARD, ZDF</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RTL, ProSieben, SAT.1</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sport Deutschland</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN Bundesliga</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sport Bundesliga</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>VOX, Kabel eins</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇫🇷 French Channels (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>TF1, France 2, France 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Canal+, Canal+ Sport</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>beIN Sports 1-3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RMC Sport</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>M6, W9, TMC</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
 
+    <!-- Italy & Spain Channels -->
     <div id="ites-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇮🇹 Italian Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>RAI 1, 2, 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sport Italia</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN Serie A</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Mediaset</span><span class="quality-tag">HD</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇪🇸 Spanish Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>TVE 1, La 2</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Movistar+ LaLiga</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN España</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Antena 3, Telecinco</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇮🇹 Italian Channels (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>RAI 1, 2, 3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sky Sport Italia</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN Serie A</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Mediaset (Canale 5, Italia 1)</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>LA7</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇪🇸 Spanish Channels (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>TVE 1, La 2</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Movistar+ LaLiga</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>DAZN España</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Antena 3, Telecinco</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>La Sexta, Cuatro</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
 
+    <!-- Australia Channels -->
     <div id="australia-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-football-ball"></i><h3>⚽ Australian Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Fox Sports 501-506</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Kayo Sports</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>AFL</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NRL</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Cricket Australia</span><span class="quality-tag">4K</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 Australian TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ABC, SBS</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Channel 7, 9, 10</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Foxtel Movies</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Stan Originals</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-football-ball"></i><h3>⚽ Australian Sports (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>Fox Sports 501-506</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Kayo Sports</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>AFL Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NRL Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Cricket Australia</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Supercars</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 Australian TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ABC, SBS</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Channel 7, 9, 10</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Foxtel Movies</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Stan Originals</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Optus Sport</span><span class="quality-tag">4K</span></li></ul></div>
       </div>
     </div>
 
+    <!-- USA & Canada Channels -->
     <div id="usa-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-football-ball"></i><h3>⚽ American Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ESPN, ESPN2</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>NFL Network</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>NBA TV</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>MLB Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Fox Sports</span><span class="quality-tag">HD</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 American TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ABC, NBC, CBS, Fox</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>CNN, Fox News, MSNBC</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>HBO, Showtime, Starz</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>AMC, FX, TNT, USA</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-football-ball"></i><h3>⚽ American Sports (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ESPN, ESPN2, ESPN3</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>FS1 & FS2 (Fox Sports)</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NBC Sports</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NFL Network</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>NBA TV</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>NHL Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>MLB Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>TNT & TBS</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>🇨🇦 Canadian Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>TSN (Multiple feeds)</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Sportsnet (All channels)</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>CBC Sports</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>RDS (French)</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 American TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ABC, NBC, CBS, FOX</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>CNN, Fox News, MSNBC</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>HBO, Showtime, Starz</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>AMC, FX, USA Network</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-maple-leaf"></i><h3>📺 Canadian TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>CBC, CTV, Global</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>CityTV, OMNI</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Crave-style content</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>TVA Sports (French)</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
 
+    <!-- GCC Channels -->
     <div id="gcc-channels" class="channels-container">
       <div class="channels-grid">
-        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>⚽ GCC Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>beIN Sports 1-12</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Saudi Pro League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>UAE Pro League</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Abu Dhabi Sports</span><span class="quality-tag">HD</span></li></ul></div>
-        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 Arabic TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>MBC 1-4, MBC Action</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Al Jazeera, Al Arabiya</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>OSN Movies & Series</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Rotana Cinema</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-futbol"></i><h3>⚽ GCC Sports (4K)</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>beIN Sports 1-12</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Saudi Pro League</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>UAE Pro League</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Abu Dhabi Sports</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Qatar Sports</span><span class="quality-tag">HD</span></li></ul></div>
+        <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 Arabic TV</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>MBC 1-4, MBC Action</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Al Jazeera, Al Arabiya</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>OSN Movies & Series</span><span class="quality-tag">4K</span></li><li><i class="fas fa-check-circle"></i><span>Rotana Cinema</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Dubai TV, Sharjah TV</span><span class="quality-tag">HD</span></li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<!-- SEO Content Section - Full Article -->
+<section>
+  <div class="container">
+    <div class="seo-content">
+      <h2 class="section-title" style="margin-top:0;">Best IPTV 2026: 25,000+ Live Channels in 4K – Europe, UK, USA, Canada, Australia – SOLARA TV</h2>
+      
+      <p><strong>Are you looking for a powerful IPTV service with 25,000+ live channels and strong coverage of Europe, UK, USA, Canada, and Australia?</strong> SOLARA TV stands out in 2026 with one of the largest and most stable live channel packages, delivering crystal-clear <strong>4K Ultra HD, FHD, and HD streaming with 99.9% uptime</strong>.</p>
+      
+      <h3>📺 25,000+ Live Channels in True 4K Ultra HD</h3>
+      <p>SOLARA TV offers extensive live TV coverage across the most popular regions:</p>
+      <div class="country-grid">
+        <div class="country-item"><strong>🇪🇺 Europe</strong><span>Full comprehensive European channels</span></div>
+        <div class="country-item"><strong>🇬🇧 United Kingdom</strong><span>Complete UK package</span></div>
+        <div class="country-item"><strong>🇳🇱 Netherlands</strong><span>Dutch channels in HD/4K</span></div>
+        <div class="country-item"><strong>🇩🇪 Germany & 🇫🇷 France</strong><span>German and French coverage</span></div>
+        <div class="country-item"><strong>🇮🇹 Italy & 🇪🇸 Spain</strong><span>Italian and Spanish channels</span></div>
+        <div class="country-item"><strong>🇦🇺 Australia</strong><span>AFL, NRL, Cricket</span></div>
+        <div class="country-item"><strong>🇺🇸 USA</strong><span>NFL, NBA, MLB, NHL</span></div>
+        <div class="country-item"><strong>🇨🇦 Canada</strong><span>TSN, Sportsnet, CBC</span></div>
+      </div>
+      <p>All channels are broadcast in their best available quality: <strong>4K Ultra HD • Full HD 1080p • HD 720p</strong>.</p>
+      
+      <h3>⚽ Complete Sports Channels List – Best Sports IPTV 2026</h3>
+      <p>SOLARA TV provides one of the strongest sports packages with dedicated channels for every major league and event:</p>
+      
+      <h3>🏴󠁧󠁢󠁥󠁮󠁧󠁿 UK & Premier League</h3>
+      <ul><li>Sky Sports Premier League <span class="quality-tag">4K</span></li><li>Sky Sports Main Event <span class="quality-tag">4K</span></li><li>Sky Sports Football <span class="quality-tag">4K</span></li><li>Sky Sports Cricket</li><li>BT Sport / TNT Sports 1, 2, 3</li><li>Eurosport 1 & 2</li></ul>
+      
+      <h3>🇪🇺 European Football Leagues</h3>
+      <ul><li>UEFA Champions League <span class="quality-tag">4K</span></li><li>UEFA Europa League</li><li>beIN Sports (France, Spain, Germany)</li><li>DAZN (Germany, France, Italy, Spain)</li><li>Sky Sport Bundesliga (Germany)</li><li>Movistar La Liga (Spain)</li><li>Sky Sport Italy</li><li>Canal+ Sport (France)</li><li>Eredivisie channels (Netherlands)</li></ul>
+      
+      <h3>🇺🇸 American Sports</h3>
+      <ul><li>ESPN (All channels) <span class="quality-tag">4K</span></li><li>ESPN 2 & ESPN 3</li><li>FS1 & FS2 (Fox Sports)</li><li>NBC Sports</li><li>NFL Network <span class="quality-tag">4K</span></li><li>NBA TV <span class="quality-tag">4K</span></li><li>NHL Network</li><li>MLB Network</li><li>TNT & TBS</li></ul>
+      
+      <h3>🇨🇦 Canadian Sports</h3>
+      <ul><li>TSN (Multiple feeds)</li><li>Sportsnet (All channels) <span class="quality-tag">4K</span></li><li>CBC Sports</li><li>RDS (French)</li></ul>
+      
+      <h3>🇦🇺 Australian Sports</h3>
+      <ul><li>Fox Sports Australia <span class="quality-tag">4K</span></li><li>Kayo Sports <span class="quality-tag">4K</span></li><li>NRL Network</li><li>AFL Network</li><li>Cricket Australia <span class="quality-tag">4K</span></li></ul>
+      
+      <h3>🏎️ Motorsports & Other Sports</h3>
+      <ul><li>Formula 1 <span class="quality-tag">4K</span></li><li>Sky Sports F1 <span class="quality-tag">4K</span></li><li>MotoGP</li><li>Golf Channel + Sky Sports Golf</li><li>Tennis channels (ATP, WTA)</li><li>UFC, WWE & Combat Sports</li><li>Rugby & Cricket dedicated channels</li></ul>
+      
+      <h3>📰 Premium News Channels</h3>
+      <ul><li>BBC News, Sky News, ITV News (UK)</li><li>CNN, Fox News, MSNBC, ABC News (USA)</li><li>Euronews, France 24, DW News, RAI News, NOS Nieuws</li></ul>
+      
+      <h3>🎭 Entertainment & General Interest Channels</h3>
+      <ul><li><strong>UK:</strong> BBC One, BBC Two, ITV, Channel 4, Channel 5, Sky Atlantic, Dave</li><li><strong>USA:</strong> ABC, CBS, NBC, FOX, HBO, AMC, FX, USA Network</li><li><strong>Europe:</strong> TF1, France 2, M6 (France) | RTL, ProSieben, ARD, ZDF (Germany) | RAI 1 & 2 (Italy) | Antena 3, Telecinco (Spain)</li><li><strong>Australia & Canada:</strong> Major local free-to-air and premium entertainment channels</li></ul>
+      
+      <h3>Additional Categories:</h3>
+      <ul><li>Kids & Family Channels</li><li>24/7 Movies Channels</li><li>Music & Lifestyle Channels</li><li>Documentary & Cultural Networks</li></ul>
+      
+      <h3>Why SOLARA TV is the Best Choice for Live Channels in 2026</h3>
+      <ul><li>Massive 25,000+ live channels</li><li>Strongest coverage of Europe • UK • USA • Canada • Australia</li><li>True 4K Ultra HD quality on major sports and entertainment channels</li><li>Advanced anti-buffering technology + 99.9% uptime</li><li>Fast EPG and channel switching</li><li>Daily channel maintenance and updates</li><li>24-hour free trial available</li></ul>
+      
+      <p><strong>Ready for the ultimate live TV experience?</strong> SOLARA TV is the best IPTV for 25,000+ channels focused on UK, USA, Europe, Canada, and Australia in 2026. <strong>Start your 24-hour free trial now and enjoy buffer-free watching.</strong></p>
+    </div>
+    
+    <div class="cta-section">
+      <h2>🚀 Ready for the ultimate live TV experience?</h2>
+      <p>SOLARA TV is the best IPTV for 25,000+ channels focused on UK, USA, Europe, Canada, and Australia in 2026.</p>
+      <button class="cta-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20for%2025000%20channels','_blank')"><i class="fab fa-whatsapp"></i> Start Your Free Trial Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reseller.html">Reseller</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+    </div>
+    <div class="payment-methods">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fab fa-cc-amex"></i>
+    </div>
+    <p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026 — 25,000+ Live Channels in 4K — Rated 4.5/5 on Trustpilot</p>
+    <p>Europe • UK • USA • Canada • Australia • GCC • Worldwide</p>
+    <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
 
 <script>
-  const regionBtns=document.querySelectorAll('.region-btn');const containers=document.querySelectorAll('.channels-container');
-  regionBtns.forEach(btn=>{btn.addEventListener('click',()=>{const r=btn.dataset.region;regionBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');containers.forEach(c=>c.classList.remove('active'));const el=document.getElementById(r+'-channels');if(el)el.classList.add('active');});});
+  const regionBtns = document.querySelectorAll('.region-btn');
+  const containers = document.querySelectorAll('.channels-container');
+  
+  regionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const region = btn.dataset.region;
+      regionBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      containers.forEach(c => c.classList.remove('active'));
+      const el = document.getElementById(region + '-channels');
+      if (el) el.classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>

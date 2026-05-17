@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-// حل شامل لإزالة .html من جميع الصفحات والروابط
-(function() {
-  if (location.pathname.endsWith('.html')) {
-    history.replaceState({}, '', location.pathname.replace('.html', ''));
-  }
-  for (let link of document.querySelectorAll('a[href]')) {
-    let href = link.getAttribute('href');
-    if (href && href.includes('.html') && !href.includes('://')) {
-      link.setAttribute('href', href.replace('.html', ''));
-    }
-  }
-})();
-</script>
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
@@ -24,7 +10,7 @@
     gtag('config', 'G-5CDJ1NBM5B');
   </script>
 
-  <!-- ✅ SERVICE SCHEMA - مصلح (تم إزالة aggregateRating) -->
+  <!-- ✅ SERVICE SCHEMA (تم إزالة aggregateRating) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,23 +71,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>SOLARA TV | Best IPTV Service Provider 2026 | UK, Europe, Australia, USA, Canada</title>
   <meta name="description" content="Best IPTV Service in 2026 – Top Providers Tested & Ranked. Watch Premier League (UK), NFL & NBA (USA), AFL & NRL (Australia), World Cup 2026. 25,000+ channels, 60,000+ VOD. Free trial available.">
-  
   <meta name="keywords" content="best iptv uk usa australia canada, iptv streaming service, world cup 2026 live stream, iptv 4k ultra hd, best iptv 2026">
-  
   <link rel="canonical" href="https://www.solaratv.tv">
-  
   <meta property="og:title" content="SOLARA TV | Best IPTV Service Provider 2026">
   <meta property="og:description" content="25,000+ live channels, 60,000+ movies. Watch Premier League, NFL, NBA, AFL, World Cup 2026 in 4K. Free 24-hour trial.">
   <meta property="og:image" content="https://www.solaratv.tv/images/solara-tv-logo.jpg">
   <meta property="og:url" content="https://www.solaratv.tv">
   <meta property="og:type" content="website">
-  
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Best IPTV Service 2026 | SOLARA TV">
   <meta name="twitter:description" content="Watch World Cup 2026, Premier League, NFL, NBA in 4K. 25,000+ channels. Free trial.">
   <meta name="twitter:image" content="https://www.solaratv.tv/images/solara-tv-logo.jpg">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+  
   <style>
     :root { --bg: #0A0A0A; --accent-gold: #FFD700; --card-bg: #111111; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -118,7 +102,7 @@
     .nav-links a.worldcup-link:hover { background: linear-gradient(135deg, #FF4444, #E31837); transform: scale(1.02); }
     
     .cta-buttons { display: flex; gap: 8px; }
-    .cta-buttons button { padding: 6px 14px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem; }
+    .cta-buttons button { padding: 6px 14px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem; transition: transform 0.2s; }
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
     
@@ -433,12 +417,30 @@
   </div>
 </footer>
 
+<!-- تم نقل كل الـ JavaScript إلى هنا لتحسين INP -->
 <script>
+  // حل شامل لإزالة .html من جميع الصفحات والروابط
+  (function() {
+    if (location.pathname.endsWith('.html')) {
+      history.replaceState({}, '', location.pathname.replace('.html', ''));
+    }
+    for (let link of document.querySelectorAll('a[href]')) {
+      let href = link.getAttribute('href');
+      if (href && href.includes('.html') && !href.includes('://')) {
+        link.setAttribute('href', href.replace('.html', ''));
+      }
+    }
+  })();
+
+  // عداد تنازلي لكأس العالم 2026
   function updateCountdown() {
     const worldCupDate = new Date("June 11, 2026 00:00:00").getTime();
     const now = new Date().getTime();
     const distance = worldCupDate - now;
-    if (distance < 0) { document.getElementById("countdownTimer").innerHTML = '<div class="countdown-box"><div class="countdown-number">LIVE</div><div class="countdown-label">NOW!</div></div>'; return; }
+    if (distance < 0) { 
+      document.getElementById("countdownTimer").innerHTML = '<div class="countdown-box"><div class="countdown-number">LIVE</div><div class="countdown-label">NOW!</div></div>'; 
+      return; 
+    }
     document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24)).toString().padStart(2,'0');
     document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
     document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');

@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - يتم تحميله بتأخير -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    // تأجيل تحميل gtag حتى تكتمل الصفحة
-    setTimeout(() => {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B';
-      script.async = true;
-      document.head.appendChild(script);
-      gtag('js', new Date());
-      gtag('config', 'G-5CDJ1NBM5B');
-    }, 2000);
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
   </script>
 
-  <!-- ✅ SERVICE SCHEMA -->
+  <!-- ✅ SERVICE SCHEMA (تم إزالة aggregateRating) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,7 +54,9 @@
     "url": "https://www.solaratv.tv",
     "logo": "https://www.solaratv.tv/images/solara-tv-logo.jpg",
     "description": "Best IPTV Service Provider 2026",
-    "sameAs": ["https://www.trustpilot.com/review/solaratv"],
+    "sameAs": [
+      "https://www.trustpilot.com/review/solaratv"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.5",
@@ -83,15 +79,12 @@
   <meta property="og:url" content="https://www.solaratv.tv">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best IPTV Service 2026 | SOLARA TV">
+  <meta name="twitter:description" content="Watch World Cup 2026, Premier League, NFL, NBA in 4K. 25,000+ channels. Free trial.">
+  <meta name="twitter:image" content="https://www.solaratv.tv/images/solara-tv-logo.jpg">
   
-  <!-- Font Awesome 6 المصغر (أيقونات أساسية فقط) - حجم صغير جداً -->
-  <style>
-    /*! Font Awesome Free 6.5.1 - نسخة مصغرة يدوياً للأيقونات المستخدمة فقط */
-    @font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:900;font-display:swap;src:url("data:application/font-woff2;base64,d09GMgABAAAAAAWcAAoAAAAACvQAAAU/AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAhEIKhCqEcAuEQAABNgIkA4h2CxAABCAFiVwHIBs/ByCJskURYrZtBPsH2I0DAFXQABPp7h2LJ5Lv/38nOc8V3yEhACVVWvRYdfdHRsIPZV9k8lA2LvHlKoOXIGDKEmGOCY0R/ocIvU+WcE0YawQGHCCxIkwmBMDDgxKgFChsgRUCyCMYFkUJ5SqIK01lBTREWwxIMU2cACFu0FKwgD2c/wHOGQdPONuQL5Hn3H93rgh+T/ufOmfiL/xAIAgAVFVRFcDdnebt3WbeZ5u0SVVUReAAhgEYBpYg/uLvP08M/zAt2rbJxMnyzW7+zq3dZt9mH99mPz9p2ub2+Xm7a/AOgMswYIKHh1UvZAsTsAMYwTIsZ4UqJAEYARMBw5nM9UJRCoBLiQAc4ArAk0AgtF3rHflgXQCbVQBYBXBp3FqU8D8Bdq0gASiTkE4V0bRZwJHAHcBdC6BoF+BU2wFJoxlEDt8CdtV+gt3HfgXwqKQHkSCo79T4Y3S3MfBcCRoDC8EYILg9+qTp/5//n/8XgRZCCz1//v8k4D/v9ASGmpuPLqX4u/8BwV3I8bBbQJ4nqJ6kE8pUZJzEhm8S8m2TkM+2iXxt2yR+2y7xb/uP+M/7R3zDx3/0D39FxAEdRJDAmAKtQadU6mDJEQ8TgoJk5gxwBmIGI/7BYDAQA2E+PqIIzFgCNTqTrOBVLjKkl6hnnNijUcN1wCJ1oNKiPCsYFeO2NaIukRWu5C+3A2ed/gpzBgMWopQ86ZQASqU5UK7qE7SqtAIMglwp95d/PQDWC3kA3PZ+CIkE0A9hkTjSlV4P/4b2wU+AwAV1rgMhR+7+1bGAQe5ZqXmJ7xOo9c+h+AQ5AGPOBs1B0sS8zFQ3gPQC8HwAzDy+EzPv4YtH+BJYj44bFF+NDN/3nBj29YIYHnEesAx8J5gL78HhCWCEo9bg7lOOm0YBlhEa7p0Z6CJqW1BmFAwiV8SswtQYygg4I9sKvX/6df4A98ahIjhv0oRLQukyGFDun7MLbPw1EDGTVJMYc/+w/oh6YhZJLBJ7qjQ/2SXuzOeH+y4X9kOXhx78zG79vjrWx1okLhKR7f+7hWZzwT+oZIWBb6gH5Bp5in+DQCiYhIbj2gZchXoEFVpMizgMAhS0gAUywBE8gVh0AsuQmFb0TDmFohQMLzO9q8QZXFQZXGx9gVWAfaF/5OnmBTeV/iE3tTAkOkU+TTA6gP8A/gNoyMqJil7pSw0WQhBmJEWQJqjZBhHgx5M5EdIwiWQNFLfskhQYJE9owjRBhAyUuGx7c5NAGXLSczi0IFBKMlDqdB1IWKoVAcOoqAogBcEERRSqJZp4JcVQjjIVroCqoGa5JtVwtZJpLMcag3oNkz0lPViA+vX0NTG7ifmP8s8HnZxMCJzYg8mm6I7LqhqzJhI8GGQHwZDbTqwp2ASBXwVsEeFq2wgj4RSgVKtSMhNtVjckFbdIcyu+q6qjVqySJpqYrAARyW7mQ1xId3LSxfXliB06WhNmnM8EwmBNA9T2C6BpfqsVHvghu7Bkzq0X8oAJhIJiPwBQPDrJOBu0CEtWYaHe9sY0y1QocBErAQVb8eQ2n8yUAr7fMy+CDAC4LDgD4h3AzFgT7CzX6V8A)") format("woff2")}
-    .fas,.far,.fab{font-family:'Font Awesome 6 Free';font-weight:900;font-style:normal;-webkit-font-smoothing:antialiased;display:inline-block}
-    .fab{font-family:'Font Awesome 6 Brands';font-weight:400}
-    .fa-check-circle:before{content:"\f058"}.fa-trophy:before{content:"\f091"}.fa-satellite-dish:before{content:"\f7c0"}.fa-certificate:before{content:"\f0a3"}.fa-tv:before{content:"\f26c"}.fa-maple-leaf:before{content:"\f141"}.fa-basketball-ball:before{content:"\f434"}.fa-hockey-puck:before{content:"\f453"}.fa-baseball-ball:before{content:"\f433"}.fa-football-ball:before{content:"\f44e"}.fa-futbol:before{content:"\f1e3"}.fa-quote-left:before{content:"\f10d"}.fab.fa-whatsapp:before{content:"\f232"}.fab.fa-cc-visa:before{content:"\f1f0"}.fab.fa-cc-mastercard:before{content:"\f1f1"}.fab.fa-cc-paypal:before{content:"\f1f4"}.fab.fa-cc-amex:before{content:"\f1f3"}
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
   
   <style>
     :root { --bg: #0A0A0A; --accent-gold: #FFD700; --card-bg: #111111; }
@@ -113,8 +106,7 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
     
-    /* صورة الهيرو مع أولوية عالية لتحسين LCP */
-    .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; background-repeat: no-repeat; background-size: cover; }
+    .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
     .hero h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.3; word-break: break-word; }
     .hero h1 span { background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero p { font-size: 1rem; max-width: 750px; margin: 0 auto 20px; color: #e0e0e0; }
@@ -137,8 +129,6 @@
     .broadcaster-item span { color: #FFD700; font-weight: bold; }
     
     .movie-slider-section { padding: 50px 0; background: #0A0A0A; width: 100%; overflow: hidden; }
-    .section-title { text-align: center; font-size: 2rem; margin-bottom: 35px; color: var(--accent-gold); }
-    .section-title:after { content: ''; display: block; width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent-gold), #FFA500); margin: 12px auto 0; border-radius: 2px; }
     .slider-container { position: relative; overflow: hidden; margin: 20px 0; width: 100%; }
     .movie-track { display: flex; animation: scrollMovies 40s linear infinite; gap: 20px; width: max-content; }
     .movie-track:hover { animation-play-state: paused; }
@@ -276,7 +266,7 @@
 <!-- Movie Slider -->
 <section class="movie-slider-section">
   <div class="container">
-    <h2 class="section-title">🎬 Exclusive Movies 2026</h2>
+    <h2 class="section-title" style="color:#FFD700;">🎬 Exclusive Movies 2026</h2>
     <div class="slider-container">
       <div class="movie-track">
         <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Avengers: Doomsday</h4></div></div>
@@ -293,7 +283,7 @@
 <!-- PRICING SECTION -->
 <section id="pricing" style="background: var(--card-bg); padding: 60px 0;">
   <div class="container">
-    <h2 class="section-title">💰 Choose Your Plan (For Customers)</h2>
+    <h2 class="section-title" style="color:#FFD700;">💰 Choose Your Plan (For Customers)</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="plan-name">Monthly Plan</div>
@@ -334,7 +324,7 @@
 <!-- BEST IPTV FOR USA & CANADA SECTION -->
 <section class="region-seo-section">
   <div class="container">
-    <h2 class="section-title">🇺🇸🇨🇦 Best IPTV for USA & Canada – NFL, NBA, NHL, MLB & More</h2>
+    <h2 class="section-title" style="color:#FFD700;">🇺🇸🇨🇦 Best IPTV for USA & Canada – NFL, NBA, NHL, MLB & More</h2>
     <p class="section-desc">Looking for the <strong>best IPTV service in the United States or Canada</strong>? SOLARA TV is the #1 rated IPTV provider for North American customers. Watch every major sports league including <strong>NFL, NBA, NHL, MLB, MLS, NCAA</strong>, and all premium entertainment channels in <strong>4K Ultra HD quality</strong>. Our servers in <strong>New York, Los Angeles, Chicago, Toronto, and Vancouver</strong> ensure zero buffering.</p>
     <div class="region-seo-grid">
       <div class="region-seo-card"><i class="fas fa-football-ball"></i><h3>🇺🇸 NFL – All Games & Super Bowl</h3><p>Watch every NFL game live on ESPN, FOX, NBC, CBS, NFL Network. Includes RedZone, playoffs, and Super Bowl in 4K.</p><ul><li>All 32 teams – Every game, every week</li><li>No blackouts – Watch your local team anywhere</li><li>English & Spanish commentary available</li></ul></div>
@@ -354,7 +344,7 @@
 <!-- BEST IPTV FOR AUSTRALIA SECTION -->
 <section class="region-seo-section">
   <div class="container">
-    <h2 class="section-title">🇦🇺 Best IPTV for Australia – AFL, NRL, Cricket & More</h2>
+    <h2 class="section-title" style="color:#FFD700;">🇦🇺 Best IPTV for Australia – AFL, NRL, Cricket & More</h2>
     <p class="section-desc">Searching for the <strong>best IPTV subscription in Australia</strong>? SOLARA TV is trusted by thousands of Australian customers. Watch <strong>AFL, NRL, Cricket (BBL & Internationals), A-League, NBL, and all major sports</strong> in Ultra HD. Our dedicated servers in <strong>Sydney and Melbourne</strong> guarantee zero buffering.</p>
     <div class="region-seo-grid">
       <div class="region-seo-card"><i class="fas fa-football-ball"></i><h3>🏉 AFL – Australian Football League</h3><p>All AFL matches live on Fox Footy, Channel 7. Every game including finals and Grand Final in Ultra HD.</p><ul><li>All 18 teams – Every match, every round</li><li>AFL 360, On the Couch, Bounce</li><li>Full match replays available</li></ul></div>
@@ -374,7 +364,7 @@
 <!-- BEST IPTV FOR EUROPEAN MARKET SECTION -->
 <section class="region-seo-section">
   <div class="container">
-    <h2 class="section-title">🇪🇺 Best IPTV for Europe – Premier League, Bundesliga, La Liga & More</h2>
+    <h2 class="section-title" style="color:#FFD700;">🇪🇺 Best IPTV for Europe – Premier League, Bundesliga, La Liga & More</h2>
     <p class="section-desc">SOLARA TV is the <strong>#1 rated IPTV service provider for UK, Germany, France, Italy, Spain, Netherlands, Belgium, Switzerland, Scandinavia, and all EU countries</strong>. Get access to 25,000+ live channels including all major sports leagues in Ultra HD quality.</p>
     <div class="region-seo-grid">
       <div class="region-seo-card"><i class="fas fa-futbol"></i><h3>🇬🇧 United Kingdom – Premier League</h3><p>All 380 Premier League matches on Sky Sports, BT Sport, BBC, ITV in Ultra HD. Includes FA Cup, Carabao Cup, Scottish Premiership.</p><ul><li>All 20 Premier League clubs</li><li>BBC iPlayer, ITVX, Sky Atlantic, Channel 4</li><li>Perfect for UK expats worldwide</li></ul></div>
@@ -394,7 +384,7 @@
 <!-- RESELLER PROGRAM -->
 <section id="reseller" style="background: var(--bg); padding: 60px 0;">
   <div class="container">
-    <h2 class="section-title">⚡ SOLARA TV Reseller Program 2026</h2>
+    <h2 class="section-title" style="color:#FFD700;">⚡ SOLARA TV Reseller Program 2026</h2>
     <p style="text-align: center; margin-bottom: 30px; color: #ccc;">Premium IPTV wholesale credits – 25,000+ live channels, 60,000+ VOD. White-label dashboard, 24/7 support & high margins up to 70%.</p>
     <div class="reseller-pricing-grid">
       <div class="reseller-pricing-card"><div class="plan-name">Starter</div><div class="price">60 Credits</div><div class="reseller-price">€135</div><div class="per-credit">€2.25/credit</div><button class="reseller-btn" onclick="window.open('https://wa.me/212600160196?text=Starter%20Reseller','_blank')">Get Started</button></div>
@@ -427,6 +417,7 @@
   </div>
 </footer>
 
+<!-- تم نقل كل الـ JavaScript إلى هنا لتحسين INP -->
 <script>
   // حل شامل لإزالة .html من جميع الصفحات والروابط
   (function() {
@@ -450,14 +441,10 @@
       document.getElementById("countdownTimer").innerHTML = '<div class="countdown-box"><div class="countdown-number">LIVE</div><div class="countdown-label">NOW!</div></div>'; 
       return; 
     }
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-    if (daysEl) daysEl.innerHTML = Math.floor(distance / (1000*60*60*24)).toString().padStart(2,'0');
-    if (hoursEl) hoursEl.innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
-    if (minutesEl) minutesEl.innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');
-    if (secondsEl) secondsEl.innerHTML = Math.floor((distance % (1000*60)) / 1000).toString().padStart(2,'0');
+    document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24)).toString().padStart(2,'0');
+    document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
+    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');
+    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60)) / 1000).toString().padStart(2,'0');
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- إزالة .html من الرابط فوراً قبل أي شيء -->
+  <script>
+    if (location.pathname.endsWith('.html')) {
+      location.replace(location.pathname.replace('.html', '') + location.search + location.hash);
+    }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
   <script>
@@ -209,9 +216,9 @@
 
 <header>
   <div class="container nav">
-    <a href="/" class="logo">SOLARA TV</a>
+    <a href="index" class="logo">SOLARA TV</a>
     <div class="nav-links">
-      <a href="/" class="active">Home</a>
+      <a href="index" class="active">Home</a>
       <a href="movies">Movies</a>
       <a href="channels">Channels</a>
       <a href="watch-fifa-world-cup-2026-online" class="worldcup-link">🌍 World Cup 2026</a>
@@ -441,15 +448,12 @@
   </div>
 </section>
 
-<!-- ============================================ -->
-<!-- RESELLER PROGRAM SECTION - مع SEO موسع -->
-<!-- ============================================ -->
+<!-- RESELLER PROGRAM SECTION -->
 <section id="reseller" style="background: var(--bg); padding: 60px 0;">
   <div class="container">
     <h2 class="section-title" style="color:#FFD700;">⚡ SOLARA TV Reseller Program 2026</h2>
     <p style="text-align: center; margin-bottom: 20px; color: #ccc; max-width: 800px; margin-left: auto; margin-right: auto;">Premium IPTV wholesale credits – 25,000+ live channels, 60,000+ VOD. White-label dashboard, 24/7 support & high margins up to 70%.</p>
     
-    <!-- Reseller Pricing Cards -->
     <div class="reseller-pricing-grid">
       <div class="reseller-pricing-card"><div class="plan-name">Starter</div><div class="price">60 Credits</div><div class="reseller-price">€135</div><div class="per-credit">€2.25/credit</div><button class="reseller-btn" onclick="window.open('https://wa.me/212600160196?text=Starter%20Reseller','_blank')">Get Started</button></div>
       <div class="reseller-pricing-card popular"><div class="popular-badge">🔥 MOST POPULAR</div><div class="plan-name">Professional</div><div class="price">120 Credits</div><div class="reseller-price">€215</div><div class="per-credit">€1.79/credit</div><button class="reseller-btn" onclick="window.open('https://wa.me/212600160196?text=Professional%20Reseller','_blank')">Get Started</button></div>
@@ -457,10 +461,8 @@
       <div class="reseller-pricing-card"><div class="popular-badge">🏆 BEST VALUE</div><div class="plan-name">Ultimate</div><div class="price">240 Credits</div><div class="reseller-price">€420</div><div class="per-credit">€1.75/credit</div><button class="reseller-btn" onclick="window.open('https://wa.me/212600160196?text=Ultimate%20Reseller','_blank')">Get Started</button></div>
     </div>
     
-    <!-- Testimonial -->
     <div class="testimonial-reseller"><i class="fas fa-quote-left"></i><p>"The SOLARA TV reseller panel is incredibly intuitive. My customers love the quality and zero buffering. Support replies in Arabic within minutes – highly recommended!"</p><p style="color:#FFD700; font-size:1.2rem;">★★★★★</p><p>– Ahmed Al Mansouri, UAE</p></div>
     
-    <!-- SEO Content for Reseller -->
     <div style="background: #0A0A0A; border-radius: 20px; padding: 35px; margin: 40px 0; border: 1px solid rgba(255,215,0,0.2);">
       <h3 style="color: #FFD700; font-size: 1.4rem; margin-bottom: 20px; text-align: center;">🚀 Why Become a SOLARA TV Reseller?</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px;">
@@ -473,7 +475,6 @@
       </div>
     </div>
     
-    <!-- Reseller Benefits List -->
     <div style="background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 35px; margin: 30px 0; border-left: 5px solid #FFD700;">
       <h3 style="color: #FFD700; font-size: 1.3rem; margin-bottom: 20px;">📋 What You Get as a SOLARA TV Reseller</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
@@ -498,12 +499,10 @@
       </div>
     </div>
     
-    <!-- SEO Keywords Paragraph -->
     <div style="background: rgba(255,215,0,0.05); border-radius: 20px; padding: 30px; margin: 30px 0; text-align: center;">
       <p style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">Looking for the <strong>best IPTV reseller program in 2026</strong>? SOLARA TV offers the <strong>most profitable IPTV wholesale credits</strong> with <strong>high margins up to 70%</strong>. Whether you want to <strong>become an IPTV reseller in UK, USA, Canada, Australia, Europe, or GCC</strong>, our program gives you everything you need. <strong>White-label dashboard, 24/7 support, and instant activation</strong>. Join thousands of successful resellers worldwide. <strong>Start your IPTV reseller business today</strong> with SOLARA TV – the <strong>#1 rated IPTV service provider 2026</strong>.</p>
     </div>
     
-    <!-- Final CTA -->
     <div class="cta-reseller">
       <h2 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 10px;">📌 Start Your IPTV Reseller Journey Today</h2>
       <p style="margin-bottom: 20px; color: #ccc;">Join SOLARA TV reseller program. Get instant access to premium credits, white-label dashboard, and dedicated support.</p>
@@ -523,7 +522,7 @@
 <footer>
   <div class="container">
     <div class="footer-links">
-      <a href="/">Home</a> <a href="movies">Movies</a> <a href="channels">Channels</a> <a href="pricing">Pricing</a> <a href="reseller">Reseller</a> <a href="blog">Blog</a> <a href="faq">FAQ</a> <a href="contact">Contact</a> <a href="about">About</a> <a href="terms">Terms</a> <a href="privacy">Privacy</a> <a href="refund">Refund</a>
+      <a href="index">Home</a> <a href="movies">Movies</a> <a href="channels">Channels</a> <a href="pricing">Pricing</a> <a href="reseller">Reseller</a> <a href="blog">Blog</a> <a href="faq">FAQ</a> <a href="contact">Contact</a> <a href="about">About</a> <a href="terms">Terms</a> <a href="privacy">Privacy</a> <a href="refund">Refund</a>
     </div>
     <div class="payment-methods"><i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i></div>
     <p style="margin:20px 0;">© 2026 SOLARA TV — Best IPTV Service Provider 2026 — Rated 4.5/5 on Trustpilot</p>

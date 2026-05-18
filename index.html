@@ -126,6 +126,17 @@
     .broadcaster-item { background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.3); font-size: 0.8rem; }
     .broadcaster-item span { color: #FFD700; font-weight: bold; }
     
+    /* ========== NEW: REGION QUICK LINKS (UK & AUSTRALIA) ========== */
+    .region-quick-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 30px 0 20px; }
+    .region-card-link { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 20px 35px; text-align: center; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 15px; }
+    .region-card-link:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+    .region-card-link .flag-icon { font-size: 2.5rem; }
+    .region-card-link .region-info { text-align: left; }
+    .region-card-link .region-info h3 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 5px; }
+    .region-card-link .region-info p { color: #aaa; font-size: 0.7rem; }
+    .region-card-link i { color: var(--accent-gold); font-size: 1.2rem; }
+    @media (max-width: 768px) { .region-card-link { padding: 15px 25px; } .region-card-link .flag-icon { font-size: 1.8rem; } .region-card-link .region-info h3 { font-size: 0.9rem; } }
+    
     .movie-slider-section { padding: 50px 0; background: #0A0A0A; width: 100%; overflow: hidden; }
     .slider-container { position: relative; overflow: hidden; margin: 20px 0; width: 100%; }
     .movie-track { display: flex; animation: scrollMovies 40s linear infinite; gap: 20px; width: max-content; }
@@ -258,6 +269,28 @@
       <div class="broadcaster-item"><span>🇩🇪 Germany</span> ARD / ZDF 4K</div>
     </div>
     <p style="font-size: 0.75rem; margin-top: 10px; color: #FFD700;"><i class="fas fa-check-circle"></i> Subscribe now and watch ALL World Cup 2026 matches LIVE with SOLARA TV in 4K Ultra HD!</p>
+  </div>
+</div>
+
+<!-- ========== NEW: REGION QUICK LINKS (UK & AUSTRALIA) ========== -->
+<div class="container">
+  <div class="region-quick-links">
+    <a href="uk-best-iptv" class="region-card-link">
+      <span class="flag-icon">🇬🇧</span>
+      <div class="region-info">
+        <h3>Best UK IPTV</h3>
+        <p>Premier League, Sky Sports, BBC, ITV</p>
+      </div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+    <a href="australia-best-iptv" class="region-card-link">
+      <span class="flag-icon">🇦🇺</span>
+      <div class="region-info">
+        <h3>Best Australia IPTV</h3>
+        <p>AFL, NRL, Cricket, Kayo Sports</p>
+      </div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
   </div>
 </div>
 
@@ -419,7 +452,7 @@
     <!-- Testimonial -->
     <div class="testimonial-reseller"><i class="fas fa-quote-left"></i><p>"The SOLARA TV reseller panel is incredibly intuitive. My customers love the quality and zero buffering. Support replies in Arabic within minutes – highly recommended!"</p><p style="color:#FFD700; font-size:1.2rem;">★★★★★</p><p>– Ahmed Al Mansouri, UAE</p></div>
     
-    <!-- ========== NEW SEO CONTENT FOR RESELLER ========== -->
+    <!-- SEO Content for Reseller -->
     <div style="background: #0A0A0A; border-radius: 20px; padding: 35px; margin: 40px 0; border: 1px solid rgba(255,215,0,0.2);">
       <h3 style="color: #FFD700; font-size: 1.4rem; margin-bottom: 20px; text-align: center;">🚀 Why Become a SOLARA TV Reseller?</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px;">
@@ -432,7 +465,7 @@
       </div>
     </div>
     
-    <!-- Reseller Benefits List (SEO Rich) -->
+    <!-- Reseller Benefits List -->
     <div style="background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 35px; margin: 30px 0; border-left: 5px solid #FFD700;">
       <h3 style="color: #FFD700; font-size: 1.3rem; margin-bottom: 20px;">📋 What You Get as a SOLARA TV Reseller</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">

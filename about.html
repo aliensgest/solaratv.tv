@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -18,7 +15,6 @@
 })();
 </script>
   <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -35,7 +31,6 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.solaratv.tv/about">
     
-    <!-- ✅ Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -45,29 +40,13 @@
       "logo": "https://i.ibb.co/1G1CJ65v/1000098885.jpg",
       "description": "Premium IPTV Service Provider Since 2020",
       "foundingDate": "2020",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "MA"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+212600160196",
-        "contactType": "customer service",
-        "availableLanguage": ["English", "Arabic", "French", "German", "Dutch"]
-      },
-      "sameAs": [
-        "https://www.trustpilot.com/review/solaratv"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "ratingCount": "18950",
-        "bestRating": "5"
-      }
+      "address": {"@type": "PostalAddress", "addressCountry": "MA"},
+      "contactPoint": {"@type": "ContactPoint", "telephone": "+212600160196", "contactType": "customer service", "availableLanguage": ["English", "Arabic", "French", "German", "Dutch"]},
+      "sameAs": ["https://www.trustpilot.com/review/solaratv"],
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.5", "ratingCount": "18950", "bestRating": "5"}
     }
     </script>
     
-    <!-- ✅ AboutPage Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,10 +54,7 @@
       "name": "About SOLARA TV",
       "description": "Learn about SOLARA TV - Premium IPTV service provider serving customers worldwide since 2020.",
       "url": "https://www.solaratv.tv/about",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "SOLARA TV"
-      }
+      "mainEntity": {"@type": "Organization", "name": "SOLARA TV"}
     }
     </script>
     
@@ -88,7 +64,17 @@
       header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem;transition:transform .2s}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
       .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://i.ibb.co/1G1CJ65v/1000098885.jpg') center/cover;padding:50px 0 45px;background-size:cover;background-position:center}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
       section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
-      .story-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story-text h2{color:var(--accent-gold);font-size:1.6rem;margin-bottom:15px}.story-text p{color:#ccc;font-size:.9rem;margin-bottom:12px;line-height:1.7}.story-image{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:30px;text-align:center}.story-image i{font-size:4rem;color:var(--accent-gold);margin-bottom:15px;display:block}.story-image p{color:var(--accent-gold);font-size:1.1rem;font-weight:700}
+      
+      /* ====== تعديل قسم القصة ليتناسب مع الصورة ====== */
+      .story-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+      .story-text h2{color:var(--accent-gold);font-size:1.6rem;margin-bottom:15px}
+      .story-text p{color:#ccc;font-size:.9rem;margin-bottom:12px;line-height:1.7}
+      .story-image{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:0;text-align:center;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:280px}
+      .story-image img{width:100%;height:200px;object-fit:cover;object-position:center}
+      .story-image .since-text{padding:15px}
+      .story-image p{color:var(--accent-gold);font-size:1.1rem;font-weight:700;margin:0}
+      /* ========================================== */
+      
       .stats-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:30px 0;background:var(--card-bg);border-radius:20px;margin:30px 0;border:1px solid rgba(255,215,0,.2)}.stat{text-align:center;min-width:120px}.stat-num{font-size:1.8rem;font-weight:800;color:var(--accent-gold)}.stat-lbl{font-size:.75rem;color:#aaa}
       .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.value-card{background:linear-gradient(135deg,#111,#0A0A0A);padding:25px;border-radius:20px;text-align:center;border:1px solid rgba(255,215,0,.3);transition:all .3s}.value-card:hover{transform:translateY(-5px);border-color:var(--accent-gold)}.value-card i{font-size:2rem;color:var(--accent-gold);margin-bottom:12px;display:block}.value-card h4{font-size:1rem;margin-bottom:8px;color:var(--accent-gold)}.value-card p{color:#aaa;font-size:.8rem}
       .mission-box{background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid var(--accent-gold);border-radius:20px;padding:35px;text-align:center;max-width:800px;margin:0 auto}.mission-box i{font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block}.mission-box h3{color:var(--accent-gold);margin-bottom:12px;font-size:1.3rem}.mission-box p{color:#ccc;font-size:.9rem;line-height:1.7}
@@ -107,8 +93,19 @@
 
 <section><div class="container">
   <div class="story-section">
-    <div class="story-text"><h2>📖 Our Story</h2><p>Founded in <strong>2020</strong>, SOLARA TV was born from a simple vision: to provide the <strong>best IPTV experience</strong> at an affordable price. What started as a small service for European viewers has grown into a global platform serving <strong>satisfied customers</strong> across multiple continents.</p><p>Our team of dedicated engineers and support specialists work around the clock to ensure you get the best streaming experience possible — with <strong>4K Ultra HD quality</strong>, <strong>zero buffering</strong>, and <strong>24/7 multilingual support</strong> in English, Arabic, French, German, and Dutch.</p><p>Today, SOLARA TV is recognized as one of the <strong>#1 rated IPTV service providers in 2026</strong>, trusted by customers worldwide for our reliability, quality, and exceptional customer service.</p></div>
-    <div class="story-image"><i class="fas fa-satellite-dish"></i><p>Since 2020</p><p style="color:#aaa;font-size:.8rem;margin-top:8px">Delivering premium IPTV worldwide</p></div>
+    <div class="story-text">
+      <h2>📖 Our Story</h2>
+      <p>Founded in <strong>2020</strong>, SOLARA TV was born from a simple vision: to provide the <strong>best IPTV experience</strong> at an affordable price. What started as a small service for European viewers has grown into a global platform serving <strong>satisfied customers</strong> across multiple continents.</p>
+      <p>Our team of dedicated engineers and support specialists work around the clock to ensure you get the best streaming experience possible — with <strong>4K Ultra HD quality</strong>, <strong>zero buffering</strong>, and <strong>24/7 multilingual support</strong> in English, Arabic, French, German, and Dutch.</p>
+      <p>Today, SOLARA TV is recognized as one of the <strong>#1 rated IPTV service providers in 2026</strong>, trusted by customers worldwide for our reliability, quality, and exceptional customer service.</p>
+    </div>
+    <div class="story-image">
+      <img src="https://i.ibb.co/1G1CJ65v/1000098885.jpg" alt="SOLARA TV Premium IPTV Service">
+      <div class="since-text">
+        <p>Since 2020</p>
+        <p style="color:#aaa; font-size:0.8rem; margin-top:5px;">Delivering premium IPTV worldwide</p>
+      </div>
+    </div>
   </div>
   
   <div class="stats-row">

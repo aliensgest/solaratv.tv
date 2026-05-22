@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- إعادة توجيه index.html و index إلى / -->
+  <script>
+    if (window.location.pathname === '/index.html' || window.location.pathname === '/index') {
+      window.location.replace('/');
+    }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
   <script>

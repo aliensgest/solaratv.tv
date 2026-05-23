@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -41,7 +38,7 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   
-  <!-- Schema.org للأسعار -->
+  <!-- Schema.org للأسعار - بدون تقييمات -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,12 +47,6 @@
     "description": "Premium IPTV Service with 25,000+ channels and 60,000+ VOD",
     "image": "https://i.ibb.co/1G1CJ65v/1000098885.jpg",
     "brand": { "@type": "Brand", "name": "SOLARA TV" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "ratingCount": "18950",
-      "bestRating": "5"
-    },
     "offers": [
       { 
         "@type": "Offer", 
@@ -267,7 +258,7 @@
         <button class="plan-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%206%20month%20plan%20at%20€55','_blank')">Choose Semi-Annual Plan</button>
       </div>
       
-      <!-- Annual Plan - PRICE UPDATED TO €100 -->
+      <!-- Annual Plan -->
       <div class="pricing-card">
         <div class="popular-badge">🏆 BEST OFFER</div>
         <div class="plan-name">Annual Plan</div>
@@ -332,13 +323,13 @@
 <section class="seo-section">
   <div class="container">
     <h2 class="section-title">🌍 Best IPTV Service by Region – 2026</h2>
-    <p style="text-align: center; margin-bottom: 30px; color: #ccc; max-width: 900px; margin-left: auto; margin-right: auto;">SOLARA TV is the #1 rated IPTV provider for customers worldwide. Choose your region and enjoy the best local and international content in Ultra HD quality.</p>
+    <p style="text-align: center; margin-bottom: 30px; color: #ccc; max-width: 900px; margin-left: auto; margin-right: auto;">SOLARA TV is a trusted IPTV provider for customers worldwide. Choose your region and enjoy the best local and international content in Ultra HD quality.</p>
     
     <div class="seo-grid">
       <!-- UK & Europe -->
       <div class="seo-card">
         <h3><i class="fas fa-football-ball"></i> 🇬🇧 Best IPTV for UK & Europe</h3>
-        <p>Looking for the <strong>best IPTV subscription in the United Kingdom</strong>? SOLARA TV offers all Premier League 2025/26 matches live on <strong>Sky Sports, BT Sport, BBC, and ITV</strong>. All 380 games per season in stunning Ultra HD quality.</p>
+        <p>Looking for a <strong>reliable IPTV subscription in the United Kingdom</strong>? SOLARA TV offers all Premier League 2025/26 matches live on <strong>Sky Sports, BT Sport, BBC, and ITV</strong>. All 380 games per season in stunning Ultra HD quality.</p>
         <ul>
           <li><strong>Premier League</strong> – Every match live, no blackouts</li>
           <li><strong>Champions League & Europa League</strong> – All games included</li>
@@ -346,13 +337,13 @@
           <li><strong>Scottish Premiership</strong> – Celtic, Rangers, and more</li>
           <li><strong>UK Channels</strong> – BBC iPlayer, ITVX, Channel 4, Sky Atlantic, and all UK entertainment</li>
         </ul>
-        <p>Also includes <strong>Bundesliga (Germany), La Liga (Spain), Serie A (Italy), Ligue 1 (France), Eredivisie (Netherlands)</strong>, and all European sports. <strong>Best IPTV for UK expats</strong> living abroad who miss British TV.</p>
+        <p>Also includes <strong>Bundesliga (Germany), La Liga (Spain), Serie A (Italy), Ligue 1 (France), Eredivisie (Netherlands)</strong>, and all European sports. <strong>Great IPTV for UK expats</strong> living abroad who miss British TV.</p>
       </div>
       
       <!-- USA -->
       <div class="seo-card">
         <h3><i class="fas fa-football-ball"></i> 🇺🇸 Best IPTV for USA – NFL, NBA, MLB, NHL</h3>
-        <p>Are you searching for the <strong>best IPTV service in the United States</strong>? SOLARA TV is your ultimate solution for American sports and entertainment. Watch every major league live in 4K.</p>
+        <p>Are you searching for a <strong>stable IPTV service in the United States</strong>? SOLARA TV is your ultimate solution for American sports and entertainment. Watch every major league live in 4K.</p>
         <ul>
           <li><strong>NFL</strong> – All games including Sunday Night Football, Monday Night Football, Thursday Night Football, playoffs, and Super Bowl. <strong>RedZone channel included</strong>.</li>
           <li><strong>NBA</strong> – Every game live on ESPN, ABC, TNT, NBA TV. Includes regular season, playoffs, and NBA Finals.</li>
@@ -361,13 +352,13 @@
           <li><strong>NCAA College Sports</strong> – College Football, March Madness, bowl games, and College Football Playoff.</li>
           <li><strong>MLS & Soccer</strong> – Major League Soccer, Liga MX, and World Cup 2026.</li>
         </ul>
-        <p><strong>All Regional Sports Networks (RSNs) included:</strong> YES Network, NESN, MSG, NBC Sports, Bally Sports, and more. <strong>Best IPTV for cord-cutters in USA</strong> looking to replace expensive cable.</p>
+        <p><strong>All Regional Sports Networks (RSNs) included:</strong> YES Network, NESN, MSG, NBC Sports, Bally Sports, and more. <strong>Reliable IPTV for cord-cutters in USA</strong> looking to replace expensive cable.</p>
       </div>
       
       <!-- Australia -->
       <div class="seo-card">
         <h3><i class="fas fa-football-ball"></i> 🇦🇺 Best IPTV for Australia – AFL, NRL, Cricket</h3>
-        <p>Searching for the <strong>best IPTV subscription in Australia</strong>? SOLARA TV is trusted by thousands of Australian customers for sports and local content. Optimized servers in <strong>Sydney and Melbourne</strong> for zero buffering.</p>
+        <p>Searching for a <strong>trusted IPTV subscription in Australia</strong>? SOLARA TV is used by thousands of Australian customers for sports and local content. Optimized servers in <strong>Sydney and Melbourne</strong> for zero buffering.</p>
         <ul>
           <li><strong>AFL – Australian Football League</strong> – Every match live on Fox Footy and Channel 7, including finals and Grand Final in Ultra HD.</li>
           <li><strong>NRL – National Rugby League</strong> – All matches including State of Origin series and Grand Final in 4K.</li>
@@ -376,13 +367,13 @@
           <li><strong>NBL & NBA</strong> – National Basketball League and all NBA games.</li>
           <li><strong>Australian TV Channels</strong> – Channel 7, 9, 10, ABC, SBS, Fox Sports, Kayo Sports, Optus Sport, beIN Sports Australia.</li>
         </ul>
-        <p><strong>Best IPTV for Australian expats</strong> living overseas who miss local content. Ultra-low latency under 50ms.</p>
+        <p><strong>Great IPTV for Australian expats</strong> living overseas who miss local content. Ultra-low latency under 50ms.</p>
       </div>
       
       <!-- Canada -->
       <div class="seo-card">
         <h3><i class="fas fa-hockey-puck"></i> 🇨🇦 Best IPTV for Canada – NHL, CFL, TSN, Sportsnet</h3>
-        <p>Looking for the <strong>best IPTV service in Canada</strong>? SOLARA TV offers comprehensive coverage of Canadian sports and entertainment. Optimized servers in <strong>Toronto, Vancouver, and Montreal</strong>.</p>
+        <p>Looking for a <strong>dependable IPTV service in Canada</strong>? SOLARA TV offers comprehensive coverage of Canadian sports and entertainment. Optimized servers in <strong>Toronto, Vancouver, and Montreal</strong>.</p>
         <ul>
           <li><strong>NHL – Hockey Night in Canada</strong> – All games live on Sportsnet, TSN, CBC. Includes playoffs and Stanley Cup Finals in 4K.</li>
           <li><strong>CFL – Canadian Football League</strong> – Every game including Grey Cup.</li>
@@ -391,7 +382,7 @@
           <li><strong>Canadian Premier League & MLS</strong> – All soccer matches live.</li>
           <li><strong>Canadian TV Channels</strong> – CBC, CTV, Global, CityTV, TSN1-5, Sportsnet, RDS (French), TVA Sports, Crave-style content.</li>
         </ul>
-        <p><strong>French-language channels for Quebec users</strong> included. <strong>Best IPTV for Canadian customers</strong> seeking a reliable cable alternative with all local content.</p>
+        <p><strong>French-language channels for Quebec users</strong> included. <strong>Reliable IPTV for Canadian customers</strong> seeking a stable cable alternative with all local content.</p>
       </div>
     </div>
     
@@ -414,12 +405,12 @@
       </div>
     </div>
     
-    <!-- Long-form SEO Content -->
+    <!-- Long-form SEO Content - بدون أي تقييمات -->
     <div style="margin-top: 50px; background: rgba(255,215,0,0.05); padding: 35px; border-radius: 20px;">
-      <h3 style="color: #FFD700; text-align: center; margin-bottom: 25px;">Why SOLARA TV is the Best IPTV Service Provider in 2026</h3>
-      <p style="color: #ccc; line-height: 1.8; margin-bottom: 15px;">With a <strong>4.5/5 TrustScore from verified customer reviews</strong>, SOLARA TV has established itself as the <strong>most trusted IPTV service provider in 2026</strong>. Whether you need <strong>IPTV for UK Premier League</strong>, <strong>IPTV for USA NFL and NBA</strong>, <strong>IPTV for Australia AFL and NRL</strong>, or <strong>IPTV for Canada NHL and CFL</strong>, we have you covered with <strong>25,000+ live channels and 60,000+ movies and series</strong> in 4K Ultra HD quality.</p>
-      <p style="color: #ccc; line-height: 1.8; margin-bottom: 15px;">Our service includes <strong>free trial</strong> so you can test our quality before committing. All plans come with <strong>24/7 multilingual customer support</strong> in English, Arabic, French, German, and Dutch. We accept all major payment methods including Visa, Mastercard, PayPal, and cryptocurrency.</p>
-      <p style="color: #ccc; line-height: 1.8;"><strong>Don't miss World Cup 2026!</strong> Subscribe to SOLARA TV today and watch every match live on beIN SPORTS, FOX, BBC, ITV, SBS, Optus Sport, CTV, and TSN. <strong>Get your free trial now</strong> and experience the best IPTV service in the world.</p>
+      <h3 style="color: #FFD700; text-align: center; margin-bottom: 25px;">Why SOLARA TV is a Trusted IPTV Service Provider in 2026</h3>
+      <p style="color: #ccc; line-height: 1.8; margin-bottom: 15px;">SOLARA TV has established itself as a <strong>reliable and stable IPTV service provider in 2026</strong>. Whether you need <strong>IPTV for UK Premier League</strong>, <strong>IPTV for USA NFL and NBA</strong>, <strong>IPTV for Australia AFL and NRL</strong>, or <strong>IPTV for Canada NHL and CFL</strong>, we have you covered with <strong>25,000+ live channels and 60,000+ movies and series</strong> in 4K Ultra HD quality.</p>
+      <p style="color: #ccc; line-height: 1.8; margin-bottom: 15px;">Our service includes a <strong>free trial</strong> so you can test our quality before committing. All plans come with <strong>24/7 multilingual customer support</strong> in English, Arabic, French, German, and Dutch. We accept all major payment methods including Visa, Mastercard, PayPal, and cryptocurrency.</p>
+      <p style="color: #ccc; line-height: 1.8;"><strong>Don't miss World Cup 2026!</strong> Subscribe to SOLARA TV today and watch every match live on beIN SPORTS, FOX, BBC, ITV, SBS, Optus Sport, CTV, and TSN. <strong>Get your free trial now</strong> and experience a dependable IPTV service.</p>
     </div>
     
     <div style="text-align: center; margin-top: 40px;">
@@ -454,7 +445,7 @@
       <i class="fab fa-cc-amex"></i>
       <i class="fab fa-bitcoin"></i>
     </div>
-    <p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026 — #1 Rated 4.5/5 on Trustpilot</p>
+    <p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026 — 25,000+ Live Channels in 4K</p>
     <p style="font-size: 0.7rem; color: #666;">UK • Europe • USA • Canada • Australia • GCC • Worldwide</p>
     <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
   </div>

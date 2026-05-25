@@ -994,38 +994,34 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
 .text-center { text-align: center; }
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }
-.hidden { display: none !important; }
 
-/* جعل الموقع يظهر مصغرًا (بعيدًا) على الهاتف مع إمكانية التكبير */
+/* حل مشكلة التقريب التلقائي على الهواتف */
+html, body {
+    overflow-x: auto !important;
+    touch-action: pan-y pinch-zoom !important;
+}
+
+/* منع المتصفح من التقريب التلقائي */
+body {
+    min-width: 100% !important;
+    width: auto !important;
+}
+
+/* السماح بالتكبير والتصغير على جميع العناصر */
+* {
+    touch-action: pan-y pinch-zoom !important;
+}
+
+/* للهواتف فقط */
 @media (max-width: 768px) {
-    /* جعل الجسم يأخذ عرض الكمبيوتر */
     body {
-        min-width: 1200px !important;
-        width: auto !important;
+        min-width: 100% !important;
     }
     
-    /* جعل جميع الحاويات تأخذ عرض الكمبيوتر */
-    .container, 
-    .nav, 
-    .hero, 
-    section, 
-    footer,
-    .pricing-grid,
-    .offers-grid,
-    .contact-grid,
-    .seo-grid {
-        min-width: 1100px !important;
-        width: auto !important;
-    }
-    
-    /* إصلاح أي عناصر عريضة */
-    table {
-        min-width: 800px !important;
-        width: auto !important;
-    }
-    
-    /* السماح بالتمرير الأفقي إذا لزم الأمر */
-    html, body {
-        overflow-x: auto !important;
+    /* منع أي عنصر من أن يكون أكبر من الشاشة */
+    img, video, iframe, table {
+        max-width: 100% !important;
+        height: auto !important;
     }
 }
+.hidden { display: none !important; }

@@ -1,12 +1,12 @@
 /* =============================================
    SOLARA TV - Main Stylesheet
-   Colors: #FEF64B (Yellow) | #8F4F1F (Brown) | #010103 (Black) | #FFFFFF (White)
+   Colors: #FEF64B (Yellow) | #8F4F1B (Brown) | #010103 (Black) | #FFFFFF (White)
    Copyright (c) 2026 solaratv.tv - All Rights Reserved
    ============================================= */
 
 :root {
   --primary: #FEF64B;
-  --secondary: #8F4F1F;
+  --secondary: #8F4F1B;
   --bg: #010103;
   --bg-card: #0D0D0F;
   --bg-card-hover: #141418;
@@ -994,8 +994,14 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
 .text-center { text-align: center; }
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }
+.hidden { display: none !important; }
 
-/* حل مشكلة التقريب التلقائي على الهواتف */
+/* ==================================================
+   إصلاح مشكلة التكبير والتصغير على الهواتف
+   مع إمكانية التحكم بالتكبير والتصغير يدويًا
+   ================================================== */
+
+/* السماح بالتمرير والتكبير على جميع العناصر */
 html, body {
     overflow-x: auto !important;
     touch-action: pan-y pinch-zoom !important;
@@ -1012,7 +1018,7 @@ body {
     touch-action: pan-y pinch-zoom !important;
 }
 
-/* للهواتف فقط */
+/* للهواتف فقط - إصلاح إضافي */
 @media (max-width: 768px) {
     body {
         min-width: 100% !important;
@@ -1024,4 +1030,3 @@ body {
         height: auto !important;
     }
 }
-.hidden { display: none !important; }

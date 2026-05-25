@@ -995,3 +995,79 @@ footer p { color: var(--text-muted); margin-bottom: 20px; }
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }
 .hidden { display: none !important; }
+
+/* ======================================== */
+/* تحسين العرض على الهواتف - السماح بالتكبير والتصغير */
+/* ======================================== */
+
+/* السماح بالتكبير والتصغير */
+html {
+  touch-action: manipulation;
+}
+
+/* منع التمرير الأفقي الزائد */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* وسم viewport - تأكد من وجوده في head */
+/* هذا يتطلب تعديل في head العام أو إضافة JavaScript */
+
+/* التأكد من أن جميع الصور والعناصر تتكيف مع الشاشة */
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* تصحيح مشكلة العناصر العريضة على الهواتف */
+.container, 
+.nav, 
+.hero, 
+section, 
+footer, 
+.pricing-grid, 
+.offers-grid,
+.contact-grid,
+.seo-grid,
+.region-grid,
+.tech-grid,
+.setup-steps,
+.faq-grid,
+.matches-section,
+.info-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* تصحيح الجداول على الهواتف */
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* جميع العناصر تستخدم box-sizing border-box */
+* {
+  box-sizing: border-box;
+}
+
+/* للهواتف فقط */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* السماح بالتكبير على العناصر القابلة للتمرير */
+  .pricing-grid,
+  .offers-grid {
+    touch-action: pan-y pinch-zoom;
+  }
+}

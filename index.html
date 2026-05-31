@@ -157,6 +157,19 @@
     .region-card-link i { color: var(--accent-gold); font-size: 1.2rem; }
     @media (max-width: 768px) { .region-card-link { padding: 15px 25px; } .region-card-link .flag-icon { font-size: 1.8rem; } .region-card-link .region-info h3 { font-size: 0.9rem; } }
     
+    /* Firestick Guide Link Style */
+    .firestick-link { background: linear-gradient(135deg, #FF9900, #FF6600); color: white; border-radius: 20px; padding: 4px 10px; font-weight: bold; }
+    .firestick-link:hover { background: linear-gradient(135deg, #FF7700, #FF5500); transform: scale(1.02); }
+    
+    .device-guide-section { margin: 40px 0; text-align: center; }
+    .device-guide-card { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 30px; text-align: center; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; display: inline-block; width: 100%; max-width: 500px; }
+    .device-guide-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+    .device-guide-card i { font-size: 3rem; color: var(--accent-gold); margin-bottom: 15px; display: block; }
+    .device-guide-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--accent-gold); }
+    .device-guide-card p { color: #aaa; margin-bottom: 20px; }
+    .device-guide-btn { display: inline-block; background: linear-gradient(135deg, #FF9900, #FF6600); color: #0A0A0A; padding: 10px 25px; border-radius: 40px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
+    .device-guide-btn:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(255,153,0,0.5); }
+    
     .movie-slider-section { padding: 50px 0; background: #0A0A0A; width: 100%; overflow: hidden; }
     .slider-container { position: relative; overflow: hidden; margin: 20px 0; width: 100%; }
     .movie-track { display: flex; animation: scrollMovies 40s linear infinite; gap: 20px; width: max-content; }
@@ -318,7 +331,7 @@
       </div>
       <i class="fas fa-arrow-right"></i>
     </a>
-    <!-- ✅ زر ألمانيا الجديد -->
+    <!-- زر ألمانيا -->
     <a href="germany-best-iptv" class="region-card-link">
       <span class="flag-icon">🇩🇪</span>
       <div class="region-info">
@@ -327,6 +340,25 @@
       </div>
       <i class="fas fa-arrow-right"></i>
     </a>
+    <!-- زر كندا -->
+    <a href="canada-best-iptv" class="region-card-link">
+      <span class="flag-icon">🇨🇦</span>
+      <div class="region-info">
+        <h3>Best Canada IPTV</h3>
+        <p>NHL, CFL, Raptors, Blue Jays, TSN</p>
+      </div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- ✅ قسم دليل Firestick الجديد -->
+  <div class="device-guide-section">
+    <div class="device-guide-card">
+      <i class="fab fa-amazon"></i>
+      <h3>📺 Best IPTV for Firestick 2026</h3>
+      <p>Complete guide to set up IPTV on Amazon Firestick. Learn how to install IPTV Smarters Pro, TiviMate, fix buffering, and optimize streaming quality.</p>
+      <a href="best-iptv-firestick" class="device-guide-btn"><i class="fas fa-play-circle"></i> Read the Complete Guide →</a>
+    </div>
   </div>
 </div>
 

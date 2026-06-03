@@ -35,7 +35,10 @@
           <button class="hamburger" onclick="toggleSidebar()" style="display:none;" id="sidebarToggle"><i class="fas fa-bars"></i></button>
           <h1>Blog Manager</h1>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="showEditor()"><i class="fas fa-plus"></i> New Post</button>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-outline btn-sm" id="importLocalBtn" onclick="importFromLocal()" style="display:none;" title="Push posts saved in this browser's localStorage to Supabase"><i class="fas fa-cloud-upload-alt"></i> Import local posts</button>
+          <button class="btn btn-primary btn-sm" onclick="showEditor()"><i class="fas fa-plus"></i> New Post</button>
+        </div>
       </div>
 
       <!-- Blog List View -->
@@ -272,6 +275,36 @@
       return div.innerHTML;
     }
 
+    async function importFromLocal() {
+      const raw = localStorage.getItem('solaratv_blogs');
+      let local = [];
+      try { local = JSON.parse(raw) || []; } catch {}
+      if (!local.length) { alert('No local posts found in this browser.'); return; }
+      if (!Blog.isCloud()) { alert('Supabase is not connected — nothing to import to.'); return; }
+      if (!confirm('Import ' + local.length + ' post(s) from localStorage to Supabase? (Duplicates by slug will be skipped.)')) return;
+
+      const btn = document.getElementById('importLocalBtn');
+      btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Importing...';
+
+      let ok = 0, skip = 0, fail = 0;
+      for (const p of local) {
+        try {
+          const slug = p.slug || Blog.generateSlug(p.title);
+          const existing = await Blog.getBySlug(slug);
+          if (existing) { skip++; continue; }
+          const res = await Blog.create({
+            title: p.title, excerpt: p.excerpt, content: p.content,
+            image: p.image, category: p.category, author: p.author,
+            tags: p.tags, status: p.status || 'draft'
+          });
+          if (res.success) ok++; else fail++;
+        } catch { fail++; }
+      }
+      alert('Import done.\nImported: ' + ok + '\nSkipped (already exists): ' + skip + '\nFailed: ' + fail);
+      btn.disabled = false; btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Import local posts';
+      loadBlogList();
+    }
+
     // Wait for Supabase SDK to be ready (max ~3s), then load.
     (async function bootstrap() {
       const start = Date.now();
@@ -284,6 +317,14 @@
         storageBadge.style.background = 'rgba(37,211,102,.12)';
         storageBadge.style.color = '#25D366';
         storageBadge.innerHTML = '<i class="fas fa-cloud"></i> Connected to Supabase — posts are public &amp; synced everywhere.';
+        try {
+          const local = JSON.parse(localStorage.getItem('solaratv_blogs') || '[]');
+          if (local.length) {
+            const btn = document.getElementById('importLocalBtn');
+            btn.style.display = 'inline-flex';
+            btn.title = local.length + " post(s) found in this browser's localStorage. Click to push them to Supabase.";
+          }
+        } catch {}
       } else {
         storageBadge.style.background = 'rgba(255,193,7,.12)';
         storageBadge.style.color = '#ffc107';

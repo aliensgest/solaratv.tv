@@ -1,119 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-// حل شامل لإزالة .html من جميع الصفحات والروابط
-(function() {
-  // إصلاح الرابط الحالي
-  if (location.pathname.endsWith('.html')) {
-    history.replaceState({}, '', location.pathname.replace('.html', ''));
-  }
-  
-  // إصلاح جميع الروابط في الصفحة
-  for (let link of document.querySelectorAll('a[href]')) {
-    let href = link.getAttribute('href');
-    if (href && href.includes('.html') && !href.includes('://')) {
-      link.setAttribute('href', href.replace('.html', ''));
-    }
-  }
-})();
-</script>
-  <head>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5CDJ1NBM5B');
+  </script>
 
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5CDJ1NBM5B');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLARA TV | Blog – IPTV News, Tips & Guides 2026</title>
-  <meta name="description" content="SOLARA TV blog – Latest IPTV news, setup guides, streaming tips, and industry updates for 2026.">
+  <title>IPTV Blog 2026 | News, Setup Guides &amp; Streaming Tips | SOLARA TV</title>
+  <meta name="description" content="SOLARA TV Blog – Best IPTV guides, World Cup 2026 streaming, Firestick setup, country-specific reviews (UK, USA, Canada, Australia, Germany, Arab), and 4K streaming tips.">
+  <meta name="keywords" content="IPTV blog, IPTV news 2026, Firestick IPTV guide, World Cup 2026 streaming, best IPTV review 2026, IPTV setup tutorial">
   <link rel="canonical" href="https://www.solaratv.tv/blog">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SOLARA TV Blog – IPTV News, Setup Guides &amp; Reviews 2026">
+  <meta property="og:description" content="Latest IPTV guides, World Cup 2026 streaming tips, Firestick installation, country reviews, and 4K streaming insights.">
+  <meta property="og:image" content="https://www.solaratv.tv/images/solara-tv-logo.jpg">
+  <meta property="og:url" content="https://www.solaratv.tv/blog">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SOLARA TV Blog – IPTV 2026 Guides &amp; News">
+  <meta name="twitter:description" content="Best IPTV guides &amp; streaming tips for 2026.">
+  <meta name="twitter:image" content="https://www.solaratv.tv/images/solara-tv-logo.jpg">
+
+  <!-- Schema.org Blog + BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "SOLARA TV Blog",
+    "description": "IPTV guides, reviews, and streaming tips for 2026.",
+    "url": "https://www.solaratv.tv/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SOLARA TV",
+      "logo": { "@type": "ImageObject", "url": "https://www.solaratv.tv/images/solara-tv-logo.jpg" }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Best IPTV 2026 Review: Honest In-Depth Test for Australia, UK & USA",
+        "url": "https://www.solaratv.tv/best-iptv-2026-review",
+        "datePublished": "2026-03-15",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200",
+        "description": "Independent 2026 review of the best IPTV service: channels, speed, 4K quality, customer support, pricing."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Install IPTV on Firestick (2026 Guide)",
+        "url": "https://www.solaratv.tv/how-to-install-iptv-on-firestick",
+        "datePublished": "2026-04-02",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200",
+        "description": "Step-by-step Firestick IPTV installation guide for 2026 with screenshots, including World Cup 4K streaming setup."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Best IPTV for Firestick 2026 – Complete Setup & Streaming Guide",
+        "url": "https://www.solaratv.tv/best-iptv-firestick",
+        "datePublished": "2026-04-12",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200",
+        "description": "Top IPTV apps for Amazon Firestick in 2026 — IPTV Smarters, TiviMate setup, performance tips."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Watch FIFA World Cup 2026 Online — Live in 4K from Anywhere",
+        "url": "https://www.solaratv.tv/watch-fifa-world-cup-2026-online",
+        "datePublished": "2026-05-01",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200",
+        "description": "Stream every World Cup 2026 match live in 4K — full guide for UK, USA, Canada, Australia, GCC."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "World Cup 2026 Streaming Scandal: What Fans Need to Know",
+        "url": "https://www.solaratv.tv/world-cup-2026-streaming-scandal",
+        "datePublished": "2026-05-20",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=1200",
+        "description": "Geo-blocks, blackouts, and over-priced subscriptions — how IPTV solves World Cup 2026 streaming issues."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Best IPTV UK 2026 – Sky Sports, BT Sport, Premier League in 4K",
+        "url": "https://www.solaratv.tv/uk-best-iptv",
+        "datePublished": "2026-02-10",
+        "dateModified": "2026-06-03",
+        "author": { "@type": "Organization", "name": "SOLARA TV" },
+        "image": "https://images.unsplash.com/photo-1518604666860-9ed391f76460?w=1200",
+        "description": "Best IPTV for UK viewers: Sky Sports, BT Sport, Premier League, BBC, ITV in HD/4K."
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}.cta-buttons{display:flex;gap:8px}.cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}.btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}.btn-whatsapp{background:#25D366;color:white}
-    .hero{min-height:auto;display:flex;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:50px 0 45px}.hero h1{font-size:2.2rem;margin-bottom:15px}.hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1rem;max-width:750px;margin:0 auto;color:#e0e0e0}
-    section{padding:50px 0}.section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}.section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
+    :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111;--text:#fff}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}
+    .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+    .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+    .nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
+    .cta-buttons{display:flex;gap:8px}
+    .cta-buttons button{padding:6px 14px;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:.75rem}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-gold),#B8860B);color:#0A0A0A;font-weight:bold}
+    .btn-whatsapp{background:#25D366;color:#fff}
+    .hero{text-align:center;background:linear-gradient(135deg,rgba(10,10,10,.92),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;padding:60px 0 50px}
+    .hero h1{font-size:2.4rem;margin-bottom:15px}
+    .hero h1 span{background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1.05rem;max-width:780px;margin:0 auto;color:#e0e0e0}
+    section{padding:50px 0}
+    .section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}
+    .section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
+    .featured{display:grid;grid-template-columns:1fr;margin-bottom:40px;background:linear-gradient(135deg,#111,#0A0A0A);border:1px solid rgba(255,215,0,.4);border-radius:20px;overflow:hidden}
+    .featured-image{background-size:cover;background-position:center;min-height:300px}
+    .featured-content{padding:35px}
+    .featured-badge{display:inline-block;background:var(--accent-gold);color:#0A0A0A;padding:4px 14px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:14px}
+    .featured-content h2{font-size:1.8rem;margin-bottom:12px;color:var(--accent-gold);line-height:1.3}
+    .featured-content h2 a{color:inherit;text-decoration:none}
+    .featured-content p{color:#bbb;margin-bottom:18px}
+    .featured-meta{display:flex;gap:18px;font-size:.8rem;color:#888;margin-bottom:18px;flex-wrap:wrap}
+    .featured-meta span{display:flex;align-items:center;gap:5px}
+    .read-more-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--accent-gold),#FFA500);color:#0A0A0A;padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .3s}
+    .read-more-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,215,0,.3)}
+    @media(min-width:768px){.featured{grid-template-columns:1.2fr 1fr}}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
-    .blog-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;overflow:hidden;border:1px solid rgba(255,215,0,.3);transition:all .3s}.blog-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}
-    .blog-image{height:200px;background-size:cover;background-position:center;position:relative}.blog-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.8);padding:4px 12px;border-radius:20px;font-size:.65rem;border:1px solid var(--accent-gold);color:var(--accent-gold)}
-    .blog-content{padding:20px}.blog-content h3{font-size:1.1rem;margin-bottom:8px;color:var(--accent-gold)}.blog-content h3 a{color:var(--accent-gold);text-decoration:none;transition:color .3s}.blog-content h3 a:hover{color:#FFA500}
-    .blog-meta{display:flex;gap:12px;margin-bottom:10px;font-size:.7rem;color:#888}.blog-meta span{display:flex;align-items:center;gap:4px}.blog-content p{font-size:.8rem;color:#aaa;line-height:1.6;margin-bottom:12px}
-    .read-more{color:var(--accent-gold);text-decoration:none;font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:all .3s}.read-more:hover{gap:8px}
-    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem;transition:color .3s}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
-    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.blog-grid{grid-template-columns:1fr}}
+    .blog-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;overflow:hidden;border:1px solid rgba(255,215,0,.3);transition:all .3s;display:flex;flex-direction:column}
+    .blog-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 25px rgba(255,215,0,.2)}
+    .blog-image{height:200px;background-size:cover;background-position:center;position:relative}
+    .blog-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.85);padding:4px 12px;border-radius:20px;font-size:.65rem;border:1px solid var(--accent-gold);color:var(--accent-gold);font-weight:600}
+    .blog-content{padding:20px;display:flex;flex-direction:column;flex:1}
+    .blog-content h3{font-size:1.1rem;margin-bottom:8px;line-height:1.4}
+    .blog-content h3 a{color:var(--accent-gold);text-decoration:none;transition:color .3s}
+    .blog-content h3 a:hover{color:#FFA500}
+    .blog-meta{display:flex;gap:12px;margin-bottom:10px;font-size:.7rem;color:#888;flex-wrap:wrap}
+    .blog-meta span{display:flex;align-items:center;gap:4px}
+    .blog-content p{font-size:.85rem;color:#aaa;line-height:1.6;margin-bottom:14px;flex:1}
+    .read-more{color:var(--accent-gold);text-decoration:none;font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:all .3s;margin-top:auto}
+    .read-more:hover{gap:9px;color:#FFA500}
+    .categories{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:35px}
+    .cat-btn{background:transparent;color:var(--accent-gold);border:1px solid var(--accent-gold);padding:7px 18px;border-radius:25px;font-size:.8rem;cursor:pointer;font-weight:500;text-decoration:none;transition:all .3s}
+    .cat-btn:hover,.cat-btn.active{background:var(--accent-gold);color:#0A0A0A}
+    .cta-section{text-align:center;background:linear-gradient(135deg,#111,#0A0A0A);padding:45px 30px;border-radius:25px;border:1px solid var(--accent-gold);margin-top:40px}
+    .cta-section h2{font-size:1.8rem;color:var(--accent-gold);margin-bottom:14px}
+    .cta-section p{color:#ccc;margin-bottom:22px}
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}
+    .footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+    .footer-links a{color:#aaa;text-decoration:none;font-size:.7rem;transition:color .3s}
+    .footer-links a:hover{color:var(--accent-gold)}
+    .payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:#fff;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.4);z-index:99;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.6rem}.section-title{font-size:1.5rem}.featured-content h2{font-size:1.3rem}.blog-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<header><div class="container nav"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html" class="active">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a><a href="login.html">Login</a></div><div class="cta-buttons"><button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button><button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button></div></div></header>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">SOLARA TV</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">Free Trial</button>
+      <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe%20to%20SOLARA%20TV','_blank')">WhatsApp</button>
+    </div>
+  </div>
+</header>
 
 <section class="hero">
-  <div class="container" style="width:100%;text-align:center">
+  <div class="container">
     <h1>📰 <span>SOLARA TV Blog</span></h1>
-    <p>Latest IPTV news, setup guides, streaming tips, and industry trends for 2026.</p>
+    <p>The most complete IPTV resource of 2026 — setup guides, in-depth reviews, World Cup streaming, and country-specific recommendations.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title">Latest Articles</h2>
-    <div class="blog-grid" id="blogGrid">
-      <!-- Dynamic posts loaded by blog.js, fallback static content below -->
+
+    <div class="categories">
+      <a href="#all" class="cat-btn active">All</a>
+      <a href="#guides" class="cat-btn">Setup Guides</a>
+      <a href="#reviews" class="cat-btn">Reviews</a>
+      <a href="#sports" class="cat-btn">Sports &amp; World Cup</a>
+      <a href="#countries" class="cat-btn">By Country</a>
     </div>
+
+    <!-- Featured post -->
+    <article class="featured">
+      <div class="featured-image" style="background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')"></div>
+      <div class="featured-content">
+        <span class="featured-badge">⭐ Featured</span>
+        <h2><a href="watch-fifa-world-cup-2026-online.html">Watch FIFA World Cup 2026 Online — Live in 4K from Anywhere</a></h2>
+        <div class="featured-meta">
+          <span><i class="fas fa-calendar"></i> May 1, 2026</span>
+          <span><i class="fas fa-user"></i> SOLARA TV</span>
+          <span><i class="fas fa-clock"></i> 8 min read</span>
+        </div>
+        <p>Every World Cup 2026 match streamed live in 4K UHD — no geo-blocks, no blackouts. Full setup for UK, USA, Canada, Australia, Mexico, and GCC viewers.</p>
+        <a href="watch-fifa-world-cup-2026-online.html" class="read-more-btn">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <h2 class="section-title" id="all">Latest Articles</h2>
+
+    <div class="blog-grid" id="blogGrid">
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Review</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="best-iptv-2026-review.html">Best IPTV 2026 Review — Honest In-Depth Test</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> March 15, 2026</span>
+            <span><i class="fas fa-clock"></i> 12 min</span>
+          </div>
+          <p>Independent review of the best IPTV service: 25,000+ channels tested, 4K quality benchmarks, customer support response times, and pricing comparison.</p>
+          <a href="best-iptv-2026-review.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Setup Guide</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="how-to-install-iptv-on-firestick.html">How to Install IPTV on Firestick (2026 Guide)</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> April 2, 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min</span>
+          </div>
+          <p>Step-by-step Amazon Firestick IPTV installation with screenshots. Enable unknown apps, install IPTV Smarters, stream World Cup 2026 in 4K.</p>
+          <a href="how-to-install-iptv-on-firestick.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Devices</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="best-iptv-firestick.html">Best IPTV for Firestick 2026 — Complete Setup &amp; Streaming Guide</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> April 12, 2026</span>
+            <span><i class="fas fa-clock"></i> 9 min</span>
+          </div>
+          <p>Top IPTV apps for Amazon Firestick — IPTV Smarters, TiviMate, GSE Smart IPTV. Performance, buffering tips, and best codec settings.</p>
+          <a href="best-iptv-firestick.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">News</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="world-cup-2026-streaming-scandal.html">World Cup 2026 Streaming Scandal — What Fans Need to Know</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> May 20, 2026</span>
+            <span><i class="fas fa-clock"></i> 6 min</span>
+          </div>
+          <p>Geo-blocks, blackouts, and overpriced regional subscriptions are ruining World Cup 2026 for fans. Here's how IPTV solves it for €16/month.</p>
+          <a href="world-cup-2026-streaming-scandal.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1518604666860-9ed391f76460?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">UK</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="uk-best-iptv.html">Best IPTV UK 2026 — Sky Sports, Premier League, BBC in 4K</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> February 10, 2026</span>
+            <span><i class="fas fa-clock"></i> 8 min</span>
+          </div>
+          <p>The best IPTV for UK viewers in 2026 — Sky Sports, BT Sport, Premier League, BBC iPlayer, ITV, Channel 4 all in stunning HD and 4K.</p>
+          <a href="uk-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">USA</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="usa-best-iptv.html">Best IPTV USA 2026 — NFL, NBA, MLB, ESPN Without Cable</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> February 18, 2026</span>
+            <span><i class="fas fa-clock"></i> 8 min</span>
+          </div>
+          <p>Cut the cord — every NFL, NBA, MLB, NHL game plus ESPN, FOX Sports, NBC, ABC, and CBS in 4K. The complete US IPTV guide for 2026.</p>
+          <a href="usa-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Canada</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="canada-best-iptv.html">Best IPTV Canada 2026 — TSN, Sportsnet, NHL in 4K</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> March 1, 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min</span>
+          </div>
+          <p>NHL playoffs, Raptors, Blue Jays, TSN, Sportsnet, CBC, CTV — the complete Canadian IPTV guide with French &amp; English channels.</p>
+          <a href="canada-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Australia</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="australia-best-iptv.html">Best IPTV Australia 2026 — AFL, NRL, Foxtel, Kayo</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> March 8, 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min</span>
+          </div>
+          <p>Every AFL match, NRL Grand Final, Foxtel and Kayo Sports content streamed in 4K for Aussie viewers — without the $50/month price tag.</p>
+          <a href="australia-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Germany</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="germany-best-iptv.html">Bestes IPTV Deutschland 2026 — Sky, DAZN, Bundesliga in 4K</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> March 22, 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min</span>
+          </div>
+          <p>Sky Deutschland, DAZN, RTL, ProSieben, Sat.1, Bundesliga, Champions League — alle deutschen Sender in HD und 4K Qualität.</p>
+          <a href="germany-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Arab</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="arab-best-iptv.html">أفضل IPTV عربي 2026 — beIN Sports, MBC, OSN, Rotana</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> March 25, 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min</span>
+          </div>
+          <p>أفضل اشتراك IPTV للعرب والخليج 2026 — beIN Sports، MBC، OSN، Rotana، ART، وجميع القنوات العربية بجودة 4K.</p>
+          <a href="arab-best-iptv.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image" style="background-image:url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="blog-badge">Tips</div>
+        </div>
+        <div class="blog-content">
+          <h3><a href="getting-started.html">Getting Started with IPTV — Quick Setup for Any Device</a></h3>
+          <div class="blog-meta">
+            <span><i class="fas fa-calendar"></i> January 12, 2026</span>
+            <span><i class="fas fa-clock"></i> 5 min</span>
+          </div>
+          <p>New to IPTV? Our 5-minute quick-start covers Smart TV, Android, iOS, Firestick, MAG, and Enigma2 — pick your device and stream in minutes.</p>
+          <a href="getting-started.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Dynamic posts (from admin via localStorage or Supabase) injected here -->
+    <div id="dynamicGrid" style="margin-top:25px"></div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>🚀 Ready to Try SOLARA TV?</h2>
+      <p>25,000+ channels &middot; 60,000+ movies &middot; 4K Ultra HD &middot; from €16/month — start with a 24h free trial.</p>
+      <button class="btn-primary" style="padding:12px 30px;font-size:.9rem;border:none;border-radius:30px;cursor:pointer;background:linear-gradient(135deg,var(--accent-gold),#FFA500);color:#0A0A0A;font-weight:700" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SOLARA%20TV','_blank')">
+        <i class="fab fa-whatsapp"></i> Get Free Trial Now
+      </button>
+    </div>
+
   </div>
 </section>
 
-<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV — Best IPTV Service 2026. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+    </div>
+    <div class="payment-methods">
+      <i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i>
+    </div>
+    <p style="margin:20px 0">&copy; 2026 SOLARA TV — Best IPTV Service 2026. All rights reserved.</p>
+    <a href="https://wa.me/212600160196" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
 
-<script src="assets/js/blog.js"></script>
+<!-- Optional dynamic posts from admin (kept for backward compat) -->
+<script src="assets/js/blog.js" defer></script>
 <script>
-  // Load blog posts dynamically from Blog class
-  document.addEventListener('DOMContentLoaded', function() {
-    const grid = document.getElementById('blogGrid');
-    const defaultImages = [
-      'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600',
-      'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600',
-      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600',
-      'https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600',
-      'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600'
-    ];
-    if (typeof Blog !== 'undefined') {
-      const posts = Blog.getPublished();
-      if (posts.length > 0) {
-        grid.innerHTML = posts.map((post, i) => `
-          <div class="blog-card">
-            <div class="blog-image" style="background-image:url('${post.image || defaultImages[i % defaultImages.length]}')">
-              <div class="blog-badge">${post.category || 'IPTV'}</div>
-            </div>
-            <div class="blog-content">
-              <h3><a href="blog-post.html?id=${post.id}">${post.title}</a></h3>
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> ${new Date(post.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}</span><span><i class="fas fa-user"></i> ${post.author || 'SOLARA TV'}</span></div>
-              <p>${(post.content || '').substring(0, 120)}...</p>
-              <a href="blog-post.html?id=${post.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-            </div>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Blog === 'undefined') return;
+    try {
+      const posts = Blog.getPublished ? Blog.getPublished() : [];
+      if (!posts.length) return;
+      const grid = document.getElementById('dynamicGrid');
+      const html = posts.map(p => `
+        <article class="blog-card" style="margin-top:25px">
+          <div class="blog-image" style="background-image:url('${p.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600'}')">
+            <div class="blog-badge">${p.category || 'IPTV'}</div>
           </div>
-        `).join('');
-        return;
-      }
-    }
-    // Fallback static content
-    grid.innerHTML = `
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[0]}')"><div class="blog-badge">IPTV Guide</div></div><div class="blog-content"><h3>Best IPTV Service 2026: Complete Guide</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Discover the best IPTV services in 2026 with our comprehensive guide covering features, pricing, and quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[1]}')"><div class="blog-badge">Setup Guide</div></div><div class="blog-content"><h3>How to Install IPTV on Firestick</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Step-by-step guide to install and configure IPTV on Amazon Fire Stick for the best streaming experience.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[2]}')"><div class="blog-badge">4K Streaming</div></div><div class="blog-content"><h3>4K IPTV Streaming: Everything You Need to Know</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> January 2026</span></div><p>Learn about 4K IPTV streaming requirements, compatible devices, and how to get the best picture quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[3]}')"><div class="blog-badge">Sports</div></div><div class="blog-content"><h3>Watch Premier League Live in 4K</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> February 2026</span></div><p>Complete guide for EPL fans. Watch every Premier League match live in 4K Ultra HD with SOLARA TV.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[4]}')"><div class="blog-badge">Europe</div></div><div class="blog-content"><h3>Best IPTV for Netherlands & Belgium</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> February 2026</span></div><p>All Dutch and Belgian channels including NPO, RTL, VTM, and Eredivisie in stunning HD and 4K quality.</p></div></div>
-      <div class="blog-card"><div class="blog-image" style="background-image:url('${defaultImages[5]}')"><div class="blog-badge">Devices</div></div><div class="blog-content"><h3>Best Devices for IPTV Streaming 2026</h3><div class="blog-meta"><span><i class="fas fa-calendar"></i> March 2026</span></div><p>Discover the best devices for IPTV streaming including Firestick 4K, Nvidia Shield, and Apple TV 4K.</p></div></div>
-    `;
+          <div class="blog-content">
+            <h3><a href="blog-post.html?id=${p.id}">${p.title}</a></h3>
+            <div class="blog-meta"><span><i class="fas fa-calendar"></i> ${new Date(p.date).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</span></div>
+            <p>${(p.content || '').substring(0, 130)}...</p>
+            <a href="blog-post.html?id=${p.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      `).join('');
+      grid.innerHTML = '<div class="blog-grid">' + html + '</div>';
+    } catch (e) { console.warn('Dynamic blog load skipped:', e); }
   });
 </script>
+
 </body>
 </html>

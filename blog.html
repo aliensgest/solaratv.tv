@@ -283,6 +283,9 @@
 
     <h2 class="section-title" id="all">Latest Articles</h2>
 
+    <!-- Dynamic posts (from admin) injected here at the TOP so new posts are most visible -->
+    <div id="dynamicGrid"></div>
+
     <div class="blog-grid" id="blogGrid">
 
       <article class="blog-card">
@@ -527,8 +530,7 @@
 
     </div>
 
-    <!-- Dynamic posts (from admin via localStorage or Supabase) injected here -->
-    <div id="dynamicGrid" style="margin-top:25px"></div>
+    <!-- (Dynamic posts moved above the static grid) -->
 
     <!-- CTA -->
     <div class="cta-section">
@@ -584,7 +586,7 @@
       if (!posts || !posts.length) return;
       const grid = document.getElementById('dynamicGrid');
       const html = posts.map(p => `
-        <article class="blog-card" style="margin-top:25px">
+        <article class="blog-card">
           <div class="blog-image" style="background-image:url('${p.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600'}')">
             <div class="blog-badge">${p.category || 'IPTV'}</div>
           </div>
@@ -596,7 +598,7 @@
           </div>
         </article>
       `).join('');
-      grid.innerHTML = '<h2 class="section-title" style="margin-top:40px">✍️ From the Editor</h2><div class="blog-grid">' + html + '</div>';
+      grid.innerHTML = '<div class="blog-grid" style="margin-bottom:30px">' + html + '</div>';
     } catch (e) { console.warn('Dynamic blog load skipped:', e); }
   });
 </script>

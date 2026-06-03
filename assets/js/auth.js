@@ -71,7 +71,7 @@ const Auth = {
             userId: data.user.id, username: uname, email: data.user.email,
             role, loginAt: new Date().toISOString(), source: 'supabase'
           };
-          sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(session));
+          this._saveSession(session);
           return { success: true, session };
         }
         // fall through to localStorage on Supabase failure
@@ -94,13 +94,45 @@ const Auth = {
       loginAt: new Date().toISOString(),
       source: 'local'
     };
-    sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(session));
+    this._saveSession(session);
     return { success: true, session };
   },
 
   getSession() {
     try {
-      return JSON.parse(sessionStorage.getItem(this.SESSION_KEY));
+      // Prefer persistent (localStorage); fallback to legacy sessionStorage
+      return JSON.parse(localStorage.getItem(this.SESSION_KEY))
+          || JSON.parse(sessionStorage.getItem(this.SESSION_KEY));
+    } catch { return null; }
+  },
+
+  _saveSession(session) {
+    const json = JSON.stringify(session);
+    localStorage.setItem(this.SESSION_KEY, json);
+    sessionStorage.setItem(this.SESSION_KEY, json);
+  },
+
+  _clearSession() {
+    localStorage.removeItem(this.SESSION_KEY);
+    sessionStorage.removeItem(this.SESSION_KEY);
+  },
+
+  /** Restore session from Supabase JWT if we lost the local copy */
+  async restoreFromSupabase() {
+    const sb = this._supa();
+    if (!sb) return null;
+    try {
+      const { data } = await sb.auth.getSession();
+      if (!data || !data.session || !data.session.user) return null;
+      const u = data.session.user;
+      let role = 'client', uname = (u.email || '').split('@')[0];
+      try {
+        const { data: prof } = await sb.from('profiles').select('role, username').eq('id', u.id).maybeSingle();
+        if (prof) { role = prof.role || 'client'; uname = prof.username || uname; }
+      } catch {}
+      const session = { userId: u.id, username: uname, email: u.email, role, loginAt: new Date().toISOString(), source: 'supabase' };
+      this._saveSession(session);
+      return session;
     } catch { return null; }
   },
 
@@ -122,7 +154,7 @@ const Auth = {
   },
 
   async logout() {
-    sessionStorage.removeItem(this.SESSION_KEY);
+    this._clearSession();
     const sb = this._supa();
     if (sb) { try { await sb.auth.signOut(); } catch {} }
     window.location.href = this._getPath('login.html');
@@ -130,15 +162,22 @@ const Auth = {
 
   requireAuth(requiredRole) {
     const session = this.getSession();
-    if (!session) {
-      window.location.href = this._getPath('login.html');
-      return false;
+    if (session) {
+      if (requiredRole && session.role !== requiredRole) {
+        window.location.href = session.role === 'admin' ? this._getPath('admin/index.html') : this._getPath('client/index.html');
+        return false;
+      }
+      return true;
     }
-    if (requiredRole && session.role !== requiredRole) {
-      window.location.href = session.role === 'admin' ? this._getPath('admin/index.html') : this._getPath('client/index.html');
-      return false;
-    }
-    return true;
+    // No local session — try restoring from Supabase JWT before redirecting
+    this.restoreFromSupabase().then(s => {
+      if (s && (!requiredRole || s.role === requiredRole)) {
+        location.reload();
+      } else {
+        window.location.href = this._getPath('login.html');
+      }
+    });
+    return false;
   }
 };
 

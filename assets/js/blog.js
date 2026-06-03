@@ -6,60 +6,7 @@
 const Blog = {
   STORAGE_KEY: 'solaratv_blogs',
 
-  init() {,
-{
-  id: "best-iptv-2026-review",
-  title: "Best IPTV 2026: Honest In-Depth Review for Australia, UK & USA",
-  date: "2026-05-01",
-  author: "SOLARA TV Review Team",
-  category: "In-Depth Review",
-  image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800",
-  content: `
-    <p>The year 2026 has seen a massive shift in how people consume entertainment. Traditional cable and satellite TV services have become increasingly expensive, while viewers demand higher quality, more content, and greater flexibility. In this comprehensive review, we tested several premium IPTV services across Australia, the United Kingdom, and the United States to find out which one truly stands out.</p>
-    
-    <h2>Why the World is Moving Away from Traditional TV</h2>
-    <p>In Australia, Foxtel and Kayo Sports subscribers are frustrated with continuous price hikes. In the UK, Sky and BT Sport packages have become luxury expenses for many families. In the United States, the average cable bill now exceeds $150–$250 per month, often with hidden fees and long contracts. People want:</p>
-    <ul>
-      <li>Access to thousands of channels and a huge library of movies and series</li>
-      <li>High-quality 4K streaming without constant buffering</li>
-      <li>The ability to watch on multiple devices simultaneously</li>
-      <li>Strong coverage of local and international sports</li>
-      <li>Reasonable monthly prices without yearly contracts</li>
-    </ul>
-    <p>After weeks of real-world testing on different internet connections, one service consistently delivered strong performance across all three major markets.</p>
-    
-    <h2>SolaraTV – Our Top Recommendation for 2026</h2>
-    <p>SolaraTV has proven itself as a powerful and reliable IPTV service in 2026. Here is a detailed breakdown of what it offers:</p>
-    
-    <h3>Key Features of SolaraTV</h3>
-    <ul>
-      <li><strong>Over 25,000 live television channels</strong> from around the globe</li>
-      <li><strong>Massive Video-on-Demand library</strong> containing more than 60,000 movies and TV series</li>
-      <li><strong>True 4K Ultra HD streaming</strong> with support for HDR</li>
-      <li><strong>Advanced anti-buffering technology</strong> that works well even during peak hours</li>
-      <li><strong>Full Electronic Program Guide (EPG)</strong> and Catch-up TV functionality</li>
-      <li><strong>Excellent compatibility</strong> with Amazon Firestick, Smart TVs, Android boxes, MAG, Roku, iOS, and Android phones</li>
-      <li><strong>24/7 customer support</strong> with fast response times</li>
-      <li><strong>Daily content updates</strong> and regular addition of new channels and movies</li>
-    </ul>
-    
-    <h2>Sports Coverage – A Major Strength</h2>
-    <p>Sports fans are among the biggest beneficiaries of premium IPTV services. SolaraTV provides strong coverage across different regions:</p>
-    <ul>
-      <li><strong>Australia:</strong> Excellent AFL and NRL coverage, Cricket Australia and international matches, A-League</li>
-      <li><strong>United Kingdom:</strong> Premier League, Champions League, Europa League, EFL Championship</li>
-      <li><strong>United States:</strong> Solid coverage of NFL, NBA, MLB, NHL, College Football and Basketball</li>
-    </ul>
-    
-    <h2>Performance on Local Internet Networks</h2>
-    <p>The service showed good stability across all platforms, with minimal buffering during major sporting events when using a stable internet connection of 25 Mbps or higher.</p>
-    
-    <h2>Final Verdict for 2026</h2>
-    <p>After extensive testing across multiple countries and internet providers, SolaraTV stands as one of the strongest IPTV options available in 2026. It successfully combines a massive content library, good 4K streaming quality, strong sports coverage, and competitive pricing.</p>
-    
-    <p>For anyone in Australia, the UK, or the USA who is tired of expensive traditional TV subscriptions, SolaraTV offers a compelling modern alternative that delivers real value.</p>
-  `
-}
+  init() {
     const blogs = this.getAll();
     if (blogs.length === 0) {
       this.seedData();

@@ -127,3 +127,38 @@ create policy "views_admin_read" on public.page_views
 -- =============================================
 alter table public.posts add column if not exists category text default 'IPTV';
 alter table public.posts add column if not exists author   text default 'SOLARA TV';
+
+-- =============================================
+-- MIGRATION 2026-06-03b: fix infinite recursion in RLS
+-- Replace direct profiles lookups with SECURITY DEFINER helpers
+-- =============================================
+create or replace function public.is_admin()
+returns boolean language sql security definer set search_path = public stable as $$
+  select coalesce((select role = 'admin' from public.profiles where id = auth.uid()), false);
+$$;
+
+create or replace function public.is_staff()
+returns boolean language sql security definer set search_path = public stable as $$
+  select coalesce((select role in ('admin','reseller') from public.profiles where id = auth.uid()), false);
+$$;
+
+grant execute on function public.is_admin() to anon, authenticated;
+grant execute on function public.is_staff() to anon, authenticated;
+
+drop policy if exists "profiles_self_read"   on public.profiles;
+drop policy if exists "profiles_self_update" on public.profiles;
+drop policy if exists "subs_user_read"       on public.subscriptions;
+drop policy if exists "subs_admin_write"     on public.subscriptions;
+drop policy if exists "subs_admin_update"    on public.subscriptions;
+drop policy if exists "posts_public_read"    on public.posts;
+drop policy if exists "posts_admin_write"    on public.posts;
+drop policy if exists "views_admin_read"     on public.page_views;
+
+create policy "profiles_read"        on public.profiles      for select using (auth.uid() = id or public.is_admin());
+create policy "profiles_update_self" on public.profiles      for update using (auth.uid() = id);
+create policy "subs_read"            on public.subscriptions for select using (auth.uid() = user_id or public.is_staff());
+create policy "subs_insert"          on public.subscriptions for insert with check (public.is_staff());
+create policy "subs_update"          on public.subscriptions for update using (public.is_staff());
+create policy "posts_read"           on public.posts         for select using (published = true or public.is_admin());
+create policy "posts_admin_all"      on public.posts         for all using (public.is_admin()) with check (public.is_admin());
+create policy "views_admin_read"     on public.page_views    for select using (public.is_admin());

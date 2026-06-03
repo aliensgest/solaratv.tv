@@ -119,3 +119,11 @@ create policy "views_anon_insert" on public.page_views
 create policy "views_admin_read" on public.page_views
   for select using (exists (
     select 1 from public.profiles where id = auth.uid() and role = 'admin'));
+
+
+-- =============================================
+-- MIGRATION 2026-06-03: extend posts with category + author text fields
+-- (so admin blog editor can store category/author without joins)
+-- =============================================
+alter table public.posts add column if not exists category text default 'IPTV';
+alter table public.posts add column if not exists author   text default 'SOLARA TV';

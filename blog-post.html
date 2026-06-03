@@ -159,43 +159,72 @@ const blogPosts = {
   }
 };
 
-// دالة لجلب المقال حسب المعرف
-function getPostById(id) {
-  return blogPosts[id] || null;
-}
+function getStaticPost(key) { return blogPosts[key] || null; }
 
-// عرض المقال
-document.addEventListener('DOMContentLoaded', function() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  
-  if (!id) {
-    document.getElementById('postTitle').textContent = 'Post not found';
-    return;
-  }
-  
-  const post = getPostById(id);
-  
-  if (!post) {
-    document.getElementById('postTitle').textContent = 'Post not found';
-    return;
-  }
-  
+function renderPost(post) {
   document.getElementById('postTitle').textContent = post.title;
   document.title = post.title + ' | SOLARA TV Blog';
-  document.getElementById('postDate').innerHTML = '<i class="fas fa-calendar"></i> ' + new Date(post.date).toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+  const dateVal = post.date || post.createdAt || Date.now();
+  document.getElementById('postDate').innerHTML = '<i class="fas fa-calendar"></i> ' + new Date(dateVal).toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
   document.getElementById('postAuthor').innerHTML = '<i class="fas fa-user"></i> ' + (post.author || 'SOLARA TV');
   document.getElementById('postCategory').innerHTML = '<i class="fas fa-tag"></i> ' + (post.category || 'IPTV');
-  
   if (post.image) {
     const img = document.getElementById('postImage');
-    img.src = post.image;
-    img.alt = post.title;
-    img.style.display = 'block';
+    img.src = post.image; img.alt = post.title; img.style.display = 'block';
   }
-  
   document.getElementById('postBody').innerHTML = post.content || '<p>No content available.</p>';
+  // SEO: inject canonical + meta description dynamically
+  const canon = document.createElement('link');
+  canon.rel = 'canonical';
+  canon.href = location.origin + '/blog-post.html?slug=' + encodeURIComponent(post.slug || post.id || '');
+  document.head.appendChild(canon);
+  if (post.excerpt) {
+    const md = document.createElement('meta');
+    md.name = 'description'; md.content = post.excerpt;
+    document.head.appendChild(md);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  const id   = params.get('id');
+  const key  = slug || id;
+
+  if (!key) {
+    document.getElementById('postTitle').textContent = 'Post not found';
+    return;
+  }
+
+  // 1) Static map lookup first (instant render for legacy posts)
+  const stat = getStaticPost(key);
+  if (stat) { renderPost(stat); return; }
+
+  // 2) Wait for Supabase SDK & Blog API to be ready
+  const start = Date.now();
+  while ((!window.supabase || typeof Blog === 'undefined') && Date.now() - start < 3000) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  if (typeof Blog === 'undefined') {
+    document.getElementById('postTitle').textContent = 'Post not found';
+    return;
+  }
+
+  try {
+    let post = slug ? await Blog.getBySlug(slug) : null;
+    if (!post && id) post = await Blog.getById(id);
+    if (!post) {
+      document.getElementById('postTitle').textContent = 'Post not found';
+      return;
+    }
+    renderPost(post);
+  } catch (e) {
+    console.warn('Post fetch failed', e);
+    document.getElementById('postTitle').textContent = 'Post not found';
+  }
 });
 </script>
+<script src="assets/js/supabase-client.js"></script>
+<script src="assets/js/blog.js" defer></script>
 </body>
 </html>

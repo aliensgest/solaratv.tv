@@ -1,0 +1,65 @@
+# SOLARA TV
+
+> SOLARA TV is a premium IPTV service provider offering 25,000+ live channels, 60,000+ movies and series in 4K Ultra HD across UK, USA, Canada, Australia, Germany, France, GCC countries, and worldwide. Plans start at €16. Compatible with Firestick, Android TV, Smart TV, iOS, MAG, Enigma2.
+
+## Key facts
+
+- **Service**: Premium IPTV subscription (M3U, MAG, Smart TV apps)
+- **Channels**: 25,000+ live TV channels worldwide
+- **VOD**: 60,000+ movies and series
+- **Quality**: 4K UHD, FHD, HD with anti-buffering servers
+- **Pricing**: €16 (1 month), €32 (3 months), €52 (6 months), €76.99 (12 months)
+- **Free trial**: 24-hour free trial available
+- **Payment**: WhatsApp +212 600 160 196
+- **Refund policy**: Money-back guarantee within 7 days
+- **Sports**: Premier League, NFL, NBA, AFL, NRL, FIFA World Cup 2026, UEFA, La Liga, Bundesliga, Serie A, Ligue 1
+- **Languages**: English, Arabic, French, Spanish, German, Italian, Portuguese, Dutch, Turkish, Hindi
+- **Supported devices**: Amazon Firestick, Android TV, Smart TV (Samsung, LG, Sony), iOS (iPhone/iPad), MAG boxes, Enigma2, Formuler, STB Emulator, IPTV Smarters, TiviMate
+
+## Documentation
+
+- [Homepage](https://www.solaratv.tv/): Service overview, plans, supported devices
+- [Pricing](https://www.solaratv.tv/pricing): Detailed subscription plans in EUR
+- [Channels list](https://www.solaratv.tv/channels): Available TV channels by country
+- [Movies & VOD](https://www.solaratv.tv/movies): On-demand library overview
+- [Devices](https://www.solaratv.tv/devices): Supported devices and apps
+- [Getting started](https://www.solaratv.tv/getting-started): Setup guide for new users
+- [FAQ](https://www.solaratv.tv/faq): Frequently asked questions
+- [Reseller program](https://www.solaratv.tv/reseller): IPTV reseller panel and credits
+
+## Country-specific pages
+
+- [Best IPTV UK](https://www.solaratv.tv/uk-best-iptv): Sky Sports, BT Sport, BBC, ITV
+- [Best IPTV USA](https://www.solaratv.tv/usa-best-iptv): NFL, NBA, MLB, ESPN, FOX
+- [Best IPTV Canada](https://www.solaratv.tv/canada-best-iptv): TSN, Sportsnet, CBC, CTV
+- [Best IPTV Australia](https://www.solaratv.tv/australia-best-iptv): AFL, NRL, Foxtel, Kayo
+- [Best IPTV Germany](https://www.solaratv.tv/germany-best-iptv): Sky Deutschland, DAZN, RTL, ProSieben
+- [Best IPTV Arab](https://www.solaratv.tv/arab-best-iptv): beIN Sports, MBC, OSN, Rotana
+
+## Guides
+
+- [How to install IPTV on Firestick](https://www.solaratv.tv/how-to-install-iptv-on-firestick)
+- [Best IPTV for Firestick 2026](https://www.solaratv.tv/best-iptv-firestick)
+- [Watch FIFA World Cup 2026 online](https://www.solaratv.tv/watch-fifa-world-cup-2026-online)
+- [Best IPTV 2026 review](https://www.solaratv.tv/best-iptv-2026-review)
+
+## Blog
+
+- [Blog index](https://www.solaratv.tv/blog): Latest IPTV news, guides, comparisons
+
+## Legal
+
+- [Terms of service](https://www.solaratv.tv/terms)
+- [Privacy policy](https://www.solaratv.tv/privacy)
+- [Refund policy](https://www.solaratv.tv/refund)
+
+## Contact
+
+- [Contact page](https://www.solaratv.tv/contact)
+- WhatsApp: +212 600 160 196
+- Email: support@solaratv.tv
+
+## Optional
+
+- [Sitemap](https://www.solaratv.tv/sitemap.xml)
+- [Robots](https://www.solaratv.tv/robots.txt)

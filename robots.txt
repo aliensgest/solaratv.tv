@@ -4,4 +4,20 @@ Disallow: /admin/
 Disallow: /client/
 Disallow: /examples/
 
-Sitemap: https://solaratv.tv/sitemap.xml
+# AI crawlers — explicit allow for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.solaratv.tv/sitemap.xml

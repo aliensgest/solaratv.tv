@@ -1,0 +1,23 @@
+{
+  "name": "solaratv-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for SOLARA TV — lets AI assistants manage IPTV subscriptions, look up devices, and read analytics.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "solaratv-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "zod": "^3.23.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

@@ -18,6 +18,7 @@ import {
   ReadResourceRequestSchema
 } from '@modelcontextprotocol/sdk/types.js';
 import { createClient } from '@supabase/supabase-js';
+import 'dotenv/config';
 
 const ACTIVATION_API = 'https://activationpanel.net/api/api.php';
 const API_KEY = process.env.ACTIVATION_API_KEY;

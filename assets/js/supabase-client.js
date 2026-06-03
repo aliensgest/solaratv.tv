@@ -4,10 +4,11 @@
    Docs: https://supabase.com/docs
    ============================================= */
 
-// CONFIG — fill these from https://app.supabase.com → Project Settings → API
+// CONFIG — public values only (anon key is safe in browser, protected by RLS)
+// Dashboard: https://supabase.com/dashboard/project/nuadbjtwcksoqheyushw
 window.SUPABASE_CONFIG = window.SUPABASE_CONFIG || {
-  url:     'YOUR_SUPABASE_URL',      // e.g. https://xxxxx.supabase.co
-  anonKey: 'YOUR_SUPABASE_ANON_KEY'   // public anon key (safe in browser)
+  url:     'https://nuadbjtwcksoqheyushw.supabase.co',
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51YWRianR3Y2tzb3FoZXl1c2h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0NzgzMDcsImV4cCI6MjA5NjA1NDMwN30.T_Bx7-NfSrx_PUAaI8K4V_mFPY6WovuGNE9-xs52H9M'
 };
 
 // Load Supabase JS SDK from CDN (no build step required)

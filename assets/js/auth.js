@@ -51,7 +51,33 @@ const Auth = {
     return { success: true, user };
   },
 
+  _supa() {
+    return (window.SolaraDB && SolaraDB.isReady && SolaraDB.isReady()) ? SolaraDB.client() : null;
+  },
+
   async login(username, password) {
+    // 1) Try Supabase first (email-based)
+    const sb = this._supa();
+    if (sb && username.includes('@')) {
+      try {
+        const { data, error } = await sb.auth.signInWithPassword({ email: username, password });
+        if (!error && data && data.user) {
+          let role = 'client', uname = username.split('@')[0];
+          try {
+            const { data: prof } = await sb.from('profiles').select('role, username').eq('id', data.user.id).maybeSingle();
+            if (prof) { role = prof.role || 'client'; uname = prof.username || uname; }
+          } catch {}
+          const session = {
+            userId: data.user.id, username: uname, email: data.user.email,
+            role, loginAt: new Date().toISOString(), source: 'supabase'
+          };
+          sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(session));
+          return { success: true, session };
+        }
+        // fall through to localStorage on Supabase failure
+      } catch {}
+    }
+    // 2) Fallback: legacy localStorage auth
     const users = this.getUsers();
     const hashedPassword = await this.hashPassword(password);
     const user = users.find(u =>
@@ -65,7 +91,8 @@ const Auth = {
       username: user.username,
       email: user.email,
       role: user.role,
-      loginAt: new Date().toISOString()
+      loginAt: new Date().toISOString(),
+      source: 'local'
     };
     sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(session));
     return { success: true, session };
@@ -94,8 +121,10 @@ const Auth = {
     return prefix + target;
   },
 
-  logout() {
+  async logout() {
     sessionStorage.removeItem(this.SESSION_KEY);
+    const sb = this._supa();
+    if (sb) { try { await sb.auth.signOut(); } catch {} }
     window.location.href = this._getPath('login.html');
   },
 

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SOLARA TV | أداة تحويل M3U إلى Xtream Codes</title>
+  <meta name="description" content="أداة تحويل سريعة وآمنة من SOLARA TV لتحويل رابط M3U إلى بيانات Xtream Codes (server, port, username, password).">
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --accent-gold: #FFD700;
+      --card-bg: #111111;
+      --text: #FFFFFF;
+      --text-muted: #B0B0B0;
+      --error: #ff4444;
+      --success: #00C851;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+    
+    /* Header Styles */
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--accent-gold);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-gold), #FFA500);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.75rem;
+      padding: 5px 8px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .cta-buttons button {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
+      color: #0A0A0A;
+      font-weight: bold;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 0 30px;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--accent-gold);
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-muted);
+    }
+    
+    /* Card Styles */
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      margin: 20px 0;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+    textarea {
+      width: 100%;
+      padding: 15px;
+      background: #0A0A0A;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: monospace;
+      font-size: 0.9rem;
+      resize: vertical;
+      transition: all 0.3s;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+    }
+    .note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+    
+    /* CAPTCHA */
+    .captcha-container {
+      background: #0A0A0A;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .captcha-code {
+      background: #1a1a1a;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      color: var(--accent-gold);
+      user-select: none;
+    }
+    .captcha-input {
+      flex: 1;
+      min-width: 150px;
+      padding: 10px 15px;
+      background: #0A0A0A;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .captcha-input:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+    }
+    .refresh-captcha {
+      background: none;
+      border: none;
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: transform 0.3s;
+    }
+    .refresh-captcha:hover {
+      transform: rotate(180deg);
+    }
+    
+    /* Button */
+    .convert-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
+      border: none;
+      border-radius: 12px;
+      color: #0A0A0A;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .convert-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+    }
+    .convert-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Result Box */
+    .result-box {
+      background: #0A0A0A;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      display: none;
+    }
+    .result-box h3 {
+      color: var(--accent-gold);
+      margin-bottom: 15px;
+    }
+    .result-item {
+      background: #1a1a1a;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+    .result-item label {
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+    }
+    .result-item code {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #00C851;
+    }
+    .copy-btn {
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      margin-left: 10px;
+      transition: all 0.3s;
+    }
+    .copy-btn:hover {
+      background: var(--accent-gold);
+      color: #0A0A0A;
+    }
+    
+    .error-msg {
+      background: rgba(255, 68, 68, 0.15);
+      border: 1px solid var(--error);
+      color: #ff8888;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 15px;
+      display: none;
+    }
+    .success-msg {
+      background: rgba(0, 200, 81, 0.15);
+      border: 1px solid var(--success);
+      color: #00E676;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 15px;
+      display: none;
+    }
+    
+    /* Loading Spinner */
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #0A0A0A;
+      border-top-color: var(--accent-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    footer {
+      padding: 40px 0 25px;
+      text-align: center;
+      background: #050505;
+      border-top: 1px solid var(--accent-gold);
+      margin-top: 50px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.7rem;
+    }
+    .footer-links a:hover {
+      color: var(--accent-gold);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links, .cta-buttons {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .card {
+        padding: 20px;
+      }
+      .captcha-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .captcha-code {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="/" class="logo">SOLARA TV</a>
+    <div class="nav-links">
+      <a href="/">الرئيسية</a>
+      <a href="movies">أفلام</a>
+      <a href="channels">قنوات</a>
+      <a href="pricing">الأسعار</a>
+      <a href="contact">اتصل بنا</a>
+    </div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20need%20help%20with%20M3U%20conversion','_blank')">مساعدة</button>
+      <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20need%20help%20with%20M3U%20conversion','_blank')">واتساب</button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h1>🔄 تحويل M3U إلى Xtream Codes</h1>
+    <p>أداة مجانية وسريعة لتحويل رابط M3U الخاص بك إلى بيانات Xtream Codes (server, port, username, password)</p>
+  </div>
+
+  <div class="card">
+    <div class="form-group">
+      <label>📎 رابط M3U الخاص بك</label>
+      <textarea id="m3uUrl" rows="3" placeholder="https://example.com:8080/get.php?username=user&amp;password=pass&amp;type=m3u_plus&amp;output=ts"></textarea>
+      <div class="note">⚠️ أدخل رابط M3U الصالح (يبدأ بـ http:// أو https://)</div>
+    </div>
+
+    <div class="captcha-container">
+      <div class="captcha-code" id="captchaCode">XXXX</div>
+      <input type="text" id="captchaInput" class="captcha-input" placeholder="أدخل الرمز أعلاه" autocomplete="off">
+      <button class="refresh-captcha" id="refreshCaptcha" title="تحديث الرمز">🔄</button>
+    </div>
+
+    <button class="convert-btn" id="convertBtn">🔓 تحويل M3U إلى Xtream Codes</button>
+
+    <div id="errorMsg" class="error-msg"></div>
+    <div id="successMsg" class="success-msg"></div>
+
+    <div id="resultBox" class="result-box">
+      <h3>✅ بيانات Xtream Codes المستخرجة</h3>
+      <div class="result-item">
+        <label>🌐 Server URL</label>
+        <div><code id="serverUrl">-</code> <button class="copy-btn" data-copy="serverUrl">نسخ</button></div>
+      </div>
+      <div class="result-item">
+        <label>👤 Username</label>
+        <div><code id="username">-</code> <button class="copy-btn" data-copy="username">نسخ</button></div>
+      </div>
+      <div class="result-item">
+        <label>🔑 Password</label>
+        <div><code id="password">-</code> <button class="copy-btn" data-copy="password">نسخ</button></div>
+      </div>
+      <div class="result-item">
+        <label>📦 Port</label>
+        <div><code id="port">-</code> <button class="copy-btn" data-copy="port">نسخ</button></div>
+      </div>
+      <div class="result-item">
+        <label>📋 Xtream URL كامل</label>
+        <div><code id="fullUrl">-</code> <button class="copy-btn" data-copy="fullUrl">نسخ</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">الرئيسية</a>
+      <a href="pricing">الأسعار</a>
+      <a href="contact">اتصل بنا</a>
+      <a href="terms">الشروط</a>
+      <a href="privacy">الخصوصية</a>
+    </div>
+    <p style="margin: 20px 0; color: #aaa; font-size: 0.8rem;">© 2026 SOLARA TV — أداة تحويل M3U إلى Xtream Codes</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // ==================== CAPTCHA ====================
+    let currentCaptcha = '';
+    
+    function generateCaptcha() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
+      let result = '';
+      for (let i = 0; i < 5; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      currentCaptcha = result;
+      document.getElementById('captchaCode').textContent = result;
+      return result;
+    }
+    
+    function verifyCaptcha() {
+      const userInput = document.getElementById('captchaInput').value.trim().toUpperCase();
+      return userInput === currentCaptcha;
+    }
+    
+    function resetCaptcha() {
+      document.getElementById('captchaInput').value = '';
+      generateCaptcha();
+    }
+    
+    // ==================== M3U PARSING ====================
+    function parseM3UToXtream(m3uUrl) {
+      // محاولة استخراج البيانات من رابط M3U
+      // الصيغة المدعومة: http(s)://domain:port/get.php?username=USER&password=PASS&type=m3u_plus&output=ts
+      try {
+        const url = new URL(m3uUrl);
+        const params = url.searchParams;
+        
+        let username = params.get('username');
+        let password = params.get('password');
+        
+        // إذا لم يجد username/password، حاول البحث في المسار
+        if (!username && m3uUrl.includes('/get.php?')) {
+          const match = m3uUrl.match(/username=([^&]+)/);
+          if (match) username = decodeURIComponent(match[1]);
+          const passMatch = m3uUrl.match(/password=([^&]+)/);
+          if (passMatch) password = decodeURIComponent(passMatch[1]);
+        }
+        
+        if (!username || !password) {
+          // حاول البحث عن صيغة أخرى: domain:port/username/password
+          const pathMatch = m3uUrl.match(/\/\/([^\/]+)\/([^\/]+)\/([^\/]+)/);
+          if (pathMatch) {
+            const serverPart = pathMatch[1];
+            username = pathMatch[2];
+            password = pathMatch[3];
+            const portMatch = serverPart.match(/:(\d+)/);
+            const server = serverPart.split(':')[0];
+            const port = portMatch ? portMatch[1] : '80';
+            return {
+              server: `${server}:${port}`,
+              username,
+              password,
+              port
+            };
+          }
+          return null;
+        }
+        
+        let server = `${url.hostname}:${url.port || '80'}`;
+        let port = url.port || '80';
+        
+        // تنظيف
+        username = decodeURIComponent(username);
+        password = decodeURIComponent(password);
+        
+        return {
+          server,
+          username,
+          password,
+          port
+        };
+      } catch (e) {
+        // محاولة regex بديلة
+        const regex = /https?:\/\/([^\/\?]+)\/get\.php\?username=([^&]+)&password=([^&]+)/i;
+        const match = m3uUrl.match(regex);
+        if (match) {
+          const serverPart = match[1];
+          const portMatch = serverPart.match(/:(\d+)/);
+          const server = serverPart.split(':')[0];
+          const port = portMatch ? portMatch[1] : '80';
+          return {
+            server: `${server}:${port}`,
+            username: decodeURIComponent(match[2]),
+            password: decodeURIComponent(match[3]),
+            port
+          };
+        }
+        return null;
+      }
+    }
+    
+    function displayResult(data) {
+      document.getElementById('serverUrl').textContent = `http://${data.server}`;
+      document.getElementById('username').textContent = data.username;
+      document.getElementById('password').textContent = data.password;
+      document.getElementById('port').textContent = data.port;
+      document.getElementById('fullUrl').textContent = `http://${data.server}/get.php?username=${data.username}&password=${data.password}&type=m3u_plus&output=ts`;
+      
+      document.getElementById('resultBox').style.display = 'block';
+      
+      // تمرير سلس
+      document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    function showError(msg) {
+      const errorDiv = document.getElementById('errorMsg');
+      errorDiv.textContent = msg;
+      errorDiv.style.display = 'block';
+      document.getElementById('successMsg').style.display = 'none';
+      setTimeout(() => {
+        errorDiv.style.display = 'none';
+      }, 5000);
+    }
+    
+    function showSuccess(msg) {
+      const successDiv = document.getElementById('successMsg');
+      successDiv.textContent = msg;
+      successDiv.style.display = 'block';
+      setTimeout(() => {
+        successDiv.style.display = 'none';
+      }, 3000);
+    }
+    
+    // ==================== COPY FUNCTIONALITY ====================
+    function setupCopyButtons() {
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', async function() {
+          const targetId = this.getAttribute('data-copy');
+          const element = document.getElementById(targetId);
+          if (element && element.textContent && element.textContent !== '-') {
+            try {
+              await navigator.clipboard.writeText(element.textContent);
+              const originalText = this.textContent;
+              this.textContent = '✅ تم النسخ!';
+              setTimeout(() => {
+                this.textContent = originalText;
+              }, 1500);
+            } catch (err) {
+              // fallback
+              const textarea = document.createElement('textarea');
+              textarea.value = element.textContent;
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand('copy');
+              document.body.removeChild(textarea);
+              const originalText = this.textContent;
+              this.textContent = '✅ تم النسخ!';
+              setTimeout(() => {
+                this.textContent = originalText;
+              }, 1500);
+            }
+          }
+        });
+      });
+    }
+    
+    // ==================== MAIN CONVERSION ====================
+    const convertBtn = document.getElementById('convertBtn');
+    const m3uInput = document.getElementById('m3uUrl');
+    
+    function convert() {
+      // إخفاء النتائج السابقة
+      document.getElementById('resultBox').style.display = 'none';
+      document.getElementById('errorMsg').style.display = 'none';
+      
+      // التحقق من CAPTCHA
+      if (!verifyCaptcha()) {
+        showError('❌ رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى.');
+        resetCaptcha();
+        return;
+      }
+      
+      const m3uUrl = m3uInput.value.trim();
+      if (!m3uUrl) {
+        showError('❌ يرجى إدخال رابط M3U صالح.');
+        resetCaptcha();
+        return;
+      }
+      
+      if (!m3uUrl.startsWith('http://') && !m3uUrl.startsWith('https://')) {
+        showError('❌ الرابط يجب أن يبدأ بـ http:// أو https://');
+        resetCaptcha();
+        return;
+      }
+      
+      // تعطيل الزر أثناء المعالجة
+      convertBtn.disabled = true;
+      convertBtn.innerHTML = '<span class="loader"></span> جاري التحويل...';
+      
+      // محاكاة delay بسيط (للتأثير)
+      setTimeout(() => {
+        try {
+          const result = parseM3UToXtream(m3uUrl);
+          
+          if (!result || !result.username || !result.password) {
+            showError('❌ لم نتمكن من استخراج بيانات Xtream من هذا الرابط. تأكد من أن الرابط بصيغة M3U صالحة (مثل: http://server:port/get.php?username=USER&password=PASS&type=m3u_plus&output=ts)');
+            resetCaptcha();
+            convertBtn.disabled = false;
+            convertBtn.innerHTML = '🔓 تحويل M3U إلى Xtream Codes';
+            return;
+          }
+          
+          displayResult(result);
+          showSuccess('✅ تم التحويل بنجاح! يمكنك الآن نسخ البيانات.');
+          resetCaptcha();
+          
+        } catch (err) {
+          showError('❌ حدث خطأ أثناء معالجة الرابط. يرجى التأكد من صحة الرابط والمحاولة مرة أخرى.');
+          resetCaptcha();
+        } finally {
+          convertBtn.disabled = false;
+          convertBtn.innerHTML = '🔓 تحويل M3U إلى Xtream Codes';
+        }
+      }, 300);
+    }
+    
+    // ==================== EVENT LISTENERS ====================
+    convertBtn.addEventListener('click', convert);
+    document.getElementById('refreshCaptcha').addEventListener('click', () => {
+      generateCaptcha();
+      document.getElementById('captchaInput').value = '';
+    });
+    
+    // إدخال Enter في حقل CAPTCHA
+    document.getElementById('captchaInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        convert();
+      }
+    });
+    
+    // إدخال Enter في حقل M3U
+    m3uInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        convert();
+      }
+    });
+    
+    // تهيئة
+    generateCaptcha();
+    setupCopyButtons();
+    
+    // إزالة .html من الروابط
+    if (location.pathname.endsWith('.html')) {
+      history.replaceState({}, '', location.pathname.replace('.html', ''));
+    }
+    for (let link of document.querySelectorAll('a[href]')) {
+      let href = link.getAttribute('href');
+      if (href && href.includes('.html') && !href.includes('://')) {
+        link.setAttribute('href', href.replace('.html', ''));
+      }
+    }
+  })();
+</script>
+</body>
+</html>

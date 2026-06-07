@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L7wayej Shop | ملابس رجالية</title>
+  <title>L7wayej Shop | تشكيلة الرجال</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -11,213 +11,158 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Cairo', 'Tahoma', sans-serif;
+      font-family: 'Segoe UI', 'Tahoma', system-ui, sans-serif;
     }
-
     body {
-      background: #000000;  /* أسود خالص */
-      color: #ffffff;
+      background: #000;
+      color: #fff;
     }
-
-    /* نمط المخطط الأبيض: خطوط أفقية ورأسية خفيفة */
-    .pattern-stripes {
-      background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.03) 2px,
-        transparent 2px,
-        transparent 8px
-      );
+    /* شريط التخفيضات العلوي مثل موقع Defacto */
+    .promo-bar {
+      background: #fff;
+      color: #000;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
     }
-
-    /* حاوية عامة */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 25px;
-    }
-
     /* الهيدر */
     header {
-      background: #0a0a0a;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-flex {
+      background: #000;
+      border-bottom: 1px solid #222;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
     }
-
     .logo h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
     }
-    .logo p {
-      font-size: 0.8rem;
-      color: #ccc;
-      border-right: 2px solid white;
-      padding-right: 10px;
+    .logo span {
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      margin-right: 5px;
     }
-
+    nav {
+      display: flex;
+      gap: 25px;
+    }
     nav a {
       color: #eee;
       text-decoration: none;
-      margin-right: 30px;
-      font-weight: 600;
+      font-weight: 500;
+    }
+    .icons {
+      display: flex;
+      gap: 20px;
+      font-size: 1.3rem;
+    }
+    .icons i {
+      cursor: pointer;
+    }
+    /* فلتر جانبي + شبكة المنتجات */
+    .main-layout {
+      display: flex;
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+      gap: 40px;
+    }
+    .filters {
+      width: 240px;
+      border-left: 1px solid #222;
+      padding-left: 20px;
+    }
+    .filters h4 {
+      margin: 20px 0 10px;
+    }
+    .filters label {
+      display: block;
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .products-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
       transition: 0.2s;
     }
-    nav a:hover {
-      color: white;
-      border-bottom: 2px solid white;
-      padding-bottom: 5px;
+    .product-card:hover {
+      border-color: #fff;
+      transform: translateY(-3px);
     }
-
-    .cart {
-      position: relative;
-      cursor: pointer;
-      font-size: 1.6rem;
-    }
-    .cart span {
-      position: absolute;
-      top: -10px;
-      right: -12px;
-      background: white;
-      color: black;
-      border-radius: 50%;
-      width: 22px;
-      height: 22px;
-      font-size: 0.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    /* البانر الترحيبي */
-    .hero {
-      background: #030303;
-      text-align: center;
-      padding: 60px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-
-    /* شبكة المنتجات */
-    .products {
-      padding: 60px 0;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 40px;
-      border-right: 5px solid white;
-      padding-right: 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 35px;
-    }
-    .card {
-      background: #111111;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: 0.25s ease;
-      backdrop-filter: blur(2px);
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: white;
-      box-shadow: 0 10px 25px rgba(255,255,255,0.05);
-    }
-    .card-img {
-      background: #1a1a1a;
+    .product-img {
+      background: #111;
       height: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
-      color: white;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 3.5rem;
+      border-bottom: 1px solid #222;
     }
-    .card-info {
-      padding: 20px;
+    .product-info {
+      padding: 15px;
     }
-    .card-info h3 {
-      margin-bottom: 8px;
-      font-size: 1.4rem;
+    .product-title {
+      font-weight: bold;
+      margin-bottom: 6px;
     }
     .price {
-      font-size: 1.3rem;
+      color: #fff;
       font-weight: bold;
-      margin: 12px 0;
-      color: #ffffff;
+      margin: 10px 0;
     }
-    .btn {
+    .old-price {
+      color: #aaa;
+      text-decoration: line-through;
+      font-size: 0.8rem;
+      margin-right: 8px;
+    }
+    .btn-add {
       background: transparent;
-      border: 1.5px solid white;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 40px;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 8px;
+      width: 100%;
+      border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
-      width: 100%;
-      font-size: 1rem;
     }
-    .btn:hover {
-      background: white;
-      color: black;
+    .btn-add:hover {
+      background: #fff;
+      color: #000;
     }
-
     /* سلة جانبية */
     .cart-sidebar {
       position: fixed;
       top: 0;
       left: -380px;
-      width: 360px;
+      width: 350px;
       height: 100%;
       background: #0a0a0a;
-      border-left: 2px solid white;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.8);
+      border-left: 2px solid #fff;
       z-index: 1000;
-      padding: 25px;
+      padding: 20px;
       transition: 0.3s;
       overflow-y: auto;
     }
     .cart-sidebar.open {
       left: 0;
-    }
-    .cart-sidebar h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 1px solid white;
-      display: inline-block;
-    }
-    .cart-items {
-      margin: 20px 0;
-      max-height: 60vh;
-      overflow-y: auto;
     }
     .cart-item {
       display: flex;
@@ -227,19 +172,17 @@
       padding-bottom: 10px;
     }
     .total {
-      font-size: 1.3rem;
       font-weight: bold;
       margin: 15px 0;
+      font-size: 1.2rem;
     }
     .close-cart {
-      background: white;
-      color: black;
+      background: #fff;
+      color: #000;
       border: none;
       padding: 10px;
       width: 100%;
       margin-top: 15px;
-      font-weight: bold;
-      cursor: pointer;
     }
     .overlay {
       position: fixed;
@@ -247,218 +190,161 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.8);
       z-index: 999;
       display: none;
     }
-
     footer {
-      background: #050505;
+      background: #030303;
       text-align: center;
       padding: 30px;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      margin-top: 40px;
+      border-top: 1px solid #222;
+      margin-top: 50px;
     }
-
-    @media (max-width: 700px) {
-      .grid { gap: 20px; }
-      .hero h2 { font-size: 1.8rem; }
-      .cart-sidebar { width: 280px; }
+    @media (max-width: 800px) {
+      .main-layout { flex-direction: column; }
+      .filters { width: 100%; border-left: none; }
     }
   </style>
 </head>
-<body class="pattern-stripes">
-  <header>
-    <div class="container header-flex">
-      <div class="logo">
-        <h1>L7wayej Shop</h1>
-        <p>الأناقة الرياضية | أسود و أبيض</p>
-      </div>
-      <nav>
-        <a href="#">الرئيسية</a>
-        <a href="#">تيشرتات</a>
-        <a href="#">بدلات رياضية</a>
-        <a href="#">عروض</a>
-      </nav>
-      <div class="cart" id="cartIcon">
-        <i class="fas fa-shopping-bag"></i>
-        <span id="cartCount">0</span>
-      </div>
-    </div>
-  </header>
+<body>
 
-  <section class="hero">
-    <div class="container">
-      <h2>أطلق العنان لأسلوبك الأسود المخطط</h2>
-      <p>تيشرتات وبدلات رياضية ─ جودة عالية و تصميم عصري</p>
-    </div>
-  </section>
+<div class="promo-bar">🎁 HEY10 : خصم 10% على أول طلب | شحن مجاني فوق 399 درهم</div>
 
-  <section class="products">
-    <div class="container">
-      <h2 class="section-title">🔥 التيشرتات</h2>
-      <div class="grid" id="tshirtsGrid"></div>
-
-      <h2 class="section-title" style="margin-top: 60px;">💪 البدلات الرياضية</h2>
-      <div class="grid" id="suitsGrid"></div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 L7wayej Shop - جميع الحقوق محفوظة | تصميم أسود مخطط بالأبيض</p>
-    <p style="margin-top: 8px; font-size: 0.8rem;">مارهبا بيكم في المحل 😍❤️</p>
-  </footer>
-
-  <!-- السلة الجانبية -->
-  <div class="overlay" id="overlay"></div>
-  <div class="cart-sidebar" id="cartSidebar">
-    <h3>🛒 سلة التسوق</h3>
-    <div class="cart-items" id="cartItemsList"></div>
-    <div class="total" id="cartTotal">المجموع: 0 د.م</div>
-    <button class="btn" id="checkoutBtn" style="background:white; color:black;">إتمام الشراء</button>
-    <button class="close-cart" id="closeCartBtn">إغلاق</button>
+<header>
+  <div class="logo">
+    <h1>L7WAYEJ <span>SHOP</span></h1>
   </div>
+  <nav>
+    <a href="#">الرجال</a>
+    <a href="#">تيشرتات</a>
+    <a href="#">بدلات رياضية</a>
+    <a href="#">عروض</a>
+  </nav>
+  <div class="icons">
+    <i class="far fa-heart"></i>
+    <i class="fas fa-shopping-bag" id="cartIcon"></i>
+    <i class="far fa-user"></i>
+  </div>
+</header>
 
-  <script>
-    // المنتجات (أسود / مخطط أبيض)
-    const products = [
-      // تيشرتات
-      { id: 1, name: "تيشرت أسود مخطط", category: "tshirt", price: 120, icon: "👕", desc: "خطوط بيضاء أنيقة" },
-      { id: 2, name: "تيشرت رياضي أسود", category: "tshirt", price: 110, icon: "⚫", desc: "مادة قطنية مريحة" },
-      { id: 3, name: "تيشرت بخطوط عريضة", category: "tshirt", price: 135, icon: "🎽", desc: "تصميم جريء" },
-      { id: 4, name: "تيشرت كلاسيك أبيض-أسود", category: "tshirt", price: 125, icon: "🖤", desc: "لوك عصري" },
-      // بدلات رياضية
-      { id: 5, name: "بدلة رياضية سوداء", category: "suit", price: 320, icon: "🧥", desc: "جاكيت وبنطلون" },
-      { id: 6, name: "بدلة بمخططات بيضاء", category: "suit", price: 350, icon: "👔", desc: "ستريبس كلاسيك" },
-      { id: 7, name: "طقم رياضي فاخر", category: "suit", price: 390, icon: "🏃", desc: "مريح للصالة" },
-      { id: 8, name: "بدلة عصرية Slim Fit", category: "suit", price: 420, icon: "✨", desc: "قصة عصرية" }
-    ];
+<div class="main-layout">
+  <aside class="filters">
+    <h4>التصنيف</h4>
+    <label><input type="checkbox" value="tshirt" class="filter-cat"> تيشرتات</label>
+    <label><input type="checkbox" value="suit" class="filter-cat"> بدلات رياضية</label>
+    <h4>السعر</h4>
+    <label><input type="range" id="priceFilter" min="0" max="500" step="10" value="500"> حتى <span id="priceVal">500</span> درهم</label>
+  </aside>
 
-    let cart = [];
-    
-    function renderProducts() {
-      const tshirtsContainer = document.getElementById("tshirtsGrid");
-      const suitsContainer = document.getElementById("suitsGrid");
-      
-      const tshirts = products.filter(p => p.category === "tshirt");
-      const suits = products.filter(p => p.category === "suit");
-      
-      tshirtsContainer.innerHTML = tshirts.map(p => `
-        <div class="card">
-          <div class="card-img">${p.icon}</div>
-          <div class="card-info">
-            <h3>${p.name}</h3>
-            <p style="color:#aaa; font-size:0.85rem;">${p.desc}</p>
-            <div class="price">${p.price} د.م</div>
-            <button class="btn" onclick="addToCart(${p.id})">أضف للسلة</button>
-          </div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<footer>
+  <p>© 2025 L7wayej Shop – جميع الحقوق محفوظة | تصميم مستوحى من دي فاكتو</p>
+  <p style="margin-top: 8px;">Marhba bikom f L7wayej Shop 😍</p>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <h3>🛒 سلة التسوق</h3>
+  <div id="cartItemsList"></div>
+  <div class="total" id="cartTotal"></div>
+  <button class="close-cart" id="checkoutBtn">إتمام الشراء</button>
+  <button class="close-cart" id="closeCartBtn" style="background:#222; color:#fff; margin-top:8px;">إغلاق</button>
+</div>
+
+<script>
+  const products = [
+    { id:1, name:"تيشرت أسود مخطط", category:"tshirt", price:129, oldPrice:159, icon:"👕" },
+    { id:2, name:"تيشرت رياضي Slim", category:"tshirt", price:119, oldPrice:149, icon:"⚫" },
+    { id:3, name:"تيشرت بخطوط عريضة", category:"tshirt", price:139, oldPrice:169, icon:"🎽" },
+    { id:4, name:"بدلة رياضية سوداء", category:"suit", price:349, oldPrice:429, icon:"🧥" },
+    { id:5, name:"طقم جاكيت وبنطلون", category:"suit", price:389, oldPrice:479, icon:"👔" },
+    { id:6, name:"بدلة بمخططات بيضاء", category:"suit", price:399, oldPrice:499, icon:"🏃" },
+    { id:7, name:"تيشرت أوفر سايز", category:"tshirt", price:109, oldPrice:129, icon:"🖤" },
+    { id:8, name:"بدلة رياضية فاخرة", category:"suit", price:419, oldPrice:529, icon:"✨" }
+  ];
+
+  let cart = [];
+  
+  function renderProducts() {
+    const selectedCats = Array.from(document.querySelectorAll('.filter-cat:checked')).map(cb => cb.value);
+    const maxPrice = parseInt(document.getElementById('priceFilter').value);
+    let filtered = products.filter(p => (selectedCats.length === 0 || selectedCats.includes(p.category)) && p.price <= maxPrice);
+    const grid = document.getElementById('productsGrid');
+    if(filtered.length === 0) {
+      grid.innerHTML = '<p style="text-align:center; width:100%;">لا توجد منتجات مطابقة</p>';
+      return;
+    }
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card">
+        <div class="product-img">${p.icon}</div>
+        <div class="product-info">
+          <div class="product-title">${p.name}</div>
+          <div class="price">${p.price} درهم <span class="old-price">${p.oldPrice} درهم</span></div>
+          <button class="btn-add" onclick="addToCart(${p.id})">أضف إلى السلة</button>
         </div>
-      `).join('');
-      
-      suitsContainer.innerHTML = suits.map(p => `
-        <div class="card">
-          <div class="card-img">${p.icon}</div>
-          <div class="card-info">
-            <h3>${p.name}</h3>
-            <p style="color:#aaa; font-size:0.85rem;">${p.desc}</p>
-            <div class="price">${p.price} د.م</div>
-            <button class="btn" onclick="addToCart(${p.id})">أضف للسلة</button>
-          </div>
-        </div>
-      `).join('');
-    }
-    
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      const existing = cart.find(item => item.id === productId);
-      if(existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...product, qty: 1 });
-      }
-      updateCartUI();
-    }
-    
-    function updateCartUI() {
-      const cartCountSpan = document.getElementById("cartCount");
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      cartCountSpan.innerText = totalItems;
-      
-      const cartItemsDiv = document.getElementById("cartItemsList");
-      if(cartItemsDiv) {
-        if(cart.length === 0) {
-          cartItemsDiv.innerHTML = "<p style='color:#aaa'>السلة فارغة</p>";
-        } else {
-          cartItemsDiv.innerHTML = cart.map(item => `
-            <div class="cart-item">
-              <div>
-                <strong>${item.name}</strong> <br>
-                <span style="font-size:0.8rem;">${item.price} د.م × ${item.qty}</span>
-              </div>
-              <div>
-                <button onclick="changeQty(${item.id}, -1)" style="background:#333; border:none; color:white; width:28px; border-radius:6px;">-</button>
-                <span style="margin:0 8px;">${item.qty}</span>
-                <button onclick="changeQty(${item.id}, 1)" style="background:#333; border:none; color:white; width:28px; border-radius:6px;">+</button>
-                <button onclick="removeItem(${item.id})" style="background:transparent; border:none; color:#ff8888; margin-right:10px;"><i class="fas fa-trash"></i></button>
-              </div>
-            </div>
-          `).join('');
-        }
-      }
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      document.getElementById("cartTotal").innerHTML = `المجموع: ${totalPrice} د.م`;
-    }
-    
-    function changeQty(id, delta) {
-      const item = cart.find(i => i.id === id);
-      if(item) {
-        const newQty = item.qty + delta;
-        if(newQty <= 0) {
-          cart = cart.filter(i => i.id !== id);
-        } else {
-          item.qty = newQty;
-        }
-        updateCartUI();
-      }
-    }
-    
-    function removeItem(id) {
-      cart = cart.filter(i => i.id !== id);
-      updateCartUI();
-    }
-    
-    // سلة جانبية
-    const cartIcon = document.getElementById("cartIcon");
-    const cartSidebar = document.getElementById("cartSidebar");
-    const overlay = document.getElementById("overlay");
-    const closeCartBtn = document.getElementById("closeCartBtn");
-    
-    function openCart() {
-      cartSidebar.classList.add("open");
-      overlay.style.display = "block";
-    }
-    function closeCart() {
-      cartSidebar.classList.remove("open");
-      overlay.style.display = "none";
-    }
-    
-    cartIcon.addEventListener("click", openCart);
-    closeCartBtn.addEventListener("click", closeCart);
-    overlay.addEventListener("click", closeCart);
-    
-    document.getElementById("checkoutBtn")?.addEventListener("click", () => {
-      if(cart.length === 0) {
-        alert("السلة فارغة! أضف منتجات أولاً.");
-        return;
-      }
-      alert(`شكراً لتسوقك من L7wayej Shop! إجمالي الطلب: ${cart.reduce((s,i)=> s+(i.price*i.qty),0)} د.م`);
-      cart = [];
-      updateCartUI();
-      closeCart();
-    });
-    
-    renderProducts();
+      </div>
+    `).join('');
+  }
+  
+  function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    const existing = cart.find(i => i.id === id);
+    if(existing) existing.qty++;
+    else cart.push({ ...product, qty: 1 });
     updateCartUI();
-  </script>
+    openCart();
+  }
+  
+  function updateCartUI() {
+    const container = document.getElementById('cartItemsList');
+    if(cart.length === 0) container.innerHTML = '<p>السلة فارغة</p>';
+    else {
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div><strong>${item.name}</strong><br>${item.price} درهم × ${item.qty}</div>
+          <div>
+            <button onclick="changeQty(${item.id}, -1)">-</button>
+            <span style="margin:0 6px;">${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)">+</button>
+            <button onclick="removeItem(${item.id})" style="background:none; border:none; color:#ff8888;"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+      `).join('');
+    }
+    const total = cart.reduce((s,i) => s + (i.price * i.qty), 0);
+    document.getElementById('cartTotal').innerHTML = `المجموع: ${total} درهم`;
+  }
+  
+  function changeQty(id, delta) {
+    const item = cart.find(i => i.id === id);
+    if(item) {
+      item.qty += delta;
+      if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+      updateCartUI();
+    }
+  }
+  function removeItem(id) { cart = cart.filter(i => i.id !== id); updateCartUI(); }
+  
+  // السلة الجانبية
+  const cartIcon = document.getElementById('cartIcon');
+  const cartSidebar = document.getElementById('cartSidebar');
+  const overlayDiv = document.getElementById('overlay');
+  function openCart() { cartSidebar.classList.add('open'); overlayDiv.style.display = 'block'; }
+  function closeCart() { cartSidebar.classList.remove('open'); overlayDiv.style.display = 'none'; }
+  cartIcon.onclick = openCart;
+  document.getElementById('closeCartBtn').onclick = closeCart;
+  overlayDiv.onclick = closeCart;
+  document.getElementById('checkoutBtn').onclick = () => { if(cart.length) alert(`تم إرسال طلبك بمبلغ ${cart.reduce((s,i)=>s+(i.price*i.qty),0)} درهم`); else alert("السلة فارغة"); };
+  
+  document.querySelectorAll('.filter-cat').forEach(cb => cb.addEventListener('change', renderProducts));
+  document.getElementById('priceFilter').addEventListener('input', function(e) {
+    document.getElementById('priceVal').innerText = e.target.value;
+    renderProducts();
+  });
+  renderProducts();
+</script>
 </body>
 </html>

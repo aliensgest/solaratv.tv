@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L7wayej Shop | سويت شيرتات رجالية</title>
+  <title>L7wayej Shop | ملابس رجالية - تيشرتات - بدلات رياضية</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -19,7 +19,6 @@
       color: #ffffff;
     }
 
-    /* شريط التخفيضات العلوي مثل DeFacto */
     .promo-bar {
       background: #ffffff;
       color: #000000;
@@ -30,7 +29,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* الهيدر */
     header {
       background: #000000;
       border-bottom: 1px solid #222222;
@@ -78,7 +76,6 @@
       cursor: pointer;
     }
 
-    /* عنوان القسم */
     .category-title {
       text-align: center;
       margin: 40px 0 20px;
@@ -86,7 +83,6 @@
       font-weight: bold;
     }
 
-    /* فلتر جانبي + شبكة المنتجات (مثل DeFacto) */
     .main-layout {
       display: flex;
       max-width: 1400px;
@@ -121,11 +117,10 @@
     .products-grid {
       flex: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
     }
 
-    /* بطاقة المنتج */
     .product-card {
       background: #0a0a0a;
       border: 1px solid #222222;
@@ -138,13 +133,18 @@
       transform: translateY(-4px);
     }
     .product-img {
-      background: #111111;
       height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      border-bottom: 1px solid #222222;
+      overflow: hidden;
+      background: #111111;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.03);
     }
     .product-info {
       padding: 15px;
@@ -191,7 +191,6 @@
       color: #000000;
     }
 
-    /* ترقيم الصفحات 1 إلى 100 */
     .pagination {
       display: flex;
       justify-content: center;
@@ -219,7 +218,6 @@
       border-color: #ffffff;
     }
 
-    /* سلة جانبية */
     .cart-sidebar {
       position: fixed;
       top: 0;
@@ -310,23 +308,24 @@
 </header>
 
 <div class="category-title">
-  👕 سويت شيرتات رجالية
+  👕 تشكيلة الملابس الرجالية
 </div>
 
 <div class="main-layout">
   <aside class="filters">
     <h4>التصنيف</h4>
-    <label><input type="checkbox" value="sweatshirt" class="filter-cat" checked> سويت شيرتات</label>
+    <label><input type="checkbox" value="sweatshirt" class="filter-cat"> سويت شيرتات</label>
+    <label><input type="checkbox" value="tshirt" class="filter-cat"> تيشرتات</label>
+    <label><input type="checkbox" value="suit" class="filter-cat"> بدلات رياضية</label>
     <label><input type="checkbox" value="new" class="filter-cat"> جديد</label>
     <h4>السعر</h4>
-    <input type="range" id="priceFilter" min="0" max="500" step="10" value="500" class="price-range">
-    <span>حتى <span id="priceVal">500</span> درهم</span>
+    <input type="range" id="priceFilter" min="0" max="600" step="10" value="600" class="price-range">
+    <span>حتى <span id="priceVal">600</span> درهم</span>
   </aside>
 
   <div class="products-grid" id="productsGrid"></div>
 </div>
 
-<!-- ترقيم الصفحات 1 إلى 100 -->
 <div class="pagination" id="pagination"></div>
 
 <footer>
@@ -344,40 +343,49 @@
 </div>
 
 <script>
-  // منتجات سويت شيرتات (مثل الصورة)
+  // جميع المنتجات مع صور حقيقية
   const products = [
-    { id:1, name:"High Collar Sweatshirt", category:"sweatshirt", price:269, oldPrice:null, isNew:true },
-    { id:2, name:"Regular Fit Sweatshirt", category:"sweatshirt", price:269, oldPrice:null, isNew:true },
-    { id:3, name:"Long Sleeve Sweatshirt", category:"sweatshirt", price:199, oldPrice:249, isNew:true },
-    { id:4, name:"High Collar Sweatshirt", category:"sweatshirt", price:269, oldPrice:null, isNew:true },
-    { id:5, name:"Oversized Sweatshirt", category:"sweatshirt", price:289, oldPrice:329, isNew:false },
-    { id:6, name:"Classic Fit Sweatshirt", category:"sweatshirt", price:229, oldPrice:null, isNew:false },
-    { id:7, name:"Zip Hoodie Sweatshirt", category:"sweatshirt", price:299, oldPrice:359, isNew:true },
-    { id:8, name:"Loose Fit Sweatshirt", category:"sweatshirt", price:249, oldPrice:null, isNew:false },
-    { id:9, name:"Striped Sweatshirt", category:"sweatshirt", price:279, oldPrice:319, isNew:true },
-    { id:10, name:"Cotton Blend Sweatshirt", category:"sweatshirt", price:209, oldPrice:null, isNew:false },
-    { id:11, name:"Embroidered Sweatshirt", category:"sweatshirt", price:259, oldPrice:299, isNew:true },
-    { id:12, name:"Sport Sweatshirt", category:"sweatshirt", price:239, oldPrice:null, isNew:false }
+    // سويت شيرتات
+    { id:1, name:"High Collar Sweatshirt", category:"sweatshirt", price:269, oldPrice:null, isNew:true, image:"https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&h=500&fit=crop" },
+    { id:2, name:"Regular Fit Sweatshirt", category:"sweatshirt", price:269, oldPrice:null, isNew:true, image:"https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=400&h=500&fit=crop" },
+    { id:3, name:"Long Sleeve Sweatshirt", category:"sweatshirt", price:199, oldPrice:249, isNew:true, image:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop" },
+    { id:4, name:"Oversized Hoodie", category:"sweatshirt", price:289, oldPrice:329, isNew:false, image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop" },
+    
+    // تيشرتات
+    { id:5, name:"Classic Cotton T-Shirt", category:"tshirt", price:89, oldPrice:129, isNew:true, image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop" },
+    { id:6, name:"Black Slim Fit Tee", category:"tshirt", price:79, oldPrice:null, isNew:false, image:"https://images.unsplash.com/photo-1581655353564-df123a1ebf23?w=400&h=500&fit=crop" },
+    { id:7, name:"White Essential Tee", category:"tshirt", price:69, oldPrice:99, isNew:true, image:"https://images.unsplash.com/photo-1586363104866-3c5a2a3924b4?w=400&h=500&fit=crop" },
+    { id:8, name:"Graphic Print T-Shirt", category:"tshirt", price:99, oldPrice:149, isNew:true, image:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop" },
+    { id:9, name:"Striped Casual Tee", category:"tshirt", price:109, oldPrice:null, isNew:false, image:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop" },
+    
+    // بدلات رياضية
+    { id:10, name:"Sports Track Suit", category:"suit", price:349, oldPrice:429, isNew:true, image:"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400&h=500&fit=crop" },
+    { id:11, name:"Training Jacket & Pants", category:"suit", price:389, oldPrice:479, isNew:false, image:"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop" },
+    { id:12, name:"Athletic Zip Hoodie Set", category:"suit", price:399, oldPrice:499, isNew:true, image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop" },
+    { id:13, name:"Premium Sports Suit", category:"suit", price:419, oldPrice:529, isNew:false, image:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=500&fit=crop" },
+    { id:14, name:"Summer Track Set", category:"suit", price:299, oldPrice:369, isNew:true, image:"https://images.unsplash.com/photo-1518049362265-d5b2a6467637?w=400&h=500&fit=crop" },
+    
+    // المزيد من التيشرتات
+    { id:15, name:"V-Neck Soft Tee", category:"tshirt", price:85, oldPrice:null, isNew:false, image:"https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=400&h=500&fit=crop" },
+    { id:16, name:"Polo Casual Shirt", category:"tshirt", price:129, oldPrice:169, isNew:true, image:"https://images.unsplash.com/photo-1586363104866-3c5a2a3924b4?w=400&h=500&fit=crop" }
   ];
 
   let cart = [];
   let currentPage = 1;
-  const itemsPerPage = 8; // عرض 8 منتجات في كل صفحة
+  const itemsPerPage = 8;
 
-  // عرض المنتجات حسب الصفحة
   function renderProducts() {
     const selectedCats = Array.from(document.querySelectorAll('.filter-cat:checked')).map(cb => cb.value);
     const maxPrice = parseInt(document.getElementById('priceFilter').value);
     
     let filtered = products.filter(p => {
       let match = true;
-      if(selectedCats.includes('sweatshirt') && p.category !== 'sweatshirt') match = false;
+      if(selectedCats.length > 0 && !selectedCats.includes('new') && !selectedCats.includes(p.category)) match = false;
       if(selectedCats.includes('new') && !p.isNew) match = false;
       if(p.price > maxPrice) match = false;
       return match;
     });
     
-    // ترقيم الصفحات
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
     const start = (currentPage - 1) * itemsPerPage;
     const paginated = filtered.slice(start, start + itemsPerPage);
@@ -389,7 +397,7 @@
       grid.innerHTML = paginated.map(p => `
         <div class="product-card">
           <div class="product-img">
-            <i class="fas fa-tshirt"></i>
+            <img src="${p.image}" alt="${p.name}">
           </div>
           <div class="product-info">
             ${p.isNew ? '<div class="badge-new">جديد</div>' : ''}
@@ -403,11 +411,9 @@
         </div>
       `).join('');
     }
-    
     renderPagination(totalPages);
   }
 
-  // عرض أزرار الترقيم 1 إلى 100 (أو حسب عدد الصفحات)
   function renderPagination(totalPages) {
     const paginationDiv = document.getElementById('pagination');
     let html = '';
@@ -423,7 +429,6 @@
     window.scrollTo({ top: 300, behavior: 'smooth' });
   }
 
-  // سلة التسوق
   function addToCart(id) {
     const product = products.find(p => p.id === id);
     const existing = cart.find(i => i.id === id);
@@ -440,12 +445,15 @@
     } else {
       container.innerHTML = cart.map(item => `
         <div class="cart-item">
-          <div><strong>${item.name}</strong><br>${item.price} درهم × ${item.qty}</div>
+          <div>
+            <strong>${item.name}</strong><br>
+            <span style="font-size:0.8rem; color:#ccc;">${item.price} درهم × ${item.qty}</span>
+          </div>
           <div>
             <button onclick="changeQty(${item.id}, -1)" style="background:#333; border:none; color:white; width:28px; border-radius:6px;">-</button>
             <span style="margin:0 8px;">${item.qty}</span>
             <button onclick="changeQty(${item.id}, 1)" style="background:#333; border:none; color:white; width:28px; border-radius:6px;">+</button>
-            <button onclick="removeItem(${item.id})" style="background:none; border:none; color:#ff8888;"><i class="fas fa-trash"></i></button>
+            <button onclick="removeItem(${item.id})" style="background:none; border:none; color:#ff8888; margin-left:8px;"><i class="fas fa-trash"></i></button>
           </div>
         </div>
       `).join('');
@@ -464,7 +472,6 @@
   }
   function removeItem(id) { cart = cart.filter(i => i.id !== id); updateCartUI(); }
 
-  // السلة الجانبية
   const cartIcon = document.getElementById('cartIcon');
   const cartSidebar = document.getElementById('cartSidebar');
   const overlayDiv = document.getElementById('overlay');
@@ -474,11 +481,10 @@
   document.getElementById('closeCartBtn').onclick = closeCart;
   overlayDiv.onclick = closeCart;
   document.getElementById('checkoutBtn').onclick = () => {
-    if(cart.length) alert(`شكراً لتسوقك من L7wayej Shop! إجمالي الطلب: ${cart.reduce((s,i)=>s+(i.price*i.qty),0)} درهم`);
+    if(cart.length) alert(`شكراً لتسوقك من L7wayej Shop!\nإجمالي الطلب: ${cart.reduce((s,i)=>s+(i.price*i.qty),0)} درهم`);
     else alert("السلة فارغة");
   };
 
-  // الفلاتر
   document.querySelectorAll('.filter-cat').forEach(cb => cb.addEventListener('change', () => {
     currentPage = 1;
     renderProducts();

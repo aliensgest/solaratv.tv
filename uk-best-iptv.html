@@ -30,7 +30,7 @@
         "contactType": "Sales"
       }
     },
-    "areaServed": ["GB", "US", "AU", "CA", "DE", "FR", "ES", "IT", "NL", "AE", "SA"],
+    "areaServed": ["GB", "IE", "US", "AU", "CA", "DE", "FR", "ES", "IT", "NL", "AE", "SA"],
     "offers": {
       "@type": "Offer",
       "description": "UK IPTV Streaming Service",
@@ -171,6 +171,17 @@
     .cta-section { text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(0,0,0,0.9)); border-radius: 20px; margin-top: 30px; }
     .region-btn { background: linear-gradient(135deg, #FFD700, #B8860B); color: #0A0A0A; padding: 12px 30px; border-radius: 40px; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
     
+    /* ✅ إضافة رابط أيرلندا */
+    .ireland-link-section { text-align: center; margin: 30px 0 20px; }
+    .ireland-link-card { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 20px 30px; display: inline-flex; align-items: center; gap: 20px; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; text-decoration: none; }
+    .ireland-link-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+    .ireland-link-card .flag-icon { font-size: 2.5rem; }
+    .ireland-link-card .ireland-info { text-align: left; }
+    .ireland-link-card .ireland-info h3 { color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 5px; }
+    .ireland-link-card .ireland-info p { color: #aaa; font-size: 0.8rem; }
+    .ireland-link-card i { color: var(--accent-gold); font-size: 1.2rem; }
+    @media (max-width: 768px) { .ireland-link-card { padding: 15px 20px; } .ireland-link-card .flag-icon { font-size: 1.8rem; } .ireland-link-card .ireland-info h3 { font-size: 0.9rem; } }
+    
     footer { padding: 40px 0 25px; text-align: center; background: #050505; border-top: 1px solid var(--accent-gold); margin-top: 50px; width: 100%; }
     .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
     .footer-links a { color: #aaa; text-decoration: none; font-size: 0.7rem; }
@@ -291,6 +302,20 @@
     </div>
   </div>
 </section>
+
+<!-- ✅ قسم رابط أيرلندا الجديد -->
+<div class="container">
+  <div class="ireland-link-section">
+    <a href="ireland-best-iptv" class="ireland-link-card">
+      <span class="flag-icon">🇮🇪</span>
+      <div class="ireland-info">
+        <h3>Best IPTV Ireland 2026</h3>
+        <p>Premier League, GAA, Rugby, Six Nations, RTE, Virgin Media, TG4 in 4K</p>
+      </div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
 
 <!-- SEO Content Section -->
 <section>

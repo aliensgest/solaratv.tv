@@ -271,6 +271,34 @@
     /* ===== WHATSAPP FLOAT - fixed outside footer ===== */
     .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; text-decoration: none; z-index: 999; box-shadow: 0 4px 12px rgba(37,211,102,0.4); }
 
+    /* ===== OFFICIAL INFO (address/phone/email) ===== */
+    .official-info {
+      background: #0d0d0d;
+      border-top: 1px solid #222;
+      padding: 20px 0;
+      text-align: left;
+    }
+    .official-info .info-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 30px 50px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .official-info .info-wrap i {
+      color: var(--accent-gold);
+      width: 22px;
+      margin-right: 8px;
+    }
+    .official-info .info-wrap a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    .official-info .info-wrap a:hover {
+      text-decoration: underline;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -286,6 +314,7 @@
       .region-card-link .flag-icon { font-size: 1.8rem; }
       .region-card-link .region-info h3 { font-size: 0.9rem; }
       .section-title { font-size: 1.2rem; }
+      .official-info .info-wrap { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -688,6 +717,17 @@
     <p style="color:#ccc; text-align:center; line-height:1.8; max-width:1000px; margin:0 auto;">Looking for the <strong>best IPTV subscription in the UK, USA, Australia, Canada, or GCC</strong>? SOLARA TV offers over 25,000 live channels including Premier League, NFL, NBA, AFL, NRL, beIN Sports, Saudi Pro League, and World Cup 2026. Our anti-freeze technology ensures zero buffering, and we support all devices: Firestick, Roku, MAG, Smart TVs, and smartphones. We are the #1 rated IPTV service provider in 2026. Get a <strong>free trial</strong> today and experience premium IPTV like never before.</p>
   </div>
 </section>
+
+<!-- ===== OFFICIAL INFO (address/phone/email) ===== -->
+<div class="official-info">
+  <div class="container">
+    <div class="info-wrap">
+      <div><i class="fas fa-map-pin"></i> 6 Av. Moulay Ismail, Rabat, Morocco</div>
+      <div><i class="fas fa-phone-alt"></i> <a href="tel:+212600160196">+212 600 160 196</a></div>
+      <div><i class="fas fa-envelope"></i> <a href="mailto:contact@solaratv.tv">contact@solaratv.tv</a></div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer>

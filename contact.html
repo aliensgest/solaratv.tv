@@ -52,10 +52,59 @@
     .quick-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:15px}
     .quick-link{background:rgba(255,215,0,.1);padding:8px 16px;border-radius:30px;text-decoration:none;color:var(--accent-gold);font-size:.75rem;transition:all .3s}
     .quick-link:hover{background:var(--accent-gold);color:#0A0A0A}
-    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
-    /* Instagram Card Style */
-    .instagram-card{background:linear-gradient(135deg,#111,#0A0A0A);padding:25px;border-radius:20px;text-align:center;border:1px solid rgba(255,215,0,.3);transition:all .3s;margin:15px 0 5px;max-width:400px;margin-left:auto;margin-right:auto}.instagram-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}.instagram-card i{font-size:2.8rem;color:#E4405F;margin-bottom:12px;display:block}.instagram-card h3{color:var(--accent-gold);font-size:1.3rem;margin-bottom:6px}.instagram-card p{color:#aaa;font-size:.85rem;margin-bottom:18px}.instagram-btn{display:inline-block;padding:10px 30px;background:linear-gradient(135deg,#E4405F,#d62976);color:white;text-decoration:none;border-radius:30px;font-weight:bold;font-size:.85rem;transition:all .3s;border:none;cursor:pointer}.instagram-btn:hover{transform:scale(1.02);box-shadow:0 0 15px rgba(228,64,95,.4)}
-    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}}
+    footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold)}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
+    /* تعديل أيقونات الواتساب والانستغرام */
+    .social-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 99;
+    }
+    .social-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: all 0.2s;
+      background: #25D366; /* افتراضي للواتساب */
+      color: white;
+      font-size: 1.8rem;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .social-float a.instagram-btn {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+      border: 2px solid rgba(255,255,255,0.25);
+      font-size: 2rem;
+    }
+    .social-float a.whatsapp-btn {
+      background: #25D366;
+    }
+    .social-float a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,215,0,0.2);
+    }
+    .social-float a i {
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
+    }
+
+    /* أيقونة انستغرام جديدة مميزة (باستخدام الصورة المطلوبة) */
+    .instagram-icon-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
+    }
+
+    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.social-float{bottom:16px;right:16px}.social-float a{width:46px;height:46px;font-size:1.5rem}.instagram-icon-img{width:28px;height:28px}}
   </style>
 </head>
 <body>
@@ -119,35 +168,25 @@
     </div>
   </div>
 
-  <!-- حساب انستغرام - كارد مع صورة قابلة للضغط -->
-  <div style="text-align: center; margin: 40px 0 20px;">
-    <h3 style="color: var(--accent-gold); margin-bottom: 20px;">📸 تابعنا على إنستغرام</h3>
-    <div class="instagram-card">
-      <i class="fab fa-instagram"></i>
-      <h3>@solaratv.tv</h3>
-      <p>احصل على عروض حصرية، أخبار الباقة، وتحديثات يومية عبر حسابنا الرسمي على إنستغرام.</p>
-      <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn">
-        <i class="fab fa-instagram"></i> تابعنا الآن
-      </a>
-    </div>
-    <!-- صورة انستغرام للضغط عليها (رابط مباشر) -->
-    <div style="margin-top: 20px;">
-      <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" 
-             alt="Instagram SOLARA TV" 
-             style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 4px 15px rgba(228,64,95,0.4); transition: transform 0.3s; border: 2px solid var(--accent-gold);"
-             onmouseover="this.style.transform='scale(1.08)'" 
-             onmouseout="this.style.transform='scale(1)'">
-      </a>
-      <p style="color: #aaa; font-size: 0.75rem; margin-top: 8px;">اضغط على الشعار للذهاب إلى صفحتنا</p>
-    </div>
-  </div>
-
   <div style="text-align: center; margin-top: 30px; padding: 25px; background: rgba(255,215,0,0.05); border-radius: 20px;">
     <p style="color: #ccc; font-size: 0.9rem;"><i class="fas fa-heart" style="color: #FFD700;"></i> <strong>Join thousands of satisfied customers</strong> who trust SOLARA TV for their IPTV needs. Our support team is ready to assist you with setup, troubleshooting, and any questions you may have.</p>
   </div>
 </div></section>
 
-<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<footer><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div><p style="margin:20px 0">© 2026 SOLARA TV. All rights reserved.</p>
+
+<!-- الأيقونات العائمة: واتساب + إنستغرام (بالصورة المطلوبة) -->
+<div class="social-float">
+  <!-- أيقونة إنستغرام بالصورة المحددة -->
+  <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn" aria-label="Instagram">
+    <img src="https://i.ibb.co/s9zX17cJ/Instagram-logo-2022-svg.png" alt="Instagram" class="instagram-icon-img">
+  </a>
+  <!-- أيقونة واتساب -->
+  <a href="https://wa.me/212600160196" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+</div></footer>
 </body>
 </html>

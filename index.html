@@ -268,8 +268,49 @@
     .footer-links a:hover { color: var(--accent-gold); }
     .payment-methods i { font-size: 1.5rem; margin: 0 10px; color: #666; }
 
-    /* ===== WHATSAPP FLOAT - fixed outside footer ===== */
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; text-decoration: none; z-index: 999; box-shadow: 0 4px 12px rgba(37,211,102,0.4); }
+    /* ===== SOCIAL FLOAT (WhatsApp + Instagram) ===== */
+    .social-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 999;
+    }
+    .social-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: all 0.2s;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+    .social-float a.whatsapp-btn {
+      background: #25D366;
+      color: white;
+      font-size: 1.8rem;
+    }
+    .social-float a.instagram-btn {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .social-float a.instagram-btn img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
+    }
+    .social-float a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,215,0,0.2);
+    }
 
     /* ===== OFFICIAL INFO (address/phone/email) ===== */
     .official-info {
@@ -315,6 +356,9 @@
       .region-card-link .region-info h3 { font-size: 0.9rem; }
       .section-title { font-size: 1.2rem; }
       .official-info .info-wrap { flex-direction: column; gap: 12px; }
+      .social-float a { width: 46px; height: 46px; }
+      .social-float a.instagram-btn img { width: 28px; height: 28px; }
+      .social-float a.whatsapp-btn { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -741,8 +785,17 @@
   </div>
 </footer>
 
-<!-- WhatsApp float OUTSIDE footer so it's always visible -->
-<a href="https://wa.me/212600160196" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<!-- ===== SOCIAL FLOAT: WhatsApp + Instagram (outside footer) ===== -->
+<div class="social-float">
+  <!-- Instagram button with the requested image -->
+  <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn" aria-label="Instagram">
+    <img src="https://i.ibb.co/s9zX17cJ/Instagram-logo-2022-svg.png" alt="Instagram logo" />
+  </a>
+  <!-- WhatsApp button -->
+  <a href="https://wa.me/212600160196" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
 
 <script>
   // ===== HAMBURGER MENU =====
@@ -768,7 +821,6 @@
 
   // ===== COUNTDOWN - Opening match: June 11, 2026 20:00 UTC (4 PM ET) =====
   function updateCountdown() {
-    // USA vs Mexico opening match: June 11, 2026 at 20:00 UTC
     var worldCupDate = new Date('2026-06-11T20:00:00Z').getTime();
     var now = new Date().getTime();
     var distance = worldCupDate - now;
@@ -795,5 +847,3 @@
 </script>
 </body>
 </html>
-
-

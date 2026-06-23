@@ -98,7 +98,7 @@
     .btn-whatsapp { background: #25D366; color: white; }
     
     /* Hero Section with image banner */
-    .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://i.ibb.co/x8P92wSb/1780226533661.png') center/cover; padding: 50px 0 45px; width: 100%; background-size: cover; background-position: center; }
+    .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
     .hero h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.3; word-break: break-word; }
     .hero h1 span { background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero p { font-size: 1rem; max-width: 750px; margin: 0 auto 20px; color: #e0e0e0; }
@@ -133,13 +133,12 @@
     .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 35px; color: var(--accent-gold); }
     .section-title:after { content: ''; display: block; width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent-gold), #FFA500); margin: 12px auto 0; border-radius: 2px; }
     
-    .channels-grid, .pricing-grid, .features-grid { display: grid; gap: 20px; margin-top: 30px; }
+    .channels-grid, .features-grid { display: grid; gap: 20px; margin-top: 30px; }
     .channels-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .pricing-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); justify-content: center; }
     .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
     
-    .channel-category, .pricing-card, .feature-card { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; }
-    .channel-category:hover, .pricing-card:hover, .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+    .channel-category, .feature-card { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; }
+    .channel-category:hover, .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
     .category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,215,0,0.3); padding-bottom: 10px; }
     .category-header i { font-size: 1.3rem; color: var(--accent-gold); }
     .category-header h3 { font-size: 1.1rem; color: var(--accent-gold); }
@@ -147,13 +146,6 @@
     .channel-list li { margin: 8px 0; display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: #ddd; }
     .channel-list li i { color: var(--accent-gold); width: 16px; font-size: 0.7rem; }
     .quality-tag { background: rgba(255,215,0,0.15); color: var(--accent-gold); padding: 2px 8px; border-radius: 10px; font-size: 0.6rem; font-weight: 600; margin-left: auto; }
-    
-    .pricing-card { text-align: center; position: relative; }
-    .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; padding: 3px 12px; border-radius: 30px; font-size: 0.65rem; font-weight: bold; white-space: nowrap; }
-    .plan-name { font-size: 1.3rem; font-weight: 700; }
-    .price { font-size: 2rem; font-weight: 800; color: var(--accent-gold); margin: 12px 0; }
-    .old-price { font-size: 0.8rem; text-decoration: line-through; color: #666; margin-right: 5px; }
-    .plan-btn { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; border: none; padding: 10px 18px; border-radius: 30px; font-weight: bold; cursor: pointer; width: 100%; transition: all 0.3s; margin-top: 10px; font-size: 0.8rem; }
     
     .feature-card { text-align: center; }
     .feature-card i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 12px; display: block; }
@@ -217,7 +209,6 @@
     <h1>#1 Rated USA IPTV | <span>Premium USA IPTV Subscription</span> | NFL, NBA, MLB, NHL in HD</h1>
     <p>Watch every NFL, NBA, MLB, NHL, MLS, NCAA match live on ESPN, Fox Sports, NBC Sports, CBS Sports. Plus 25,000+ American & international channels in stunning HD quality. Plans from <strong>$22 USD/month</strong>. Free trial for American customers.</p>
     
-    <!-- الصورة الجديدة للولايات المتحدة بحجم كبير -->
     <div class="hero-banner-image">
       <img src="https://i.ibb.co/x8P92wSb/1780226533661.png" alt="SOLARA TV - Best USA IPTV Service 2026">
     </div>
@@ -240,19 +231,6 @@
       <div class="channel-category"><div class="category-header"><i class="fas fa-football-ball"></i><h3>🏈 American Sports</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ESPN, ESPN2, ESPN3</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Fox Sports 1 & 2 (FS1, FS2)</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NBC Sports</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>CBS Sports</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NFL Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NBA TV</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>MLB Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>NHL Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>MLS, NCAA, Golf Channel, Tennis Channel</span><span class="quality-tag">HD</span></li></ul></div>
       <div class="channel-category"><div class="category-header"><i class="fas fa-tv"></i><h3>📺 American TV Channels</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>ABC, CBS, NBC, FOX</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>CNN, Fox News, MSNBC, CNBC</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>HBO, Showtime, Starz, Cinemax</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>AMC, FX, USA Network, TNT, TBS</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Discovery, National Geographic, History Channel</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Disney Channel, Nickelodeon, Cartoon Network</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Comedy Central, MTV, VH1, BET</span><span class="quality-tag">HD</span></li></ul></div>
       <div class="channel-category"><div class="category-header"><i class="fas fa-newspaper"></i><h3>📰 American News</h3></div><ul class="channel-list"><li><i class="fas fa-check-circle"></i><span>CNN, CNN International</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Fox News, Fox Business</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>MSNBC, CNBC</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>ABC News Live, CBS News, NBC News Now</span><span class="quality-tag">HD</span></li><li><i class="fas fa-check-circle"></i><span>Bloomberg TV, Newsmax, NewsNation</span><span class="quality-tag">HD</span></li></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing Section (in USD) - الأسعار الجديدة -->
-<section style="background: var(--card-bg); padding: 60px 0;">
-  <div class="container">
-    <h2 class="section-title">💰 USA Pricing – Best Value for American Customers</h2>
-    <div class="pricing-grid">
-      <div class="pricing-card"><div class="plan-name">Monthly</div><div class="price">$22 <small>USD/month</small></div><ul><li>✓ 25,000+ Live Channels</li><li>✓ 60,000+ VOD</li><li>✓ HD Quality</li><li>✓ 24/7 Support</li></ul><button class="plan-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%20USA%20monthly%20plan','_blank')">Choose Plan</button></div>
-      <div class="pricing-card"><div class="plan-name">3 Months</div><div class="price"><span class="old-price">$66</span> $43 <small>USD/3 months</small></div><ul><li>✓ 25,000+ Live Channels</li><li>✓ 60,000+ VOD</li><li>✓ HD Quality</li><li>✓ Priority Support</li></ul><button class="plan-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%20USA%203%20month%20plan','_blank')">Save 37%</button></div>
-      <div class="pricing-card popular"><div class="popular-badge">⭐ MOST POPULAR</div><div class="plan-name">6 Months</div><div class="price"><span class="old-price">$132</span> $65.50 <small>USD/6 months</small></div><ul><li>✓ 25,000+ Live Channels</li><li>✓ 60,000+ VOD</li><li>✓ HD Quality</li><li>✓ VIP Support</li></ul><button class="plan-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%20USA%206%20month%20plan','_blank')">Save 50%</button></div>
-      <div class="pricing-card"><div class="plan-name">12 Months</div><div class="price"><span class="old-price">$264</span> $118 <small>USD/year</small></div><ul><li>✓ 25,000+ Live Channels</li><li>✓ 60,000+ VOD</li><li>✓ HD Quality</li><li>✓ Platinum Support</li></ul><button class="plan-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20the%20USA%2012%20month%20plan','_blank')">Save 55%</button></div>
     </div>
   </div>
 </section>

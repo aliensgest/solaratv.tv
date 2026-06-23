@@ -208,7 +208,7 @@
     .device-guide-btn { display: inline-block; background: linear-gradient(135deg, #FF9900, #FF6600); color: #0A0A0A; padding: 10px 25px; border-radius: 40px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
     .device-guide-btn:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(255,153,0,0.5); }
 
-    /* ===== MOVIE SLIDER ===== */
+    /* ===== MOVIE SLIDER - no titles ===== */
     .movie-slider-section { padding: 50px 0; background: #0A0A0A; width: 100%; overflow: hidden; }
     .slider-container { position: relative; overflow: hidden; margin: 20px 0; width: 100%; }
     .movie-track { display: flex; animation: scrollMovies 40s linear infinite; gap: 20px; width: max-content; }
@@ -217,8 +217,8 @@
     .slider-movie { width: 200px; flex-shrink: 0; background: #111111; border-radius: 16px; overflow: hidden; transition: all 0.4s; border: 1px solid var(--accent-gold); }
     .slider-poster { height: 280px; background-size: cover; background-position: center; position: relative; }
     .slider-year { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); }
-    .slider-info { padding: 12px; text-align: center; }
-    .slider-info h4 { font-size: 0.85rem; color: var(--accent-gold); }
+    /* HIDE the info block that shows titles */
+    .slider-info { display: none; }
 
     /* ===== PRICING ===== */
     .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -550,24 +550,24 @@
   </div>
 </div>
 
-<!-- ===== MOVIE SLIDER ===== -->
+<!-- ===== MOVIE SLIDER (images only, no titles) ===== -->
 <section class="movie-slider-section">
   <div class="container">
     <h2 class="section-title" style="color:#FFD700;">🎬 Exclusive Movies 2026</h2>
     <div class="slider-container">
       <div class="movie-track">
         <!-- Set 1 -->
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Avengers: Doomsday</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Spider-Man: Brand New Day</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Dune: Messiah</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Mission: Impossible 8</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Captain America: Brave New World</h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
         <!-- Set 2 (duplicate for seamless loop) -->
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Avengers: Doomsday</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Spider-Man: Brand New Day</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Dune: Messiah</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Mission: Impossible 8</h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4>Captain America: Brave New World</h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
       </div>
     </div>
   </div>
@@ -787,11 +787,9 @@
 
 <!-- ===== SOCIAL FLOAT: WhatsApp + Instagram (outside footer) ===== -->
 <div class="social-float">
-  <!-- Instagram button with the requested image -->
   <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn" aria-label="Instagram">
     <img src="https://i.ibb.co/s9zX17cJ/Instagram-logo-2022-svg.png" alt="Instagram logo" />
   </a>
-  <!-- WhatsApp button -->
   <a href="https://wa.me/212600160196" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -809,7 +807,6 @@
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close mobile menu when a link is tapped
   mobileMenu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
       mobileMenu.classList.remove('open');

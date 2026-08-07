@@ -16,6 +16,17 @@
     gtag('config', 'G-5CDJ1NBM5B');
   </script>
 
+  <!-- ★ البنية التحتية للتأكيد الرسمي - تثبت ملكية الموقع للعلامة التجارية ★ -->
+  <link rel="me" href="mailto:contact@solaratv.tv">
+  <meta name="author" content="SolaraTV - Official Brand">
+  <meta name="copyright" content="SolaraTV">
+  <meta name="owner" content="SolaraTV">
+  <meta name="brand" content="SolaraTV">
+  <meta name="og:site_name" content="SolaraTV - Official IPTV Service">
+  <meta name="twitter:site" content="@solaratv_official">
+  <meta name="official-site" content="true">
+  <meta name="verified-by" content="SolaraTV">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,11 +77,12 @@
   }
   </script>
 
+  <!-- ★ Schema إضافي لتأكيد الهوية الرسمية ★ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "SolaraTV",
+    "name": "SolaraTV - Official Site",
     "alternateName": "أفضل خدمة IPTV 2026",
     "url": "https://www.solaratv.tv",
     "potentialAction": {
@@ -108,7 +120,42 @@
     /* ===== HEADER ===== */
     header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 12px 0; border-bottom: 1px solid var(--accent-gold); width: 100%; }
     .nav { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; flex-shrink: 0; }
+    
+    /* ★ الشعار مع شارة الموقع الرسمي ★ */
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
+    
+    /* ★ شارة "الموقع الرسمي" الخضراء بجانب الشعار ★ */
+    .official-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #00C853, #00E676);
+      color: #0A0A0A;
+      padding: 3px 12px;
+      border-radius: 30px;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 15px rgba(0,200,83,0.3);
+      animation: pulseGreen 2s infinite;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .official-badge i { font-size: 0.55rem; }
+    .official-badge:hover { transform: scale(1.05); }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 5px rgba(0,200,83,0.3); }
+      50% { box-shadow: 0 0 20px rgba(0,200,83,0.6); }
+      100% { box-shadow: 0 0 5px rgba(0,200,83,0.3); }
+    }
 
     /* Desktop nav */
     .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
@@ -148,6 +195,57 @@
     .hero-btn:hover { transform: scale(1.05); animation: none; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,215,0,0.4); } 70% { box-shadow: 0 0 0 15px rgba(255,215,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
 
+    /* ===== ★ شارة الموقع الرسمي - بانر تأكيد الهوية أسفل الهيرو ★ ===== */
+    .official-banner {
+      background: linear-gradient(135deg, rgba(0,200,83,0.12), rgba(0,200,83,0.04));
+      border: 2px solid #00C853;
+      border-radius: 16px;
+      padding: 15px 25px;
+      margin: 25px auto 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      width: auto;
+      max-width: 100%;
+    }
+    .official-banner i { color: #00C853; font-size: 1.5rem; }
+    .official-banner .big-badge {
+      background: #00C853;
+      color: #0A0A0A;
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+    .official-banner .big-badge:hover { opacity: 0.85; }
+    .official-banner span { color: #ccc; font-size: 0.85rem; }
+    .official-banner strong { color: #00C853; }
+
+    /* ===== ★ تحذير المواقع المقلدة ★ ===== */
+    .warning-box {
+      background: rgba(255,0,0,0.08);
+      border-left: 4px solid #ff0000;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin: 15px auto;
+      max-width: 800px;
+      font-size: 0.8rem;
+      color: #ff6b6b;
+      text-align: center;
+    }
+    .warning-box strong { color: #ff4444; }
+    .warning-box .site-link {
+      color: #00C853;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .warning-box .site-link:hover { color: #FFD700; }
+    .warning-box a { color: var(--accent-gold); text-decoration: underline; }
+
     /* ===== REGION QUICK LINKS ===== */
     .region-quick-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 30px 0 20px; }
     .region-card-link { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 20px 35px; text-align: center; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 15px; }
@@ -177,7 +275,6 @@
     .slider-movie { width: 200px; flex-shrink: 0; background: #111111; border-radius: 16px; overflow: hidden; transition: all 0.4s; border: 1px solid var(--accent-gold); }
     .slider-poster { height: 280px; background-size: cover; background-position: center; position: relative; }
     .slider-year { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); }
-    /* HIDE the info block that shows titles */
     .slider-info { display: none; }
 
     /* ===== PRICING ===== */
@@ -227,6 +324,34 @@
     .footer-links a { color: #aaa; text-decoration: none; font-size: 0.7rem; }
     .footer-links a:hover { color: var(--accent-gold); }
     .payment-methods i { font-size: 1.5rem; margin: 0 10px; color: #666; }
+
+    /* ★ شريط حقوق النشر المعزز ★ */
+    .copyright-verify {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      font-size: 0.7rem;
+      color: #666;
+      border-top: 1px solid rgba(255,215,0,0.1);
+      margin-top: 15px;
+    }
+    .copyright-verify .verify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #00C853;
+      font-weight: 600;
+    }
+    .copyright-verify .verify-badge i { color: #00C853; }
+    .copyright-verify .official-link {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .copyright-verify .official-link:hover { text-decoration: underline; }
 
     /* ===== SOCIAL FLOAT (WhatsApp + Instagram) ===== */
     .social-float {
@@ -316,6 +441,7 @@
       .social-float a { width: 46px; height: 46px; }
       .social-float a.instagram-btn img { width: 28px; height: 28px; }
       .social-float a.whatsapp-btn { font-size: 1.5rem; }
+      .official-badge { font-size: 0.45rem; padding: 2px 8px; }
     }
   </style>
 </head>
@@ -324,7 +450,13 @@
 <!-- ===== HEADER ===== -->
 <header>
   <div class="container nav">
-    <a href="/" class="logo">SolaraTV</a>
+    <div class="logo-wrapper">
+      <a href="/" class="logo">SolaraTV</a>
+      <!-- ★ شارة الموقع الرسمي - قابلة للضغط تؤدي للموقع ★ -->
+      <a href="https://www.solaratv.tv" class="official-badge" title="Site Officiel SolaraTV">
+        <i class="fas fa-check-circle"></i> Site Officiel
+      </a>
+    </div>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="/" class="active">Home</a>
       <a href="/movies">Movies</a>
@@ -388,6 +520,22 @@
       <div class="stat-item"><div class="stat-number">Free Trial</div><div class="stat-label">Available</div></div>
     </div>
     <button class="hero-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">🚀 Start Your Free Trial</button>
+
+    <!-- ★ بانر تأكيد الموقع الرسمي ★ -->
+    <div class="official-banner">
+      <i class="fas fa-shield-alt"></i>
+      <a href="https://www.solaratv.tv" class="big-badge">✓ Site Officiel SolaraTV</a>
+      <span>Le seul site officiel est <strong>www.solaratv.tv</strong></span>
+      <i class="fas fa-check-circle" style="color:#00C853;"></i>
+    </div>
+
+    <!-- ★ تحذير من المواقع المقلدة ★ -->
+    <div class="warning-box">
+      <i class="fas fa-exclamation-triangle"></i>
+      <strong>⚠️ Attention :</strong> Le seul site officiel de SolaraTV est 
+      <a href="https://www.solaratv.tv" class="site-link">www.solaratv.tv</a>. 
+      Méfiez-vous des sites imitant notre marque. <a href="/contact">Signaler un site frauduleux →</a>
+    </div>
   </div>
 </section>
 
@@ -673,6 +821,15 @@
     <div class="payment-methods"><i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i></div>
     <p style="margin:20px 0;">© 2026 SolaraTV - Best IPTV Service Provider 2026</p>
     <p>USA • Canada • UK • Europe • Australia • GCC • Worldwide</p>
+    
+    <!-- ★ شريط حقوق النشر المعزز مع رابط الموقع الرسمي ★ -->
+    <div class="copyright-verify">
+      <span class="verify-badge"><i class="fas fa-check-circle"></i> Site Officiel Vérifié</span>
+      <span>|</span>
+      <a href="https://www.solaratv.tv" class="official-link">www.solaratv.tv</a>
+      <span>|</span>
+      <span>🇲🇦 Morocco</span>
+    </div>
   </div>
 </footer>
 

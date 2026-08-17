@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+
 <script>
-// حل شامل لإزالة .html من جميع الصفحات والروابط
+// إزالة .html من الرابط الظاهر فقط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
-    history.replaceState({}, '', location.pathname.replace('.html', ''));
-  }
-  
-  // إصلاح جميع الروابط في الصفحة
-  for (let link of document.querySelectorAll('a[href]')) {
-    let href = link.getAttribute('href');
-    if (href && href.includes('.html') && !href.includes('://')) {
-      link.setAttribute('href', href.replace('.html', ''));
-    }
+    history.replaceState({}, '', location.pathname.replace(/.html$/, ''));
   }
 })();
 </script>
-<head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
@@ -27,48 +19,418 @@
   gtag('js', new Date());
   gtag('config', 'G-5CDJ1NBM5B');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover why SolaraTV is one of the IPTV services worth considering in 2026 for live TV, sports, movies, series, and 4K streaming.">
 <title>SOLARA TV | Blog Post</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <style>
-  :root{--bg:#0A0A0A;--accent-gold:#FFD700;--card-bg:#111111;--text:#FFFFFF}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}.container{max-width:800px;margin:0 auto;padding:0 20px}
-  header{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;padding:12px 0;border-bottom:1px solid var(--accent-gold)}.nav-c{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent-gold),#FFA500);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.nav-links a{color:white;text-decoration:none;font-weight:500;font-size:.75rem;padding:5px 8px;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent-gold)}
-  .post-header{padding:50px 0 30px;text-align:center}.post-header h1{font-size:2rem;margin-bottom:15px;color:var(--accent-gold)}.post-meta{display:flex;justify-content:center;gap:20px;font-size:.8rem;color:#888;margin-bottom:20px}.post-meta span{display:flex;align-items:center;gap:5px}
-  .post-image{width:100%;height:350px;object-fit:cover;border-radius:16px;margin-bottom:30px;border:1px solid rgba(255,215,0,.3)}
-  .post-body{font-size:1rem;color:#ddd;line-height:1.8}.post-body p{margin-bottom:18px}.post-body h2{color:var(--accent-gold);margin:30px 0 15px}.post-body h3{color:var(--accent-gold);margin:25px 0 10px}.post-body ul,.post-body ol{margin:15px 0 15px 25px;color:#ccc}.post-body li{margin-bottom:8px}
-  .verdict-box{background:linear-gradient(135deg,#1a1a2e,#0a0a0a);border:2px solid var(--accent-gold);border-radius:20px;padding:30px;text-align:center;margin:30px 0}
-  .verdict-box .stars{color:var(--accent-gold);font-size:1.5rem;letter-spacing:5px;margin-bottom:15px}
-  .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent-gold);text-decoration:none;font-weight:600;margin-top:30px;transition:gap .3s}.back-link:hover{gap:12px}
-  footer{padding:40px 0 25px;text-align:center;background:#050505;border-top:1px solid var(--accent-gold);margin-top:50px}.footer-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px}.footer-links a{color:#aaa;text-decoration:none;font-size:.7rem}.footer-links a:hover{color:var(--accent-gold)}.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
-  @media(max-width:768px){.nav-links{display:none}.post-header h1{font-size:1.5rem}.post-image{height:220px}}
+:root {
+  --bg:#0A0A0A;
+  --accent-gold:#FFD700;
+  --card-bg:#111111;
+  --text:#FFFFFF
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+body {
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden
+}
+
+.container {
+  max-width:800px;
+  margin:0 auto;
+  padding:0 20px
+}
+
+header {
+  background:rgba(10,10,10,.95);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:12px 0;
+  border-bottom:1px solid var(--accent-gold)
+}
+
+.nav-c {
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px
+}
+
+.logo {
+  font-size:24px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent-gold),#FFA500);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-decoration:none
+}
+
+.nav-links {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px
+}
+
+.nav-links a {
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  font-size:.75rem;
+  padding:5px 8px;
+  transition:color .3s
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color:var(--accent-gold)
+}
+
+.post-header {
+  padding:50px 0 30px;
+  text-align:center
+}
+
+.post-header h1 {
+  font-size:2rem;
+  margin-bottom:15px;
+  color:var(--accent-gold)
+}
+
+.post-meta {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  font-size:.8rem;
+  color:#888;
+  margin-bottom:20px
+}
+
+.post-meta span {
+  display:flex;
+  align-items:center;
+  gap:5px
+}
+
+.post-image {
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:30px;
+  border:1px solid rgba(255,215,0,.3)
+}
+
+.post-body {
+  font-size:1rem;
+  color:#ddd;
+  line-height:1.8
+}
+
+.post-body p {
+  margin-bottom:18px
+}
+
+.post-body h2 {
+  color:var(--accent-gold);
+  margin:30px 0 15px
+}
+
+.post-body h3 {
+  color:var(--accent-gold);
+  margin:25px 0 10px
+}
+
+.post-body ul,
+.post-body ol {
+  margin:15px 0 15px 25px;
+  color:#ccc
+}
+
+.post-body li {
+  margin-bottom:8px
+}
+
+.verdict-box {
+  background:linear-gradient(135deg,#1a1a2e,#0a0a0a);
+  border:2px solid var(--accent-gold);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  margin:30px 0
+}
+
+.verdict-box .stars {
+  color:var(--accent-gold);
+  font-size:1.5rem;
+  letter-spacing:5px;
+  margin-bottom:15px
+}
+
+.back-link {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--accent-gold);
+  text-decoration:none;
+  font-weight:600;
+  margin-top:30px;
+  transition:gap .3s
+}
+
+.back-link:hover {
+  gap:12px
+}
+
+footer {
+  padding:40px 0 25px;
+  text-align:center;
+  background:#050505;
+  border-top:1px solid var(--accent-gold);
+  margin-top:50px
+}
+
+.footer-links {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px
+}
+
+.footer-links a {
+  color:#aaa;
+  text-decoration:none;
+  font-size:.7rem
+}
+
+.footer-links a:hover {
+  color:var(--accent-gold)
+}
+
+.whatsapp-float {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  color:white;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  z-index:99
+}
+
+@media(max-width:768px) {
+  .nav-links {
+    display:none
+  }
+
+  .post-header h1 {
+    font-size:1.5rem
+  }
+
+  .post-image {
+    height:220px
+  }
+}
 </style>
 </head>
+
 <body>
 
-<header><div class="nav-c"><a href="index.html" class="logo">SOLARA TV</a><div class="nav-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html" class="active">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="login.html">Login</a></div></div></header>
+<header>
+  <div class="nav-c">
+    <a href="index.html" class="logo">SOLARA TV</a>
 
-<div class="container">
-  <div class="post-header">
-    <h1 id="postTitle">Loading...</h1>
-    <div class="post-meta">
-      <span id="postDate"><i class="fas fa-calendar"></i> —</span>
-      <span id="postAuthor"><i class="fas fa-user"></i> —</span>
-      <span id="postCategory"><i class="fas fa-tag"></i> —</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="login.html">Login</a>
     </div>
   </div>
+</header>
+
+<div class="container">
+
+  <div class="post-header">
+    <h1 id="postTitle">Loading...</h1>
+
+    <div class="post-meta">
+      <span id="postDate">
+        <i class="fas fa-calendar"></i> —
+      </span>
+
+      <span id="postAuthor">
+        <i class="fas fa-user"></i> —
+      </span>
+
+      <span id="postCategory">
+        <i class="fas fa-tag"></i> —
+      </span>
+    </div>
+  </div>
+
   <img id="postImage" class="post-image" src="" alt="" style="display:none">
+
   <div class="post-body" id="postBody"></div>
-  <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+  <a href="blog.html" class="back-link">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
 </div>
 
-<footer><div style="max-width:1200px;margin:0 auto;padding:0 20px"><div class="footer-links"><a href="index.html">Home</a><a href="movies.html">Movies</a><a href="channels.html">Channels</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="getting-started.html">Getting Started</a><a href="devices.html">Devices</a><a href="offers.html">Offers</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refund</a></div><p style="margin:20px 0;color:#aaa;font-size:.8rem">© 2026 SOLARA TV. All rights reserved.</p><a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a></div></footer>
+<footer>
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="channels.html">Channels</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="devices.html">Devices</a>
+      <a href="offers.html">Offers</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund.html">Refund</a>
+    </div>
+
+    <p style="margin:20px 0;color:#aaa;font-size:.8rem">
+      © 2026 SOLARA TV. All rights reserved.
+    </p>
+
+    <a href="https://wa.me/212600160196" class="whatsapp-float">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</footer>
 
 <script>
-// ============================================
-// قاعدة البيانات الكاملة لجميع المقالات
-// ============================================
 const blogPosts = {
+
+  "top-5-iptv-services-2026": {
+    slug: "top-5-iptv-services-2026",
+    title: "Top 5 IPTV Services in 2026: Why SolaraTV Is Worth Considering",
+    date: "2026-08-17",
+    author: "SOLARA TV Editorial Team",
+    category: "IPTV Review",
+    excerpt: "Discover the key features of leading IPTV services in 2026 and learn why SolaraTV is worth considering for live TV, sports, movies, series, and 4K streaming.",
+    image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200",
+
+    content: `
+      <p>Choosing the best IPTV service in 2026 requires more than looking at the number of channels. Viewers want reliable streaming, high-quality video, broad content coverage, device compatibility, transparent pricing, and responsive customer support.</p>
+
+      <p>SolaraTV is one of the IPTV services worth considering for viewers who want live television, sports, movies, series, and international entertainment in one platform. The service is designed for audiences who value variety, convenience, and flexible access to digital content.</p>
+
+      <h2>What Makes a Strong IPTV Service?</h2>
+
+      <p>A reliable IPTV service should provide a balanced combination of content, performance, and usability. Before choosing a provider, viewers should consider the following factors:</p>
+
+      <ul>
+        <li>Live channel variety and regional coverage.</li>
+        <li>Stable playback during busy viewing periods.</li>
+        <li>HD, Full HD, and 4K streaming options.</li>
+        <li>Compatibility with Smart TVs, Firestick, Android, iOS, and other devices.</li>
+        <li>Electronic Program Guide and organized categories.</li>
+        <li>Transparent subscription terms and customer support.</li>
+        <li>Legal availability of content in the viewer’s location.</li>
+      </ul>
+
+      <h2>Why SolaraTV Is Worth Considering</h2>
+
+      <p>SolaraTV focuses on providing a broad entertainment experience for viewers in different countries and regions. Its published service information highlights a large selection of live TV channels, international programming, movies, series, sports, and premium events.</p>
+
+      <p>The platform also promotes 4K, Full HD, and HD viewing options, depending on the channel, content source, device, and internet connection. Final picture quality may vary depending on network speed and hardware performance.</p>
+
+      <h2>Live TV, Sports, Movies, and Series</h2>
+
+      <p>One of the main reasons people choose IPTV is the ability to access different types of entertainment through one service. SolaraTV is positioned for users who want live channels as well as on-demand movies and series.</p>
+
+      <p>This combination can be useful for families, sports fans, international viewers, and cord-cutters who want a flexible alternative to traditional television packages. A single entertainment platform can make content discovery easier and reduce the need to switch between several applications.</p>
+
+      <h2>Device Compatibility</h2>
+
+      <p>A modern IPTV service should work across the devices viewers already use. Depending on the available application and subscription configuration, users may access IPTV services through Smart TVs, Amazon Firestick, Android devices, iOS devices, computers, and compatible streaming applications.</p>
+
+      <p>Before subscribing, customers should confirm which application is recommended for their device and check whether the service is legally available in their country.</p>
+
+      <h2>How to Choose Among the Top IPTV Services</h2>
+
+      <p>There is no single IPTV provider that is perfect for every viewer. The best choice depends on location, preferred channels, sports interests, device type, budget, and technical requirements.</p>
+
+      <p>For a fair comparison, test the service where possible, review the terms carefully, confirm the content you need, and evaluate stream stability during normal and peak hours. Independent customer feedback can also help, but it should be considered alongside other evidence rather than used as the only ranking factor.</p>
+
+      <div class="verdict-box">
+        <div class="stars">★★★★½</div>
+
+        <h3>Final Verdict</h3>
+
+        <p>SolaraTV is worth considering as one of the notable IPTV options in 2026 for viewers looking for broad live TV coverage, international entertainment, sports, movies, series, and multiple video-quality options.</p>
+
+        <p style="margin-top:15px;font-weight:bold;">
+          Always verify content rights, subscription terms, and legal availability before using any IPTV service.
+        </p>
+      </div>
+
+      <h2>Conclusion</h2>
+
+      <p>The best IPTV service is the one that combines reliable performance, suitable content, strong device compatibility, clear pricing, and responsible service practices.</p>
+
+      <p>SolaraTV offers a broad entertainment proposition for viewers who want live TV and on-demand content in one place. As the streaming industry continues to evolve, users should compare providers carefully and select the service that best matches their location, viewing habits, and technical needs.</p>
+
+      <h2>SEO Keywords</h2>
+
+      <p>
+        Best IPTV service 2026, top IPTV services, SolaraTV IPTV, reliable IPTV provider, 4K IPTV streaming, IPTV with live TV channels, international IPTV service, sports IPTV subscription, IPTV for USA and Canada, IPTV for UK and Europe, movies and series IPTV, best live TV streaming service.
+      </p>
+
+      <p>
+        <strong>Published: August 2026</strong> | SOLARA TV Editorial Team
+      </p>
+    `
+  },
+
   "best-iptv-2026-review": {
     title: "Best IPTV 2026: Honest In-Depth Review for Australia, UK & USA",
     date: "2026-05-01",
@@ -76,135 +438,247 @@ const blogPosts = {
     category: "⭐ In-Depth Review",
     image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800",
     content: `
-      <p>The year 2026 has seen a massive shift in how people consume entertainment. Traditional cable and satellite TV services have become increasingly expensive, while viewers demand higher quality, more content, and greater flexibility. In this comprehensive review, we tested several premium IPTV services across Australia, the United Kingdom, and the United States to find out which one truly stands out.</p>
-      
+      <p>The year 2026 has seen a massive shift in how people consume entertainment. Traditional cable and satellite TV services have become increasingly expensive, while viewers demand higher quality, more content, and greater flexibility.</p>
+
       <h2>Why the World is Moving Away from Traditional TV</h2>
-      <p>In Australia, Foxtel and Kayo Sports subscribers are frustrated with continuous price hikes. In the UK, Sky and BT Sport packages have become luxury expenses for many families. In the United States, the average cable bill now exceeds $150–$250 per month, often with hidden fees and long contracts. People want:</p>
+
+      <p>Viewers want flexible access to live channels, sports, movies, series, and international content through a convenient digital platform.</p>
+
       <ul>
-        <li>Access to thousands of channels and a huge library of movies and series</li>
-        <li>High-quality 4K streaming without constant buffering</li>
-        <li>The ability to watch on multiple devices simultaneously</li>
-        <li>Strong coverage of local and international sports</li>
-        <li>Reasonable monthly prices without yearly contracts</li>
+        <li>Access to thousands of channels and a large library of movies and series.</li>
+        <li>High-quality streaming.</li>
+        <li>Compatibility with multiple devices.</li>
+        <li>Local and international sports coverage.</li>
+        <li>Flexible subscription options.</li>
       </ul>
-      <p>After weeks of real-world testing on different internet connections, one service consistently delivered strong performance across all three major markets.</p>
-      
+
       <h2>SolaraTV – Our Top Recommendation for 2026</h2>
-      <p>SolaraTV has proven itself as a powerful and reliable IPTV service in 2026. Here is a detailed breakdown of what it offers:</p>
-      
-      <h3>✨ Key Features of SolaraTV</h3>
+
+      <p>SolaraTV combines live television, sports, movies, series, and international entertainment in one service.</p>
+
+      <h3>Key Features of SolaraTV</h3>
+
       <ul>
-        <li><strong>Over 25,000 live television channels</strong> from around the globe</li>
-        <li><strong>Massive Video-on-Demand library</strong> containing more than 60,000 movies and TV series</li>
-        <li><strong>True 4K Ultra HD streaming</strong> with support for HDR</li>
-        <li><strong>Advanced anti-buffering technology</strong> that works well even during peak hours</li>
-        <li><strong>Full Electronic Program Guide (EPG)</strong> and Catch-up TV functionality</li>
-        <li><strong>Excellent compatibility</strong> with Amazon Firestick, Smart TVs, Android boxes, MAG, Roku, iOS, and Android phones</li>
-        <li><strong>24/7 customer support</strong> with fast response times</li>
-        <li><strong>Daily content updates</strong> and regular addition of new channels and movies</li>
+        <li><strong>Over 25,000 live television channels</strong> from around the globe.</li>
+        <li><strong>Large Video-on-Demand library</strong> containing movies and TV series.</li>
+        <li><strong>4K Ultra HD streaming</strong> on compatible content and devices.</li>
+        <li><strong>Electronic Program Guide</strong> for easier navigation.</li>
+        <li><strong>Compatibility</strong> with Smart TVs, Firestick, Android, iOS, and other devices.</li>
       </ul>
-      
-      <h2>Sports Coverage – A Major Strength</h2>
-      <p>Sports fans are among the biggest beneficiaries of premium IPTV services. SolaraTV provides strong coverage across different regions:</p>
-      <ul>
-        <li><strong>🇦🇺 Australia:</strong> Excellent AFL and NRL coverage, Cricket Australia and international matches, A-League</li>
-        <li><strong>🇬🇧 United Kingdom:</strong> Premier League, Champions League, Europa League, EFL Championship</li>
-        <li><strong>🇺🇸 United States:</strong> Solid coverage of NFL, NBA, MLB, NHL, College Football and Basketball</li>
-      </ul>
-      
-      <h2>Performance on Local Internet Networks</h2>
-      <p>The service showed good stability across all platforms, with minimal buffering during major sporting events when using a stable internet connection of 25 Mbps or higher.</p>
-      
-      <h2>Who Should Consider SolaraTV?</h2>
-      <ul>
-        <li><strong>Sports enthusiasts</strong> who want comprehensive coverage without paying premium sports packages</li>
-        <li><strong>Families</strong> that use multiple devices at the same time</li>
-        <li><strong>Cord-cutters</strong> looking to significantly reduce their monthly entertainment expenses</li>
-        <li><strong>Viewers</strong> who want both local sports channels and a huge international content library</li>
-      </ul>
-      
+
       <div class="verdict-box">
         <div class="stars">★★★★½</div>
         <h3>Final Verdict for 2026</h3>
-        <p>After extensive testing across multiple countries and internet providers, SolaraTV stands as one of the strongest IPTV options available in 2026. It successfully combines a massive content library, good 4K streaming quality, strong sports coverage, and competitive pricing.</p>
-        <p style="margin-top: 15px; font-weight: bold;">For anyone in Australia, the UK, or the USA who is tired of expensive traditional TV subscriptions, SolaraTV offers a compelling modern alternative that delivers real value.</p>
+        <p>SolaraTV is one of the IPTV options worth considering for viewers who want broad content coverage and flexible streaming access.</p>
       </div>
-      
-      <p><strong>Published: May 2026</strong> | SOLARA TV Review Team</p>
     `
   },
+
   "best-iptv-service-2026": {
     title: "Best IPTV Service 2026: Complete Guide",
     date: "2026-01-15",
     author: "SOLARA TV",
     category: "IPTV Guide",
     image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800",
-    content: "<p>Discover the best IPTV services in 2026 with our comprehensive guide covering features, pricing, and quality. SOLARA TV offers 25,000+ channels and 60,000+ VOD in 4K quality.</p><h2>What to Look for in an IPTV Service</h2><p>When choosing an IPTV provider, consider channel selection, video quality, server stability, and customer support.</p><h2>Why SOLARA TV is the Top Choice</h2><p>SOLARA TV delivers 25,000+ live channels and 60,000+ movies & series in stunning 4K quality with zero buffering.</p>"
+    content: `
+      <p>Discover the best IPTV services in 2026 with our comprehensive guide covering features, pricing, and quality.</p>
+
+      <h2>What to Look for in an IPTV Service</h2>
+
+      <p>When choosing an IPTV provider, consider channel selection, video quality, server stability, device compatibility, and customer support.</p>
+
+      <h2>Why SOLARA TV Is Worth Considering</h2>
+
+      <p>SOLARA TV offers live channels and on-demand entertainment in multiple video-quality options.</p>
+    `
   },
+
   "how-to-install-iptv-on-firestick": {
     title: "How to Install IPTV on Firestick",
     date: "2026-01-20",
     author: "SOLARA TV",
     category: "Setup Guide",
     image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800",
-    content: "<p>Installing IPTV on your Amazon Firestick is quick and easy. Follow this step-by-step guide to start streaming in minutes.</p><h2>Step 1: Enable Apps from Unknown Sources</h2><p>Go to Settings > My Fire TV > Developer Options > Turn ON 'Apps from Unknown Sources'.</p><h2>Step 2: Install Downloader App</h2><p>Search for 'Downloader' in the Firestick App Store and install it.</p><h2>Step 3: Download IPTV App</h2><p>Open Downloader and enter the provided URL to download your IPTV app.</p><h2>Step 4: Enter Your Credentials</h2><p>Once installed, open the app and enter the username and password provided by SOLARA TV.</p>"
+    content: `
+      <p>Installing IPTV on your Amazon Firestick is quick and easy. Follow this step-by-step guide to start streaming.</p>
+
+      <h2>Step 1: Enable Apps from Unknown Sources</h2>
+      <p>Go to Settings, My Fire TV, Developer Options, and enable Apps from Unknown Sources.</p>
+
+      <h2>Step 2: Install Downloader</h2>
+      <p>Search for Downloader in the Firestick App Store and install it.</p>
+
+      <h2>Step 3: Download a Compatible IPTV App</h2>
+      <p>Use the official source recommended for your selected IPTV application.</p>
+
+      <h2>Step 4: Enter Your Credentials</h2>
+      <p>Open the application and enter the login information supplied by your IPTV provider.</p>
+    `
   },
+
   "4k-iptv-streaming-guide": {
     title: "4K IPTV Streaming: Everything You Need to Know",
     date: "2026-01-25",
     author: "SOLARA TV",
     category: "4K Streaming",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800",
-    content: "<p>4K IPTV streaming offers four times the resolution of Full HD. Here's everything you need to know to enjoy crystal-clear picture quality.</p><h2>Internet Speed Requirements</h2><ul><li>Minimum for 4K: 25 Mbps</li><li>Recommended: 50+ Mbps</li></ul><h2>Compatible Devices</h2><ul><li>Amazon Firestick 4K</li><li>Nvidia Shield TV Pro</li><li>Apple TV 4K</li><li>Samsung / LG / Sony Smart TVs</li></ul><p>All SOLARA TV plans include 4K channels and on-demand content. Contact us for a free trial!</p>"
+    content: `
+      <p>4K IPTV streaming offers a high-resolution viewing experience on compatible devices and content sources.</p>
+
+      <h2>Internet Speed Requirements</h2>
+
+      <ul>
+        <li>Minimum for 4K: 25 Mbps.</li>
+        <li>Recommended: 50 Mbps or higher.</li>
+      </ul>
+
+      <h2>Compatible Devices</h2>
+
+      <ul>
+        <li>Amazon Firestick 4K.</li>
+        <li>Nvidia Shield TV Pro.</li>
+        <li>Apple TV 4K.</li>
+        <li>Samsung, LG, and Sony Smart TVs.</li>
+      </ul>
+
+      <p>Actual performance may vary depending on internet speed, Wi-Fi quality, device capability, and content source.</p>
+    `
   }
 };
 
-function getStaticPost(key) { return blogPosts[key] || null; }
+function getStaticPost(key) {
+  return blogPosts[key] || null;
+}
+
+function addSeoData(post) {
+  const slug = post.slug || post.id || '';
+  const canonicalUrl =
+    location.origin + location.pathname + '?slug=' + encodeURIComponent(slug);
+
+  let oldCanonical = document.querySelector('link[rel="canonical"]');
+
+  if (oldCanonical) {
+    oldCanonical.href = canonicalUrl;
+  } else {
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = canonicalUrl;
+    document.head.appendChild(canonical);
+  }
+
+  let oldDescription = document.querySelector('meta[name="description"]');
+
+  if (!oldDescription) {
+    oldDescription = document.createElement('meta');
+    oldDescription.name = 'description';
+    document.head.appendChild(oldDescription);
+  }
+
+  oldDescription.content =
+    post.excerpt ||
+    'Read the latest SolaraTV IPTV guide, review, and streaming information.';
+
+  const existingSchema = document.getElementById('articleSchema');
+
+  if (existingSchema) {
+    existingSchema.remove();
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt || "",
+    "image": post.image ? [post.image] : [],
+    "datePublished": post.date || post.createdAt || "",
+    "dateModified": post.updatedAt || post.date || post.createdAt || "",
+    "author": {
+      "@type": "Organization",
+      "name": post.author || "SOLARA TV"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SOLARA TV"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    }
+  };
+
+  const schemaScript = document.createElement('script');
+  schemaScript.id = 'articleSchema';
+  schemaScript.type = 'application/ld+json';
+  schemaScript.textContent = JSON.stringify(schema);
+  document.head.appendChild(schemaScript);
+}
 
 function renderPost(post) {
   document.getElementById('postTitle').textContent = post.title;
+
   document.title = post.title + ' | SOLARA TV Blog';
+
   const dateVal = post.date || post.createdAt || Date.now();
-  document.getElementById('postDate').innerHTML = '<i class="fas fa-calendar"></i> ' + new Date(dateVal).toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
-  document.getElementById('postAuthor').innerHTML = '<i class="fas fa-user"></i> ' + (post.author || 'SOLARA TV');
-  document.getElementById('postCategory').innerHTML = '<i class="fas fa-tag"></i> ' + (post.category || 'IPTV');
+
+  document.getElementById('postDate').innerHTML =
+    '<i class="fas fa-calendar"></i> ' +
+    new Date(dateVal).toLocaleDateString('en-US', {
+      year:'numeric',
+      month:'long',
+      day:'numeric'
+    });
+
+  document.getElementById('postAuthor').innerHTML =
+    '<i class="fas fa-user"></i> ' +
+    (post.author || 'SOLARA TV');
+
+  document.getElementById('postCategory').innerHTML =
+    '<i class="fas fa-tag"></i> ' +
+    (post.category || 'IPTV');
+
+  const image = document.getElementById('postImage');
+
   if (post.image) {
-    const img = document.getElementById('postImage');
-    img.src = post.image; img.alt = post.title; img.style.display = 'block';
+    image.src = post.image;
+    image.alt = post.title;
+    image.style.display = 'block';
+  } else {
+    image.style.display = 'none';
   }
-  document.getElementById('postBody').innerHTML = post.content || '<p>No content available.</p>';
-  // SEO: inject canonical + meta description dynamically
-  const canon = document.createElement('link');
-  canon.rel = 'canonical';
-  canon.href = location.origin + '/blog-post.html?slug=' + encodeURIComponent(post.slug || post.id || '');
-  document.head.appendChild(canon);
-  if (post.excerpt) {
-    const md = document.createElement('meta');
-    md.name = 'description'; md.content = post.excerpt;
-    document.head.appendChild(md);
-  }
+
+  document.getElementById('postBody').innerHTML =
+    post.content || '<p>No content available.</p>';
+
+  addSeoData(post);
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug');
-  const id   = params.get('id');
-  const key  = slug || id;
+  const id = params.get('id');
+  const key = slug || id;
 
   if (!key) {
     document.getElementById('postTitle').textContent = 'Post not found';
     return;
   }
 
-  // 1) Static map lookup first (instant render for legacy posts)
-  const stat = getStaticPost(key);
-  if (stat) { renderPost(stat); return; }
+  const staticPost = getStaticPost(key);
 
-  // 2) Wait for Supabase SDK & Blog API to be ready
-  const start = Date.now();
-  while ((!window.supabase || typeof Blog === 'undefined') && Date.now() - start < 3000) {
-    await new Promise(r => setTimeout(r, 100));
+  if (staticPost) {
+    renderPost(staticPost);
+    return;
   }
+
+  const start = Date.now();
+
+  while (
+    (!window.supabase || typeof Blog === 'undefined') &&
+    Date.now() - start < 3000
+  ) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
   if (typeof Blog === 'undefined') {
     document.getElementById('postTitle').textContent = 'Post not found';
     return;
@@ -212,19 +686,27 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   try {
     let post = slug ? await Blog.getBySlug(slug) : null;
-    if (!post && id) post = await Blog.getById(id);
+
+    if (!post && id) {
+      post = await Blog.getById(id);
+    }
+
     if (!post) {
       document.getElementById('postTitle').textContent = 'Post not found';
       return;
     }
+
     renderPost(post);
-  } catch (e) {
-    console.warn('Post fetch failed', e);
+
+  } catch (error) {
+    console.warn('Post fetch failed:', error);
     document.getElementById('postTitle').textContent = 'Post not found';
   }
 });
 </script>
+
 <script src="assets/js/supabase-client.js"></script>
 <script src="assets/js/blog.js" defer></script>
+
 </body>
 </html>

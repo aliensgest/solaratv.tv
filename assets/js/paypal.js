@@ -63,6 +63,7 @@ const PayPalUI = {
           <div style="font-size:3rem;color:#25D366;"><i class="fas fa-check-circle"></i></div>
           <h3 style="color:#fff;">Payment Successful!</h3>
           <p id="solaraPayOrderId" style="color:#aaa;font-size:.85rem;"></p>
+          <p id="solaraPayAutomation" style="font-size:.85rem;font-weight:700;margin:10px 0;"></p>
           <button class="btn" style="background:#25D366;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:10px;" onclick="PayPalUI.continueWhatsApp()"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</button>
           <p style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
         </div>
@@ -139,14 +140,31 @@ const PayPalUI = {
 
     // Phase 2 — auto-create subscription server-side
     const url = window.SOLARA_PAY.automationUrl;
+    const autoEl = document.getElementById('solaraPayAutomation');
     if (url) {
       try {
-        await fetch(url, {
+        const resp = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId })
         });
-      } catch (e) { console.warn('Automation hook failed (manual activation still works):', e); }
+        const data = await resp.json().catch(() => ({}));
+        if (data && data.ok) {
+          autoEl.textContent = '✅ Subscription auto-created on our panel!';
+          autoEl.style.color = '#25D366';
+        } else {
+          autoEl.textContent = '⚠️ Payment received — please confirm on WhatsApp for activation.';
+          autoEl.style.color = '#ffc107';
+          console.warn('Automation hook response:', data);
+        }
+      } catch (e) {
+        autoEl.textContent = '⚠️ Payment received — please confirm on WhatsApp for activation.';
+        autoEl.style.color = '#ffc107';
+        console.warn('Automation hook failed:', e);
+      }
+    } else {
+      autoEl.textContent = '⚠️ Please confirm on WhatsApp for activation.';
+      autoEl.style.color = '#ffc107';
     }
   },
 

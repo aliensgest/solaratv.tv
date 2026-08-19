@@ -90,6 +90,14 @@
           <i class="fab fa-whatsapp"></i> Need help?
         </button>
       </div>
+
+      <!-- Subscribe to a new plan -->
+      <div style="background:var(--bg-card);padding:30px;border-radius:var(--radius);border:1px solid var(--border);margin-top:30px;">
+        <h3 style="margin-bottom:8px;"><i class="fas fa-credit-card" style="color:var(--primary);margin-right:8px;"></i> Subscribe to a New Plan</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;font-size:.9rem;">Choose a plan and pay securely with PayPal — your subscription appears instantly above.</p>
+        <div id="planCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;"></div>
+        <p id="planMsg" style="color:var(--text-muted);font-size:.8rem;margin-top:16px;"></p>
+      </div>
     </main>
   </div>
 
@@ -97,6 +105,7 @@
   <script src="../assets/js/app.js"></script>
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/analytics.js"></script>
+  <script src="../assets/js/paypal.js"></script>
   <script>
     if (!Auth.requireAuth('client')) {
       document.body.innerHTML = '';
@@ -128,6 +137,34 @@
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => alert('Copied!')).catch(() => {});
     }
+
+    // Available plans (keys match paypal.js SOLARA_PAY.plans)
+    const PLANS = [
+      { key: 'monthly',   name: '1 Month',   price: '€17.00' },
+      { key: 'quarterly', name: '3 Months',  price: '€34.99' },
+      { key: 'semi',      name: '6 Months',  price: '€55.00' },
+      { key: 'annual',    name: '12 Months', price: '€90.00' },
+      { key: 'biennial',  name: '24 Months', price: '€149.00' }
+    ];
+
+    function renderPlans() {
+      const el = document.getElementById('planCards');
+      if (!el) return;
+      el.innerHTML = PLANS.map(p =>
+        '<div style="border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;background:var(--bg-card-hover);">' +
+          '<div style="color:var(--primary);font-weight:700;">' + p.name + '</div>' +
+          '<div style="font-size:1.4rem;font-weight:800;margin:10px 0;">' + p.price + '</div>' +
+          '<button class="btn btn-primary" style="width:100%;" onclick="pay(\'' + p.key + '\')"><i class="fas fa-credit-card"></i> Pay Now</button>' +
+        '</div>'
+      ).join('');
+    }
+    renderPlans();
+
+    // Refresh subscriptions when a payment completes (without leaving the dashboard)
+    window.addEventListener('solara:payment', function () {
+      document.getElementById('planMsg').textContent = 'Payment received — refreshing your subscriptions...';
+      setTimeout(loadSubscriptions, 2500);
+    });
 
     // Load the user's subscriptions (M3U creds, status, expiry)
     async function loadSubscriptions() {

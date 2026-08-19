@@ -193,6 +193,9 @@ const PayPalUI = {
       autoEl.textContent = '⚠️ Please confirm on WhatsApp for activation.';
       autoEl.style.color = '#ffc107';
     }
+
+    // Notify the page so it can refresh (client dashboard subscriptions)
+    try { window.dispatchEvent(new CustomEvent('solara:payment', { detail: { ok: true } })); } catch {}
   },
 
   copyCred(id) {

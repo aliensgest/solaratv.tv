@@ -85,6 +85,7 @@
     </main>
   </div>
 
+  <script src="../assets/js/supabase-client.js"></script>
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/analytics.js"></script>
   <script>
@@ -92,24 +93,32 @@
       document.body.innerHTML = '';
     }
 
-    // Stats
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // --- Local (instant) ---
     document.getElementById('totalViews').textContent = Analytics.getTotalViews();
     document.getElementById('todayViews').textContent = Analytics.getTodayViews();
     document.getElementById('totalClicks').textContent = Analytics.getTotalClicks();
 
-    // Chart
-    const chartData = Analytics.getViewsByDay(14);
-    const maxViews = Math.max(...chartData.map(d => d.count), 1);
-    const chart = document.getElementById('viewsChart');
-    chartData.forEach(d => {
-      const height = Math.max((d.count / maxViews) * 170, 4);
-      const day = new Date(d.date).toLocaleDateString('en', { month: 'short', day: 'numeric' });
-      chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:6px;transition:height 0.3s;"></div><div style="font-size:0.65rem;color:var(--text-muted);white-space:nowrap;">' + day + '</div><div style="font-size:0.75rem;font-weight:600;">' + d.count + '</div></div>';
-    });
+    function renderChartLocal() {
+      const chartData = Analytics.getViewsByDay(14);
+      const maxViews = Math.max(...chartData.map(d => d.count), 1);
+      const chart = document.getElementById('viewsChart');
+      chart.innerHTML = '';
+      chartData.forEach(d => {
+        const height = Math.max((d.count / maxViews) * 170, 4);
+        const day = new Date(d.date).toLocaleDateString('en', { month: 'short', day: 'numeric' });
+        chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:6px;transition:height 0.3s;"></div><div style="font-size:0.65rem;color:var(--text-muted);white-space:nowrap;">' + day + '</div><div style="font-size:0.75rem;font-weight:600;">' + d.count + '</div></div>';
+      });
+    }
+    renderChartLocal();
 
-    // Top Pages
-    const pages = Analytics.getPageViewStats().slice(0, 10);
     const pagesTable = document.getElementById('topPagesTable');
+    const pages = Analytics.getPageViewStats().slice(0, 10);
     if (pages.length === 0) {
       pagesTable.innerHTML = '<tr><td colspan="2" style="text-align:center;">No data yet</td></tr>';
     } else {
@@ -118,9 +127,8 @@
       });
     }
 
-    // Top Clicks
-    const clicks = Analytics.getClickStats().slice(0, 10);
     const clicksTable = document.getElementById('topClicksTable');
+    const clicks = Analytics.getClickStats().slice(0, 10);
     if (clicks.length === 0) {
       clicksTable.innerHTML = '<tr><td colspan="3" style="text-align:center;">No data yet</td></tr>';
     } else {
@@ -129,18 +137,47 @@
       });
     }
 
+    // --- Cloud (Supabase page_views) refresh ---
+    async function loadCloudAnalytics() {
+      if (!window.SolaraDB || !SolaraDB.isReady()) return;
+      try {
+        const since = new Date(Date.now() - 30 * 86400000).toISOString();
+        const { data, error } = await SolaraDB.client()
+          .from('page_views').select('page, viewed_at').gte('viewed_at', since);
+        if (error || !data || !data.length) return;
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('totalViews').textContent = data.length;
+        document.getElementById('todayViews').textContent = data.filter(v => (v.viewed_at || '').startsWith(today)).length;
+
+        // Top pages (cloud)
+        const pageCount = {};
+        data.forEach(v => { const k = v.page || '/'; pageCount[k] = (pageCount[k] || 0) + 1; });
+        const sorted = Object.entries(pageCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        pagesTable.innerHTML = sorted.map(([p, c]) => '<tr><td>' + escapeHtml(p) + '</td><td><strong>' + c + '</strong></td></tr>').join('');
+
+        // Chart (last 14 days, cloud)
+        const dayMap = {};
+        for (let i = 13; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); dayMap[d.toISOString().split('T')[0]] = 0; }
+        data.forEach(v => { const day = (v.viewed_at || '').split('T')[0]; if (day in dayMap) dayMap[day]++; });
+        const max = Math.max(...Object.values(dayMap), 1);
+        const chart = document.getElementById('viewsChart');
+        chart.innerHTML = '';
+        Object.entries(dayMap).forEach(([day, count]) => {
+          const height = Math.max((count / max) * 170, 4);
+          const label = new Date(day + 'T00:00:00').toLocaleDateString('en', { month: 'short', day: 'numeric' });
+          chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:6px;"></div><div style="font-size:0.65rem;color:var(--text-muted);white-space:nowrap;">' + label + '</div><div style="font-size:0.75rem;font-weight:600;">' + count + '</div></div>';
+        });
+      } catch {}
+    }
+    loadCloudAnalytics();
+
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('open');
       document.getElementById('sidebarOverlay').classList.toggle('active');
     }
     if (window.innerWidth <= 992) {
       document.getElementById('sidebarToggle').style.display = 'inline-block';
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
     }
   </script>
 

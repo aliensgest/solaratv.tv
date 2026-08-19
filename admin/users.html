@@ -50,6 +50,7 @@
             <th>Email</th>
             <th>Role</th>
             <th>Joined</th>
+            <th>Source</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -58,6 +59,7 @@
     </main>
   </div>
 
+  <script src="../assets/js/supabase-client.js"></script>
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/analytics.js"></script>
   <script>
@@ -65,43 +67,89 @@
       document.body.innerHTML = '';
     }
 
-    function loadUsers() {
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function roleBadge(role) {
+      const cls = role === 'admin' ? 'badge-admin' : (role === 'reseller' ? 'badge-published' : 'badge-client');
+      return '<span class="badge ' + cls + '">' + escapeHtml(role || 'client') + '</span>';
+    }
+
+    // localStorage users (legacy) — rendered first
+    function loadLocalUsers() {
       const users = Auth.getUsers();
-      document.getElementById('userCount').textContent = users.length;
       const table = document.getElementById('usersTable');
-      
+      document.getElementById('userCount').textContent = users.length;
       if (users.length === 0) {
-        table.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;">No users found.</td></tr>';
+        table.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:#888;"><i class="fas fa-spinner fa-spin"></i> Loading cloud users...</td></tr>';
         return;
       }
-
+      const currentSession = Auth.getSession();
       table.innerHTML = users.map(u => {
-        const roleClass = u.role === 'admin' ? 'badge-admin' : 'badge-client';
-        const date = new Date(u.createdAt).toLocaleDateString();
-        const currentSession = Auth.getSession();
         const isSelf = currentSession && currentSession.userId === u.id;
+        const date = new Date(u.createdAt).toLocaleDateString();
         return '<tr>' +
           '<td><strong>' + escapeHtml(u.username) + '</strong>' + (isSelf ? ' <span style="color:var(--primary);font-size:0.8rem;">(you)</span>' : '') + '</td>' +
           '<td>' + escapeHtml(u.email) + '</td>' +
-          '<td><span class="badge ' + roleClass + '">' + u.role + '</span></td>' +
+          '<td>' + roleBadge(u.role) + '</td>' +
           '<td>' + date + '</td>' +
-          '<td>' +
-            (isSelf ? '<span style="color:#666;font-size:0.85rem;">—</span>' :
-              '<button class="btn btn-sm" style="padding:4px 12px;background:rgba(255,77,77,0.1);color:#ff4d4d;border:1px solid rgba(255,77,77,0.3);border-radius:8px;" onclick="deleteUser(\'' + u.id + '\')"><i class="fas fa-trash"></i></button>') +
+          '<td><span style="color:#666;font-size:0.8rem;">local</span></td>' +
+          '<td>' + (isSelf ? '<span style="color:#666;font-size:0.85rem;">—</span>' :
+            '<button class="btn btn-sm" style="padding:4px 12px;background:rgba(255,77,77,0.1);color:#ff4d4d;border:1px solid rgba(255,77,77,0.3);border-radius:8px;" onclick="deleteLocalUser(\'' + u.id + '\')"><i class="fas fa-trash"></i></button>') +
           '</td></tr>';
       }).join('');
     }
 
-    function deleteUser(id) {
-      const session = Auth.getSession();
-      if (session && session.userId === id) {
-        alert('Cannot delete your own account.');
+    // Supabase profiles (real users) — replaces local list when cloud is available
+    async function loadCloudUsers() {
+      if (!window.SolaraDB || !SolaraDB.isReady()) {
+        loadLocalUsers();
         return;
       }
-      if (confirm('Delete this user permanently?')) {
+      const users = await SolaraDB.listUsers();
+      if (!users.length) { loadLocalUsers(); return; }
+
+      document.getElementById('userCount').textContent = users.length;
+      const table = document.getElementById('usersTable');
+      const session = Auth.getSession();
+
+      table.innerHTML = users.map(u => {
+        const isSelf = session && session.userId === u.id;
+        const date = u.created_at ? new Date(u.created_at).toLocaleDateString() : '—';
+        return '<tr>' +
+          '<td><strong>' + escapeHtml(u.username || '—') + '</strong>' + (isSelf ? ' <span style="color:var(--primary);font-size:0.8rem;">(you)</span>' : '') + '</td>' +
+          '<td>' + escapeHtml(u.email || '—') + '</td>' +
+          '<td>' + roleBadge(u.role) + '</td>' +
+          '<td>' + date + '</td>' +
+          '<td><span class="badge badge-published">cloud</span></td>' +
+          '<td>' + (isSelf ? '<span style="color:#666;font-size:0.85rem;">—</span>' :
+            '<select onchange="changeRole(\'' + u.id + '\', this.value)" style="padding:6px 10px;border-radius:8px;background:rgba(0,0,0,.3);border:1px solid var(--border);color:#fff;font-size:.8rem;">' +
+              '<option value="client"' + (u.role === 'client' ? ' selected' : '') + '>Client</option>' +
+              '<option value="reseller"' + (u.role === 'reseller' ? ' selected' : '') + '>Reseller</option>' +
+              '<option value="admin"' + (u.role === 'admin' ? ' selected' : '') + '>Admin</option>' +
+            '</select>') +
+          '</td></tr>';
+      }).join('');
+    }
+
+    async function changeRole(id, role) {
+      if (!window.SolaraDB || !SolaraDB.isReady()) { alert('Supabase not connected.'); return; }
+      if (!confirm('Set this user role to "' + role + '"?')) { loadCloudUsers(); return; }
+      const { error } = await SolaraDB.client().from('profiles').update({ role }).eq('id', id);
+      if (error) { alert('Role update failed: ' + error.message); }
+      loadCloudUsers();
+    }
+
+    function deleteLocalUser(id) {
+      const session = Auth.getSession();
+      if (session && session.userId === id) { alert('Cannot delete your own account.'); return; }
+      if (confirm('Delete this local user?')) {
         const users = Auth.getUsers().filter(u => u.id !== id);
         Auth.saveUsers(users);
-        loadUsers();
+        loadLocalUsers();
       }
     }
 
@@ -113,13 +161,7 @@
       document.getElementById('sidebarToggle').style.display = 'inline-block';
     }
 
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    loadUsers();
+    loadCloudUsers();
   </script>
 </body>
 </html>

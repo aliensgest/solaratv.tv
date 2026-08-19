@@ -130,12 +130,12 @@
     </main>
   </div>
 
+  <script src="../assets/js/supabase-client.js"></script>
   <script src="../assets/js/auth.js"></script>
   <script src="../assets/js/analytics.js"></script>
   <script src="../assets/js/blog.js"></script>
   <script src="../assets/js/activation-api.js"></script>
   <script>
-    // Auth check
     if (!Auth.requireAuth('admin')) {
       document.body.innerHTML = '';
     }
@@ -146,17 +146,23 @@
       document.getElementById('userAvatar').textContent = session.username.charAt(0).toUpperCase();
     }
 
-    // Stats
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    /* ========== RENDER LOCAL (instant) ========== */
+    const topPagesTable = document.getElementById('topPagesTable');
+    const recentSubsTable = document.getElementById('recentSubsTable');
+    const subHistory = ActivationAPI.getHistory();
+
     document.getElementById('totalViews').textContent = Analytics.getTotalViews();
     document.getElementById('todayViews').textContent = Analytics.getTodayViews();
-    document.getElementById('totalBlogs').textContent = Blog.getAll().length;
+    document.getElementById('totalBlogs').textContent = '…';
     document.getElementById('totalUsers').textContent = Auth.getUsers().length;
-
-    // Subscription history count
-    const subHistory = ActivationAPI.getHistory();
     document.getElementById('totalSubs').textContent = subHistory.filter(h => h.action === 'new' && h.status === 'success').length;
 
-    // API Credits
     (async () => {
       const info = await ActivationAPI.getResellerInfo();
       if (info && info.status === 'true') {
@@ -167,39 +173,98 @@
       }
     })();
 
-    // Top Pages
-    const topPages = Analytics.getPageViewStats().slice(0, 5);
-    const topPagesTable = document.getElementById('topPagesTable');
-    if (topPages.length === 0) {
-      topPagesTable.innerHTML = '<tr><td colspan="2" style="text-align:center;">No data yet</td></tr>';
+    const localTop = Analytics.getPageViewStats().slice(0, 5);
+    if (localTop.length) {
+      localTop.forEach(p => { topPagesTable.innerHTML += '<tr><td>' + escapeHtml(p.page) + '</td><td>' + p.count + '</td></tr>'; });
     } else {
-      topPages.forEach(p => {
-        topPagesTable.innerHTML += '<tr><td>' + escapeHtml(p.page) + '</td><td>' + p.count + '</td></tr>';
-      });
+      topPagesTable.innerHTML = '<tr><td colspan="2" style="text-align:center;">No data yet</td></tr>';
     }
 
-    // Recent Subscriptions
-    const recentSubsTable = document.getElementById('recentSubsTable');
-    if (!subHistory.length) {
-      recentSubsTable.innerHTML = '<tr><td colspan="4" style="text-align:center;">No subscriptions yet. <a href="subscriptions.html" style="color:var(--primary);">Create one</a></td></tr>';
-    } else {
+    if (subHistory.length) {
       subHistory.slice(0, 8).forEach(h => {
         const date = new Date(h.date).toLocaleDateString();
         const statusClass = h.status === 'success' ? 'badge-published' : 'badge-draft';
         const actionClass = h.action === 'new' ? 'badge-admin' : 'badge-client';
         recentSubsTable.innerHTML += '<tr><td>' + escapeHtml(h.type) + '</td><td><span class="badge ' + actionClass + '">' + escapeHtml(h.action) + '</span></td><td><span class="badge ' + statusClass + '">' + escapeHtml(h.status) + '</span></td><td>' + date + '</td></tr>';
       });
+    } else {
+      recentSubsTable.innerHTML = '<tr><td colspan="4" style="text-align:center;">No subscriptions yet. <a href="subscriptions.html" style="color:var(--primary);">Create one</a></td></tr>';
     }
 
-    // Simple Bar Chart
-    const chartData = Analytics.getViewsByDay(7);
-    const maxViews = Math.max(...chartData.map(d => d.count), 1);
-    const chart = document.getElementById('viewsChart');
-    chartData.forEach(d => {
-      const height = Math.max((d.count / maxViews) * 150, 4);
-      const day = new Date(d.date).toLocaleDateString('en', { weekday: 'short' });
-      chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:8px;"></div><div style="font-size:0.75rem;color:var(--text-muted);">' + day + '</div><div style="font-size:0.8rem;font-weight:600;">' + d.count + '</div></div>';
-    });
+    function renderChart(days, containerId) {
+      const chartData = Analytics.getViewsByDay(days);
+      const maxViews = Math.max(...chartData.map(d => d.count), 1);
+      const chart = document.getElementById(containerId);
+      chart.innerHTML = '';
+      chartData.forEach(d => {
+        const height = Math.max((d.count / maxViews) * 150, 4);
+        const day = new Date(d.date).toLocaleDateString('en', { weekday: 'short' });
+        chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:8px;"></div><div style="font-size:0.75rem;color:var(--text-muted);">' + day + '</div><div style="font-size:0.8rem;font-weight:600;">' + d.count + '</div></div>';
+      });
+    }
+    renderChart(7, 'viewsChart');
+
+    /* ========== REFRESH CLOUD (Supabase) — replaces local when available ========== */
+    async function loadCloudStats() {
+      if (!window.SolaraDB || !SolaraDB.isReady()) return;
+
+      // Blog posts (fix: getAll is async)
+      try {
+        const blogs = await Blog.getAll();
+        if (blogs.length) document.getElementById('totalBlogs').textContent = blogs.length;
+      } catch {}
+
+      // Real registered users (profiles)
+      try {
+        const users = await SolaraDB.listUsers();
+        if (users.length) document.getElementById('totalUsers').textContent = users.length;
+      } catch {}
+
+      // Page views (last 30 days) + top pages + 7-day chart
+      try {
+        const since = new Date(Date.now() - 30 * 86400000).toISOString();
+        const { data, error } = await SolaraDB.client()
+          .from('page_views').select('page, viewed_at').gte('viewed_at', since);
+        if (!error && data && data.length) {
+          const today = new Date().toISOString().split('T')[0];
+          document.getElementById('totalViews').textContent = data.length;
+          document.getElementById('todayViews').textContent = data.filter(v => (v.viewed_at || '').startsWith(today)).length;
+
+          const pages = {};
+          data.forEach(v => { const k = v.page || '/'; pages[k] = (pages[k] || 0) + 1; });
+          const sorted = Object.entries(pages).sort((a, b) => b[1] - a[1]).slice(0, 5);
+          topPagesTable.innerHTML = sorted.map(([p, c]) =>
+            '<tr><td>' + escapeHtml(p) + '</td><td>' + c + '</td></tr>').join('');
+
+          const dayMap = {};
+          for (let i = 6; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); dayMap[d.toISOString().split('T')[0]] = 0; }
+          data.forEach(v => { const day = (v.viewed_at || '').split('T')[0]; if (day in dayMap) dayMap[day]++; });
+          const max = Math.max(...Object.values(dayMap), 1);
+          const chart = document.getElementById('viewsChart');
+          chart.innerHTML = '';
+          Object.entries(dayMap).forEach(([day, count]) => {
+            const height = Math.max((count / max) * 150, 4);
+            const label = new Date(day + 'T00:00:00').toLocaleDateString('en', { weekday: 'short' });
+            chart.innerHTML += '<div style="flex:1;text-align:center;"><div style="background:var(--gradient);height:' + height + 'px;border-radius:6px 6px 0 0;margin-bottom:8px;"></div><div style="font-size:0.75rem;color:var(--text-muted);">' + label + '</div><div style="font-size:0.8rem;font-weight:600;">' + count + '</div></div>';
+          });
+        }
+      } catch {}
+
+      // Subscriptions (cloud)
+      try {
+        const subs = await SolaraDB.listSubscriptions(200);
+        if (subs && subs.length) {
+          document.getElementById('totalSubs').textContent = subs.filter(s => s.action === 'new' && s.status === 'success').length;
+          recentSubsTable.innerHTML = subs.slice(0, 8).map(s => {
+            const date = new Date(s.created_at).toLocaleDateString();
+            const statusClass = s.status === 'success' ? 'badge-published' : (s.status === 'failed' ? 'badge-draft' : 'badge-admin');
+            const actionClass = s.action === 'new' ? 'badge-admin' : 'badge-client';
+            return '<tr><td>' + escapeHtml(s.type) + '</td><td><span class="badge ' + actionClass + '">' + escapeHtml(s.action) + '</span></td><td><span class="badge ' + statusClass + '">' + escapeHtml(s.status) + '</span></td><td>' + date + '</td></tr>';
+          }).join('');
+        }
+      } catch {}
+    }
+    loadCloudStats();
 
     // Sidebar toggle for mobile
     function toggleSidebar() {
@@ -207,15 +272,8 @@
       document.getElementById('sidebarOverlay').classList.toggle('active');
     }
 
-    // Show sidebar toggle on mobile
     if (window.innerWidth <= 992) {
       document.getElementById('sidebarToggle').style.display = 'inline-block';
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
     }
   </script>
 

@@ -55,6 +55,26 @@ const Auth = {
     return (window.SolaraDB && SolaraDB.isReady && SolaraDB.isReady()) ? SolaraDB.client() : null;
   },
 
+  /** Register a new account — Supabase first, localStorage fallback */
+  async register(username, email, password, role = 'client') {
+    const sb = this._supa();
+    if (sb) {
+      try {
+        const { data, error } = await sb.auth.signUp({
+          email, password,
+          options: { data: { username, role } }
+        });
+        if (!error && data && data.user) {
+          return { success: true, user: data.user };
+        }
+        return { success: false, message: error?.message || 'Registration failed' };
+      } catch (err) {
+        return { success: false, message: err.message || 'Registration failed' };
+      }
+    }
+    return this.createUser(username, email, password, role);
+  },
+
   async login(username, password) {
     // 1) Try Supabase first (email-based)
     const sb = this._supa();

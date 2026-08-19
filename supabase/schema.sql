@@ -162,3 +162,12 @@ create policy "subs_update"          on public.subscriptions for update using (p
 create policy "posts_read"           on public.posts         for select using (published = true or public.is_admin());
 create policy "posts_admin_all"      on public.posts         for all using (public.is_admin()) with check (public.is_admin());
 create policy "views_admin_read"     on public.page_views    for select using (public.is_admin());
+
+-- =============================================
+-- MIGRATION 2026-08-19: admin can manage user roles
+-- (needed by /admin/users.html role dropdown)
+-- =============================================
+create policy "profiles_admin_update" on public.profiles
+  for update using (public.is_admin()) with check (public.is_admin());
+
+grant select, update on public.profiles to authenticated;

@@ -80,12 +80,14 @@
         </div>
       </div>
 
-      <!-- Subscription Info -->
+      <!-- My Subscriptions -->
       <div style="background:var(--bg-card);padding:30px;border-radius:var(--radius);border:1px solid var(--border);">
-        <h3 style="margin-bottom:12px;"><i class="fas fa-tv" style="color:var(--primary);margin-right:8px;"></i> Subscription Status</h3>
-        <p style="color:var(--text-muted);margin-bottom:20px;">To activate or manage your IPTV subscription, please contact us via WhatsApp.</p>
-        <button class="btn btn-whatsapp" onclick="App.openWhatsApp('I want to check my SOLARA TV subscription status')">
-          <i class="fab fa-whatsapp"></i> Contact Support
+        <h3 style="margin-bottom:12px;"><i class="fas fa-tv" style="color:var(--primary);margin-right:8px;"></i> My Subscriptions</h3>
+        <div id="subsList" style="color:var(--text-muted);">
+          <p><i class="fas fa-spinner fa-spin"></i> Loading your subscriptions...</p>
+        </div>
+        <button class="btn btn-whatsapp" style="margin-top:20px;" onclick="App.openWhatsApp('I need help with my SOLARA TV subscription')">
+          <i class="fab fa-whatsapp"></i> Need help?
         </button>
       </div>
     </main>
@@ -116,6 +118,61 @@
     if (window.innerWidth <= 992) {
       document.getElementById('sidebarToggle').style.display = 'inline-block';
     }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text == null ? '' : String(text);
+      return div.innerHTML;
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => alert('Copied!')).catch(() => {});
+    }
+
+    // Load the user's subscriptions (M3U creds, status, expiry)
+    async function loadSubscriptions() {
+      const listEl = document.getElementById('subsList');
+      if (!session) { listEl.innerHTML = '<p>Please log in.</p>'; return; }
+      if (!window.SolaraDB || !SolaraDB.isReady()) {
+        listEl.innerHTML = '<p>Cloud service unavailable — contact us via WhatsApp.</p>';
+        return;
+      }
+      try {
+        const { data, error } = await SolaraDB.client()
+          .from('subscriptions')
+          .select('*')
+          .eq('user_id', session.userId)
+          .order('created_at', { ascending: false });
+        if (error) throw error;
+        if (!data || !data.length) {
+          listEl.innerHTML = '<p>You don\'t have a subscription yet. <a href="../pricing.html" style="color:var(--primary);">See plans &amp; subscribe</a>.</p>';
+          return;
+        }
+        listEl.innerHTML = data.map(s => {
+          const expire = s.expire_date ? new Date(s.expire_date + 'T00:00:00') : null;
+          const today = new Date(); today.setHours(0,0,0,0);
+          const active = expire && expire >= today;
+          const badge = active
+            ? '<span class="badge badge-published"><i class="fas fa-check-circle"></i> Active</span>'
+            : '<span class="badge badge-draft"><i class="fas fa-exclamation-circle"></i> Expired</span>';
+          return '<div style="border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">' +
+              '<strong style="color:var(--primary);"><i class="fas fa-play-circle"></i> ' + escapeHtml((s.type || 'M3U').toUpperCase()) + ' Subscription</strong>' + badge +
+            '</div>' +
+            '<div style="font-family:monospace;font-size:.9rem;line-height:2;">' +
+              '<div>Username: <strong style="color:#fff;">' + escapeHtml(s.username || '—') + '</strong> <button class="btn btn-sm" style="padding:2px 10px;" onclick="copyText(\'' + escapeHtml(s.username || '') + '\')">📋</button></div>' +
+              '<div>Password: <strong style="color:#fff;">' + escapeHtml(s.password || '—') + '</strong> <button class="btn btn-sm" style="padding:2px 10px;" onclick="copyText(\'' + escapeHtml(s.password || '') + '\')">📋</button></div>' +
+            '</div>' +
+            '<div style="margin-top:10px;font-size:.85rem;color:var(--text-muted);">' +
+              'Expires: <strong style="color:' + (active ? '#25D366' : '#ff6b6b') + ';">' + (expire ? expire.toLocaleDateString() : '—') + '</strong>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      } catch (err) {
+        listEl.innerHTML = '<p>Could not load subscriptions: ' + escapeHtml(err.message || err) + '</p>';
+      }
+    }
+    loadSubscriptions();
   </script>
 </body>
 </html>

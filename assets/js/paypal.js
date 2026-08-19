@@ -63,6 +63,12 @@ const PayPalUI = {
           <div style="font-size:3rem;color:#25D366;"><i class="fas fa-check-circle"></i></div>
           <h3 style="color:#fff;">Payment Successful!</h3>
           <p id="solaraPayOrderId" style="color:#aaa;font-size:.85rem;"></p>
+          <div id="solaraPayCreds" style="display:none;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);border-radius:12px;padding:14px;margin:12px 0;text-align:left;font-family:monospace;font-size:.85rem;">
+            <div style="color:#FFD700;font-family:inherit;font-weight:700;margin-bottom:8px;">📺 Your M3U account</div>
+            <div>Username: <strong id="credUser" style="color:#fff;"></strong> <button class="solara-copy" onclick="PayPalUI.copyCred('credUser')">📋</button></div>
+            <div>Password: <strong id="credPass" style="color:#fff;"></strong> <button class="solara-copy" onclick="PayPalUI.copyCred('credPass')">📋</button></div>
+            <div id="credExpire" style="margin-top:6px;"></div>
+          </div>
           <p id="solaraPayAutomation" style="font-size:.85rem;font-weight:700;margin:10px 0;"></p>
           <button class="btn" style="background:#25D366;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:10px;" onclick="PayPalUI.continueWhatsApp()"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</button>
           <p style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
@@ -141,17 +147,38 @@ const PayPalUI = {
     // Phase 2 — auto-create subscription server-side
     const url = window.SOLARA_PAY.automationUrl;
     const autoEl = document.getElementById('solaraPayAutomation');
+    const credsBox = document.getElementById('solaraPayCreds');
     if (url) {
+      // userId from the logged-in session (set by auth.js on login)
+      let userId = '';
+      try {
+        const sess = JSON.parse(localStorage.getItem('solaratv_session') || 'null');
+        if (sess && sess.userId) userId = sess.userId;
+      } catch {}
       try {
         const resp = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId })
+          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId, userId })
         });
         const data = await resp.json().catch(() => ({}));
         if (data && data.ok) {
-          autoEl.textContent = '✅ Subscription auto-created on our panel!';
+          autoEl.textContent = '✅ Subscription created! Your M3U details below.';
           autoEl.style.color = '#25D366';
+          if (data.username && data.password) {
+            document.getElementById('credUser').textContent = data.username;
+            document.getElementById('credPass').textContent = data.password;
+            document.getElementById('credExpire').innerHTML = 'Expires: <strong style="color:#fff;">' + (data.expire || '—') + '</strong>';
+            credsBox.style.display = 'block';
+            // Keep credentials for the client dashboard
+            window.SOLARA_PAY._lastCreds = { username: data.username, password: data.password, expire: data.expire };
+            try {
+              const stored = JSON.parse(localStorage.getItem('solaratv_payments') || '[]');
+              const last = stored.find(s => s.orderId === orderId);
+              if (last) Object.assign(last, { username: data.username, password: data.password, expire: data.expire });
+              localStorage.setItem('solaratv_payments', JSON.stringify(stored));
+            } catch {}
+          }
         } else {
           autoEl.textContent = '⚠️ Payment received — please confirm on WhatsApp for activation.';
           autoEl.style.color = '#ffc107';
@@ -166,6 +193,15 @@ const PayPalUI = {
       autoEl.textContent = '⚠️ Please confirm on WhatsApp for activation.';
       autoEl.style.color = '#ffc107';
     }
+  },
+
+  copyCred(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.textContent).then(() => {
+      const btn = el.nextElementSibling;
+      if (btn) { const t = btn.textContent; btn.textContent = '✅'; setTimeout(() => { btn.textContent = t; }, 1200); }
+    }).catch(() => {});
   },
 
   continueWhatsApp() {

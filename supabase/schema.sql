@@ -42,6 +42,7 @@ create table if not exists public.subscriptions (
   status       text default 'pending' check (status in ('pending','success','failed')),
   note         text,
   api_response jsonb,
+  expire_date  date,
   created_at   timestamptz default now()
 );
 create index if not exists subscriptions_user_idx on public.subscriptions(user_id);
@@ -171,3 +172,9 @@ create policy "profiles_admin_update" on public.profiles
   for update using (public.is_admin()) with check (public.is_admin());
 
 grant select, update on public.profiles to authenticated;
+
+-- =============================================
+-- MIGRATION 2026-08-19: subscriptions.expire_date
+-- (client dashboard shows subscription expiry)
+-- =============================================
+alter table public.subscriptions add column if not exists expire_date date;

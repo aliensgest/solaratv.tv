@@ -414,8 +414,25 @@
   </div>
 </footer>
 
-<!-- 💳 PayPal checkout (client-side smart buttons + server-side automation hook) -->
+<!-- Auth (for login-gated payments) + PayPal checkout -->
+<script src="assets/js/supabase-client.js"></script>
+<script src="assets/js/auth.js"></script>
 <script src="assets/js/paypal.js"></script>
+<script>
+  // 💳 "Pay Now" visible ONLY for logged-in users
+  document.addEventListener('DOMContentLoaded', async function () {
+    if (!Auth.isLoggedIn()) { try { await Auth.restoreFromSupabase(); } catch {} }
+    const loggedIn = Auth.isLoggedIn();
+    document.querySelectorAll('.pay-btn').forEach(function (btn) {
+      if (!loggedIn) {
+        btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login to Purchase';
+        btn.style.background = 'linear-gradient(135deg,#4a90e2,#357abd)';
+        btn.onclick = function () { window.location.href = 'login.html?redirect=offers'; };
+      }
+    });
+    if (!loggedIn) { document.querySelectorAll('.pay-badge').forEach(function (b) { b.style.display = 'none'; }); }
+  });
+</script>
 
 </body>
 </html>

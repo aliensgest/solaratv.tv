@@ -281,6 +281,12 @@
 <section>
   <div class="container">
     <h2 class="section-title">Choose Your Plan</h2>
+    <div style="text-align:center;margin-bottom:30px;">
+      <button id="freeTrialBtn" class="plan-btn" style="max-width:340px;margin:0 auto;background:linear-gradient(135deg,#25D366,#1DB954);color:#fff;font-size:.9rem;" onclick="handleTrial()">
+        <i class="fas fa-gift"></i> Get Your Free Trial — 1 Day, 0€
+      </button>
+      <p style="color:#888;font-size:.75rem;margin-top:8px;">No payment required. Test the service before buying.</p>
+    </div>
     <div class="pricing-grid">
       <!-- Monthly Plan -->
       <div class="pricing-card">
@@ -570,6 +576,12 @@
       }
     });
     if (!loggedIn) { document.querySelectorAll('.pay-badge').forEach(function (b) { b.style.display = 'none'; }); }
+
+    // Free trial: requires login
+    window.handleTrial = function () {
+      if (Auth.isLoggedIn()) { startTrial(); }
+      else { window.location.href = 'login.html?redirect=pricing'; }
+    };
   });
 </script>
 

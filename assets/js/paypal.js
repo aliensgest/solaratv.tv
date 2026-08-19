@@ -70,8 +70,8 @@ const PayPalUI = {
             <div id="credExpire" style="margin-top:6px;"></div>
           </div>
           <p id="solaraPayAutomation" style="font-size:.85rem;font-weight:700;margin:10px 0;"></p>
-          <button class="btn" style="background:#25D366;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:10px;" onclick="PayPalUI.continueWhatsApp()"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</button>
-          <p style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
+          <button id="solaraPayWhatsAppBtn" class="btn" style="background:#25D366;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:10px;" onclick="PayPalUI.continueWhatsApp()"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</button>
+          <p id="solaraPayNote" style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
         </div>
       </div>`;
     document.body.appendChild(modal);
@@ -222,3 +222,54 @@ const PayPalUI = {
 
 // Alias used by existing "Pay Now" buttons on pricing.html / offers.html
 function pay(planKey) { PayPalUI.open(planKey); }
+
+// 🎁 Free trial — 1 day, 0 credit (server-side creation, no PayPal needed)
+const TRIAL_URL = 'https://nuadbjtwcksoqheyushw.functions.supabase.co/create-trial';
+
+async function startTrial() {
+  let userId = '';
+  try {
+    const sess = JSON.parse(localStorage.getItem('solaratv_session') || 'null');
+    if (sess && sess.userId) userId = sess.userId;
+  } catch {}
+  if (!userId) { alert('Please login first to get your free trial.'); return; }
+
+  PayPalUI._build();
+  document.getElementById('solaraPayPlanLabel').textContent = '🎁 Free Trial — 1 Day (0 €)';
+  document.getElementById('solaraPayBtn').style.display = 'flex';
+  document.getElementById('solaraPaySuccess').style.display = 'none';
+  document.getElementById('solaraPayCreds').style.display = 'none';
+  document.getElementById('solaraPayModal').classList.add('open');
+  document.getElementById('solaraPayBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating your free trial...';
+
+  try {
+    const resp = await fetch(TRIAL_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId })
+    });
+    const data = await resp.json().catch(() => ({}));
+    if (data && data.ok) {
+      document.getElementById('solaraPayBtn').style.display = 'none';
+      document.getElementById('solaraPaySuccess').style.display = 'block';
+      document.getElementById('solaraPayOrderId').textContent = 'Free Trial — 1 Day • 0 €';
+      document.getElementById('credUser').textContent = data.username || '—';
+      document.getElementById('credPass').textContent = data.password || '—';
+      document.getElementById('credExpire').innerHTML = 'Expires: <strong style="color:#fff;">' + (data.expire || '—') + '</strong>';
+      document.getElementById('solaraPayCreds').style.display = 'block';
+      const autoEl = document.getElementById('solaraPayAutomation');
+      autoEl.textContent = '✅ Free trial created! Enjoy 1 day.';
+      autoEl.style.color = '#25D366';
+      document.getElementById('solaraPayWhatsAppBtn').style.display = 'none';
+      document.getElementById('solaraPayNote').style.display = 'none';
+      window.SOLARA_PAY._lastOrder = { orderId: 'TRIAL', plan: 'Free Trial 1 Day', amount: '0', sub: '99' };
+      try { window.dispatchEvent(new CustomEvent('solara:payment', { detail: { ok: true } })); } catch {}
+    } else {
+      alert((data && data.error) || 'Trial creation failed. Try again or contact us.');
+      PayPalUI.close();
+    }
+  } catch (e) {
+    alert('Trial creation failed. Try again or contact us.');
+    PayPalUI.close();
+  }
+}

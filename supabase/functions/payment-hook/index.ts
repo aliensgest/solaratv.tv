@@ -108,7 +108,7 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    const { planKey, paypalOrderId, userId } = body || {};
+    const { planKey, paypalOrderId, userId, pack, note } = body || {};
 
     const plan = PLAN_MAP[planKey];
     if (!plan) {
@@ -118,6 +118,10 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Missing paypalOrderId" }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
     }
 
+    // Client-selected bouquet/package + note (fallbacks to plan defaults)
+    const packFinal = (pack && pack !== "all" && String(pack).trim()) ? String(pack).trim() : plan.pack;
+    const noteClient = (note && note.trim()) ? note.trim() : "";
+
     // 1) Verify payment
     const token = await paypalToken();
     const order = await verifyOrder(paypalOrderId, token);
@@ -126,10 +130,12 @@ serve(async (req) => {
     }
     const amount = order.purchase_units?.[0]?.amount?.value || "";
     const currency = order.purchase_units?.[0]?.amount?.currency_code || "EUR";
-    const note = `PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`;
+    const note = noteClient
+      ? `${noteClient} — PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`
+      : `PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`;
 
     // 2) Create M3U on the panel
-    const created = await createM3U(plan.sub, plan.pack, note);
+    const created = await createM3U(plan.sub, packFinal, note);
     if (!created || created.status !== "true") {
       return new Response(JSON.stringify({ ok: false, error: "Panel create failed", panel: created }), { status: 502, headers: { ...cors, "Content-Type": "application/json" } });
     }

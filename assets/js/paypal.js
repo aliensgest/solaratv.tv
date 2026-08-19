@@ -14,6 +14,8 @@ window.SOLARA_PAY = {
   // 🔒 Phase 2 — URL of the Supabase Edge Function that auto-creates the
   // subscription after payment. Empty = automation disabled.
   automationUrl: 'https://nuadbjtwcksoqheyushw.functions.supabase.co/payment-hook',
+  // Server-side options (bouquets) for the payment modal
+  optionsUrl: 'https://nuadbjtwcksoqheyushw.functions.supabase.co/get-options',
   // Mapping offers <-> amounts (for the PayPal order)
   plans: {
     monthly:   { amount: '17.00',  label: '1 Month',         sub: '1'  },
@@ -40,7 +42,32 @@ const PayPalUI = {
     document.getElementById('solaraPayBtn').style.display = 'flex';
     document.getElementById('solaraPaySuccess').style.display = 'none';
     document.getElementById('solaraPayModal').classList.add('open');
+    this._loadOptions();
     this._loadSdk().then(() => this._render());
+  },
+
+  async _loadOptions() {
+    const box = document.getElementById('solaraPayOptions');
+    if (!box) return;
+    box.style.display = 'block';
+    const sel = document.getElementById('solaraPayPack');
+    const note = document.getElementById('solaraPayNote');
+    if (sel) sel.innerHTML = '<option value="all">All Bouquets</option>';
+    if (note) note.value = '';
+    const url = window.SOLARA_PAY.optionsUrl;
+    if (!url) return;
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json().catch(() => ({}));
+      if (data && data.ok && data.bouquets && data.bouquets.length && sel) {
+        data.bouquets.forEach(b => {
+          const opt = document.createElement('option');
+          opt.value = b.id;
+          opt.textContent = b.name;
+          sel.appendChild(opt);
+        });
+      }
+    } catch {}
   },
 
   close() {
@@ -58,6 +85,18 @@ const PayPalUI = {
         <button class="solara-pay-close" onclick="PayPalUI.close()" aria-label="Close">&times;</button>
         <h3 style="margin:0 0 4px;color:#FFD700;">💳 Secure Payment</h3>
         <p id="solaraPayPlanLabel" style="color:#fff;margin:0 0 16px;font-weight:700;"></p>
+        <div id="solaraPayOptions" style="margin-bottom:14px;">
+          <div style="margin-bottom:10px;">
+            <label for="solaraPayPack" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Bouquet / Package</label>
+            <select id="solaraPayPack" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;">
+              <option value="all">All Bouquets</option>
+            </select>
+          </div>
+          <div>
+            <label for="solaraPayNote" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Note (optional — your name / order ref)</label>
+            <input id="solaraPayNote" type="text" maxlength="100" placeholder="e.g. John Doe" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;">
+          </div>
+        </div>
         <div id="solaraPayBtn" style="min-height:180px;display:flex;align-items:center;justify-content:center;color:#888;"><i class="fas fa-spinner fa-spin"></i> Loading secure payment...</div>
         <div id="solaraPaySuccess" style="display:none;text-align:center;padding:20px;">
           <div style="font-size:3rem;color:#25D366;"><i class="fas fa-check-circle"></i></div>
@@ -155,11 +194,17 @@ const PayPalUI = {
         const sess = JSON.parse(localStorage.getItem('solaratv_session') || 'null');
         if (sess && sess.userId) userId = sess.userId;
       } catch {}
+      // Selected options (bouquet + note)
+      let pack = 'all', note = '';
+      try {
+        pack = document.getElementById('solaraPayPack') ? document.getElementById('solaraPayPack').value : 'all';
+        note = document.getElementById('solaraPayNote') ? document.getElementById('solaraPayNote').value.trim() : '';
+      } catch {}
       try {
         const resp = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId, userId })
+          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId, userId, pack, note })
         });
         const data = await resp.json().catch(() => ({}));
         if (data && data.ok) {
@@ -236,6 +281,8 @@ async function startTrial() {
 
   PayPalUI._build();
   document.getElementById('solaraPayPlanLabel').textContent = '🎁 Free Trial — 1 Day (0 €)';
+  const optBox = document.getElementById('solaraPayOptions');
+  if (optBox) optBox.style.display = 'none';
   document.getElementById('solaraPayBtn').style.display = 'flex';
   document.getElementById('solaraPaySuccess').style.display = 'none';
   document.getElementById('solaraPayCreds').style.display = 'none';

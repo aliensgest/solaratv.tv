@@ -12,8 +12,8 @@ window.SOLARA_PAY = {
   currency: 'EUR',
   whatsappNumber: '212600160196',
   // 🔒 Phase 2 — URL of the Supabase Edge Function that auto-creates the
-  // subscription after payment. Leave empty to disable automation.
-  automationUrl: '', // e.g. 'https://nuadbjtwcksoqheyushw.functions.supabase.co/payment-hook'
+  // subscription after payment. Empty = automation disabled.
+  automationUrl: 'https://nuadbjtwcksoqheyushw.functions.supabase.co/payment-hook',
   // Mapping offers <-> amounts (for the PayPal order)
   plans: {
     monthly:   { amount: '17.00',  label: '1 Month',         sub: '1'  },

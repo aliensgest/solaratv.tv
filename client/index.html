@@ -176,7 +176,13 @@
     // Load the user's subscriptions (M3U creds, status, expiry)
     async function loadSubscriptions() {
       const listEl = document.getElementById('subsList');
+      if (!listEl) return;
       if (!session) { listEl.innerHTML = '<p>Please log in.</p>'; return; }
+      // Wait for the Supabase SDK to be ready (it loads async from CDN)
+      const start = Date.now();
+      while ((!window.SolaraDB || !SolaraDB.isReady()) && Date.now() - start < 3000) {
+        await new Promise(r => setTimeout(r, 100));
+      }
       if (!window.SolaraDB || !SolaraDB.isReady()) {
         listEl.innerHTML = '<p>Cloud service unavailable — contact us via WhatsApp.</p>';
         return;

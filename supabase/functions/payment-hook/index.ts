@@ -108,7 +108,7 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    const { planKey, paypalOrderId, userId, pack, note } = body || {};
+    const { planKey, paypalOrderId, userId, pack, country, note } = body || {};
 
     const plan = PLAN_MAP[planKey];
     if (!plan) {
@@ -118,9 +118,10 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Missing paypalOrderId" }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
     }
 
-    // Client-selected bouquet/package + note (fallbacks to plan defaults)
+    // Client-selected bouquet/package + country + note (fallbacks to plan defaults)
     const packFinal = (pack && pack !== "all" && String(pack).trim()) ? String(pack).trim() : plan.pack;
     const noteClient = (note && note.trim()) ? note.trim() : "";
+    const countryClient = (country && country.trim()) ? country.trim() : "";
 
     // 1) Verify payment
     const token = await paypalToken();
@@ -130,9 +131,11 @@ serve(async (req) => {
     }
     const amount = order.purchase_units?.[0]?.amount?.value || "";
     const currency = order.purchase_units?.[0]?.amount?.currency_code || "EUR";
-    const note = noteClient
-      ? `${noteClient} — PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`
-      : `PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`;
+    const parts = [];
+    if (countryClient) parts.push(`Country: ${countryClient}`);
+    if (noteClient) parts.push(noteClient);
+    parts.push(`PayPal ${paypalOrderId} — ${amount} ${currency} (auto)`);
+    const note = parts.join(" | ");
 
     // 2) Create M3U on the panel
     const created = await createM3U(plan.sub, packFinal, note);

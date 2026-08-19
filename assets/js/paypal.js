@@ -30,6 +30,9 @@ window.SOLARA_PAY = {
   }
 };
 
+// 🌍 Country list for the payment modal (matches the panel's country-based bouquets)
+const COUNTRIES = ['United Kingdom','USA','Canada','France','Germany','Netherlands','Belgium','Switzerland','Austria','Portugal','Spain','Italy','Greece','Poland','Sweden','Denmark','Norway','Finland','Albania','Slovenia','Ex Yu','Lithuania','Latvia','Estonia','Hungary','Czech','Romania','Bulgaria','Russia','Ukraine','Georgia','Australia','New Zealand','Brasil','Latino','Caribbean','India','Turkey','Iran','Afghanistan','Pakistan','Azerbaijan','Uzbekistan','Tajikistan','Kurdistan','Israel','China','Korea','Indonesia','Myanmar','Thailand','Singapore','Taiwan','Vietnam','Malaysia','Japan','Philippines','Suriname','Africa'];
+
 const PayPalUI = {
   _planKey: null,
 
@@ -46,28 +49,96 @@ const PayPalUI = {
     this._loadSdk().then(() => this._render());
   },
 
+  _isVod(name) {
+    return /vod|movie|series|netflix|disney|apple\+|imdb|sub\b/i.test(name || '');
+  },
+
   async _loadOptions() {
     const box = document.getElementById('solaraPayOptions');
     if (!box) return;
     box.style.display = 'block';
-    const sel = document.getElementById('solaraPayPack');
     const note = document.getElementById('solaraPayNote');
-    if (sel) sel.innerHTML = '<option value="all">All Bouquets</option>';
     if (note) note.value = '';
+    // Countries
+    const countrySel = document.getElementById('solaraPayCountry');
+    if (countrySel) {
+      countrySel.innerHTML = '<option value="">🌐 World / All</option>' +
+        COUNTRIES.map(c => '<option value="' + c.replace(/'/g, '') + '">' + c + '</option>').join('');
+    }
+    // Reset pack/vod lists to "All" defaults
+    const packsEl = document.getElementById('solaraPayPacks');
+    const vodsEl = document.getElementById('solaraPayVods');
+    if (packsEl) packsEl.innerHTML = '<label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets</label>';
+    if (vodsEl) vodsEl.innerHTML = '<label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onVodChange()"> All VOD</label>';
     const url = window.SOLARA_PAY.optionsUrl;
     if (!url) return;
     try {
       const resp = await fetch(url);
       const data = await resp.json().catch(() => ({}));
-      if (data && data.ok && data.bouquets && data.bouquets.length && sel) {
-        data.bouquets.forEach(b => {
-          const opt = document.createElement('option');
-          opt.value = b.id;
-          opt.textContent = b.name;
-          sel.appendChild(opt);
-        });
-      }
+      if (!(data && data.ok && data.bouquets && data.bouquets.length)) return;
+      data.bouquets.forEach(b => {
+        const label = document.createElement('label');
+        label.style.cssText = 'display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = b.id;
+        cb.onchange = this._isVod(b.name) ? () => this.onVodChange() : () => this.onPackChange();
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(b.name));
+        if (this._isVod(b.name)) { if (vodsEl) vodsEl.appendChild(label); }
+        else if (packsEl) packsEl.appendChild(label);
+      });
     } catch {}
+  },
+
+  onPackChange() {
+    const packsEl = document.getElementById('solaraPayPacks');
+    const boxes = packsEl ? Array.from(packsEl.querySelectorAll('input[type=checkbox]')) : [];
+    const allBox = boxes.find(b => b.value === 'all');
+    const anySpecific = boxes.some(b => b.value !== 'all' && b.checked);
+    if (allBox && anySpecific) allBox.checked = false;
+    if (allBox && !anySpecific) allBox.checked = true;
+  },
+
+  onVodChange() {
+    const vodsEl = document.getElementById('solaraPayVods');
+    const boxes = vodsEl ? Array.from(vodsEl.querySelectorAll('input[type=checkbox]')) : [];
+    const allBox = boxes.find(b => b.value === 'all');
+    const anySpecific = boxes.some(b => b.value !== 'all' && b.checked);
+    if (allBox && anySpecific) allBox.checked = false;
+    if (allBox && !anySpecific) allBox.checked = true;
+  },
+
+  onCountryChange() {
+    // Auto-check bouquets matching the selected country
+    const country = document.getElementById('solaraPayCountry') ? document.getElementById('solaraPayCountry').value : '';
+    const packsEl = document.getElementById('solaraPayPacks');
+    if (!packsEl || !country) return;
+    const boxes = Array.from(packsEl.querySelectorAll('input[type=checkbox]'));
+    let matched = 0;
+    boxes.forEach(b => {
+      if (b.value === 'all') return;
+      const name = (b.closest('label') || {}).textContent || '';
+      if (name.toLowerCase().includes(country.toLowerCase())) { b.checked = true; matched++; }
+    });
+    const allBox = boxes.find(b => b.value === 'all');
+    if (allBox && matched > 0) allBox.checked = false;
+  },
+
+  _gatherOptions() {
+    let country = '', note = '';
+    try { country = document.getElementById('solaraPayCountry') ? document.getElementById('solaraPayCountry').value : ''; } catch {}
+    try { note = document.getElementById('solaraPayNote') ? document.getElementById('solaraPayNote').value.trim() : ''; } catch {}
+    const ids = [];
+    ['solaraPayPacks', 'solaraPayVods'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const boxes = Array.from(el.querySelectorAll('input[type=checkbox]'));
+      const allBox = boxes.find(b => b.value === 'all');
+      const specifics = boxes.filter(b => b.value !== 'all' && b.checked).map(b => b.value);
+      if (!(allBox && allBox.checked)) specifics.forEach(v => { if (!ids.includes(v)) ids.push(v); });
+    });
+    return { country, pack: ids.length ? ids.join(',') : 'all', note };
   },
 
   close() {
@@ -87,10 +158,22 @@ const PayPalUI = {
         <p id="solaraPayPlanLabel" style="color:#fff;margin:0 0 16px;font-weight:700;"></p>
         <div id="solaraPayOptions" style="margin-bottom:14px;">
           <div style="margin-bottom:10px;">
-            <label for="solaraPayPack" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Bouquet / Package</label>
-            <select id="solaraPayPack" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;">
-              <option value="all">All Bouquets</option>
+            <label for="solaraPayCountry" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">🌍 Select Country</label>
+            <select id="solaraPayCountry" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;" onchange="PayPalUI.onCountryChange()">
+              <option value="">🌐 World / All</option>
             </select>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">📺 Select Bouquets</label>
+            <div id="solaraPayPacks" style="max-height:150px;overflow:auto;border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px;background:rgba(0,0,0,.2);font-size:.8rem;line-height:1.9;">
+              <label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets</label>
+            </div>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">🎬 Select VOD</label>
+            <div id="solaraPayVods" style="max-height:120px;overflow:auto;border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px;background:rgba(0,0,0,.2);font-size:.8rem;line-height:1.9;">
+              <label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onVodChange()"> All VOD</label>
+            </div>
           </div>
           <div>
             <label for="solaraPayNote" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Note (optional — your name / order ref)</label>
@@ -110,7 +193,7 @@ const PayPalUI = {
           </div>
           <p id="solaraPayAutomation" style="font-size:.85rem;font-weight:700;margin:10px 0;"></p>
           <button id="solaraPayWhatsAppBtn" class="btn" style="background:#25D366;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:700;cursor:pointer;margin-top:10px;" onclick="PayPalUI.continueWhatsApp()"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</button>
-          <p id="solaraPayNote" style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
+          <p id="solaraPaySuccessNote" style="color:#888;font-size:.75rem;margin-top:8px;">Send us your payment ID so we can activate your plan instantly.</p>
         </div>
       </div>`;
     document.body.appendChild(modal);
@@ -194,17 +277,13 @@ const PayPalUI = {
         const sess = JSON.parse(localStorage.getItem('solaratv_session') || 'null');
         if (sess && sess.userId) userId = sess.userId;
       } catch {}
-      // Selected options (bouquet + note)
-      let pack = 'all', note = '';
-      try {
-        pack = document.getElementById('solaraPayPack') ? document.getElementById('solaraPayPack').value : 'all';
-        note = document.getElementById('solaraPayNote') ? document.getElementById('solaraPayNote').value.trim() : '';
-      } catch {}
+      // Selected options (country + bouquets + VOD + note)
+      const opts = this._gatherOptions();
       try {
         const resp = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId, userId, pack, note })
+          body: JSON.stringify({ planKey: this._planKey, paypalOrderId: orderId, userId, pack: opts.pack, country: opts.country, note: opts.note })
         });
         const data = await resp.json().catch(() => ({}));
         if (data && data.ok) {
@@ -308,7 +387,7 @@ async function startTrial() {
       autoEl.textContent = '✅ Free trial created! Enjoy 1 day.';
       autoEl.style.color = '#25D366';
       document.getElementById('solaraPayWhatsAppBtn').style.display = 'none';
-      document.getElementById('solaraPayNote').style.display = 'none';
+      document.getElementById('solaraPaySuccessNote').style.display = 'none';
       window.SOLARA_PAY._lastOrder = { orderId: 'TRIAL', plan: 'Free Trial 1 Day', amount: '0', sub: '99' };
       try { window.dispatchEvent(new CustomEvent('solara:payment', { detail: { ok: true } })); } catch {}
     } else {

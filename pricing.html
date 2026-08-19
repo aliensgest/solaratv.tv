@@ -553,32 +553,8 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,215,0,.4)}70%{box-shadow:0 0 0 15px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
 </style>
 
-<script>
-  /* ============================================
-     💳 ONLINE PAYMENT — Stripe Payment Links
-     ============================================
-     1) Crée 5 liens ici : https://dashboard.stripe.com/payment-links
-        (un lien par plan, montant fixe)
-     2) Colle chaque lien à la place de "PASTE_YOUR_STRIPE_LINK_HERE"
-     3) Commit + push → les boutons "Pay Now" deviennent actifs
-  ============================================ */
-  const PAYMENT_LINKS = {
-    monthly:   'PASTE_YOUR_STRIPE_LINK_HERE', // €17
-    quarterly: 'PASTE_YOUR_STRIPE_LINK_HERE', // €34.99
-    semi:      'PASTE_YOUR_STRIPE_LINK_HERE', // €55
-    annual:    'PASTE_YOUR_STRIPE_LINK_HERE', // €90
-    biennial:  'PASTE_YOUR_STRIPE_LINK_HERE'  // €149
-  };
-
-  function pay(plan) {
-    const url = PAYMENT_LINKS[plan];
-    if (!url || url.indexOf('PASTE_YOUR') === 0) {
-      alert('Online payment is being activated. Please order via WhatsApp for now. 🙏');
-      return;
-    }
-    window.open(url, '_blank');
-  }
-</script>
+<!-- 💳 PayPal checkout (client-side smart buttons + server-side automation hook) -->
+<script src="assets/js/paypal.js"></script>
 
 </body>
 </html>

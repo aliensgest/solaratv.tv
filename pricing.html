@@ -232,6 +232,25 @@
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
     
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.pricing-card.popular{transform:scale(1)}.seo-grid{grid-template-columns:1fr}}
+    
+    /* Fix for icon alignment */
+    .pricing-card ul li i {
+      width: 18px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    .pricing-card ul li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .pay-btn i, .plan-btn i {
+      margin-right: 6px;
+    }
+    .wa-alt i {
+      margin-right: 4px;
+    }
   </style>
 </head>
 <body>
@@ -283,7 +302,7 @@
     <h2 class="section-title">Choose Your Plan</h2>
     <div style="text-align:center;margin-bottom:30px;">
       <a href="https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SolaraTV" target="_blank" class="plan-btn" style="max-width:340px;margin:0 auto;background:linear-gradient(135deg,#25D366,#1DB954);color:#fff;font-size:.9rem;display:inline-block;text-decoration:none;padding:12px 20px;">
-        <i class="fas fa-gift"></i> Get Your Free Trial — 1 Day, 0€
+        <i class="fas fa-gift"></i> Start Your Free Trial – 1 Day, 0€
       </a>
       <p style="color:#888;font-size:.75rem;margin-top:8px;">No payment required. Test the service before buying.</p>
     </div>
@@ -558,8 +577,6 @@
   .hero-btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(255,215,0,.5);animation:none}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,215,0,.4)}70%{box-shadow:0 0 0 15px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
 </style>
-
-<!-- Auth scripts removed because PayPal/credit card are removed; only WhatsApp remains -->
 
 </body>
 </html>

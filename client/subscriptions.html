@@ -117,6 +117,7 @@
     // Load the user's subscriptions (M3U creds, status, expiry)
     async function loadSubscriptions() {
       const listEl = document.getElementById('subsList');
+      if (!listEl) return; // page redirected (not logged in)
       if (!session) { listEl.innerHTML = '<p>Please log in.</p>'; return; }
       if (!window.SolaraDB || !SolaraDB.isReady()) {
         listEl.innerHTML = '<p>Cloud service unavailable — contact us via WhatsApp.</p>';

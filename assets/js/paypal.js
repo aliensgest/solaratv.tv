@@ -49,10 +49,6 @@ const PayPalUI = {
     this._loadSdk().then(() => this._render());
   },
 
-  _isVod(name) {
-    return /vod|movie|series|netflix|disney|apple\+|imdb|sub\b/i.test(name || '');
-  },
-
   async _loadOptions() {
     const box = document.getElementById('solaraPayOptions');
     if (!box) return;
@@ -65,28 +61,25 @@ const PayPalUI = {
       countrySel.innerHTML = '<option value="">🌐 World / All</option>' +
         COUNTRIES.map(c => '<option value="' + c.replace(/'/g, '') + '">' + c + '</option>').join('');
     }
-    // Reset pack/vod lists to "All" defaults
+    // Reset the single package list to "All" default
     const packsEl = document.getElementById('solaraPayPacks');
-    const vodsEl = document.getElementById('solaraPayVods');
-    if (packsEl) packsEl.innerHTML = '<label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets</label>';
-    if (vodsEl) vodsEl.innerHTML = '<label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onVodChange()"> All VOD</label>';
+    if (packsEl) packsEl.innerHTML = '<label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets <span style="color:#888;">(recommended)</span></label>';
     const url = window.SOLARA_PAY.optionsUrl;
     if (!url) return;
     try {
       const resp = await fetch(url);
       const data = await resp.json().catch(() => ({}));
-      if (!(data && data.ok && data.bouquets && data.bouquets.length)) return;
+      if (!(data && data.ok && data.bouquets && data.bouquets.length) || !packsEl) return;
       data.bouquets.forEach(b => {
         const label = document.createElement('label');
         label.style.cssText = 'display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;';
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.value = b.id;
-        cb.onchange = this._isVod(b.name) ? () => this.onVodChange() : () => this.onPackChange();
+        cb.onchange = () => this.onPackChange();
         label.appendChild(cb);
         label.appendChild(document.createTextNode(b.name));
-        if (this._isVod(b.name)) { if (vodsEl) vodsEl.appendChild(label); }
-        else if (packsEl) packsEl.appendChild(label);
+        packsEl.appendChild(label);
       });
     } catch {}
   },
@@ -94,15 +87,6 @@ const PayPalUI = {
   onPackChange() {
     const packsEl = document.getElementById('solaraPayPacks');
     const boxes = packsEl ? Array.from(packsEl.querySelectorAll('input[type=checkbox]')) : [];
-    const allBox = boxes.find(b => b.value === 'all');
-    const anySpecific = boxes.some(b => b.value !== 'all' && b.checked);
-    if (allBox && anySpecific) allBox.checked = false;
-    if (allBox && !anySpecific) allBox.checked = true;
-  },
-
-  onVodChange() {
-    const vodsEl = document.getElementById('solaraPayVods');
-    const boxes = vodsEl ? Array.from(vodsEl.querySelectorAll('input[type=checkbox]')) : [];
     const allBox = boxes.find(b => b.value === 'all');
     const anySpecific = boxes.some(b => b.value !== 'all' && b.checked);
     if (allBox && anySpecific) allBox.checked = false;
@@ -130,14 +114,13 @@ const PayPalUI = {
     try { country = document.getElementById('solaraPayCountry') ? document.getElementById('solaraPayCountry').value : ''; } catch {}
     try { note = document.getElementById('solaraPayNote') ? document.getElementById('solaraPayNote').value.trim() : ''; } catch {}
     const ids = [];
-    ['solaraPayPacks', 'solaraPayVods'].forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const boxes = Array.from(el.querySelectorAll('input[type=checkbox]'));
+    const packsEl = document.getElementById('solaraPayPacks');
+    if (packsEl) {
+      const boxes = Array.from(packsEl.querySelectorAll('input[type=checkbox]'));
       const allBox = boxes.find(b => b.value === 'all');
       const specifics = boxes.filter(b => b.value !== 'all' && b.checked).map(b => b.value);
       if (!(allBox && allBox.checked)) specifics.forEach(v => { if (!ids.includes(v)) ids.push(v); });
-    });
+    }
     return { country, pack: ids.length ? ids.join(',') : 'all', note };
   },
 
@@ -158,25 +141,20 @@ const PayPalUI = {
         <p id="solaraPayPlanLabel" style="color:#fff;margin:0 0 16px;font-weight:700;"></p>
         <div id="solaraPayOptions" style="margin-bottom:14px;">
           <div style="margin-bottom:10px;">
-            <label for="solaraPayCountry" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">🌍 Select Country</label>
+            <label for="solaraPayCountry" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">🌍 Your Country <span style="color:#777;">(optional — auto-selects your channels)</span></label>
             <select id="solaraPayCountry" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;" onchange="PayPalUI.onCountryChange()">
               <option value="">🌐 World / All</option>
             </select>
           </div>
           <div style="margin-bottom:10px;">
-            <label style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">📺 Select Bouquets</label>
-            <div id="solaraPayPacks" style="max-height:150px;overflow:auto;border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px;background:rgba(0,0,0,.2);font-size:.8rem;line-height:1.9;">
-              <label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets</label>
+            <label style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">📦 Bouquets / Packages <span style="color:#777;">(optional)</span></label>
+            <div id="solaraPayPacks" style="max-height:170px;overflow:auto;border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px;background:rgba(0,0,0,.2);font-size:.8rem;line-height:1.9;">
+              <label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onPackChange()"> All Bouquets <span style="color:#888;">(recommended)</span></label>
             </div>
-          </div>
-          <div style="margin-bottom:10px;">
-            <label style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">🎬 Select VOD</label>
-            <div id="solaraPayVods" style="max-height:120px;overflow:auto;border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px;background:rgba(0,0,0,.2);font-size:.8rem;line-height:1.9;">
-              <label style="display:flex;align-items:center;gap:8px;color:#ddd;cursor:pointer;"><input type="checkbox" value="all" checked onchange="PayPalUI.onVodChange()"> All VOD</label>
-            </div>
+            <div style="color:#888;font-size:.65rem;margin-top:4px;">Leave "All" checked to get every channel &amp; VOD package.</div>
           </div>
           <div>
-            <label for="solaraPayNote" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Note (optional — your name / order ref)</label>
+            <label for="solaraPayNote" style="color:#aaa;font-size:.75rem;display:block;margin-bottom:4px;">Note <span style="color:#777;">(optional — your name / order ref)</span></label>
             <input id="solaraPayNote" type="text" maxlength="100" placeholder="e.g. John Doe" style="width:100%;padding:9px;border-radius:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.3);color:#fff;font-size:.85rem;">
           </div>
         </div>

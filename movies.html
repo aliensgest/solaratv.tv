@@ -3,12 +3,9 @@
 <script>
 // حل شامل لإزالة .html من جميع الصفحات والروابط
 (function() {
-  // إصلاح الرابط الحالي
   if (location.pathname.endsWith('.html')) {
     history.replaceState({}, '', location.pathname.replace('.html', ''));
   }
-  
-  // إصلاح جميع الروابط في الصفحة
   for (let link of document.querySelectorAll('a[href]')) {
     let href = link.getAttribute('href');
     if (href && href.includes('.html') && !href.includes('://')) {
@@ -18,21 +15,12 @@
 })();
 </script>
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CDJ1NBM5B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-5CDJ1NBM5B');
-  </script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
   <title>60,000+ Movies & Series 4K | Latest 2026 Blockbusters | SolaraTV</title>
-  <meta name="description" content="Stream 60,000+ movies and series in 4K Ultra HD. Watch Avengers: Doomsday, Spider-Man, Dune: Messiah, John Wick 5, and thousands more. Free trial available. No buffering. Multi-language subtitles.">
-  <meta name="keywords" content="best iptv for movies, solara tv movies, 4k movies 2026, avengers doomsday 4k, spider-man brand new day 4k, dune messiah 4k, john wick 5, watch movies online 4k, iptv series 2026, netflix alternative iptv">
+  <meta name="description" content="Stream 60,000+ movies and series in 4K Ultra HD. Watch Avengers: Doomsday, Spider-Man, Dune: Messiah, John Wick 5, and thousands more. Free trial available.">
+  <meta name="keywords" content="best iptv for movies, solara tv movies, 4k movies 2026, avengers doomsday 4k, watch movies online 4k">
   <meta name="author" content="SolaraTV">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.solaratv.tv/movies">
@@ -50,37 +38,6 @@
   
   <link rel="icon" type="image/jpeg" href="https://i.ibb.co/1G1CJ65v/1000098885.jpg">
   <link rel="apple-touch-icon" href="https://i.ibb.co/1G1CJ65v/1000098885.jpg">
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "SolaraTV Movies & Series Library",
-    "description": "60,000+ movies and series in 4K Ultra HD. Latest 2026 blockbusters including Avengers: Doomsday, Spider-Man: Brand New Day, Dune: Messiah, John Wick 5. Multi-language audio and subtitles.",
-    "image": "https://i.ibb.co/1G1CJ65v/1000098885.jpg",
-    "brand": { "@type": "Brand", "name": "SolaraTV" },
-    "offers": {
-      "@type": "Offer",
-      "price": "18",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock"
-    }
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SolaraTV",
-    "url": "https://www.solaratv.tv",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.solaratv.tv/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
@@ -111,13 +68,11 @@
     .section-title{text-align:center;font-size:2rem;margin-bottom:35px;color:var(--accent-gold)}
     .section-title:after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-gold),#FFA500);margin:12px auto 0;border-radius:2px}
     
-    /* ====== حجم أصغر لبطاقات الأفلام ====== */
     .movies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
     
     .movie-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:15px;overflow:hidden;border:1px solid rgba(255,215,0,.3);transition:all .3s}
     .movie-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}
     
-    /* ====== تأثير التومض على صور الأفلام ====== */
     @keyframes movieGlow {
       0% { opacity: 1; transform: scale(1); filter: brightness(1); }
       50% { opacity: 0.1; transform: scale(0.97); filter: brightness(0.3); }
@@ -125,14 +80,13 @@
     }
     
     .movie-poster {
-      height: 280px; /* أصغر من السابق (كان 350px) */
+      height: 280px;
       background-size: cover;
       background-position: center;
       position: relative;
       animation: movieGlow 1s ease-in-out infinite;
     }
     
-    /* ====== إيقاف التومض عند تمرير الماوس ====== */
     .movie-card:hover .movie-poster {
       animation: none;
       opacity: 1;
@@ -200,7 +154,7 @@
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99;transition:transform .3s}
     .whatsapp-float:hover{transform:scale(1.05)}
     
-    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.movie-poster{height:200px}.movies-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}}
+    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.movie-poster{height:200px}.movies-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}}
     
     @keyframes softPulse {
       0% { opacity: 1; }
@@ -247,41 +201,149 @@
     <h2 class="section-title">🍿 Latest Blockbusters 2026</h2>
     <div class="movies-grid">
       
-      <!-- 1 -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Avengers: Doomsday</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 45m</span><span><i class="fas fa-film"></i> Action</span></div><p>The Avengers face their darkest hour as a cosmic-level threat endangers the entire multiverse.</p></div></div>
+      <!-- 1 - Avengers: Doomsday -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Avengers: Doomsday</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 45m</span><span><i class="fas fa-film"></i> Action</span></div>
+          <p>The Avengers face their darkest hour as a cosmic-level threat endangers the entire multiverse.</p>
+        </div>
+      </div>
       
-      <!-- 2 -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Spider-Man: Brand New Day</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 20m</span><span><i class="fas fa-film"></i> Adventure</span></div><p>Peter Parker starts fresh in a world that has forgotten Spider-Man.</p></div></div>
+      <!-- 2 - Spider-Man: Brand New Day -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Spider-Man: Brand New Day</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 20m</span><span><i class="fas fa-film"></i> Adventure</span></div>
+          <p>Peter Parker starts fresh in a world that has forgotten Spider-Man.</p>
+        </div>
+      </div>
       
-      <!-- 3 -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Dune: Messiah</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 50m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div><p>Paul Atreides navigates the consequences of power in Dune's epic sequel.</p></div></div>
+      <!-- 3 - Dune: Messiah -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Dune: Messiah</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 50m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div>
+          <p>Paul Atreides navigates the consequences of power in Dune's epic sequel.</p>
+        </div>
+      </div>
       
-      <!-- 4 -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>John Wick 5: Legends</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 15m</span><span><i class="fas fa-film"></i> Action</span></div><p>The legendary hitman returns for one final epic mission to end the High Table.</p></div></div>
+      <!-- 4 - John Wick 5: Legends -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>John Wick 5: Legends</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 15m</span><span><i class="fas fa-film"></i> Action</span></div>
+          <p>The legendary hitman returns for one final epic mission to end the High Table.</p>
+        </div>
+      </div>
       
-      <!-- 5 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/jsoz1HlxczSuH0rDSH7WZpz5Hzo.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Deadpool 4</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 10m</span><span><i class="fas fa-film"></i> Comedy</span></div><p>The Merc with a Mouth is back with more R-rated action, humor, and fourth-wall breaking.</p></div></div>
+      <!-- 5 - Deadpool 4 -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/8cdWjvZQUxUj6TjY4pMdwQPBhPc.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Deadpool 4</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 10m</span><span><i class="fas fa-film"></i> Comedy</span></div>
+          <p>The Merc with a Mouth is back with more R-rated action, humor, and fourth-wall breaking.</p>
+        </div>
+      </div>
       
-      <!-- 6 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/7II8B4BtNvqeR3gKLjGP3M1mzE4.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Mission: Impossible 8</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 40m</span><span><i class="fas fa-film"></i> Action</span></div><p>Ethan Hunt faces his most dangerous mission yet in this explosive sequel.</p></div></div>
+      <!-- 6 - Mission: Impossible 8 -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/7II8B4BtNvqeR3gKLjGP3M1mzE4.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Mission: Impossible 8</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 40m</span><span><i class="fas fa-film"></i> Action</span></div>
+          <p>Ethan Hunt faces his most dangerous mission yet in this explosive sequel.</p>
+        </div>
+      </div>
       
-      <!-- 7 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4hgljTlUz7FwA.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Avatar: The Seed Bearer</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 3h 10m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div><p>James Cameron returns to Pandora with more breathtaking visuals and epic storytelling.</p></div></div>
+      <!-- 7 - Avatar: The Seed Bearer -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4hgljTlUz7FwA.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Avatar: The Seed Bearer</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 3h 10m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div>
+          <p>James Cameron returns to Pandora with more breathtaking visuals and epic storytelling.</p>
+        </div>
+      </div>
       
-      <!-- 8 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/4lhR4L2vozjlR1J8b1RqBkCz3Tm.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Frozen 3</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 1h 50m</span><span><i class="fas fa-film"></i> Animation</span></div><p>Elsa, Anna, and Olaf return for another magical adventure in Arendelle.</p></div></div>
+      <!-- 8 - Frozen 3 -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/4lhR4L2vozjlR1J8b1RqBkCz3Tm.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Frozen 3</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 1h 50m</span><span><i class="fas fa-film"></i> Animation</span></div>
+          <p>Elsa, Anna, and Olaf return for another magical adventure in Arendelle.</p>
+        </div>
+      </div>
       
-      <!-- 9 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJdRsh.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Fast & Furious 11</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 20m</span><span><i class="fas fa-film"></i> Action</span></div><p>The final chapter of the global street racing saga with high-octane action.</p></div></div>
+      <!-- 9 - Fast & Furious 11 -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJdRsh.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Fast & Furious 11</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 20m</span><span><i class="fas fa-film"></i> Action</span></div>
+          <p>The final chapter of the global street racing saga with high-octane action.</p>
+        </div>
+      </div>
       
-      <!-- 10 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/4t27bW4jr4ZHnI4kPSQvjLn6nXK.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>The Batman: Shadow War</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 55m</span><span><i class="fas fa-film"></i> Crime</span></div><p>Batman faces a new deadly threat that challenges everything he stands for.</p></div></div>
+      <!-- 10 - The Batman: Shadow War -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/4t27bW4jr4ZHnI4kPSQvjLn6nXK.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>The Batman: Shadow War</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 55m</span><span><i class="fas fa-film"></i> Crime</span></div>
+          <p>Batman faces a new deadly threat that challenges everything he stands for.</p>
+        </div>
+      </div>
       
-      <!-- 11 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsHseGS43Jh1OXm.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Star Wars: New Order</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 30m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div><p>A new era begins in the Star Wars universe with fresh heroes and epic battles.</p></div></div>
+      <!-- 11 - Star Wars: New Order -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsHseGS43Jh1OXm.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Star Wars: New Order</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 30m</span><span><i class="fas fa-film"></i> Sci-Fi</span></div>
+          <p>A new era begins in the Star Wars universe with fresh heroes and epic battles.</p>
+        </div>
+      </div>
       
-      <!-- 12 - NEW -->
-      <div class="movie-card"><div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/yYyrN1aK3P0z1wJfWjZ6yq3ZQ4W.jpg')"><div class="movie-badge">4K UHD</div></div><div class="movie-info"><h3>Jurassic World: Rebirth</h3><div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 10m</span><span><i class="fas fa-film"></i> Adventure</span></div><p>Dinosaurs roam the earth once again in this thrilling new chapter of the Jurassic saga.</p></div></div>
+      <!-- 12 - Jurassic World: Rebirth -->
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url('https://image.tmdb.org/t/p/w500/yYyrN1aK3P0z1wJfWjZ6yq3ZQ4W.jpg')">
+          <div class="movie-badge">4K UHD</div>
+        </div>
+        <div class="movie-info">
+          <h3>Jurassic World: Rebirth</h3>
+          <div class="movie-meta"><span><i class="fas fa-calendar"></i> 2026</span><span><i class="fas fa-clock"></i> 2h 10m</span><span><i class="fas fa-film"></i> Adventure</span></div>
+          <p>Dinosaurs roam the earth once again in this thrilling new chapter of the Jurassic saga.</p>
+        </div>
+      </div>
       
     </div>
   </div>
@@ -292,12 +354,12 @@
   <div class="container">
     <h2 class="section-title">🎬 Explore Movies by Genre</h2>
     <div class="category-grid">
-      <div class="category-card"><h3><i class="fas fa-fist-raised"></i> Action</h3><ul><li><i class="fas fa-circle"></i> Avengers: Doomsday (2026)</li><li><i class="fas fa-circle"></i> John Wick 5: Legends (2026)</li><li><i class="fas fa-circle"></i> Mission: Impossible 8 (2026)</li><li><i class="fas fa-circle"></i> Fast & Furious 11 (2026)</li><li><i class="fas fa-circle"></i> Mad Max: The Wasteland</li><li><i class="fas fa-circle"></i> The Batman: Shadow War</li><li><i class="fas fa-circle"></i> Black Widow 2</li></ul></div>
+      <div class="category-card"><h3><i class="fas fa-fist-raised"></i> Action</h3><ul><li><i class="fas fa-circle"></i> Avengers: Doomsday (2026)</li><li><i class="fas fa-circle"></i> John Wick 5: Legends (2026)</li><li><i class="fas fa-circle"></i> Mission: Impossible 8 (2026)</li><li><i class="fas fa-circle"></i> Fast & Furious 11 (2026)</li><li><i class="fas fa-circle"></i> Mad Max: The Wasteland</li><li><i class="fas fa-circle"></i> The Batman: Shadow War</li></ul></div>
       <div class="category-card"><h3><i class="fas fa-rocket"></i> Sci-Fi</h3><ul><li><i class="fas fa-circle"></i> Dune: Messiah (2026)</li><li><i class="fas fa-circle"></i> Avatar: The Seed Bearer (2026)</li><li><i class="fas fa-circle"></i> Star Wars: New Order (2026)</li><li><i class="fas fa-circle"></i> Blade Runner 2099</li><li><i class="fas fa-circle"></i> The Matrix Resurrection</li><li><i class="fas fa-circle"></i> Alien: Romulus</li></ul></div>
-      <div class="category-card"><h3><i class="fas fa-laugh"></i> Comedy</h3><ul><li><i class="fas fa-circle"></i> Deadpool 4 (2026)</li><li><i class="fas fa-circle"></i> The Hangover: Class Reunion</li><li><i class="fas fa-circle"></i> Superbad 2</li><li><i class="fas fa-circle"></i> Barbie 2: World Tour</li><li><i class="fas fa-circle"></i> EuroTrip 2</li><li><i class="fas fa-circle"></i> Dutch Comedy Classics</li></ul></div>
-      <div class="category-card"><h3><i class="fas fa-heart"></i> Drama</h3><ul><li><i class="fas fa-circle"></i> Oppenheimer: The Legacy</li><li><i class="fas fa-circle"></i> Killers of the Flower Moon</li><li><i class="fas fa-circle"></i> The Irishman 2</li><li><i class="fas fa-circle"></i> French Cinema: Anatomy of a Fall</li><li><i class="fas fa-circle"></i> German Oscar Entries</li></ul></div>
-      <div class="category-card"><h3><i class="fas fa-ghost"></i> Horror</h3><ul><li><i class="fas fa-circle"></i> The Conjuring: Last Rites</li><li><i class="fas fa-circle"></i> Saw XI</li><li><i class="fas fa-circle"></i> Insidious: The Red Door</li><li><i class="fas fa-circle"></i> A Quiet Place: Day One</li><li><i class="fas fa-circle"></i> Dutch Horror Specials</li></ul></div>
-      <div class="category-card"><h3><i class="fas fa-child"></i> Family & Kids</h3><ul><li><i class="fas fa-circle"></i> Frozen 3 (2026)</li><li><i class="fas fa-circle"></i> Toy Story 5</li><li><i class="fas fa-circle"></i> Moana 2</li><li><i class="fas fa-circle"></i> The Super Mario Bros. Movie 2</li><li><i class="fas fa-circle"></i> Jurassic World: Rebirth</li><li><i class="fas fa-circle"></i> Paw Patrol: The Mighty Movie</li><li><i class="fas fa-circle"></i> Dutch Kids Favorites (NPO Zappelin)</li></ul></div>
+      <div class="category-card"><h3><i class="fas fa-laugh"></i> Comedy</h3><ul><li><i class="fas fa-circle"></i> Deadpool 4 (2026)</li><li><i class="fas fa-circle"></i> The Hangover: Class Reunion</li><li><i class="fas fa-circle"></i> Superbad 2</li><li><i class="fas fa-circle"></i> Barbie 2: World Tour</li><li><i class="fas fa-circle"></i> EuroTrip 2</li></ul></div>
+      <div class="category-card"><h3><i class="fas fa-heart"></i> Drama</h3><ul><li><i class="fas fa-circle"></i> Oppenheimer: The Legacy</li><li><i class="fas fa-circle"></i> Killers of the Flower Moon</li><li><i class="fas fa-circle"></i> The Irishman 2</li><li><i class="fas fa-circle"></i> French Cinema: Anatomy of a Fall</li></ul></div>
+      <div class="category-card"><h3><i class="fas fa-ghost"></i> Horror</h3><ul><li><i class="fas fa-circle"></i> The Conjuring: Last Rites</li><li><i class="fas fa-circle"></i> Saw XI</li><li><i class="fas fa-circle"></i> Insidious: The Red Door</li><li><i class="fas fa-circle"></i> A Quiet Place: Day One</li></ul></div>
+      <div class="category-card"><h3><i class="fas fa-child"></i> Family & Kids</h3><ul><li><i class="fas fa-circle"></i> Frozen 3 (2026)</li><li><i class="fas fa-circle"></i> Toy Story 5</li><li><i class="fas fa-circle"></i> Moana 2</li><li><i class="fas fa-circle"></i> Jurassic World: Rebirth</li><li><i class="fas fa-circle"></i> The Super Mario Bros. Movie 2</li></ul></div>
     </div>
   </div>
 </section>
@@ -308,11 +370,11 @@
     <h2 class="section-title">🎥 Why SolaraTV Movies?</h2>
     <div class="features-grid">
       <div class="feature-card"><i class="fas fa-gem"></i><h4>4K Ultra HD</h4><p>Crystal-clear picture quality with HDR and Dolby Vision support</p></div>
-      <div class="feature-card"><i class="fas fa-language"></i><h4>Multi-Language</h4><p>Audio and subtitles in 50+ languages including English, Dutch, German, French</p></div>
-      <div class="feature-card"><i class="fas fa-bolt"></i><h4>Zero Buffering</h4><p>Optimized European servers for smooth, uninterrupted streaming</p></div>
-      <div class="feature-card"><i class="fas fa-calendar-plus"></i><h4>Daily Updates</h4><p>New movies and series added every day – always fresh content</p></div>
-      <div class="feature-card"><i class="fas fa-child"></i><h4>Family Content</h4><p>Kids-friendly section with cartoons, animations, and family movies</p></div>
-      <div class="feature-card"><i class="fas fa-tv"></i><h4>All Devices</h4><p>Watch on Smart TV, Firestick, Android, iOS, PC, Mac, and more</p></div>
+      <div class="feature-card"><i class="fas fa-language"></i><h4>Multi-Language</h4><p>Audio and subtitles in 50+ languages</p></div>
+      <div class="feature-card"><i class="fas fa-bolt"></i><h4>Zero Buffering</h4><p>Optimized European servers for smooth streaming</p></div>
+      <div class="feature-card"><i class="fas fa-calendar-plus"></i><h4>Daily Updates</h4><p>New movies and series added every day</p></div>
+      <div class="feature-card"><i class="fas fa-child"></i><h4>Family Content</h4><p>Kids-friendly section with cartoons and animations</p></div>
+      <div class="feature-card"><i class="fas fa-tv"></i><h4>All Devices</h4><p>Watch on Smart TV, Firestick, Android, iOS, PC, Mac</p></div>
     </div>
   </div>
 </section>
@@ -322,12 +384,12 @@
   <div class="container">
     <h2 class="section-title">🌍 Discover Cinema by Region</h2>
     <div class="region-cards">
-      <div class="region-card"><span class="flag">🇬🇧</span><h4>British Cinema</h4><p>BBC Films, Channel 4 originals, and the best of British television</p></div>
-      <div class="region-card"><span class="flag">🇳🇱</span><h4>Dutch Cinema</h4><p>Popular Dutch films, series, and exclusive NPO content</p></div>
-      <div class="region-card"><span class="flag">🇩🇪</span><h4>German Cinema</h4><p>ZDF originals, ARD productions, and German blockbusters</p></div>
-      <div class="region-card"><span class="flag">🇫🇷</span><h4>French Cinema</h4><p>Award-winning French films, Canal+ originals, and classics</p></div>
-      <div class="region-card"><span class="flag">🇺🇸</span><h4>Hollywood</h4><p>Latest Marvel, DC, Disney, and major studio releases in 4K</p></div>
-      <div class="region-card"><span class="flag">🇦🇺</span><h4>Australian Cinema</h4><p>Australian productions, Stan originals, and local content</p></div>
+      <div class="region-card"><span class="flag">🇬🇧</span><h4>British Cinema</h4><p>BBC Films, Channel 4 originals</p></div>
+      <div class="region-card"><span class="flag">🇳🇱</span><h4>Dutch Cinema</h4><p>Popular Dutch films and NPO content</p></div>
+      <div class="region-card"><span class="flag">🇩🇪</span><h4>German Cinema</h4><p>ZDF originals and ARD productions</p></div>
+      <div class="region-card"><span class="flag">🇫🇷</span><h4>French Cinema</h4><p>Canal+ originals and award-winning films</p></div>
+      <div class="region-card"><span class="flag">🇺🇸</span><h4>Hollywood</h4><p>Latest Marvel, DC, Disney in 4K</p></div>
+      <div class="region-card"><span class="flag">🇦🇺</span><h4>Australian Cinema</h4><p>Australian productions and Stan originals</p></div>
     </div>
   </div>
 </section>
@@ -340,43 +402,19 @@
       <p><strong>SolaraTV</strong> is the <strong>best IPTV service for movies and series in 2026</strong>, offering an unparalleled library of over <strong>60,000 titles</strong> in stunning <strong>4K Ultra HD quality</strong>. Whether you're a fan of <strong>Hollywood blockbusters</strong>, <strong>international cinema</strong>, or <strong>exclusive series</strong>, SolaraTV delivers the ultimate streaming experience with <strong>zero buffering</strong> and <strong>multi-language support</strong>.</p>
       
       <h3>🔥 Latest 2026 Movie Releases Available Now on SolaraTV</h3>
-      <p>Stay ahead with the <strong>hottest 2026 releases</strong> available immediately on SolaraTV. Our library updates <strong>daily</strong> with the newest movies from Marvel, DC, Disney, Warner Bros, Netflix Originals, Amazon Prime, and Apple TV+.</p>
       <ul>
         <li><strong>Avengers: Doomsday</strong> – The epic Marvel multiverse finale in 4K HDR</li>
         <li><strong>Spider-Man: Brand New Day</strong> – The next chapter of your friendly neighborhood Spider-Man</li>
         <li><strong>Dune: Messiah</strong> – Denis Villeneuve's sci-fi masterpiece continues</li>
         <li><strong>John Wick 5: Legends</strong> – Keanu Reeves returns for one last ride</li>
-        <li><strong>Deadpool 4</strong> – The Merc with a Mouth is back with more R-rated action and comedy</li>
+        <li><strong>Deadpool 4</strong> – The Merc with a Mouth is back with more R-rated action</li>
         <li><strong>Mission: Impossible 8</strong> – Tom Cruise's most dangerous stunts ever</li>
         <li><strong>Fast & Furious 11</strong> – The final chapter of the global street racing saga</li>
-        <li><strong>Avatar: The Seed Bearer</strong> – James Cameron returns to Pandora for more visual spectacle</li>
-        <li><strong>Frozen 3</strong> – Disney's beloved animated franchise returns with Elsa and Anna</li>
+        <li><strong>Avatar: The Seed Bearer</strong> – James Cameron returns to Pandora</li>
+        <li><strong>Frozen 3</strong> – Disney's beloved animated franchise returns</li>
         <li><strong>Star Wars: New Order</strong> – A new era begins in a galaxy far, far away</li>
         <li><strong>The Batman: Shadow War</strong> – The Dark Knight faces his greatest challenge</li>
         <li><strong>Jurassic World: Rebirth</strong> – Dinosaurs return in this thrilling new adventure</li>
-      </ul>
-      
-      <h3>📺 Exclusive Series & Binge-Worthy Shows</h3>
-      <p>SolaraTV offers thousands of TV series across every genre. Stream <strong>complete seasons</strong> of the most popular shows from Netflix, HBO Max, Disney+, Amazon Prime, Apple TV+, Hulu, and network television.</p>
-      <ul>
-        <li>House of the Dragon (Season 3) – The Game of Thrones prequel continues</li>
-        <li>The Last of Us (Season 2) – The critically acclaimed post-apocalyptic drama</li>
-        <li>Stranger Things (Season 5) – The epic final season of the Netflix phenomenon</li>
-        <li>Squid Game (Season 2) – The global Korean sensation returns</li>
-        <li>Wednesday (Season 2) – Jenna Ortega returns as everyone's favorite Addams Family member</li>
-        <li>The Crown (Season 7) – The final season of the royal drama</li>
-        <li>Andor (Season 2) – The best Star Wars series continues</li>
-      </ul>
-      
-      <h3>🎭 International Cinema – Watch Movies from Around the World</h3>
-      <p>SolaraTV is proud to offer a vast collection of <strong>international cinema</strong> with <strong>original audio and multi-language subtitles</strong>. Our service is optimized for viewers in <strong>Europe, UK, USA, Australia, Canada, and GCC countries</strong>.</p>
-      <ul>
-        <li><strong>🇬🇧 British Cinema:</strong> BBC Films, Channel 4 originals, James Bond collection, Harry Potter complete series, Downton Abbey, The Crown, Peaky Blinders, and all British TV classics</li>
-        <li><strong>🇳🇱 Dutch Cinema:</strong> Popular Dutch films, NPO exclusives, RTL originals, SBS6 shows, and the best of Dutch television</li>
-        <li><strong>🇩🇪 German Cinema:</strong> ZDF originals, ARD productions, RTL blockbusters, ProSieben shows, Das Boot, Dark, and all German-language entertainment with German audio</li>
-        <li><strong>🇫🇷 French Cinema:</strong> Award-winning French films, Canal+ originals, beIN Sports France exclusives, Lupin series, Call My Agent</li>
-        <li><strong>🇺🇸 Hollywood & USA:</strong> All Marvel, DC, Disney, Warner, Universal, Paramount, Sony, Netflix Originals, HBO Max exclusives</li>
-        <li><strong>🇦🇪 GCC & Arabic Cinema:</strong> Arabic films, MBC productions, OSN Movies, beIN Series, Rotana Cinema, and all Arabic-language content</li>
       </ul>
       
       <h3>⭐ Why SolaraTV is the Best Choice for Movies & Series in 2026</h3>
@@ -385,13 +423,13 @@
         <li><strong>True 4K Ultra HD quality</strong> – Every movie in best available quality</li>
         <li><strong>Daily updates</strong> – New releases added immediately</li>
         <li><strong>Multi-language audio & subtitles</strong> – 50+ languages supported</li>
-        <li><strong>Zero buffering technology</strong> – Optimized European & global servers</li>
-        <li><strong>All devices supported</strong> – Firestick, Roku, MAG, Smart TV, Android, iOS, PC, Mac</li>
+        <li><strong>Zero buffering technology</strong> – Optimized global servers</li>
+        <li><strong>All devices supported</strong> – Firestick, Smart TV, Android, iOS, PC</li>
         <li><strong>24/7 customer support</strong> – English, Arabic, French, German, Dutch</li>
         <li><strong>Free trial</strong> – Test before you subscribe</li>
       </ul>
       
-      <p><strong>Ready to unlock unlimited entertainment?</strong> Subscribe to SolaraTV today and instantly access <strong>60,000+ movies and series</strong> in <strong>4K Ultra HD quality</strong>. Start your <strong>free trial</strong> now and experience the future of streaming with SolaraTV – the <strong>best IPTV for movies, series, and entertainment worldwide</strong>.</p>
+      <p><strong>Ready to unlock unlimited entertainment?</strong> Subscribe to SolaraTV today and instantly access <strong>60,000+ movies and series</strong> in <strong>4K Ultra HD quality</strong>. Start your <strong>free trial</strong> now!</p>
     </div>
   </div>
 </section>
@@ -405,7 +443,7 @@
 
 <footer>
   <div class="container">
-    <div class="footer-links"><a href="index">Home</a><a href="movies">Movies</a><a href="channels">Channels</a><a href="pricing">Pricing</a><a href="blog">Blog</a><a href="faq">FAQ</a><a href="contact">Contact</a><a href="about">About</a><a href="getting-started">Getting Started</a><a href="devices">Devices</a><a href="offers">Offers</a><a href="terms">Terms</a><a href="privacy">Privacy</a><a href="refund">Refund</a></div>
+    <div class="footer-links"><a href="index">Home</a><a href="movies">Movies</a><a href="channels">Channels</a><a href="pricing">Pricing</a><a href="blog">Blog</a><a href="faq">FAQ</a><a href="contact">Contact</a><a href="about">About</a><a href="terms">Terms</a><a href="privacy">Privacy</a><a href="refund">Refund</a></div>
     <div class="payment-methods"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i><i class="fab fa-cc-amex"></i><i class="fab fa-bitcoin"></i></div>
     <p style="margin:20px 0">© 2026 SolaraTV — Best IPTV Service 2026 — 60,000+ Movies & Series in 4K</p>
     <p style="font-size: 0.7rem; color: #666;">UK • Europe • USA • Canada • Australia • GCC • Worldwide</p>

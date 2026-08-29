@@ -124,8 +124,44 @@
     .movies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
     .movie-card{background:linear-gradient(135deg,#111,#0A0A0A);border-radius:20px;overflow:hidden;border:1px solid rgba(255,215,0,.3);transition:all .3s}
     .movie-card:hover{transform:translateY(-5px);border-color:var(--accent-gold);box-shadow:0 0 20px rgba(255,215,0,.15)}
-    .movie-poster{height:350px;background-size:cover;background-position:center;position:relative}
-    .movie-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.8);padding:4px 10px;border-radius:20px;font-size:.65rem;border:1px solid var(--accent-gold);color:var(--accent-gold)}
+    
+    /* ====== تأثير التومض على صور الأفلام ====== */
+    @keyframes movieGlow {
+      0% { opacity: 1; transform: scale(1); filter: brightness(1); }
+      50% { opacity: 0.1; transform: scale(0.97); filter: brightness(0.3); }
+      100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+    }
+    
+    .movie-poster {
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      animation: movieGlow 1s ease-in-out infinite;
+    }
+    
+    /* ====== إيقاف التومض عند تمرير الماوس ====== */
+    .movie-card:hover .movie-poster {
+      animation: none;
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    
+    .movie-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,.8);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: .65rem;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      z-index: 2;
+      animation: none; /* البادج لا يتأثر بالتومض */
+    }
+    
     .movie-info{padding:18px}
     .movie-info h3{font-size:1.1rem;margin-bottom:6px;color:var(--accent-gold)}
     .movie-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
@@ -170,7 +206,20 @@
     .payment-methods i:hover{color:var(--accent-gold)}
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99;transition:transform .3s}
     .whatsapp-float:hover{transform:scale(1.05)}
+    
+    /* ====== تحسينات للجوال ====== */
     @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.movie-poster{height:250px}}
+    
+    /* ====== تحسين إضافي للوميض في الخلفية ====== */
+    @keyframes softPulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.8; }
+      100% { opacity: 1; }
+    }
+    
+    .movie-card:hover .movie-poster {
+      animation: softPulse 0.5s ease-in-out 2; /* وميض خفيف عند التمرير */
+    }
   </style>
 </head>
 <body>

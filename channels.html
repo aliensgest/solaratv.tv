@@ -205,14 +205,39 @@
       filter: brightness(1.5);
     }
     
-    /* ====== صور القنوات المتلألئة (جديدة) ====== */
+    /* ====== صور القنوات المتلألئة ====== */
     .channel-images-section {
-      padding: 30px 0;
+      padding: 25px 0 20px;
       background: linear-gradient(135deg, #0D0D0D, #0A0A0A);
       border-radius: 20px;
       margin-top: 25px;
       overflow: hidden;
       border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+    
+    /* ====== نص SEO فوق صور القنوات ====== */
+    .channel-seo-text {
+      text-align: center;
+      padding: 0 20px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .channel-seo-text h3 {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .channel-seo-text p {
+      color: #bbb;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+    
+    .channel-seo-text strong {
+      color: var(--accent-gold);
     }
     
     .channel-images-container {
@@ -257,7 +282,6 @@
       filter: brightness(1.2);
     }
     
-    /* ====== تأثير التومض لصور القنوات ====== */
     @keyframes channelImageGlow {
       0% { opacity: 0.5; transform: scale(0.92); border-color: rgba(255, 215, 0, 0.1); }
       50% { opacity: 1; transform: scale(1.04); border-color: rgba(255, 215, 0, 0.5); }
@@ -313,7 +337,7 @@
     .payment-methods i{font-size:1.5rem;margin:0 10px;color:#666}
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:99}
     
-    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.region-btn{padding:6px 15px;min-width:70px}.channel-logo-item{padding:10px 15px;min-width:80px}.channel-logo-item .logo-name{font-size:.6rem}.channel-image-item{width:70px;height:45px}.channel-image-item img{object-fit:contain}}
+    @media(max-width:768px){.nav-links,.cta-buttons{display:none}.hero h1{font-size:1.5rem}.section-title{font-size:1.5rem}.region-btn{padding:6px 15px;min-width:70px}.channel-logo-item{padding:10px 15px;min-width:80px}.channel-logo-item .logo-name{font-size:.6rem}.channel-image-item{width:70px;height:45px}.channel-image-item img{object-fit:contain}.channel-seo-text h3{font-size:.95rem}.channel-seo-text p{font-size:.75rem}}
   </style>
 </head>
 <body>
@@ -421,11 +445,22 @@
   </div>
 </section>
 
-<!-- ====== صور القنوات المتلألئة (جديدة - بحجم صغير) ====== -->
+<!-- ====== صور القنوات المتلألئة مع نص SEO ====== -->
 <section>
   <div class="container">
     <div class="channel-images-section">
-      <h2 class="section-title">📺 Top Channels Logos</h2>
+      
+      <!-- ✅ نص SEO قوي فوق الصور -->
+      <div class="channel-seo-text">
+        <h3>🏆 SolaraTV – The #1 IPTV Service Provider for Top Global Channels in 4K Ultra HD</h3>
+        <p>
+          <strong>SolaraTV</strong> delivers the <strong>best IPTV experience in 2026</strong> with over <strong>25,000+ live channels</strong> from the world's most popular networks. 
+          Watch <strong>Premier League, UEFA Champions League, NFL, NBA, MLB, NHL, Formula 1</strong> and all major sports in <strong>stunning 4K Ultra HD</strong>. 
+          Our service includes premium networks like <strong>Sky Sports, ESPN, BBC, CNN, HBO, Netflix, Disney+, beIN Sports, OSN, MBC, MTV, ABC, and TNT Sports</strong> – all available with <strong>99.9% uptime, anti-buffering technology, and 24/7 multilingual support</strong>. 
+          Whether you're in <strong>Europe, UK, USA, Canada, Australia, or the GCC region</strong>, SolaraTV is your ultimate destination for <strong>buffer-free 4K streaming</strong> on all devices.
+        </p>
+      </div>
+      
       <div class="channel-images-container">
         <div class="channel-image-item">
           <img src="https://i.ibb.co/GQngMqSR/unnamed.jpg" alt="Channel Logo">

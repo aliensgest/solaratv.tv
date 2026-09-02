@@ -272,9 +272,119 @@
     .movie-track:hover { animation-play-state: paused; }
     @keyframes scrollMovies { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .slider-movie { width: 200px; flex-shrink: 0; background: #111111; border-radius: 16px; overflow: hidden; transition: all 0.4s; border: 1px solid var(--accent-gold); }
-    .slider-poster { height: 280px; background-size: cover; background-position: center; position: relative; }
+    
+    /* ===== تأثير التومض لصور الأفلام في السلايدر ===== */
+    @keyframes movieGlow {
+      0% { opacity: 0.6; transform: scale(0.95); filter: brightness(0.8); }
+      50% { opacity: 1; transform: scale(1.05); filter: brightness(1.2); }
+      100% { opacity: 0.6; transform: scale(0.95); filter: brightness(0.8); }
+    }
+    .slider-poster {
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      animation: movieGlow 2s ease-in-out infinite;
+    }
+    .slider-poster:hover { animation: none; opacity: 1; transform: scale(1); filter: brightness(1); }
+    
+    .slider-movie:nth-child(1) .slider-poster { animation-delay: 0s; }
+    .slider-movie:nth-child(2) .slider-poster { animation-delay: 0.2s; }
+    .slider-movie:nth-child(3) .slider-poster { animation-delay: 0.4s; }
+    .slider-movie:nth-child(4) .slider-poster { animation-delay: 0.6s; }
+    .slider-movie:nth-child(5) .slider-poster { animation-delay: 0.8s; }
+    .slider-movie:nth-child(6) .slider-poster { animation-delay: 1.0s; }
+    .slider-movie:nth-child(7) .slider-poster { animation-delay: 1.2s; }
+    .slider-movie:nth-child(8) .slider-poster { animation-delay: 1.4s; }
+    .slider-movie:nth-child(9) .slider-poster { animation-delay: 1.6s; }
+    .slider-movie:nth-child(10) .slider-poster { animation-delay: 1.8s; }
+
     .slider-year { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); }
     .slider-info { display: none; }
+
+    /* ===== شعارات القنوات المتلألئة ===== */
+    .channel-logos-home-section {
+      padding: 40px 0;
+      background: linear-gradient(135deg, #0A0A0A, #0D0D0D);
+      border-radius: 20px;
+      margin: 30px 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,215,0,0.1);
+    }
+    
+    .channel-logos-home-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 10px;
+    }
+    
+    .channel-logo-home-item {
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      border: 1px solid rgba(255,215,0,0.15);
+      border-radius: 12px;
+      padding: 8px 12px;
+      transition: all 0.3s;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 60px;
+      overflow: hidden;
+    }
+    
+    .channel-logo-home-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0.85);
+      transition: filter 0.3s;
+    }
+    
+    .channel-logo-home-item:hover {
+      transform: translateY(-3px) scale(1.05);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 25px rgba(255,215,0,0.15);
+    }
+    
+    .channel-logo-home-item:hover img {
+      filter: brightness(1.2);
+    }
+    
+    @keyframes channelHomeGlow {
+      0% { opacity: 0.5; transform: scale(0.92); border-color: rgba(255,215,0,0.1); }
+      50% { opacity: 1; transform: scale(1.04); border-color: rgba(255,215,0,0.5); }
+      100% { opacity: 0.5; transform: scale(0.92); border-color: rgba(255,215,0,0.1); }
+    }
+    
+    .channel-logo-home-item {
+      animation: channelHomeGlow 2.5s ease-in-out infinite;
+    }
+    
+    .channel-logo-home-item:nth-child(1) { animation-delay: 0s; }
+    .channel-logo-home-item:nth-child(2) { animation-delay: 0.2s; }
+    .channel-logo-home-item:nth-child(3) { animation-delay: 0.4s; }
+    .channel-logo-home-item:nth-child(4) { animation-delay: 0.6s; }
+    .channel-logo-home-item:nth-child(5) { animation-delay: 0.8s; }
+    .channel-logo-home-item:nth-child(6) { animation-delay: 1.0s; }
+    .channel-logo-home-item:nth-child(7) { animation-delay: 1.2s; }
+    .channel-logo-home-item:nth-child(8) { animation-delay: 1.4s; }
+    .channel-logo-home-item:nth-child(9) { animation-delay: 1.6s; }
+    .channel-logo-home-item:nth-child(10) { animation-delay: 1.8s; }
+    .channel-logo-home-item:nth-child(11) { animation-delay: 2.0s; }
+    .channel-logo-home-item:nth-child(12) { animation-delay: 2.2s; }
+    .channel-logo-home-item:nth-child(13) { animation-delay: 2.4s; }
+    
+    .channel-logo-home-item:hover {
+      animation: none;
+      opacity: 1;
+      transform: scale(1.08);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 30px rgba(255,215,0,0.2);
+    }
 
     /* ===== PRICING ===== */
     .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -441,6 +551,9 @@
       .social-float a.instagram-btn img { width: 28px; height: 28px; }
       .social-float a.whatsapp-btn { font-size: 1.5rem; }
       .official-badge { font-size: 0.45rem; padding: 2px 8px; }
+      .slider-movie { width: 140px; }
+      .slider-poster { height: 200px; }
+      .channel-logo-home-item { width: 70px; height: 45px; }
     }
   </style>
 </head>
@@ -608,6 +721,54 @@
     </div>
   </div>
 </section>
+
+<!-- ===== CHANNEL LOGOS (NEW - مع تأثير التومض) ===== -->
+<div class="container">
+  <div class="channel-logos-home-section">
+    <h2 class="section-title" style="color:#FFD700;">📺 Top Channels Logos</h2>
+    <div class="channel-logos-home-container">
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/GQngMqSR/unnamed.jpg" alt="Channel Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/dwH5c5K2/channels4-profile.jpg" alt="Channel Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/Kct0wzqw/ABC-2021-LOGO.jpg" alt="ABC Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/LhJW9qXh/441-4412741-free-vector-mtv-logo-mtv-logo-png.jpg" alt="MTV Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/MWhSjgM/OSN-Logo-1080x570.jpg" alt="OSN Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/1fb9RqBn/MBC-1-Logo.jpg" alt="MBC Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/2wVL8Cd/1024x512-1670500646586.jpg" alt="Channel Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/wNzg7rmK/HBO-Logo-1980-present.jpg" alt="HBO Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/6JgwVJt3/41l-Chb5-Q-KL.png" alt="Channel Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/sXvLnHY/bbc-logo-red-1419979036.jpg" alt="BBC Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/jPff1j9b/tnt-sports-logo-transparent.png" alt="TNT Sports Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/qL5WyTsy/blt46f04697e50c5900.jpg" alt="Channel Logo">
+      </div>
+      <div class="channel-logo-home-item">
+        <img src="https://i.ibb.co/mr2wf1RW/20f853787e15c584b40cb92aee225029.jpg" alt="Channel Logo">
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== PRICING ===== -->
 <section id="pricing" style="background: var(--card-bg); padding: 60px 0;">

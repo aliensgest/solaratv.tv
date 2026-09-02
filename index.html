@@ -95,7 +95,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- ★ العنوان الجديد - SolaraTV في البداية ★ -->
   <title>SolaraTV - Best IPTV Service Provider 2026 - 4K Streaming</title>
   
   <meta name="description" content="Best IPTV Service in 2026 - 25,000+ channels, 60,000+ VOD. Watch Premier League, NFL, NBA, AFL, NRL, beIN Sports in 4K. Free trial available.">
@@ -123,7 +122,6 @@
     header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 12px 0; border-bottom: 1px solid var(--accent-gold); width: 100%; }
     .nav { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
     
-    /* ★ Logo with Official Badge ★ */
     .logo-wrapper {
       display: flex;
       align-items: center;
@@ -132,7 +130,6 @@
     }
     .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
     
-    /* ★ Official Badge - Clickable ★ */
     .official-badge {
       display: inline-flex;
       align-items: center;
@@ -194,7 +191,6 @@
     .hero-btn:hover { transform: scale(1.05); animation: none; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,215,0,0.4); } 70% { box-shadow: 0 0 0 15px rgba(255,215,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
 
-    /* ★ Official Site Banner ★ */
     .official-banner {
       background: linear-gradient(135deg, rgba(0,200,83,0.12), rgba(0,200,83,0.04));
       border: 2px solid #00C853;
@@ -224,7 +220,6 @@
     .official-banner span { color: #ccc; font-size: 0.85rem; }
     .official-banner strong { color: #00C853; }
 
-    /* ★ Warning Box for Fake Sites ★ */
     .warning-box {
       background: rgba(255,0,0,0.08);
       border-left: 4px solid #ff0000;
@@ -268,12 +263,11 @@
     /* ===== MOVIE SLIDER ===== */
     .movie-slider-section { padding: 50px 0; background: #0A0A0A; width: 100%; overflow: hidden; }
     .slider-container { position: relative; overflow: hidden; margin: 20px 0; width: 100%; }
-    .movie-track { display: flex; animation: scrollMovies 40s linear infinite; gap: 20px; width: max-content; }
+    .movie-track { display: flex; animation: scrollMovies 50s linear infinite; gap: 20px; width: max-content; }
     .movie-track:hover { animation-play-state: paused; }
     @keyframes scrollMovies { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .slider-movie { width: 200px; flex-shrink: 0; background: #111111; border-radius: 16px; overflow: hidden; transition: all 0.4s; border: 1px solid var(--accent-gold); }
     
-    /* ===== تأثير التومض لصور الأفلام في السلايدر ===== */
     @keyframes movieGlow {
       0% { opacity: 0.6; transform: scale(0.95); filter: brightness(0.8); }
       50% { opacity: 1; transform: scale(1.05); filter: brightness(1.2); }
@@ -284,25 +278,31 @@
       background-size: cover;
       background-position: center;
       position: relative;
-      animation: movieGlow 2s ease-in-out infinite;
+      animation: movieGlow 2.5s ease-in-out infinite;
     }
     .slider-poster:hover { animation: none; opacity: 1; transform: scale(1); filter: brightness(1); }
     
     .slider-movie:nth-child(1) .slider-poster { animation-delay: 0s; }
-    .slider-movie:nth-child(2) .slider-poster { animation-delay: 0.2s; }
-    .slider-movie:nth-child(3) .slider-poster { animation-delay: 0.4s; }
-    .slider-movie:nth-child(4) .slider-poster { animation-delay: 0.6s; }
-    .slider-movie:nth-child(5) .slider-poster { animation-delay: 0.8s; }
-    .slider-movie:nth-child(6) .slider-poster { animation-delay: 1.0s; }
-    .slider-movie:nth-child(7) .slider-poster { animation-delay: 1.2s; }
-    .slider-movie:nth-child(8) .slider-poster { animation-delay: 1.4s; }
-    .slider-movie:nth-child(9) .slider-poster { animation-delay: 1.6s; }
-    .slider-movie:nth-child(10) .slider-poster { animation-delay: 1.8s; }
+    .slider-movie:nth-child(2) .slider-poster { animation-delay: 0.15s; }
+    .slider-movie:nth-child(3) .slider-poster { animation-delay: 0.3s; }
+    .slider-movie:nth-child(4) .slider-poster { animation-delay: 0.45s; }
+    .slider-movie:nth-child(5) .slider-poster { animation-delay: 0.6s; }
+    .slider-movie:nth-child(6) .slider-poster { animation-delay: 0.75s; }
+    .slider-movie:nth-child(7) .slider-poster { animation-delay: 0.9s; }
+    .slider-movie:nth-child(8) .slider-poster { animation-delay: 1.05s; }
+    .slider-movie:nth-child(9) .slider-poster { animation-delay: 1.2s; }
+    .slider-movie:nth-child(10) .slider-poster { animation-delay: 1.35s; }
+    .slider-movie:nth-child(11) .slider-poster { animation-delay: 1.5s; }
+    .slider-movie:nth-child(12) .slider-poster { animation-delay: 1.65s; }
+    .slider-movie:nth-child(13) .slider-poster { animation-delay: 1.8s; }
+    .slider-movie:nth-child(14) .slider-poster { animation-delay: 1.95s; }
+    .slider-movie:nth-child(15) .slider-poster { animation-delay: 2.1s; }
+    .slider-movie:nth-child(16) .slider-poster { animation-delay: 2.25s; }
 
     .slider-year { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); }
     .slider-info { display: none; }
 
-    /* ===== شعارات القنوات المتلألئة ===== */
+    /* ===== CHANNEL LOGOS مع نص SEO ===== */
     .channel-logos-home-section {
       padding: 40px 0;
       background: linear-gradient(135deg, #0A0A0A, #0D0D0D);
@@ -310,6 +310,31 @@
       margin: 30px 0;
       overflow: hidden;
       border: 1px solid rgba(255,215,0,0.1);
+    }
+    
+    /* ===== نص SEO فوق شعارات القنوات ===== */
+    .channel-seo-header {
+      text-align: center;
+      padding: 0 20px 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .channel-seo-header h3 {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .channel-seo-header p {
+      color: #bbb;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    
+    .channel-seo-header strong {
+      color: var(--accent-gold);
     }
     
     .channel-logos-home-container {
@@ -434,7 +459,6 @@
     .footer-links a:hover { color: var(--accent-gold); }
     .payment-methods i { font-size: 1.5rem; margin: 0 10px; color: #666; }
 
-    /* ★ Copyright Verification Bar ★ */
     .copyright-verify {
       display: flex;
       justify-content: center;
@@ -554,6 +578,8 @@
       .slider-movie { width: 140px; }
       .slider-poster { height: 200px; }
       .channel-logo-home-item { width: 70px; height: 45px; }
+      .channel-seo-header h3 { font-size: 1rem; }
+      .channel-seo-header p { font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -564,7 +590,6 @@
   <div class="container nav">
     <div class="logo-wrapper">
       <a href="/" class="logo">SolaraTV</a>
-      <!-- ★ Official Badge - Clickable ★ -->
       <a href="https://www.solaratv.tv" class="official-badge" title="Official SolaraTV Website">
         <i class="fas fa-check-circle"></i> Official Site
       </a>
@@ -633,7 +658,6 @@
     </div>
     <button class="hero-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">🚀 Start Your Free Trial</button>
 
-    <!-- ★ Official Site Banner - English ★ -->
     <div class="official-banner">
       <i class="fas fa-shield-alt"></i>
       <a href="https://www.solaratv.tv" class="big-badge">✓ Official SolaraTV Site</a>
@@ -641,7 +665,6 @@
       <i class="fas fa-check-circle" style="color:#00C853;"></i>
     </div>
 
-    <!-- ★ Warning Box for Fake Sites - English ★ -->
     <div class="warning-box">
       <i class="fas fa-exclamation-triangle"></i>
       <strong>⚠️ Warning:</strong> The only official SolaraTV website is 
@@ -701,31 +724,55 @@
   </div>
 </div>
 
-<!-- ===== MOVIE SLIDER ===== -->
+<!-- ===== MOVIE SLIDER - مع الصور الجديدة ===== -->
 <section class="movie-slider-section">
   <div class="container">
     <h2 class="section-title" style="color:#FFD700;">🎬 Exclusive Movies 2026</h2>
     <div class="slider-container">
       <div class="movie-track">
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
-        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div><div class="slider-info"><h4></h4></div></div>
+        <!-- الأفلام الأصلية -->
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div></div>
+        
+        <!-- الأفلام الجديدة المضافة -->
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/mFdDTQ0n/given-that-5-of-the-top-7-highest-grossing-movies-of-all-v0-ehyj6aq3ewxd1.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/1txtwXc5/p-disneymovies-moana2026-payoff-524f03c2.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/039x6PH/03f40abc-98e1-4968-8d12-fc376e801932.webp');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/N2Sk3DMH/images-4.jpg');"><div class="slider-year">2026</div></div></div>
+        
+        <!-- تكرار الأفلام للتمرير اللانهائي -->
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/mFdDTQ0n/given-that-5-of-the-top-7-highest-grossing-movies-of-all-v0-ehyj6aq3ewxd1.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/1txtwXc5/p-disneymovies-moana2026-payoff-524f03c2.jpg');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/039x6PH/03f40abc-98e1-4968-8d12-fc376e801932.webp');"><div class="slider-year">2026</div></div></div>
+        <div class="slider-movie"><div class="slider-poster" style="background-image: url('https://i.ibb.co/N2Sk3DMH/images-4.jpg');"><div class="slider-year">2026</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CHANNEL LOGOS (NEW - مع تأثير التومض) ===== -->
+<!-- ===== CHANNEL LOGOS مع نص SEO بدلاً من العنوان القديم ===== -->
 <div class="container">
   <div class="channel-logos-home-section">
-    <h2 class="section-title" style="color:#FFD700;">📺 Top Channels Logos</h2>
+    
+    <!-- ✅ نص SEO بدلاً من "📺 Top Channels Logos" -->
+    <div class="channel-seo-header">
+      <h3>🏆 SolaraTV – The #1 IPTV Service for Premium Global Channels in 4K Ultra HD</h3>
+      <p>
+        <strong>SolaraTV</strong> delivers the <strong>best IPTV experience in 2026</strong> with over <strong>25,000+ live channels</strong> from the world's most popular networks. 
+        Watch <strong>Premier League, UEFA Champions League, NFL, NBA, MLB, NHL, Formula 1</strong> and all major sports in <strong>stunning 4K Ultra HD</strong>. 
+        Our service includes premium networks like <strong>Sky Sports, ESPN, BBC, CNN, HBO, Netflix, Disney+, beIN Sports, OSN, MBC, MTV, ABC, and TNT Sports</strong> – all available with <strong>99.9% uptime, anti-buffering technology, and 24/7 multilingual support</strong>. 
+        Whether you're in <strong>Europe, UK, USA, Canada, Australia, or the GCC region</strong>, SolaraTV is your ultimate destination for <strong>buffer-free 4K streaming</strong> on all devices.
+      </p>
+    </div>
+    
     <div class="channel-logos-home-container">
       <div class="channel-logo-home-item">
         <img src="https://i.ibb.co/GQngMqSR/unnamed.jpg" alt="Channel Logo">
@@ -954,7 +1001,6 @@
 <!-- ===== SEO FOOTER TEXT ===== -->
 <section style="background: #0A0A0A; padding: 50px 0; border-top: 1px solid #222;">
   <div class="container">
-    <!-- ★ الصورة تظهر مباشرة بدون رابط ★ -->
     <div style="text-align: center; margin-bottom: 20px;">
       <img src="https://i.ibb.co/6JnhKLLN/Screenshot-2026-08-09-11-12-30-368-com-whatsapp-w4b-edit.jpg" alt="Why SolaraTV is the Best IPTV Service Provider in 2026" style="max-width: 100%; border-radius: 16px; border: 2px solid #FFD700;" />
     </div>
@@ -985,7 +1031,6 @@
     <p style="margin:20px 0;">© 2026 SolaraTV - Best IPTV Service Provider 2026</p>
     <p>USA • Canada • UK • Europe • Australia • GCC • Worldwide</p>
     
-    <!-- ★ Copyright Verification Bar ★ -->
     <div class="copyright-verify">
       <span class="verify-badge"><i class="fas fa-check-circle"></i> Official Verified Site</span>
       <span>|</span>

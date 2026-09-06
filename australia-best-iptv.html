@@ -152,6 +152,28 @@
     .feature-card h4 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-gold); }
     .feature-card p { color: #aaa; font-size: 0.75rem; }
     
+    /* ✅ صورة القسم الجديد */
+    .feature-section-image {
+      max-width: 100%;
+      margin: 20px auto 30px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .feature-section-image:hover {
+      transform: scale(1.01);
+    }
+    .feature-section-image img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 16px;
+    }
+    
     .seo-content { background: linear-gradient(135deg, #0A0A0A, #0D0D0D); padding: 40px; border-radius: 20px; margin-top: 50px; }
     .seo-content h2 { color: var(--accent-gold); margin: 25px 0 15px; font-size: 1.5rem; }
     .seo-content h3 { color: var(--accent-gold); margin: 20px 0 12px; font-size: 1.2rem; }
@@ -175,6 +197,7 @@
       .hero h1 { font-size: 1.3rem; } 
       .container { padding: 0 15px; }
       .hero-banner-image { max-width: 100%; margin: 15px auto; }
+      .feature-section-image img { max-width: 100%; }
     }
   </style>
 </head>
@@ -236,10 +259,16 @@
   </div>
 </section>
 
-<!-- Features Section -->
+<!-- Features Section with New Image -->
 <section style="padding: 50px 0;">
   <div class="container">
     <h2 class="section-title">✨ Why SolaraTV is the #1 Rated Australia IPTV</h2>
+    
+    <!-- ✅ الصورة الجديدة في مكان بارز تحت العنوان -->
+    <div class="feature-section-image">
+      <img src="https://i.ibb.co/JwB9qVx7/images-7.jpg" alt="SolaraTV - Australia IPTV Features">
+    </div>
+    
     <div class="features-grid">
       <div class="feature-card"><i class="fas fa-football-ball"></i><h4>AFL & NRL HD</h4><p>All matches live on Fox Sports & Kayo Sports in HD quality</p></div>
       <div class="feature-card"><i class="fas fa-baseball-ball"></i><h4>Cricket – BBL & Tests</h4><p>Big Bash League, Test matches, ODIs, T20s in HD</p></div>

@@ -15,13 +15,13 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "#1 Rated Netherlands IPTV Service Provider 2026 - SOLARA TV",
+    "name": "#1 Rated Netherlands IPTV Service Provider 2026 - SolaraTV",
     "image": "https://i.ibb.co/4nV2Z4fr/1000121501.jpg",
     "description": "#1 Rated Netherlands IPTV Abonnement met 25.000+ Live-zenders incl. alle Eredivisie, KNVB Beker, Champions League wedstrijden op Ziggo Sport, ESPN in HD kwaliteit. Gratis proefversie beschikbaar.",
     "url": "https://www.solaratv.tv/nederland-best-iptv",
     "provider": {
       "@type": "Organization",
-      "name": "SOLARA TV",
+      "name": "SolaraTV",
       "url": "https://www.solaratv.tv",
       "logo": "https://i.ibb.co/4nV2Z4fr/1000121501.jpg",
       "contactPoint": {
@@ -33,7 +33,7 @@
     "areaServed": ["NL", "BE", "DE", "US", "GB", "AU", "CA", "FR", "ES", "IT"],
     "offers": {
       "@type": "Offer",
-      "description": "Netherlands IPTV Streaming Service",
+      "description": "Netherlands IPTV Streaming Service - Een IPTV-abonnement kopen",
       "priceCurrency": "EUR",
       "price": "18",
       "priceValidUntil": "2026-12-31",
@@ -52,7 +52,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "SOLARA TV",
+    "name": "SolaraTV",
     "url": "https://www.solaratv.tv",
     "logo": "https://i.ibb.co/4nV2Z4fr/1000121501.jpg",
     "description": "#1 Rated IPTV Service Provider voor Nederland 2026"
@@ -61,17 +61,17 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>#1 Rated Netherlands IPTV | Beste IPTV Abonnement Nederland 2026 | HD Kwaliteit – SOLARA TV</title>
-  <meta name="description" content="#1 Rated Netherlands IPTV Service 2026. Alle Eredivisie, KNVB Beker, Champions League wedstrijden live op Ziggo Sport, ESPN in HD. 25.000+ zenders. Vanaf €18/maand. Gratis proefversie.">
-  <meta name="keywords" content="beste iptv nederland, iptv abonnement nederland, eredivisie iptv, ziggo sport alternatief, espn alternatief, nederlandse zenders iptv, nederlandse expats iptv">
+  <title>Een IPTV-abonnement kopen | Beste IPTV Nederland 2026 | #1 Rated – SolaraTV</title>
+  <meta name="description" content="Een IPTV-abonnement kopen? #1 Rated Netherlands IPTV Service 2026. Alle Eredivisie, KNVB Beker, Champions League live op Ziggo Sport, ESPN in HD. 25.000+ zenders. Vanaf €18/maand. Gratis proefversie.">
+  <meta name="keywords" content="een iptv-abonnement kopen, iptv kopen, beste iptv nederland, iptv abonnement nederland, beste iptv abonnement, iptv aanbieder nederland, eredivisie iptv, ziggo sport alternatief, espn alternatief, nederlandse zenders iptv, nederlandse expats iptv, iptv bestellen">
   <link rel="canonical" href="https://www.solaratv.tv/nederland-best-iptv">
-  <meta property="og:title" content="#1 Rated Netherlands IPTV | Beste IPTV Abonnement Nederland 2026">
+  <meta property="og:title" content="Een IPTV-abonnement kopen | Beste IPTV Nederland 2026 | SolaraTV">
   <meta property="og:description" content="Alle Eredivisie, KNVB Beker, Champions League wedstrijden live. 25.000+ zenders. Vanaf €18/maand. Gratis proefversie.">
   <meta property="og:image" content="https://i.ibb.co/4nV2Z4fr/1000121501.jpg">
   <meta property="og:url" content="https://www.solaratv.tv/nederland-best-iptv">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="#1 Rated Netherlands IPTV | SOLARA TV">
+  <meta name="twitter:title" content="Een IPTV-abonnement kopen | SolaraTV">
   <meta name="twitter:description" content="Alle Eredivisie, KNVB Beker, Champions League wedstrijden live. 25.000+ zenders. Vanaf €18/maand. Gratis proefversie.">
   <meta name="twitter:image" content="https://i.ibb.co/4nV2Z4fr/1000121501.jpg">
   
@@ -86,7 +86,11 @@
     
     header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 12px 0; border-bottom: 1px solid var(--accent-gold); width: 100%; }
     .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
+    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; visibility: hidden; } /* Logo hidden but space kept for layout or we can remove it */
+    
+    /* Hide logo text completely, but we keep the container for nav links */
+    .logo { display: none; }
+    
     .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; max-width: 100%; }
     .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.7rem; padding: 4px 6px; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
@@ -97,13 +101,13 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
     
-    /* Hero Section - خلفية سوداء بدون صورة */
+    /* Hero Section */
     .hero { text-align: center; background: linear-gradient(135deg, #0A0A0A, #050505); padding: 50px 0 45px; width: 100%; }
     .hero h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.3; word-break: break-word; }
     .hero h1 span { background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero p { font-size: 1rem; max-width: 750px; margin: 0 auto 20px; color: #e0e0e0; }
     
-    /* ✅ الصورة الهولندية الجديدة حسب الكود المطلوب */
+    /* Hero Banner Image */
     .hero-banner-image {
       max-width: 600px;
       margin: 25px auto 30px;
@@ -190,7 +194,7 @@
 
 <header>
   <div class="container nav">
-    <a href="index" class="logo">SOLARA TV</a>
+    <!-- Logo removed from top-left as requested -->
     <div class="nav-links">
       <a href="index">Home</a>
       <a href="movies">Movies</a>
@@ -214,13 +218,13 @@
 <section class="hero">
   <div class="container hero-content">
     <div class="trustscore-badge"><i class="fas fa-crown"></i> #1 Rated Netherlands IPTV Service 2026</div>
-    <h1>#1 Rated Netherlands IPTV | <span>Beste IPTV Abonnement Nederland</span> | Alle Eredivisie, KNVB Beker, Champions League in HD</h1>
+    <h1>#1 Rated Netherlands IPTV | <span>Een IPTV-abonnement kopen</span> | Beste IPTV Abonnement Nederland 2026</h1>
     <p>Alle Eredivisie, KNVB Beker, Champions League wedstrijden live op Ziggo Sport, ESPN. Plus 25.000+ Nederlandse & internationale zenders in HD kwaliteit. Vanaf <strong>€18/maand</strong>. Gratis proefversie.</p>
     
-    <!-- ✅ الصورة الهولندية الجديدة حسب الكود الذي قدمته -->
+    <!-- Hero Banner Image -->
     <div class="hero-banner-image">
       <a href="https://ibb.co/B5CGVTPM">
-        <img src="https://i.ibb.co/4nV2Z4fr/1000121501.jpg" alt="1000121501" border="0">
+        <img src="https://i.ibb.co/4nV2Z4fr/1000121501.jpg" alt="Een IPTV-abonnement kopen bij SolaraTV - Beste IPTV Nederland" border="0">
       </a>
     </div>
     
@@ -262,7 +266,7 @@
 <!-- Features Section -->
 <section style="padding: 50px 0;">
   <div class="container">
-    <h2 class="section-title">✨ Waarom SOLARA TV de #1 Rated Netherlands IPTV is</h2>
+    <h2 class="section-title">✨ Waarom SolaraTV de #1 Rated Netherlands IPTV is</h2>
     <div class="features-grid">
       <div class="feature-card"><i class="fas fa-futbol"></i><h4>Eredivisie – Alle Wedstrijden</h4><p>Alle 306 wedstrijden live op ESPN, Ziggo Sport in HD</p></div>
       <div class="feature-card"><i class="fas fa-trophy"></i><h4>KNVB Beker – Alle Wedstrijden</h4><p>Alle bekerwedstrijden inclusief finale in HD</p></div>
@@ -279,7 +283,7 @@
   <div class="container">
     <div class="seo-content" style="margin-top: 0;">
       <h3>🇳🇱 Toegewijde Nederland Servers – Hoogste Streaming Kwaliteit</h3>
-      <p>SOLARA TV heeft geïnvesteerd in een <strong>toegewijde serverinfrastructuur in Nederland</strong> om de snelste en meest betrouwbare streaming-ervaring voor Nederlandse klanten te garanderen. Onze servers bevinden zich op de volgende locaties:</p>
+      <p>SolaraTV heeft geïnvesteerd in een <strong>toegewijde serverinfrastructuur in Nederland</strong> om de snelste en meest betrouwbare streaming-ervaring voor Nederlandse klanten te garanderen. Onze servers bevinden zich op de volgende locaties:</p>
       <ul>
         <li><strong>🇳🇱 Amsterdam</strong> – Primaire hub, ultralage latentie voor heel Nederland</li>
         <li><strong>🇳🇱 Rotterdam</strong> – Dekking voor Zuid-Nederland</li>
@@ -294,11 +298,11 @@
 <section>
   <div class="container">
     <div class="seo-content">
-      <h2>🇳🇱 #1 Rated Netherlands IPTV Service 2026 – De Ultieme Nederlandse TV Ervaring</h2>
-      <p>Op zoek naar het <strong>#1 rated Netherlands IPTV abonnement</strong>? SOLARA TV levert een <strong>Premium IPTV service voor Nederlandse kijkers</strong> met meer dan <strong>25.000 live zenders</strong> inclusief alle Nederlandse zenders en internationale inhoud. Of u nu in Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven bent of een <strong>Nederlandse expat in het buitenland</strong> bent – onze service brengt Nederlandse televisie rechtstreeks naar uw scherm in <strong>HD kwaliteit</strong>.</p>
+      <h2>🇳🇱 #1 Rated Netherlands IPTV Service 2026 – Een IPTV-abonnement kopen was nog nooit zo makkelijk</h2>
+      <p>Op zoek naar het <strong>beste IPTV abonnement</strong> of wilt u <strong>een IPTV-abonnement kopen</strong>? SolaraTV levert een <strong>Premium IPTV service voor Nederlandse kijkers</strong> met meer dan <strong>25.000 live zenders</strong> inclusief alle Nederlandse zenders en internationale inhoud. Of u nu in Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven bent of een <strong>Nederlandse expat in het buitenland</strong> bent – onze service brengt Nederlandse televisie rechtstreeks naar uw scherm in <strong>HD kwaliteit</strong>.</p>
       
       <h3>⚽ Complete Eredivisie Dekking – Elke Wedstrijd in HD</h3>
-      <p>SOLARA TV is een <strong>topkeuze voor Eredivisie-fans</strong>. Elke wedstrijd van het seizoen live op <strong>ESPN, Ziggo Sport, NOS</strong>. Alle 18 clubs – Ajax, Feyenoord, PSV, AZ, FC Twente, FC Utrecht en meer – worden in HD gedekt. Inclusief <strong>KNVB Beker, Champions League, Europa League, Conference League</strong>.</p>
+      <p>SolaraTV is een <strong>topkeuze voor Eredivisie-fans</strong>. Elke wedstrijd van het seizoen live op <strong>ESPN, Ziggo Sport, NOS</strong>. Alle 18 clubs – Ajax, Feyenoord, PSV, AZ, FC Twente, FC Utrecht en meer – worden in HD gedekt. Inclusief <strong>KNVB Beker, Champions League, Europa League, Conference League</strong>.</p>
       <ul>
         <li><strong>ESPN Nederland 1-6</strong> – Alle wedstrijden live in HD</li>
         <li><strong>Ziggo Sport & Ziggo Sport Select</strong> – Champions League en samenvattingen</li>
@@ -306,7 +310,7 @@
       </ul>
       
       <h3>🏆 Complete Champions League Dekking</h3>
-      <p>SOLARA TV biedt een <strong>betrouwbare IPTV-oplossing voor Champions League fans</strong>. Alle wedstrijden live op <strong>Ziggo Sport</strong>. Inclusief <strong>finale</strong> en alle Nederlandse teams.</p>
+      <p>SolaraTV biedt een <strong>betrouwbare IPTV-oplossing voor Champions League fans</strong>. Alle wedstrijden live op <strong>Ziggo Sport</strong>. Inclusief <strong>finale</strong> en alle Nederlandse teams.</p>
       
       <h3>🇳🇱 Complete Nederlandse TV Zenders Dekking</h3>
       <p>Alle Nederlandse free-TV en pay-TV zenders in HD:</p>
@@ -321,30 +325,30 @@
       <p>NOS Journaal 24/7, RTL Nieuws, WNL, BNNVARA, KRO-NCRV, CNN International, BBC World News. Blijf op de hoogte met het laatste nieuws uit Nederland en de wereld.</p>
       
       <h3>🎬 Nederlandse Films & Series – Grote VOD Bibliotheek</h3>
-      <p>SOLARA TV bevat <strong>60.000+ films en series on demand</strong> met Nederlandse nasynchronisatie en ondertitels. De nieuwste Nederlandse films, populaire Nederlandse series, internationale blockbusters, en alle inhoud van Netflix, Amazon, Disney+ – alles in <strong>HD kwaliteit</strong>.</p>
+      <p>SolaraTV bevat <strong>60.000+ films en series on demand</strong> met Nederlandse nasynchronisatie en ondertitels. De nieuwste Nederlandse films, populaire Nederlandse series, internationale blockbusters, en alle inhoud van Netflix, Amazon, Disney+ – alles in <strong>HD kwaliteit</strong>.</p>
       
       <h3>🌍 Perfect voor Nederlandse Expats Wereldwijd</h3>
-      <p>Woonachtig in het buitenland en Nederlandse televisie missen? SOLARA TV is een <strong>vertrouwde IPTV-service voor Nederlandse expats</strong> in <strong>VS, Canada, Australië, Europa, VAE, België, Duitsland</strong> en wereldwijd. Onze <strong>in Nederland geoptimaliseerde servers (Amsterdam, Rotterdam, Utrecht)</strong> garanderen geen buffering en snelle kanaalwissels, waar u ook bent.</p>
+      <p>Woonachtig in het buitenland en Nederlandse televisie missen? SolaraTV is een <strong>vertrouwde IPTV-service voor Nederlandse expats</strong> in <strong>VS, Canada, Australië, Europa, VAE, België, Duitsland</strong> en wereldwijd. Onze <strong>in Nederland geoptimaliseerde servers (Amsterdam, Rotterdam, Utrecht)</strong> garanderen geen buffering en snelle kanaalwissels, waar u ook bent.</p>
       
       <h3>🇧🇪 Ook voor België</h3>
-      <p>SOLARA TV is ook een <strong>uitstekende keuze voor klanten in België (Vlaanderen)</strong>. Inbegrepen zijn <strong>VRT 1, VRT Canvas, Ketnet, Sporza, Play4, Play5, Play6</strong> en vele andere Vlaamse zenders.</p>
+      <p>SolaraTV is ook een <strong>uitstekende keuze voor klanten in België (Vlaanderen)</strong>. Inbegrepen zijn <strong>VRT 1, VRT Canvas, Ketnet, Sporza, Play4, Play5, Play6</strong> en vele andere Vlaamse zenders.</p>
       
       <h3>📱 Alle Apparaten Ondersteund</h3>
-      <p>SOLARA TV werkt op elk apparaat: <strong>Firestick, Roku, MAG Box, Enigma, Android TV, iOS (iPhone/iPad), Smart TV's, PC, Mac</strong>. Kijk op uw TV thuis, op uw tablet onderweg of op uw telefoon tijdens reizen.</p>
+      <p>SolaraTV werkt op elk apparaat: <strong>Firestick, Roku, MAG Box, Enigma, Android TV, iOS (iPhone/iPad), Smart TV's, PC, Mac</strong>. Kijk op uw TV thuis, op uw tablet onderweg of op uw telefoon tijdens reizen.</p>
       
-      <h3>💰 Betaalbare Prijzen voor Nederland</h3>
-      <p>SOLARA TV biedt <strong>concurrerende IPTV-prijzen</strong> vanaf <strong>€18/maand</strong>. Bespaar tot 48% met ons jaarplan. Vergelijking met Ziggo, KPN, Delta, T-Mobile, Caiway – u krijgt meer zenders, betere kwaliteit en grote besparingen met SOLARA TV.</p>
+      <h3>💰 Betaalbare Prijzen voor Nederland – Een IPTV-abonnement kopen vanaf €18</h3>
+      <p>SolaraTV biedt <strong>concurrerende IPTV-prijzen</strong> vanaf <strong>€18/maand</strong>. Bespaar tot 48% met ons jaarplan. Vergelijking met Ziggo, KPN, Delta, T-Mobile, Caiway – u krijgt meer zenders, betere kwaliteit en grote besparingen met SolaraTV.</p>
       
-      <h3>⭐ Waarom Nederlandse Klanten Kiezen voor SOLARA TV</h3>
+      <h3>⭐ Waarom Nederlandse Klanten Kiezen voor SolaraTV</h3>
       <ul>
         <li><strong>#1 Rated Netherlands IPTV</strong> – Hoogste kwaliteit met Anti-Freeze Technologie</li>
         <li><strong>24/7 Nederlandstalige Support</strong> – Snelle hulp via WhatsApp</li>
-        <li><strong>Gratis Proefversie</strong> – Test voor u abonneert</li>
+        <li><strong>Gratis Proefversie</strong> – Test voor u een IPTV-abonnement koopt</li>
         <li><strong>Nederland Servers (Amsterdam, Rotterdam)</strong> – Ultralage latentie</li>
         <li><strong>99.9% Uptime</strong> – Anti-Freeze technologie voor ononderbroken TV</li>
       </ul>
       
-      <p><strong>Klaar voor de #1 rated Netherlands IPTV service?</strong> Abonneer je vandaag nog op SOLARA TV en geniet van <strong>25.000+ live zenders, 60.000+ VOD, en alle Eredivisie, KNVB Beker, Champions League wedstrijden in HD</strong> vanaf <strong>€18/maand</strong>. <strong>Start nu uw gratis proefversie</strong> en ontdek waarom duizenden Nederlandse klanten SOLARA TV tot de #1 keuze voor Nederland IPTV in 2026 hebben gemaakt.</p>
+      <p><strong>Klaar om een IPTV-abonnement te kopen?</strong> Abonneer je vandaag nog op SolaraTV en geniet van <strong>25.000+ live zenders, 60.000+ VOD, en alle Eredivisie, KNVB Beker, Champions League wedstrijden in HD</strong> vanaf <strong>€18/maand</strong>. <strong>Start nu uw gratis proefversie</strong> en ontdek waarom duizenden Nederlandse klanten SolaraTV tot de #1 keuze voor Nederland IPTV in 2026 hebben gemaakt.</p>
     </div>
     
     <div class="cta-section">
@@ -361,7 +365,8 @@
       <a href="index">Home</a> <a href="movies">Movies</a> <a href="channels">Channels</a> <a href="pricing">Pricing</a> <a href="reseller">Reseller</a> <a href="faq">FAQ</a> <a href="contact">Contact</a> <a href="about">About</a> <a href="terms">Terms</a> <a href="privacy">Privacy</a>
     </div>
     <div class="payment-methods"><i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i></div>
-    <p style="margin:20px 0;">© 2026 SOLARA TV — #1 Rated Netherlands IPTV Service Provider — 25.000+ Live Zenders in HD</p>
+    <!-- Single instance of SolaraTV in the footer -->
+    <p style="margin:20px 0;">© 2026 <strong>SolaraTV</strong> — #1 Rated Netherlands IPTV Service Provider — 25.000+ Live Zenders in HD</p>
     <p>Amsterdam • Rotterdam • Utrecht • Den Haag • Eindhoven • Nederland • Wereldwijd</p>
     <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
   </div>

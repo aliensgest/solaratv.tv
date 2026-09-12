@@ -241,9 +241,18 @@
       50%    {transform:translateY(-22px)}
     }
 
-    /* إخفاء الأشكال على الجوال لتحسين الأداء */
+    /* نسخة الجوال: أحجام أصغر + إخفاء الأشكال الثقيلة فقط */
     @media(max-width:768px){
-      .shapes-3d{display:none}
+      .shapes-3d{perspective:600px}
+      .cube3d.main {--s:70px; top:5%; left:3%}
+      .cube3d.mini {display:none}
+      .ring3d.main {--r:150px; top:-45px; right:-35px}
+      .ring3d.second{display:none}
+      .orb3d.big   {--o:36px; left:10%; bottom:10%}
+      .orb3d.small {display:none}
+      /* تباطؤ الحركات قليلاً لتوفير البطارية */
+      .cube3d .inner{animation-duration:14s}
+      .ring3d{animation-duration:12s}
     }
   </style>
 </head>

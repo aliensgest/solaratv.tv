@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lanqra | لنقرأ - أفضل موقع لبيع الكتب</title>
+<meta name="description" content="Lanqra - أفضل موقع لبيع الكتب الجاهزة لعشاق القراءة والثقافة">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1115;
+    --card:#171a21;
+    --accent:#f5b301;
+    --accent2:#ffcc4d;
+    --text:#eaeaea;
+    --muted:#9aa0aa;
+    --border:#262b34;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(15,17,21,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    max-width:1150px;margin:auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 20px;
+  }
+  .logo{
+    font-size:1.6rem;font-weight:900;
+    color:var(--accent);
+    letter-spacing:1px;
+  }
+  .logo span{color:var(--text);font-weight:400;font-size:1rem;margin-right:8px;}
+  .nav-links{display:flex;gap:22px;font-size:.95rem;color:var(--muted);}
+  .nav-links a:hover{color:var(--accent);}
+  @media(max-width:600px){.nav-links{display:none;}}
+
+  /* ===== Hero ===== */
+  .hero{
+    max-width:1150px;margin:auto;
+    padding:70px 20px 40px;
+    text-align:center;
+  }
+  .hero h1{
+    font-size:clamp(2rem,5vw,3.2rem);
+    font-weight:900;
+    margin-bottom:18px;
+    line-height:1.3;
+  }
+  .hero h1 span{color:var(--accent);}
+  .hero p{
+    color:var(--muted);
+    font-size:1.1rem;
+    max-width:620px;
+    margin:0 auto 28px;
+  }
+  .hero-badge{
+    display:inline-block;
+    background:rgba(245,179,1,.12);
+    color:var(--accent);
+    border:1px solid rgba(245,179,1,.3);
+    padding:6px 16px;border-radius:50px;
+    font-size:.85rem;margin-bottom:22px;
+  }
+
+  /* ===== Section title ===== */
+  .section-title{
+    max-width:1150px;margin:40px auto 0;
+    padding:0 20px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .section-title h2{font-size:1.6rem;font-weight:700;}
+  .section-title::after{
+    content:"";flex:1;height:1px;background:var(--border);
+  }
+
+  /* ===== Books grid ===== */
+  .books{
+    max-width:1150px;margin:auto;
+    padding:30px 20px 70px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:26px;
+  }
+  .book{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .25s, border-color .25s, box-shadow .25s;
+  }
+  .book:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+  }
+  .cover{
+    height:230px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.2rem;font-weight:900;
+    color:#0f1115;
+    text-align:center;padding:20px;
+    line-height:1.3;
+  }
+  .book-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1;}
+  .book-body h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+  .book-body .desc{
+    color:var(--muted);font-size:.9rem;
+    margin-bottom:14px;flex:1;
+  }
+  .price-row{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .price{color:var(--accent);font-weight:900;font-size:1.2rem;}
+  .price small{color:var(--muted);font-weight:400;font-size:.8rem;}
+  .buy-btn{
+    display:block;text-align:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#0f1115;font-weight:900;
+    padding:12px;border-radius:10px;
+    transition:filter .2s, transform .2s;
+  }
+  .buy-btn:hover{filter:brightness(1.1);transform:scale(1.02);}
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--border);
+    text-align:center;padding:34px 20px;
+    color:var(--muted);font-size:.9rem;
+  }
+  footer strong{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="nav">
+    <div class="logo">Lanqra <span>| لنقرأ</span></div>
+    <nav class="nav-links">
+      <a href="#books">الكتب</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-badge">📚 كتب رقمية PDF جاهزة للتحميل الفوري</div>
+  <h1>مرحبًا بك في <span>Lanqra</span><br>بوابتك لعالم القراءة</h1>
+  <p>أفضل موقع لبيع الكتب الجاهزة لعشاق القراءة والثقافة. اختر كتابك، ادفع بسهولة، واحصل عليه عبر واتساب في دقائق.</p>
+</section>
+
+<!-- ===== Books ===== -->
+<div class="section-title"><h2 id="books">الكتب المتوفرة</h2></div>
+<section class="books" id="booksGrid"></section>
+
+<!-- ===== Footer ===== -->
+<footer id="contact">
+  <p>© <span id="year"></span> <strong>Lanqra | لنقرأ</strong> — جميع الحقوق محفوظة.</p>
+  <p style="margin-top:8px;">للتواصل والطلب عبر واتساب: <strong>+212 772 263 828</strong></p>
+</footer>
+
+<script>
+  /* ============================================================
+     ✏️ عدّل من هنا فقط: قائمة الكتب
+     - title: اسم الكتاب
+     - desc:  ملخص جذاب
+     - price: الثمن (بالدرهم أو أي عملة)
+     - color: لون الغلاف (اختياري)
+  ============================================================ */
+  const WHATSAPP_NUMBER = "212772263828"; // بدون + وبدون مسافات
+
+  const books = [
+    {
+      title: "أسرار العقل الباطن",
+      desc: "رحلة عميقة لفهم كيف يعمل عقلك الباطن، وكيف تستخدمه لتحقيق أهدافك وتغيير حياتك للأفضل.",
+      price: 40,
+      color: "#f5b301"
+    },
+    {
+      title: "فن اللامبالاة",
+      desc: "دليل عملي للتخلص من الضغط النفسي والتركيز على ما يهم حقًا، بأسلوب مباشر وجريء.",
+      price: 45,
+      color: "#7bd389"
+    },
+    {
+      title: "قوة العادات",
+      desc: "كيف تبني عادات صغيرة تغيّر مسار حياتك بالكامل؟ كتاب سيغيّر طريقة تفكيرك في الانضباط.",
+      price: 50,
+      color: "#8ab4ff"
+    },
+    {
+      title: "العادات الذرية",
+      desc: "نظام بسيط وعملي لبناء عادات إيجابية والتخلص من العادات السلبية خطوة بخطوة.",
+      price: 55,
+      color: "#ff9f68"
+    },
+    {
+      title: "اصنع وقتك",
+      desc: "استراتيجيات إدارة الوقت للمشغولين، لتنجز أكثر في وقت أقل دون إرهاق.",
+      price: 35,
+      color: "#c792ea"
+    },
+    {
+      title: "عقلية النمو",
+      desc: "كيف تنتقل من عقلية الثبات إلى عقلية التطور، وتتعلم من الفشل بدل أن تخافه؟",
+      price: 42,
+      color: "#ff7b9c"
+    },
+    {
+      title: "فكر تصبح ثريًا",
+      desc: "مبادئ كلاسيكية في بناء الثروة والتفكير المالي، بأسلوب عملي يناسب العصر الحديث.",
+      price: 48,
+      color: "#4dd0c1"
+    },
+    {
+      title: "اتقن القراءة السريعة",
+      desc: "تقنيات عملية لمضاعفة سرعة قراءتك مع الحفاظ على الفهم والاستيعاب الكامل.",
+      price: 38,
+      color: "#f0c674"
+    }
+  ];
+
+  /* ===== توليد البطاقات تلقائيًا ===== */
+  const grid = document.getElementById("booksGrid");
+
+  books.forEach(book => {
+    const msg = encodeURIComponent(
+      `السلام عليكم 👋\nأريد شراء هذا الكتاب:\n📖 ${book.title}\n💰 الثمن: ${book.price} درهم`
+    );
+    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+    const card = document.createElement("div");
+    card.className = "book";
+    card.innerHTML = `
+      <div class="cover" style="background:linear-gradient(135deg, ${book.color}, #ffffff33);">
+        ${book.title}
+      </div>
+      <div class="book-body">
+        <h3>${book.title}</h3>
+        <p class="desc">${book.desc}</p>
+        <div class="price-row">
+          <div class="price">${book.price} <small>درهم</small></div>
+        </div>
+        <a class="buy-btn" href="${waLink}" target="_blank" rel="noopener">
+          اشترِ الآن عبر واتساب
+        </a>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  /* السنة في الفوتر */
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -20,18 +20,16 @@
   <link rel="me" href="mailto:contact@solaratv.tv">
   <meta name="author" content="SolaraTV">
   <meta property="og:site_name" content="SolaraTV">
-  
-  <!-- ✅ FIXED: Updated Twitter/X handle -->
   <meta name="twitter:site" content="@solaratv9">
   
-  <!-- ✅ FIXED: Favicon (Branding) -->
+  <!-- ✅ Favicon (Branding) -->
   <link rel="icon" href="https://www.solaratv.tv/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="https://www.solaratv.tv/apple-touch-icon.png">
 
-  <!-- ✅ FIXED: Google Search Console Verification -->
+  <!-- ✅ Google Search Console Verification -->
   <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
 
-  <!-- ✅ FIXED: Preconnect for faster loading -->
+  <!-- ✅ Preconnect for faster loading -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://image.tmdb.org">
   <link rel="preconnect" href="https://i.ibb.co">
@@ -102,7 +100,7 @@
   }
   </script>
 
-  <!-- ✅ FIXED: LocalBusiness Schema (Local SEO) with updated X link -->
+  <!-- ✅ LocalBusiness Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -126,15 +124,7 @@
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
       "opens": "00:00",
       "closes": "23:59"
     },
@@ -231,6 +221,78 @@
     .cta-buttons button { padding: 6px 14px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem; transition: transform 0.2s; }
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
+
+    /* ===== ✅ LANGUAGE SWITCHER ===== */
+    .language-switcher {
+      position: relative;
+      display: inline-block;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
+      color: #0A0A0A;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+    }
+
+    .lang-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: 48px;
+      right: 0;
+      background: #1a1a1a;
+      border: 1px solid var(--accent-gold);
+      border-radius: 12px;
+      min-width: 180px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+
+    .lang-dropdown.open {
+      display: block;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lang-dropdown a {
+      display: block;
+      padding: 12px 18px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .lang-dropdown a:hover {
+      background: rgba(255, 215, 0, 0.15);
+      color: var(--accent-gold);
+    }
+
+    .lang-dropdown a:last-child {
+      border-bottom: none;
+    }
 
     /* ===== HERO ===== */
     .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
@@ -356,7 +418,7 @@
     .slider-year { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); }
     .slider-info { display: none; }
 
-    /* ===== CHANNEL LOGOS مع نص SEO ===== */
+    /* ===== CHANNEL LOGOS ===== */
     .channel-logos-home-section {
       padding: 40px 0;
       background: linear-gradient(135deg, #0A0A0A, #0D0D0D);
@@ -373,7 +435,7 @@
       margin: 0 auto;
     }
     
-    .channel-seo-header h3 {
+    .channel-seo-header h2 {
       color: var(--accent-gold);
       font-size: 1.2rem;
       margin-bottom: 10px;
@@ -579,7 +641,6 @@
       text-decoration: underline;
     }
     
-    /* ✅ FIXED: Google Maps Embed Style */
     .map-container {
       margin-top: 20px;
       border-radius: 12px;
@@ -615,8 +676,11 @@
       .slider-movie { width: 140px; }
       .slider-poster { height: 200px; }
       .channel-logo-home-item { width: 70px; height: 45px; }
-      .channel-seo-header h3 { font-size: 1rem; }
+      .channel-seo-header h2 { font-size: 1rem; }
       .channel-seo-header p { font-size: 0.75rem; }
+      .language-switcher { margin-left: 5px; }
+      .lang-btn { width: 34px; height: 34px; font-size: 0.9rem; }
+      .lang-dropdown { right: -50px; min-width: 160px; }
     }
   </style>
 </head>
@@ -652,6 +716,23 @@
       <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">Free Trial</button>
       <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe','_blank')">WhatsApp</button>
     </div>
+    
+    <!-- ✅ Language Switcher -->
+    <div class="language-switcher">
+      <button class="lang-btn" id="langBtn" aria-label="Change language">
+        <i class="fas fa-globe"></i>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <a href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
+        <a href="#" onclick="changeLanguage('zh-CN')">🇨🇳 中文 (简体)</a>
+        <a href="#" onclick="changeLanguage('nl')">🇳🇱 Nederlands</a>
+        <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
+        <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
+        <a href="#" onclick="changeLanguage('it')">🇮🇹 Italiano</a>
+        <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
+      </div>
+    </div>
+    
     <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -754,7 +835,6 @@
   <div class="device-guide-section">
     <div class="device-guide-card">
       <i class="fab fa-amazon"></i>
-      <!-- ✅ FIXED: Changed h3 to h2 for proper hierarchy -->
       <h2>📺 Best IPTV for Firestick 2026</h2>
       <p>Complete guide to set up IPTV on Amazon Firestick. Learn how to install IPTV Smarters Pro, TiviMate, fix buffering, and optimize streaming quality.</p>
       <a href="/best-iptv-firestick" class="device-guide-btn"><i class="fas fa-play-circle"></i> Read the Complete Guide →</a>
@@ -791,12 +871,11 @@
   </div>
 </section>
 
-<!-- ===== CHANNEL LOGOS مع نص SEO - مُحسّن ===== -->
+<!-- ===== CHANNEL LOGOS ===== -->
 <div class="container">
   <div class="channel-logos-home-section">
     
     <div class="channel-seo-header">
-      <!-- ✅ FIXED: Changed h3 to h2 for proper hierarchy -->
       <h2>🏆 SolaraTV – The #1 IPTV Service for Premium Global Channels in 4K Ultra HD</h2>
       <p>
         <strong>SolaraTV</strong> delivers the <strong>best IPTV experience in 2026</strong> with over <strong>25,000+ live channels</strong> from the world's most popular networks. 
@@ -807,7 +886,6 @@
     </div>
     
     <div class="channel-logos-home-container">
-      <!-- تمت إضافة width و height و loading="lazy" ونص alt محسّن لكل صورة -->
       <div class="channel-logo-home-item">
         <img src="https://i.ibb.co/GQngMqSR/unnamed.jpg" alt="SolaraTV - Sky Sports live streaming in 4K Ultra HD" width="100" height="60" loading="lazy">
       </div>
@@ -847,8 +925,6 @@
       <div class="channel-logo-home-item">
         <img src="https://i.ibb.co/mr2wf1RW/20f853787e15c584b40cb92aee225029.jpg" alt="SolaraTV - Channel logo" width="100" height="60" loading="lazy">
       </div>
-      
-      <!-- الصور الجديدة المضافة -->
       <div class="channel-logo-home-item">
         <img src="https://i.ibb.co/JRcn1g7v/Fox-Sports-logo1.jpg" alt="SolaraTV - Fox Sports live sports streaming" width="100" height="60" loading="lazy">
       </div>
@@ -1087,7 +1163,6 @@
       <div><i class="fas fa-phone-alt"></i> <a href="tel:+212600160196">+212 600 160 196</a></div>
       <div><i class="fas fa-envelope"></i> <a href="mailto:contact@solaratv.tv">contact@solaratv.tv</a></div>
     </div>
-    <!-- ✅ FIXED: Google Maps Embed (Local SEO) -->
     <div class="map-container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.888888888888!2d-6.8416!3d34.0209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAxJzE1LjIiTiA2wrA1MCcyOS44Ilc!5e0!3m2!1sen!2sma!4v1600000000000!5m2!1sen!2sma" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SolaraTV Location - Rabat, Morocco"></iframe>
     </div>
@@ -1116,30 +1191,66 @@
 
 <!-- ===== SOCIAL FLOAT ===== -->
 <div class="social-float">
-  <!-- ✅ FIXED: Facebook -->
   <a href="https://www.facebook.com/solaratv" target="_blank" class="facebook-btn" aria-label="Follow SolaraTV on Facebook" style="background:#1877F2; color:white; font-size:1.8rem;">
     <i class="fab fa-facebook-f"></i>
   </a>
   
-  <!-- ✅ FIXED: X (Twitter) with Official Logo and Correct Link -->
   <a href="https://x.com/solaratv9" target="_blank" class="twitter-btn" aria-label="Follow SolaraTV on X (Twitter)" style="background:#000; border:1px solid #333; display:flex; align-items:center; justify-content:center;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF" aria-hidden="true">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
     </svg>
   </a>
   
-  <!-- Instagram -->
   <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn" aria-label="Follow SolaraTV on Instagram">
     <img src="https://i.ibb.co/s9zX17cJ/Instagram-logo-2022-svg.png" alt="Instagram logo" />
   </a>
   
-  <!-- WhatsApp -->
   <a href="https://wa.me/212600160196" target="_blank" class="whatsapp-btn" aria-label="Contact SolaraTV on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 </div>
 
+<!-- ✅ Google Translate Element (مخفي) -->
+<div id="google_translate_element" style="display:none;"></div>
+
 <script>
+  // دالة تهيئة Google Translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ar,zh-CN,nl,en,fr,it,de,es,pt,ru,tr,ja,ko,hi',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // دالة تغيير اللغة
+  function changeLanguage(langCode) {
+    document.getElementById('langDropdown').classList.remove('open');
+    
+    var selectField = document.querySelector(".goog-te-combo");
+    if (selectField) {
+      selectField.value = langCode;
+      selectField.dispatchEvent(new Event('change'));
+    } else {
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + langCode + "&u=" + encodeURIComponent(currentUrl);
+      window.location.href = translateUrl;
+    }
+  }
+
+  // فتح/إغلاق القائمة المنسدلة
+  document.getElementById('langBtn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('langDropdown').classList.toggle('open');
+  });
+
+  // إغلاق القائمة عند الضغط في أي مكان آخر
+  document.addEventListener('click', function() {
+    document.getElementById('langDropdown').classList.remove('open');
+  });
+
+  // Hamburger Menu
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1159,5 +1270,8 @@
     });
   });
 </script>
+
+<!-- ✅ تحميل Google Translate API -->
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

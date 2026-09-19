@@ -162,13 +162,6 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #FFFFFF; line-height: 1.5; overflow-x: hidden; width: 100%; }
     .container { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px; }
 
-    /* ✅ إخفاء شريط Google Translate العلوي */
-    body { top: 0 !important; }
-    .skiptranslate iframe { display: none !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-    .goog-text-highlight { background: none !important; box-shadow: none !important; }
-    #google_translate_element { display: none !important; }
-
     /* ===== HEADER ===== */
     header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 12px 0; border-bottom: 1px solid var(--accent-gold); width: 100%; }
     .nav { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
@@ -228,78 +221,6 @@
     .cta-buttons button { padding: 6px 14px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem; transition: transform 0.2s; }
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
-
-    /* ===== ✅ LANGUAGE SWITCHER ===== */
-    .language-switcher {
-      position: relative;
-      display: inline-block;
-      margin-left: 10px;
-      flex-shrink: 0;
-    }
-
-    .lang-btn {
-      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
-      color: #0A0A0A;
-      border: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s;
-      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-    }
-
-    .lang-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .lang-dropdown {
-      display: none;
-      position: absolute;
-      top: 48px;
-      right: 0;
-      background: #1a1a1a;
-      border: 1px solid var(--accent-gold);
-      border-radius: 12px;
-      min-width: 180px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-    }
-
-    .lang-dropdown.open {
-      display: block;
-      animation: fadeIn 0.2s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .lang-dropdown a {
-      display: block;
-      padding: 12px 18px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.85rem;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .lang-dropdown a:hover {
-      background: rgba(255, 215, 0, 0.15);
-      color: var(--accent-gold);
-    }
-
-    .lang-dropdown a:last-child {
-      border-bottom: none;
-    }
 
     /* ===== HERO ===== */
     .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
@@ -685,9 +606,6 @@
       .channel-logo-home-item { width: 70px; height: 45px; }
       .channel-seo-header h2 { font-size: 1rem; }
       .channel-seo-header p { font-size: 0.75rem; }
-      .language-switcher { margin-left: 5px; }
-      .lang-btn { width: 34px; height: 34px; font-size: 0.9rem; }
-      .lang-dropdown { right: -50px; min-width: 160px; }
     }
   </style>
 </head>
@@ -723,23 +641,6 @@
       <button class="btn-primary" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">Free Trial</button>
       <button class="btn-whatsapp" onclick="window.open('https://wa.me/212600160196?text=I%20want%20to%20subscribe','_blank')">WhatsApp</button>
     </div>
-    
-    <!-- ✅ Language Switcher -->
-    <div class="language-switcher">
-      <button class="lang-btn" id="langBtn" aria-label="Change language">
-        <i class="fas fa-globe"></i>
-      </button>
-      <div class="lang-dropdown" id="langDropdown">
-        <a onclick="changeLanguage('ar'); return false;" style="cursor:pointer;">🇸🇦 العربية</a>
-        <a onclick="changeLanguage('zh-CN'); return false;" style="cursor:pointer;">🇨🇳 中文 (简体)</a>
-        <a onclick="changeLanguage('nl'); return false;" style="cursor:pointer;">🇳🇱 Nederlands</a>
-        <a onclick="changeLanguage('en'); return false;" style="cursor:pointer;">🇬🇧 English</a>
-        <a onclick="changeLanguage('fr'); return false;" style="cursor:pointer;">🇫🇷 Français</a>
-        <a onclick="changeLanguage('it'); return false;" style="cursor:pointer;">🇮🇹 Italiano</a>
-        <a onclick="changeLanguage('de'); return false;" style="cursor:pointer;">🇩🇪 Deutsch</a>
-      </div>
-    </div>
-    
     <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1217,62 +1118,7 @@
   </a>
 </div>
 
-<!-- ✅ Google Translate Element (مخفي) -->
-<div id="google_translate_element" style="display:none;"></div>
-
 <script>
-  // دالة تهيئة Google Translate
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'ar,zh-CN,nl,en,fr,it,de,es,pt,ru,tr,ja,ko,hi',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-
-  // ✅ دالة تغيير اللغة (محسّنة - تعمل بشكل موثوق ولا تضيف #)
-  function changeLanguage(langCode) {
-    // إغلاق القائمة
-    document.getElementById('langDropdown').classList.remove('open');
-    
-    // البحث عن القائمة المنسدلة الخاصة بـ Google Translate
-    var selectField = document.querySelector(".goog-te-combo");
-    
-    if (selectField) {
-      // الويدجت جاهز - قم بتغيير اللغة
-      selectField.value = langCode;
-      selectField.dispatchEvent(new Event('change'));
-    } else {
-      // الويدجت لم يتم تحميله بعد - انتظر ثم أعد المحاولة
-      var attempts = 0;
-      var maxAttempts = 10;
-      var interval = setInterval(function() {
-        attempts++;
-        var selectField = document.querySelector(".goog-te-combo");
-        if (selectField) {
-          clearInterval(interval);
-          selectField.value = langCode;
-          selectField.dispatchEvent(new Event('change'));
-        } else if (attempts >= maxAttempts) {
-          clearInterval(interval);
-          console.log('Google Translate widget not loaded yet. Please try again.');
-        }
-      }, 300);
-    }
-  }
-
-  // فتح/إغلاق القائمة المنسدلة
-  document.getElementById('langBtn').addEventListener('click', function(e) {
-    e.stopPropagation();
-    document.getElementById('langDropdown').classList.toggle('open');
-  });
-
-  // إغلاق القائمة عند الضغط في أي مكان آخر
-  document.addEventListener('click', function() {
-    document.getElementById('langDropdown').classList.remove('open');
-  });
-
   // Hamburger Menu
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1293,8 +1139,5 @@
     });
   });
 </script>
-
-<!-- ✅ تحميل Google Translate API -->
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

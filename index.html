@@ -730,13 +730,13 @@
         <i class="fas fa-globe"></i>
       </button>
       <div class="lang-dropdown" id="langDropdown">
-        <a href="#" onclick="changeLanguage('ar')">🇸🇦 العربية</a>
-        <a href="#" onclick="changeLanguage('zh-CN')">🇨🇳 中文 (简体)</a>
-        <a href="#" onclick="changeLanguage('nl')">🇳🇱 Nederlands</a>
-        <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
-        <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
-        <a href="#" onclick="changeLanguage('it')">🇮🇹 Italiano</a>
-        <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
+        <a onclick="changeLanguage('ar'); return false;" style="cursor:pointer;">🇸🇦 العربية</a>
+        <a onclick="changeLanguage('zh-CN'); return false;" style="cursor:pointer;">🇨🇳 中文 (简体)</a>
+        <a onclick="changeLanguage('nl'); return false;" style="cursor:pointer;">🇳🇱 Nederlands</a>
+        <a onclick="changeLanguage('en'); return false;" style="cursor:pointer;">🇬🇧 English</a>
+        <a onclick="changeLanguage('fr'); return false;" style="cursor:pointer;">🇫🇷 Français</a>
+        <a onclick="changeLanguage('it'); return false;" style="cursor:pointer;">🇮🇹 Italiano</a>
+        <a onclick="changeLanguage('de'); return false;" style="cursor:pointer;">🇩🇪 Deutsch</a>
       </div>
     </div>
     
@@ -1231,24 +1231,34 @@
     }, 'google_translate_element');
   }
 
-  // دالة تغيير اللغة (تستخدم ويدجت Google Translate)
+  // ✅ دالة تغيير اللغة (محسّنة - تعمل بشكل موثوق ولا تضيف #)
   function changeLanguage(langCode) {
+    // إغلاق القائمة
     document.getElementById('langDropdown').classList.remove('open');
     
     // البحث عن القائمة المنسدلة الخاصة بـ Google Translate
     var selectField = document.querySelector(".goog-te-combo");
+    
     if (selectField) {
+      // الويدجت جاهز - قم بتغيير اللغة
       selectField.value = langCode;
       selectField.dispatchEvent(new Event('change'));
     } else {
-      // في حال عدم تحميل الويدجت بعد، ننتظر قليلاً ونعيد المحاولة
-      setTimeout(function() {
+      // الويدجت لم يتم تحميله بعد - انتظر ثم أعد المحاولة
+      var attempts = 0;
+      var maxAttempts = 10;
+      var interval = setInterval(function() {
+        attempts++;
         var selectField = document.querySelector(".goog-te-combo");
         if (selectField) {
+          clearInterval(interval);
           selectField.value = langCode;
           selectField.dispatchEvent(new Event('change'));
+        } else if (attempts >= maxAttempts) {
+          clearInterval(interval);
+          console.log('Google Translate widget not loaded yet. Please try again.');
         }
-      }, 1000);
+      }, 300);
     }
   }
 

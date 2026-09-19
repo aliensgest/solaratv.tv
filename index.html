@@ -162,6 +162,13 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #FFFFFF; line-height: 1.5; overflow-x: hidden; width: 100%; }
     .container { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px; }
 
+    /* ✅ إخفاء شريط Google Translate العلوي */
+    body { top: 0 !important; }
+    .skiptranslate iframe { display: none !important; }
+    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    #google_translate_element { display: none !important; }
+
     /* ===== HEADER ===== */
     header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 12px 0; border-bottom: 1px solid var(--accent-gold); width: 100%; }
     .nav { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
@@ -371,7 +378,7 @@
     .device-guide-card { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 20px; padding: 30px; text-align: center; border: 1px solid rgba(255,215,0,0.3); transition: all 0.3s; display: inline-block; width: 100%; max-width: 500px; }
     .device-guide-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
     .device-guide-card i { font-size: 3rem; color: var(--accent-gold); margin-bottom: 15px; display: block; }
-    .device-guide-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--accent-gold); }
+    .device-guide-card h2 { font-size: 1.4rem; margin-bottom: 10px; color: var(--accent-gold); }
     .device-guide-card p { color: #aaa; margin-bottom: 20px; }
     .device-guide-btn { display: inline-block; background: linear-gradient(135deg, #FF9900, #FF6600); color: #0A0A0A; padding: 10px 25px; border-radius: 40px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
     .device-guide-btn:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(255,153,0,0.5); }
@@ -1224,18 +1231,24 @@
     }, 'google_translate_element');
   }
 
-  // دالة تغيير اللغة
+  // دالة تغيير اللغة (تستخدم ويدجت Google Translate)
   function changeLanguage(langCode) {
     document.getElementById('langDropdown').classList.remove('open');
     
+    // البحث عن القائمة المنسدلة الخاصة بـ Google Translate
     var selectField = document.querySelector(".goog-te-combo");
     if (selectField) {
       selectField.value = langCode;
       selectField.dispatchEvent(new Event('change'));
     } else {
-      var currentUrl = window.location.href;
-      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + langCode + "&u=" + encodeURIComponent(currentUrl);
-      window.location.href = translateUrl;
+      // في حال عدم تحميل الويدجت بعد، ننتظر قليلاً ونعيد المحاولة
+      setTimeout(function() {
+        var selectField = document.querySelector(".goog-te-combo");
+        if (selectField) {
+          selectField.value = langCode;
+          selectField.dispatchEvent(new Event('change'));
+        }
+      }, 1000);
     }
   }
 

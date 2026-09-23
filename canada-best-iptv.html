@@ -59,6 +59,30 @@
   }
   </script>
 
+  <!-- ✅ FAQ SCHEMA (يُحسّن ظهور الأسئلة في Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is IPTV and how does IPTV Canada work?", "acceptedAnswer": {"@type": "Answer", "text": "IPTV (Internet Protocol Television) delivers TV content through your internet connection instead of traditional cable or satellite. Our Canadian IPTV service streams 25,000+ live channels and 120,000+ movies & series directly to your device with no cables and no long-term contract."}},
+      {"@type": "Question", "name": "SOLARA TV customer support response time?", "acceptedAnswer": {"@type": "Answer", "text": "Our Canadian support team is available 24/7 via WhatsApp and email. Most inquiries are answered within a few minutes, and technical issues are typically resolved the same day."}},
+      {"@type": "Question", "name": "How does Premium IPTV streaming work?", "acceptedAnswer": {"@type": "Answer", "text": "Once you subscribe, we email you login credentials within 1–2 hours. You enter them into your IPTV player app and instantly get access to all live channels, movies, and series in HD or 4K quality with EPG and catch-up TV."}},
+      {"@type": "Question", "name": "Why choose SOLARA TV as IPTV provider?", "acceptedAnswer": {"@type": "Answer", "text": "With 15+ years of experience, 99.9% uptime, Canadian-optimized servers, 24/7 support, and a huge library of channels and VOD content — SOLARA TV is trusted by thousands of Canadian households."}},
+      {"@type": "Question", "name": "Supported devices for SOLARA TV?", "acceptedAnswer": {"@type": "Answer", "text": "We support Amazon Fire TV Stick, Android TV boxes, Apple TV, Samsung & LG Smart TVs, Roku, Chromecast, Nvidia Shield, Windows PC, VIDAA, Formuler, BuzzTV, iPhone, iPad, and all Android phones and tablets."}},
+      {"@type": "Question", "name": "Is IPTV Legal in Canada?", "acceptedAnswer": {"@type": "Answer", "text": "IPTV technology itself is 100% legal in Canada. SOLARA TV operates within Canadian broadcasting regulations and does not host any copyrighted content."}},
+      {"@type": "Question", "name": "What devices can I use with IPTV Canada?", "acceptedAnswer": {"@type": "Answer", "text": "You can use Smart TVs (Samsung, LG, Sony), streaming sticks (Fire TV, Roku, Chromecast), Android boxes, Apple TV, Windows/Mac computers, and iOS/Android phones and tablets."}},
+      {"@type": "Question", "name": "How do I choose the best IPTV subscription in Canada?", "acceptedAnswer": {"@type": "Answer", "text": "Look for stable uptime and anti-freeze servers, a large channel + VOD library, local Canadian support, device compatibility, and a free trial. SOLARA TV checks all these boxes."}},
+      {"@type": "Question", "name": "Can I get a free trial of IPTV Canada?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! We offer a free trial for Canadian customers. Just contact us on WhatsApp and we'll send you a temporary login. No credit card required."}},
+      {"@type": "Question", "name": "What is the best IPTV player to use with your service?", "acceptedAnswer": {"@type": "Answer", "text": "We recommend TiviMate (Android/Fire TV), IPTV Smarters Pro (cross-platform), XCIPTV (Fire Stick), and GSE Smart IPTV (iOS/Apple TV)."}},
+      {"@type": "Question", "name": "How much does IPTV cost compared to cable in Canada?", "acceptedAnswer": {"@type": "Answer", "text": "Traditional cable in Canada typically costs $70–$100+ per month. IPTV is significantly more affordable, offers far more channels and VOD, works on all your devices, and comes with no long-term contract."}},
+      {"@type": "Question", "name": "What sports channels are included with Canadian IPTV?", "acceptedAnswer": {"@type": "Answer", "text": "Sportsnet, TSN 1–5, CBC Sports, RDS, TVA Sports, NHL Network, NBA TV Canada, MLB Network, plus international sports channels. Full coverage of NHL, NBA, NFL, MLB, CFL, MLS, Premier League, UFC and more."}},
+      {"@type": "Question", "name": "How do I set up IPTV on my device step-by-step?", "acceptedAnswer": {"@type": "Answer", "text": "1) Install a compatible IPTV player app. 2) Enter the login credentials we send you. 3) Wait for the channel list to load. 4) Enjoy your channels! Our support team provides a full installation guide."}},
+      {"@type": "Question", "name": "Do I need a VPN for IPTV streaming in Canada?", "acceptedAnswer": {"@type": "Answer", "text": "A VPN is not required, but it can help if your ISP throttles streaming traffic or if you want extra privacy. Many Canadian customers use a VPN for stable performance."}}
+    ]
+  }
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>#1 Rated Canada IPTV | Premium Canada IPTV Subscription 2026 | HD Quality – SOLARA TV</title>
@@ -206,8 +230,63 @@
     .region-btn { background: linear-gradient(135deg, #FFD700, #B8860B); color: #0A0A0A; padding: 12px 30px; border-radius: 40px; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
     .region-btn:hover { transform: scale(1.05); }
     
-    .faq-item { background: linear-gradient(135deg, #111111, #0A0A0A); border-radius: 14px; margin-bottom: 12px; padding: 18px 24px; border: 1px solid rgba(255,215,0,0.25); }
-    .faq-item h4 { color: var(--accent-gold); font-size: 0.95rem; font-weight: 600; }
+    /* FAQ Accordion */
+    .faq-list { max-width: 900px; margin: 0 auto; }
+    .faq-item {
+      background: linear-gradient(135deg, #111111, #0A0A0A);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,215,0,0.25);
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .faq-item:hover { border-color: var(--accent-gold); }
+    .faq-item.active { border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+    
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      font-family: inherit;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: #FFA500; }
+    .faq-question i {
+      font-size: 0.85rem;
+      transition: transform 0.35s ease;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 20px;
+    }
+    .faq-answer p {
+      color: #bbb;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,215,0,0.2);
+      padding-top: 15px;
+    }
+    .faq-answer strong { color: var(--accent-gold); }
     
     footer { padding: 40px 0 25px; text-align: center; background: #050505; border-top: 1px solid var(--accent-gold); margin-top: 50px; width: 100%; }
     .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
@@ -455,20 +534,148 @@
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
     <p class="section-sub">Discover Premium Canadian IPTV Service</p>
-    <div class="faq-item"><h4>What is IPTV and how does IPTV Canada work?</h4></div>
-    <div class="faq-item"><h4>SOLARA TV customer support response time?</h4></div>
-    <div class="faq-item"><h4>How does Premium IPTV streaming work?</h4></div>
-    <div class="faq-item"><h4>Why choose SOLARA TV as IPTV provider?</h4></div>
-    <div class="faq-item"><h4>Supported devices for SOLARA TV?</h4></div>
-    <div class="faq-item"><h4>Is IPTV Legal in Canada?</h4></div>
-    <div class="faq-item"><h4>What devices can I use with IPTV Canada?</h4></div>
-    <div class="faq-item"><h4>How do I choose the best IPTV subscription in Canada?</h4></div>
-    <div class="faq-item"><h4>Can I get a free trial of IPTV Canada?</h4></div>
-    <div class="faq-item"><h4>What is the best IPTV player to use with your service?</h4></div>
-    <div class="faq-item"><h4>How much does IPTV cost compared to cable in Canada?</h4></div>
-    <div class="faq-item"><h4>What sports channels are included with Canadian IPTV?</h4></div>
-    <div class="faq-item"><h4>How do I set up IPTV on my device step-by-step?</h4></div>
-    <div class="faq-item"><h4>Do I need a VPN for IPTV streaming in Canada?</h4></div>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is IPTV and how does IPTV Canada work?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>IPTV (Internet Protocol Television) delivers TV content through your internet connection instead of traditional cable or satellite. Our Canadian IPTV service streams 25,000+ live channels and 120,000+ movies & series directly to your device — Fire Stick, Smart TV, Android, iOS, or PC — with no cables, no dish, and no long-term contract.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>SOLARA TV customer support response time?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our Canadian support team is available 24/7 via WhatsApp and email. Most inquiries are answered within a few minutes, and technical issues are typically resolved the same day.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How does Premium IPTV streaming work?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Once you subscribe, we email you login credentials within 1–2 hours. You enter them into your IPTV player app (we recommend the best player for your device), and instantly get access to all live channels, movies, and series in HD or 4K quality with EPG and catch-up TV.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Why choose SOLARA TV as IPTV provider?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>With 15+ years of experience, 99.9% uptime, Canadian-optimized servers (Toronto, Vancouver, Montreal, Calgary, Halifax), 24/7 support, and a huge library of channels and VOD content — SOLARA TV is trusted by thousands of Canadian households. We also offer a free trial so you can test before subscribing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Supported devices for SOLARA TV?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We support all major devices: Amazon Fire TV Stick, Android TV boxes, Apple TV, Samsung & LG Smart TVs, Roku, Chromecast, Nvidia Shield, Windows PC, VIDAA, Formuler, BuzzTV, iPhone, iPad, and all Android phones and tablets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is IPTV Legal in Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>IPTV technology itself is 100% legal in Canada. SOLARA TV operates within Canadian broadcasting regulations and does not host any copyrighted content — all content is provided by third-party providers. Users are responsible for ensuring they have the right to view content in their jurisdiction.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What devices can I use with IPTV Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>You can use nearly any modern device: Smart TVs (Samsung, LG, Sony), streaming sticks (Fire TV, Roku, Chromecast), Android boxes, Apple TV, Windows/Mac computers, and iOS/Android phones and tablets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How do I choose the best IPTV subscription in Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Look for: 1) Stable uptime and anti-freeze servers, 2) A large channel + VOD library, 3) Local Canadian support, 4) Device compatibility, 5) A free trial to test quality. SOLARA TV checks all these boxes and is rated #1 by Canadian viewers in 2026.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I get a free trial of IPTV Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We offer a free trial for Canadian customers. Just contact us on WhatsApp and we'll send you a temporary login so you can test all channels and features before subscribing. No credit card required.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is the best IPTV player to use with your service?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We recommend: <strong>TiviMate</strong> (best for Android/Fire TV), <strong>IPTV Smarters Pro</strong> (cross-platform), <strong>XCIPTV</strong> (great for Fire Stick), and <strong>GSE Smart IPTV</strong> (iOS/Apple TV). Our support team can guide you step-by-step for your specific device.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How much does IPTV cost compared to cable in Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Traditional cable in Canada (Bell, Rogers, Telus) typically costs $70–$100+ per month. IPTV is significantly more affordable, offers far more channels and VOD, works on all your devices, and comes with no long-term contract. Contact us on WhatsApp for current plan details.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What sports channels are included with Canadian IPTV?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>All major sports channels are included: Sportsnet (East, Ontario, West, Pacific, 360), TSN 1–5, CBC Sports, RDS, TVA Sports, NHL Network, NBA TV Canada, MLB Network, plus international sports channels. Full coverage of NHL, NBA, NFL, MLB, CFL, MLS, Premier League, UFC and more.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How do I set up IPTV on my device step-by-step?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>1) Install a compatible IPTV player app on your device. 2) Enter the login credentials we send you by email. 3) Wait for the channel list to load. 4) Enjoy your channels! Our support team provides a full installation guide and can assist you live via WhatsApp if needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do I need a VPN for IPTV streaming in Canada?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>A VPN is not required, but it can help if your ISP throttles streaming traffic or if you want extra privacy. Many Canadian customers use a VPN for stable performance, especially during peak hours. We can recommend reliable VPN options on request.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -497,6 +704,20 @@
       }
     }
   })();
+
+  // FAQ Accordion - Toggle
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('active');
+      
+      // إغلاق كل الأسئلة الأخرى (Accordion)
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+      
+      // فتح/إغلاق السؤال المضغوط
+      if (!isOpen) item.classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>

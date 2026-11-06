@@ -115,7 +115,6 @@
       color: var(--text);
       line-height: 1.5;
       overflow-x: hidden;
-      perspective: 1000px;
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
@@ -174,7 +173,7 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
     
-    /* Hero with 3D Depth Effect */
+    /* Hero */
     .hero {
       min-height: auto;
       display: flex;
@@ -202,8 +201,8 @@
     .section-title { text-align: center; font-size: 2rem; margin-bottom: 35px; color: var(--accent-gold); }
     .section-title:after { content: ''; display: block; width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent-gold), #FFA500); margin: 12px auto 0; border-radius: 2px; }
     
-    /* 3D Pricing Grid */
-    .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; perspective: 1000px; }
+    /* Pricing Grid – simple hover, no 3D tilt */
+    .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
     .pricing-card {
       background: linear-gradient(135deg, #111, #0A0A0A);
       padding: 30px 22px;
@@ -211,17 +210,17 @@
       width: 260px;
       text-align: center;
       border: 1px solid rgba(255,215,0,.3);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       position: relative;
-      transform-style: preserve-3d;
+      display: flex;
+      flex-direction: column;
     }
     .pricing-card:hover {
-      transform: translateY(-10px) rotateX(4deg) rotateY(-2deg);
+      transform: translateY(-8px);
       box-shadow: 0 15px 30px rgba(255,215,0,.25);
       border-color: var(--accent-gold);
     }
-    .pricing-card.popular { border: 2px solid var(--accent-gold); transform: scale(1.03); }
-    .pricing-card.popular:hover { transform: scale(1.03) translateY(-10px) rotateX(4deg) rotateY(-2deg); }
+    .pricing-card.popular { border: 2px solid var(--accent-gold); }
     
     .popular-badge {
       position: absolute;
@@ -242,32 +241,36 @@
     .price small { font-size: .8rem; color: #888; }
     .old-price { font-size: .85rem; text-decoration: line-through; color: #666; margin-right: 5px; }
     .save-percent { background: rgba(255,215,0,.15); color: var(--accent-gold); padding: 3px 10px; border-radius: 20px; font-size: .65rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
-    .pricing-card ul { list-style: none; margin: 15px 0; text-align: center; }
+    .pricing-card ul { list-style: none; margin: 15px 0; text-align: center; flex-grow: 1; }
     .pricing-card li { margin: 8px 0; font-size: .75rem; display: flex; align-items: center; gap: 8px; justify-content: center; color: #ddd; }
     .pricing-card li i { color: var(--accent-gold); width: 16px; font-size: .7rem; }
-    .plan-btn {
-      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
-      color: #0A0A0A;
+    
+    /* ★ زر رئيسي واحد لكل بطاقة – ضغطة واحدة تذهب مباشرة إلى واتساب ★ */
+    .plan-btn-main {
+      background: linear-gradient(135deg, #25D366, #1DB954);
+      color: #fff;
       border: none;
-      padding: 10px 18px;
+      padding: 13px 18px;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
       width: 100%;
       transition: all .3s;
-      margin-top: 10px;
-      font-size: .8rem;
+      margin-top: auto;
+      font-size: .85rem;
       text-decoration: none;
-      display: inline-block;
+      display: block;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(37,211,102,.25);
     }
-    .plan-btn:hover { transform: scale(1.03); box-shadow: 0 0 15px rgba(255,215,0,.4); }
-    .pay-btn { margin-top: 14px; background: linear-gradient(135deg, #25D366, #1DB954); color: #fff; }
-    .pay-btn:hover { box-shadow: 0 0 15px rgba(37,211,102,.5); }
-    .wa-alt { display: block; text-align: center; font-size: .72rem; color: #25D366; text-decoration: none; margin-top: 7px; font-weight: 600; }
-    .wa-alt:hover { text-decoration: underline; }
-    .pay-badge { display: inline-block; font-size: .6rem; color: #00D09C; border: 1px solid rgba(0,208,156,.4); border-radius: 20px; padding: 2px 8px; margin-bottom: 8px; font-weight: 700; }
-    .choose-plan-btn { margin-top: 14px; background: linear-gradient(135deg, #FFD700, #B8860B); color: #0A0A0A; border: none; padding: 10px 18px; border-radius: 30px; font-weight: bold; cursor: pointer; width: 100%; transition: all .3s; font-size: .8rem; text-decoration: none; display: inline-block; }
-    .choose-plan-btn:hover { transform: scale(1.03); box-shadow: 0 0 15px rgba(255,215,0,.4); }
+    .plan-btn-main:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 20px rgba(37,211,102,.6);
+      color: #fff;
+    }
+    .plan-btn-main i { margin-right: 6px; }
+    
+    .plan-note { font-size: .65rem; color: #888; margin-top: 8px; }
     
     .comparison-table { overflow-x: auto; margin-top: 20px; }
     table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 16px; overflow: hidden; }
@@ -339,7 +342,6 @@
       .nav-links, .cta-buttons { display: none; }
       .hero h1 { font-size: 1.5rem; }
       .section-title { font-size: 1.5rem; }
-      .pricing-card.popular { transform: scale(1); }
       .seo-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -405,10 +407,10 @@
           <li><i class="fas fa-check-circle"></i> 24/7 Customer Support</li>
           <li><i class="fas fa-check-circle"></i> Free EPG Guide</li>
         </ul>
-        <span class="pay-badge"><i class="fab fa-whatsapp"></i> Order via WhatsApp</span>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%201%20month%20plan%20at%20€17" target="_blank" class="plan-btn pay-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp — €17</a>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%201%20month%20plan%20at%20€17" target="_blank" class="choose-plan-btn"><i class="fas fa-check"></i> Choose Your Plan</a>
-        <a class="wa-alt" href="https://wa.me/212600160196?text=I%20want%20the%201%20month%20plan%20at%20€17" target="_blank"><i class="fab fa-whatsapp"></i> or click here to chat</a>
+        <a href="https://wa.me/212600160196?text=I%20want%20the%201%20month%20plan%20at%20%E2%82%AC17" target="_blank" rel="noopener" class="plan-btn-main">
+          <i class="fab fa-whatsapp"></i> Order Now — €17
+        </a>
+        <div class="plan-note">Instant activation via WhatsApp</div>
       </div>
       
       <!-- Quarterly Plan -->
@@ -426,10 +428,10 @@
           <li><i class="fas fa-check-circle"></i> 24/7 Priority Support</li>
           <li><i class="fas fa-check-circle"></i> Free EPG Guide</li>
         </ul>
-        <span class="pay-badge"><i class="fab fa-whatsapp"></i> Order via WhatsApp</span>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%203%20month%20plan%20at%20€34.99" target="_blank" class="plan-btn pay-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp — €34.99</a>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%203%20month%20plan%20at%20€34.99" target="_blank" class="choose-plan-btn"><i class="fas fa-check"></i> Choose Your Plan</a>
-        <a class="wa-alt" href="https://wa.me/212600160196?text=I%20want%20the%203%20month%20plan%20at%20€34.99" target="_blank"><i class="fab fa-whatsapp"></i> or click here to chat</a>
+        <a href="https://wa.me/212600160196?text=I%20want%20the%203%20month%20plan%20at%20%E2%82%AC34.99" target="_blank" rel="noopener" class="plan-btn-main">
+          <i class="fab fa-whatsapp"></i> Order Now — €34.99
+        </a>
+        <div class="plan-note">Instant activation via WhatsApp</div>
       </div>
       
       <!-- Semi-Annual Plan -->
@@ -447,10 +449,10 @@
           <li><i class="fas fa-check-circle"></i> VIP Priority Support</li>
           <li><i class="fas fa-check-circle"></i> Free EPG Guide</li>
         </ul>
-        <span class="pay-badge"><i class="fab fa-whatsapp"></i> Order via WhatsApp</span>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%206%20month%20plan%20at%20€55" target="_blank" class="plan-btn pay-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp — €55</a>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%206%20month%20plan%20at%20€55" target="_blank" class="choose-plan-btn"><i class="fas fa-check"></i> Choose Your Plan</a>
-        <a class="wa-alt" href="https://wa.me/212600160196?text=I%20want%20the%206%20month%20plan%20at%20€55" target="_blank"><i class="fab fa-whatsapp"></i> or click here to chat</a>
+        <a href="https://wa.me/212600160196?text=I%20want%20the%206%20month%20plan%20at%20%E2%82%AC55" target="_blank" rel="noopener" class="plan-btn-main">
+          <i class="fab fa-whatsapp"></i> Order Now — €55
+        </a>
+        <div class="plan-note">Instant activation via WhatsApp</div>
       </div>
       
       <!-- Annual Plan -->
@@ -468,10 +470,10 @@
           <li><i class="fas fa-check-circle"></i> VIP Platinum Support</li>
           <li><i class="fas fa-check-circle"></i> Free EPG Guide</li>
         </ul>
-        <span class="pay-badge"><i class="fab fa-whatsapp"></i> Order via WhatsApp</span>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%2012%20month%20plan%20at%20€90" target="_blank" class="plan-btn pay-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp — €90</a>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%2012%20month%20plan%20at%20€90" target="_blank" class="choose-plan-btn"><i class="fas fa-check"></i> Choose Your Plan</a>
-        <a class="wa-alt" href="https://wa.me/212600160196?text=I%20want%20the%2012%20month%20plan%20at%20€90" target="_blank"><i class="fab fa-whatsapp"></i> or click here to chat</a>
+        <a href="https://wa.me/212600160196?text=I%20want%20the%2012%20month%20plan%20at%20%E2%82%AC90" target="_blank" rel="noopener" class="plan-btn-main">
+          <i class="fab fa-whatsapp"></i> Order Now — €90
+        </a>
+        <div class="plan-note">Instant activation via WhatsApp</div>
       </div>
       
       <!-- 2-Year Plan -->
@@ -489,10 +491,10 @@
           <li><i class="fas fa-check-circle"></i> Lifetime VIP Support</li>
           <li><i class="fas fa-check-circle"></i> Free EPG Guide + Extra Features</li>
         </ul>
-        <span class="pay-badge"><i class="fab fa-whatsapp"></i> Order via WhatsApp</span>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%2024%20month%20plan%20at%20€149" target="_blank" class="plan-btn pay-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp — €149</a>
-        <a href="https://wa.me/212600160196?text=I%20want%20the%2024%20month%20plan%20at%20€149" target="_blank" class="choose-plan-btn"><i class="fas fa-check"></i> Choose Your Plan</a>
-        <a class="wa-alt" href="https://wa.me/212600160196?text=I%20want%20the%2024%20month%20plan%20at%20€149" target="_blank"><i class="fab fa-whatsapp"></i> or click here to chat</a>
+        <a href="https://wa.me/212600160196?text=I%20want%20the%2024%20month%20plan%20at%20%E2%82%AC149" target="_blank" rel="noopener" class="plan-btn-main">
+          <i class="fab fa-whatsapp"></i> Order Now — €149
+        </a>
+        <div class="plan-note">Instant activation via WhatsApp</div>
       </div>
     </div>
 
@@ -587,7 +589,7 @@
       </div>
     </div>
     
-    <!-- ★ 3 بطاقات للتقنية والخوادم والأجهزة كما كانت بالأصل ★ -->
+    <!-- ★ 3 بطاقات للتقنية والخوادم والأجهزة ★ -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
       <div style="background: #111; padding: 25px; border-radius: 16px; text-align: center;">
         <i class="fas fa-server" style="font-size: 2rem; color: #FFD700;"></i>
@@ -606,7 +608,7 @@
       </div>
     </div>
     
-    <!-- ★ الفقرات المكتوبة الطويلة Original Long-form SEO Content مع فقرة IPTV4Cheap الجديدة والدقيقة ★ -->
+    <!-- ★ الفقرات المكتوبة الطويلة Original Long-form SEO Content مع فقرة IPTV4Cheap ★ -->
     <div style="margin-top: 50px; background: rgba(255,215,0,0.05); padding: 35px; border-radius: 20px;">
       <h3 style="color: #FFD700; text-align: center; margin-bottom: 25px;">Why SolaraTV is a Trusted IPTV Service Provider in 2026</h3>
       <p style="color: #ccc; line-height: 1.8; margin-bottom: 15px;">SolaraTV has established itself as a <strong>reliable and stable IPTV service provider in 2026</strong>. Whether you need <strong>IPTV for UK Premier League</strong>, <strong>IPTV for USA NFL and NBA</strong>, <strong>IPTV for Australia AFL and NRL</strong>, or <strong>IPTV for Canada NHL and CFL</strong>, we have you covered with <strong>25,000+ live channels and 60,000+ movies and series</strong> in 4K Ultra HD quality.</p>
@@ -617,7 +619,7 @@
           <h4 style="color: #FFD700; margin-bottom: 5px;"><i class="fas fa-tags"></i> Looking for IPTV4Cheap Official Subscription?</h4>
           <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0;">Explore our official subscription packages designed for users searching for high-quality, dependable <strong>cheap iptv subscribe online</strong> options with zero compromise on 4K streaming.</p>
         </div>
-        <a href="iptv4cheap" class="plan-btn" style="width: auto; padding: 10px 24px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+        <a href="iptv4cheap" class="plan-btn" style="width: auto; padding: 10px 24px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: linear-gradient(135deg, #FFD700, #B8860B); color: #0A0A0A; border-radius: 30px; font-weight: bold; font-size: .8rem;">
           <i class="fas fa-arrow-right"></i> Explore IPTV4Cheap
         </a>
       </div>
@@ -627,7 +629,7 @@
     </div>
     
     <div style="text-align: center; margin-top: 40px;">
-      <a href="https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SolaraTV" target="_blank" class="hero-btn" style="background: linear-gradient(135deg, #FFD700, #B8860B); padding: 14px 36px; font-size: 1rem; border-radius: 50px; border: none; color: #0A0A0A; font-weight: bold; cursor: pointer; display:inline-block; text-decoration:none;">🚀 Start Your Free Trial</a>
+      <a href="https://wa.me/212600160196?text=I%20want%20a%20free%20trial%20from%20SolaraTV" target="_blank" rel="noopener" class="hero-btn" style="background: linear-gradient(135deg, #FFD700, #B8860B); padding: 14px 36px; font-size: 1rem; border-radius: 50px; border: none; color: #0A0A0A; font-weight: bold; cursor: pointer; display:inline-block; text-decoration:none;">🚀 Start Your Free Trial</a>
     </div>
   </div>
 </section>
@@ -670,7 +672,7 @@
       <span>🇲🇦 Morocco</span>
     </div>
     
-    <a href="https://wa.me/212600160196" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/212600160196" class="whatsapp-float" rel="noopener"><i class="fab fa-whatsapp"></i></a>
   </div>
 </footer>
 
@@ -679,28 +681,6 @@
   .hero-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,215,0,.5); animation: none; }
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,215,0,.4); } 70% { box-shadow: 0 0 0 15px rgba(255,215,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
 </style>
-
-<!-- 3D Interactive Card Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.pricing-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  });
-</script>
 
 </body>
 </html>

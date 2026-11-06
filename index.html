@@ -20,7 +20,6 @@
   <link rel="me" href="mailto:contact@solaratv.tv">
   <meta name="author" content="SolaraTV">
   <meta property="og:site_name" content="SolaraTV">
-  <meta name="twitter:site" content="@solaratv9">
   
   <!-- ✅ Favicon (Branding) -->
   <link rel="icon" href="https://www.solaratv.tv/favicon.ico" type="image/x-icon">
@@ -54,17 +53,12 @@
         "contactType": "Sales"
       }
     },
-    "areaServed": ["US", "GB", "AU", "CA", "DE", "FR", "IT", "NL", "BE", "CH", "SE", "AE", "SA", "QA", "KW", "OM", "BH", "EG", "MA"],
+    "areaServed": ["US", "GB", "AU", "CA", "DE", "FR", "IT", "NL", "BE", "CH", "SE", "AE", "SA", "QA", "KW", "OM", "BH", "EG"],
     "offers": {
       "@type": "Offer",
       "description": "IPTV Streaming Service",
       "priceCurrency": "EUR",
-      "priceValidUntil": "2026-12-31",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "applicableCountry": "MA",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
-      }
+      "priceValidUntil": "2026-12-31"
     }
   }
   </script>
@@ -97,42 +91,6 @@
       "target": "https://www.solaratv.tv/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
-  }
-  </script>
-
-  <!-- ✅ LocalBusiness Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "SolaraTV",
-    "image": "https://www.solaratv.tv/images/solara-tv-logo.jpg",
-    "@id": "https://www.solaratv.tv",
-    "url": "https://www.solaratv.tv",
-    "telephone": "+212600160196",
-    "priceRange": "€€",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6 Av. Moulay Ismail",
-      "addressLocality": "Rabat",
-      "addressCountry": "MA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 34.0209,
-      "longitude": -6.8416
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://www.instagram.com/solaratv.tv",
-      "https://x.com/solaratv9",
-      "https://www.facebook.com/solaratv"
-    ]
   }
   </script>
 
@@ -503,7 +461,7 @@
     }
     .copyright-verify .official-link:hover { text-decoration: underline; }
 
-    /* ===== SOCIAL FLOAT ===== */
+    /* ===== SOCIAL FLOAT (WhatsApp only) ===== */
     .social-float {
       position: fixed;
       bottom: 20px;
@@ -530,17 +488,6 @@
       background: #25D366;
       color: white;
       font-size: 1.8rem;
-    }
-    .social-float a.instagram-btn {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-      border: 2px solid rgba(255,255,255,0.2);
-    }
-    .social-float a.instagram-btn img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 0 4px rgba(0,0,0,0.3));
     }
     .social-float a:hover {
       transform: scale(1.08);
@@ -589,7 +536,6 @@
       .section-title { font-size: 1.2rem; }
       .official-info .info-wrap { flex-direction: column; gap: 12px; }
       .social-float a { width: 46px; height: 46px; }
-      .social-float a.instagram-btn img { width: 28px; height: 28px; }
       .social-float a.whatsapp-btn { font-size: 1.5rem; }
       .official-badge { font-size: 0.45rem; padding: 2px 8px; }
       .slider-movie { width: 140px; }
@@ -1068,7 +1014,6 @@
 <div class="official-info">
   <div class="container">
     <div class="info-wrap">
-      <div><i class="fas fa-map-pin"></i> 6 Av. Moulay Ismail, Rabat, Morocco</div>
       <div><i class="fas fa-phone-alt"></i> <a href="tel:+212600160196">+212 600 160 196</a></div>
       <div><i class="fas fa-envelope"></i> <a href="mailto:contact@solaratv.tv">contact@solaratv.tv</a></div>
     </div>
@@ -1089,28 +1034,12 @@
       <span class="verify-badge"><i class="fas fa-check-circle"></i> Official Verified Site</span>
       <span>|</span>
       <a href="https://www.solaratv.tv" class="official-link">www.solaratv.tv</a>
-      <span>|</span>
-    
     </div>
   </div>
 </footer>
 
-<!-- ===== SOCIAL FLOAT ===== -->
+<!-- ===== SOCIAL FLOAT (WhatsApp only) ===== -->
 <div class="social-float">
-  <a href="https://www.facebook.com/solaratv" target="_blank" class="facebook-btn" aria-label="Follow SolaraTV on Facebook" style="background:#1877F2; color:white; font-size:1.8rem;">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  
-  <a href="https://x.com/solaratv9" target="_blank" class="twitter-btn" aria-label="Follow SolaraTV on X (Twitter)" style="background:#000; border:1px solid #333; display:flex; align-items:center; justify-content:center;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-    </svg>
-  </a>
-  
-  <a href="https://www.instagram.com/solaratv.tv?utm_source=qr&igsh=NnVjeWhlZXA4enl3" target="_blank" class="instagram-btn" aria-label="Follow SolaraTV on Instagram">
-    <img src="https://i.ibb.co/s9zX17cJ/Instagram-logo-2022-svg.png" alt="Instagram logo" />
-  </a>
-  
   <a href="https://wa.me/212600160196" target="_blank" class="whatsapp-btn" aria-label="Contact SolaraTV on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>

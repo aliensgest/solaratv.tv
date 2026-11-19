@@ -185,11 +185,66 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
 
-    /* ===== HERO ===== */
+    /* ===== HERO & NEW MAIN GRID ===== */
     .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
-    .hero h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.3; word-break: break-word; }
-    .hero h1 span { background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { font-size: 1rem; max-width: 750px; margin: 0 auto 20px; color: #e0e0e0; }
+    
+    /* تصميم الشبكة الجديدة */
+    .main-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      padding: 0 15px;
+      text-align: right; /* لضمان محاذاة النص العربي بشكل صحيح */
+    }
+
+    @media (max-width: 768px) {
+      .main-menu-grid { grid-template-columns: 1fr; }
+    }
+
+    .main-menu-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .main-menu-card:hover {
+      border-color: var(--accent-gold);
+      background-color: #1a1a1a;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255,215,0,0.1);
+    }
+
+    .main-menu-card .icon {
+      font-size: 24px;
+      margin-left: 15px;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .main-menu-card .content h2 {
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .main-menu-card .content p {
+      font-size: 12px;
+      color: #aaa;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* باقي الأقسام */
     .trustscore-badge { display: inline-block; background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 8px 20px; border-radius: 50px; border: 1px solid var(--accent-gold); margin-bottom: 20px; }
     .stats-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 25px 0; }
     .stat-item { text-align: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding: 10px 22px; border-radius: 16px; border: 1px solid var(--accent-gold); }
@@ -239,11 +294,7 @@
       text-align: center;
     }
     .warning-box strong { color: #ff4444; }
-    .warning-box .site-link {
-      color: #00C853;
-      font-weight: 700;
-      text-decoration: underline;
-    }
+    .warning-box .site-link { color: #00C853; font-weight: 700; text-decoration: underline; }
     .warning-box .site-link:hover { color: #FFD700; }
     .warning-box a { color: var(--accent-gold); text-decoration: underline; }
 
@@ -280,13 +331,7 @@
       50% { opacity: 1; transform: scale(1.05); filter: brightness(1.2); }
       100% { opacity: 0.6; transform: scale(0.95); filter: brightness(0.8); }
     }
-    .slider-poster {
-      height: 280px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      animation: movieGlow 2.5s ease-in-out infinite;
-    }
+    .slider-poster { height: 280px; background-size: cover; background-position: center; position: relative; animation: movieGlow 2.5s ease-in-out infinite; }
     .slider-poster:hover { animation: none; opacity: 1; transform: scale(1); filter: brightness(1); }
     
     .slider-movie:nth-child(1) .slider-poster { animation-delay: 0s; }
@@ -310,80 +355,16 @@
     .slider-info { display: none; }
 
     /* ===== CHANNEL LOGOS ===== */
-    .channel-logos-home-section {
-      padding: 40px 0;
-      background: linear-gradient(135deg, #0A0A0A, #0D0D0D);
-      border-radius: 20px;
-      margin: 30px 0;
-      overflow: hidden;
-      border: 1px solid rgba(255,215,0,0.1);
-    }
-    
-    .channel-seo-header {
-      text-align: center;
-      padding: 0 20px 25px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .channel-seo-header h2 {
-      color: var(--accent-gold);
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    
-    .channel-seo-header p {
-      color: #bbb;
-      font-size: 0.85rem;
-      line-height: 1.8;
-    }
-    
-    .channel-seo-header strong {
-      color: var(--accent-gold);
-    }
-    
-    .channel-logos-home-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 10px;
-    }
-    
-    .channel-logo-home-item {
-      background: linear-gradient(135deg, #111, #1a1a1a);
-      border: 1px solid rgba(255,215,0,0.15);
-      border-radius: 12px;
-      padding: 8px 12px;
-      transition: all 0.3s;
-      cursor: default;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      height: 60px;
-      overflow: hidden;
-    }
-    
-    .channel-logo-home-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: brightness(0.85);
-      transition: filter 0.3s;
-    }
-    
-    .channel-logo-home-item:hover {
-      transform: translateY(-3px) scale(1.05);
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 25px rgba(255,215,0,0.15);
-    }
-    
-    .channel-logo-home-item:hover img {
-      filter: brightness(1.2);
-    }
+    .channel-logos-home-section { padding: 40px 0; background: linear-gradient(135deg, #0A0A0A, #0D0D0D); border-radius: 20px; margin: 30px 0; overflow: hidden; border: 1px solid rgba(255,215,0,0.1); }
+    .channel-seo-header { text-align: center; padding: 0 20px 25px; max-width: 900px; margin: 0 auto; }
+    .channel-seo-header h2 { color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
+    .channel-seo-header p { color: #bbb; font-size: 0.85rem; line-height: 1.8; }
+    .channel-seo-header strong { color: var(--accent-gold); }
+    .channel-logos-home-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 10px; }
+    .channel-logo-home-item { background: linear-gradient(135deg, #111, #1a1a1a); border: 1px solid rgba(255,215,0,0.15); border-radius: 12px; padding: 8px 12px; transition: all 0.3s; cursor: default; display: flex; align-items: center; justify-content: center; width: 100px; height: 60px; overflow: hidden; }
+    .channel-logo-home-item img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0.85); transition: filter 0.3s; }
+    .channel-logo-home-item:hover { transform: translateY(-3px) scale(1.05); border-color: var(--accent-gold); box-shadow: 0 0 25px rgba(255,215,0,0.15); }
+    .channel-logo-home-item:hover img { filter: brightness(1.2); }
 
     /* ===== PRICING ===== */
     .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -433,100 +414,30 @@
     .footer-links a:hover { color: var(--accent-gold); }
     .payment-methods i { font-size: 1.5rem; margin: 0 10px; color: #666; }
 
-    .copyright-verify {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      padding: 10px 0;
-      font-size: 0.7rem;
-      color: #666;
-      border-top: 1px solid rgba(255,215,0,0.1);
-      margin-top: 15px;
-    }
-    .copyright-verify .verify-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: #00C853;
-      font-weight: 600;
-    }
+    .copyright-verify { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; padding: 10px 0; font-size: 0.7rem; color: #666; border-top: 1px solid rgba(255,215,0,0.1); margin-top: 15px; }
+    .copyright-verify .verify-badge { display: inline-flex; align-items: center; gap: 5px; color: #00C853; font-weight: 600; }
     .copyright-verify .verify-badge i { color: #00C853; }
-    .copyright-verify .official-link {
-      color: #FFD700;
-      text-decoration: none;
-      font-weight: 600;
-    }
+    .copyright-verify .official-link { color: #FFD700; text-decoration: none; font-weight: 600; }
     .copyright-verify .official-link:hover { text-decoration: underline; }
 
-    /* ===== SOCIAL FLOAT (WhatsApp only) ===== */
-    .social-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      z-index: 999;
-    }
-    .social-float a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: all 0.2s;
-      text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.15);
-    }
-    .social-float a.whatsapp-btn {
-      background: #25D366;
-      color: white;
-      font-size: 1.8rem;
-    }
-    .social-float a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255,215,0,0.2);
-    }
+    /* ===== SOCIAL FLOAT ===== */
+    .social-float { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; z-index: 999; }
+    .social-float a { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: all 0.2s; text-decoration: none; border: 2px solid rgba(255,255,255,0.15); }
+    .social-float a.whatsapp-btn { background: #25D366; color: white; font-size: 1.8rem; }
+    .social-float a:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(255,215,0,0.2); }
 
     /* ===== OFFICIAL INFO ===== */
-    .official-info {
-      background: #0d0d0d;
-      border-top: 1px solid #222;
-      padding: 20px 0;
-      text-align: left;
-    }
-    .official-info .info-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 30px 50px;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-    .official-info .info-wrap i {
-      color: var(--accent-gold);
-      width: 22px;
-      margin-right: 8px;
-    }
-    .official-info .info-wrap a {
-      color: #FFD700;
-      text-decoration: none;
-    }
-    .official-info .info-wrap a:hover {
-      text-decoration: underline;
-    }
+    .official-info { background: #0d0d0d; border-top: 1px solid #222; padding: 20px 0; text-align: left; }
+    .official-info .info-wrap { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 30px 50px; font-size: 0.9rem; color: #ccc; }
+    .official-info .info-wrap i { color: var(--accent-gold); width: 22px; margin-right: 8px; }
+    .official-info .info-wrap a { color: #FFD700; text-decoration: none; }
+    .official-info .info-wrap a:hover { text-decoration: underline; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .cta-buttons { display: none; }
       .hamburger { display: flex; }
-      .hero h1 { font-size: 1.3rem; }
       .region-seo-grid { grid-template-columns: 1fr; }
       .container { padding: 0 15px; }
       .region-card-link { padding: 15px 25px; }
@@ -606,12 +517,113 @@
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO & MAIN MENU (تم دمج التصميم الجديد هنا) ===== -->
 <section class="hero">
   <div class="container hero-content">
     <div class="trustscore-badge"><i class="fas fa-certificate"></i> 1# rated Best IPTV Service in 2026: Top Providers Tested &amp; Ranked</div>
-    <h1>Best IPTV Service Provider 2026 | <span>UK, Europe, AUSTRALIA, USA, CANADA, GCC</span></h1>
-    <p>Watch Premier League (UK), NFL &amp; NBA (USA), AFL &amp; NRL (Australia), beIN Sports (GCC), and all your favorite sports in stunning Ultra HD quality. 25,000+ live channels, zero buffering.</p>
+    <h1 style="margin-bottom: 30px;">Best IPTV Service Provider 2026 | <span>UK, Europe, AUSTRALIA, USA, CANADA, GCC</span></h1>
+    
+    <!-- القائمة الجديدة القوية (التي طلبتها) -->
+    <div class="main-menu-grid">
+      <!-- 1. الأفلام -->
+      <a href="/movies" class="main-menu-card">
+        <span class="icon">🎬</span>
+        <div class="content">
+          <h2>أحدث الأفلام</h2>
+          <p>مكتبة ضخمة من أفلام هوليوود والعربية بجودة 4K</p>
+        </div>
+      </a>
+      <!-- 2. القنوات -->
+      <a href="/channels" class="main-menu-card">
+        <span class="icon">📺</span>
+        <div class="content">
+          <h2>البث المباشر</h2>
+          <p>آلاف القنوات الرياضية، الإخبارية، والترفيهية</p>
+        </div>
+      </a>
+      <!-- 3. الأسعار -->
+      <a href="/pricing" class="main-menu-card">
+        <span class="icon">💰</span>
+        <div class="content">
+          <h2>باقات الاشتراك</h2>
+          <p>أسعار تنافسية تبدأ من 10$ سنوياً</p>
+        </div>
+      </a>
+      <!-- 4. الموزعين -->
+      <a href="/reseller" class="main-menu-card">
+        <span class="icon">⚡</span>
+        <div class="content">
+          <h2>كن موزعاً</h2>
+          <p>نظام لوحة تحكم كامل لإنشاء أعمالك الخاصة</p>
+        </div>
+      </a>
+      <!-- 5. المدونة -->
+      <a href="/blog" class="main-menu-card">
+        <span class="icon">📝</span>
+        <div class="content">
+          <h2>المدونة والأخبار</h2>
+          <p>أحدث المقالات والنصائح حول عالم IPTV</p>
+        </div>
+      </a>
+      <!-- 6. الأسئلة الشائعة -->
+      <a href="/faq" class="main-menu-card">
+        <span class="icon">❓</span>
+        <div class="content">
+          <h2>الأسئلة الشائعة</h2>
+          <p>إجابات فورية على استفساراتكم حول الخدمة</p>
+        </div>
+      </a>
+      <!-- 7. اتصل بنا -->
+      <a href="/contact" class="main-menu-card">
+        <span class="icon">📞</span>
+        <div class="content">
+          <h2>اتصل بنا</h2>
+          <p>دعم فني على مدار الساعة 24/7 لمساعدتك</p>
+        </div>
+      </a>
+      <!-- 8. من نحن -->
+      <a href="/about" class="main-menu-card">
+        <span class="icon">ℹ️</span>
+        <div class="content">
+          <h2>من نحن</h2>
+          <p>تعرف على قصة SolaraTV ورؤيتنا للمستقبل</p>
+        </div>
+      </a>
+      <!-- 9. الأجهزة -->
+      <a href="/devices" class="main-menu-card">
+        <span class="icon">📱</span>
+        <div class="content">
+          <h2>الأجهزة المدعومة</h2>
+          <p>دليل الإعداد لأجهزة Firestick، Smart TV وغيرها</p>
+        </div>
+      </a>
+      <!-- 10. العروض -->
+      <a href="/offers" class="main-menu-card">
+        <span class="icon">🎁</span>
+        <div class="content">
+          <h2>عروض خاصة</h2>
+          <p>خصومات حصرية وباقات توفيرية لفترة محدودة</p>
+        </div>
+      </a>
+      <!-- 11. الشروط والأحكام -->
+      <a href="/terms" class="main-menu-card">
+        <span class="icon">📜</span>
+        <div class="content">
+          <h2>الشروط والأحكام</h2>
+          <p>سياسة الاستخدام وشروط الخدمة الرسمية</p>
+        </div>
+      </a>
+      <!-- 12. الخصوصية -->
+      <a href="/privacy" class="main-menu-card">
+        <span class="icon">🔒</span>
+        <div class="content">
+          <h2>سياسة الخصوصية</h2>
+          <p>كيف نحمي بياناتك ونحافظ على خصوصيتك</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- الإحصائيات والأزرار القديمة -->
     <div class="stats-row">
       <div class="stat-item"><div class="stat-number">25,000+</div><div class="stat-label">Live Channels</div></div>
       <div class="stat-item"><div class="stat-number">60,000+</div><div class="stat-label">Movies &amp; Series</div></div>
@@ -620,7 +632,7 @@
     </div>
     <button class="hero-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">🚀 Start Your Free Trial</button>
 
-    <div class="official-banner">
+    <div class="official-banner" style="margin-top: 30px;">
       <i class="fas fa-shield-alt"></i>
       <a href="https://www.solaratv.tv" class="big-badge">✓ Official SolaraTV Site</a>
       <span>The only official website is <strong>www.solaratv.tv</strong></span>
@@ -635,6 +647,8 @@
     </div>
   </div>
 </section>
+
+<!-- ===== باقي الأقسام كما هي (المناطق، الأفلام، القنوات، الأسعار، الموزعين، الفوتر) ===== -->
 
 <!-- ===== REGION QUICK LINKS ===== -->
 <div class="container">
@@ -659,7 +673,6 @@
       <div class="region-info"><h3>Best Germany IPTV</h3><p>Bundesliga, DFB-Pokal, DAZN, Sky Sport</p></div>
       <i class="fas fa-arrow-right"></i>
     </a>
-    <!-- ✅ السويد -->
     <a href="/sweden-best-iptv" class="region-card-link">
       <span class="flag-icon">🇸🇪</span>
       <div class="region-info"><h3>Best Sweden IPTV</h3><p>Allsvenskan, Svenska Cupen, Viaplay, TV4, SVT</p></div>
@@ -904,11 +917,7 @@
       <div class="region-seo-card"><i class="fas fa-futbol"></i><h3>🇫🇷 France - Ligue 1</h3><p>Ligue 1 on Canal+, beIN Sports France. All PSG, OM, OL matches in 4K. Top 14 Rugby, Roland Garros included.</p><ul><li>All Ligue 1 teams - PSG, Marseille, Lyon, Monaco, Lille, Nice</li><li>French TV channels - TF1, France 2, M6, Canal+</li><li>Trusted by 5,000+ French subscribers</li></ul></div>
       <div class="region-seo-card"><i class="fas fa-futbol"></i><h3>🇮🇹 Italy - Serie A</h3><p>Serie A on DAZN Italy, Sky Italia. All Juventus, Inter, Milan, Roma matches in 4K. Coppa Italia included.</p><ul><li>All Serie A teams</li><li>Italian TV channels - RAI, Mediaset, LA7, Sky Italia</li><li>Italian language support included</li></ul></div>
       <div class="region-seo-card"><i class="fas fa-futbol"></i><h3>🇳🇱 Netherlands &amp; Belgium - Eredivisie</h3><p>Eredivisie on ESPN Netherlands. All Ajax, PSV, Feyenoord matches. Belgian Pro League on Eleven Sports.</p><ul><li>Dutch TV channels - NPO, RTL, SBS6, Veronica</li><li>Belgian TV channels - VRT, RTBF, VTM, RTL TVI</li><li>Best IPTV for Benelux countries</li></ul></div>
-      
-      <!-- ✅ Sweden SEO Card Added Here -->
       <div class="region-seo-card"><i class="fas fa-futbol"></i><h3>🇸🇪 Sweden - Allsvenskan &amp; Svenska Cupen</h3><p>Allsvenskan live on Viaplay, TV4, SVT. All 240 matches per season. Svenska Cupen and Champions League included.</p><ul><li>All Allsvenskan teams - Malmö FF, AIK, Djurgården, Hammarby, IFK Göteborg</li><li>Swedish TV channels - SVT1, SVT2, TV3, Kanal 5</li><li>Optimized Stockholm servers for zero buffering in Scandinavia</li></ul></div>
-      <!-- ------------------------------------- -->
-
     </div>
     <div class="region-banner">
       <p><i class="fas fa-server"></i> Optimized European Servers: London • Frankfurt • Paris • Amsterdam • Madrid • Milan • Stockholm • Vienna</p>

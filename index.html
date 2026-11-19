@@ -185,66 +185,11 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent-gold), #B8860B); color: #0A0A0A; font-weight: bold; }
     .btn-whatsapp { background: #25D366; color: white; }
 
-    /* ===== HERO & NEW MAIN GRID ===== */
+    /* ===== HERO ===== */
     .hero { text-align: center; background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920') center/cover; padding: 50px 0 45px; width: 100%; }
-    
-    /* تصميم الشبكة الجديدة للغة الإنجليزية */
-    .main-menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 15px;
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      padding: 0 15px;
-      text-align: left;
-    }
-
-    @media (max-width: 768px) {
-      .main-menu-grid { grid-template-columns: 1fr; }
-    }
-
-    .main-menu-card {
-      background-color: #111;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-
-    .main-menu-card:hover {
-      border-color: var(--accent-gold);
-      background-color: #1a1a1a;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255,215,0,0.1);
-    }
-
-    .main-menu-card .icon {
-      font-size: 24px;
-      margin-right: 15px;
-      width: 40px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .main-menu-card .content h2 {
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: var(--accent-gold);
-      font-weight: 700;
-    }
-
-    .main-menu-card .content p {
-      font-size: 12px;
-      color: #aaa;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* باقي الأقسام */
+    .hero h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.3; word-break: break-word; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent-gold), #FFA500); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { font-size: 1rem; max-width: 750px; margin: 0 auto 20px; color: #e0e0e0; }
     .trustscore-badge { display: inline-block; background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 8px 20px; border-radius: 50px; border: 1px solid var(--accent-gold); margin-bottom: 20px; }
     .stats-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 25px 0; }
     .stat-item { text-align: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding: 10px 22px; border-radius: 16px; border: 1px solid var(--accent-gold); }
@@ -297,6 +242,94 @@
     .warning-box .site-link { color: #00C853; font-weight: 700; text-decoration: underline; }
     .warning-box .site-link:hover { color: #FFD700; }
     .warning-box a { color: var(--accent-gold); text-decoration: underline; }
+
+    /* ===== NEW MIDDLE SECTION (SEO CARDS WITH PRICING) ===== */
+    .middle-seo-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #0A0A0A, #050505);
+      border-top: 1px solid rgba(255,215,0,0.2);
+      border-bottom: 1px solid rgba(255,215,0,0.2);
+    }
+    
+    .seo-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .seo-card {
+      background: #111111;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .seo-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255,215,0,0.1);
+      background: #1a1a1a;
+    }
+
+    .seo-card .card-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--accent-gold);
+    }
+
+    .seo-card h3 {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .seo-card p {
+      color: #bbb;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .seo-card .price-tag {
+      display: inline-block;
+      background: rgba(255,215,0,0.1);
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      align-self: flex-start;
+    }
+
+    .seo-card .seo-link {
+      display: inline-block;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.2s;
+      margin-top: auto;
+    }
+
+    .seo-card .seo-link:hover {
+      transform: scale(1.02);
+    }
 
     /* ===== REGION QUICK LINKS ===== */
     .region-quick-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 30px 0 20px; }
@@ -453,6 +486,8 @@
       .channel-logo-home-item { width: 70px; height: 45px; }
       .channel-seo-header h2 { font-size: 1rem; }
       .channel-seo-header p { font-size: 0.75rem; }
+      .hero h1 { font-size: 1.3rem; }
+      .seo-cards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -517,126 +552,12 @@
   </div>
 </nav>
 
-<!-- ===== HERO & MAIN MENU (English SEO Content) ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container hero-content">
     <div class="trustscore-badge"><i class="fas fa-certificate"></i> 1# rated Best IPTV Service in 2026: Top Providers Tested &amp; Ranked</div>
-    <h1 style="margin-bottom: 30px;">Best IPTV Service Provider 2026 | <span>UK, Europe, AUSTRALIA, USA, CANADA, GCC</span></h1>
-    
-    <!-- القائمة الجديدة مع محتوى SEO إنجليزي -->
-    <div class="main-menu-grid">
-      
-      <!-- 1. Movies -->
-      <a href="/movies" class="main-menu-card">
-        <span class="icon">🎬</span>
-        <div class="content">
-          <h2>Latest Movies & VOD Library</h2>
-          <p>Stream thousands of 4K Hollywood blockbusters, Arabic classics, and exclusive series on demand with zero buffering.</p>
-        </div>
-      </a>
-
-      <!-- 2. Channels -->
-      <a href="/channels" class="main-menu-card">
-        <span class="icon">📺</span>
-        <div class="content">
-          <h2>Live TV Channels & Sports</h2>
-          <p>Access 25,000+ premium live channels including beIN SPORTS, Sky Sports, ESPN, and global networks in Ultra HD.</p>
-        </div>
-      </a>
-
-      <!-- 3. Pricing -->
-      <a href="/pricing" class="main-menu-card">
-        <span class="icon">💰</span>
-        <div class="content">
-          <h2>IPTV Subscription Plans</h2>
-          <p>Choose affordable plans starting from €17/month. Enjoy full access to our premium servers and VIP support.</p>
-        </div>
-      </a>
-
-      <!-- 4. Reseller -->
-      <a href="/reseller" class="main-menu-card">
-        <span class="icon">⚡</span>
-        <div class="content">
-          <h2>Become an IPTV Reseller</h2>
-          <p>Get a white-label IPTV dashboard, instant credits, and high profit margins to start your own streaming business.</p>
-        </div>
-      </a>
-
-      <!-- 5. Blog -->
-      <a href="/blog" class="main-menu-card">
-        <span class="icon">📝</span>
-        <div class="content">
-          <h2>IPTV Blog & Streaming Guides</h2>
-          <p>Read the latest tutorials, device setup guides, and industry news to optimize your IPTV viewing experience.</p>
-        </div>
-      </a>
-
-      <!-- 6. FAQ -->
-      <a href="/faq" class="main-menu-card">
-        <span class="icon">❓</span>
-        <div class="content">
-          <h2>Frequently Asked Questions</h2>
-          <p>Find instant answers about IPTV setup, billing, supported devices, and how to fix common streaming issues.</p>
-        </div>
-      </a>
-
-      <!-- 7. Contact -->
-      <a href="/contact" class="main-menu-card">
-        <span class="icon">📞</span>
-        <div class="content">
-          <h2>24/7 Customer Support</h2>
-          <p>Our dedicated support team is available around the clock via WhatsApp and email to assist you anytime.</p>
-        </div>
-      </a>
-
-      <!-- 8. About -->
-      <a href="/about" class="main-menu-card">
-        <span class="icon">ℹ️</span>
-        <div class="content">
-          <h2>About SolaraTV</h2>
-          <p>Discover the story behind the #1 rated IPTV service provider and our mission to deliver buffer-free streaming worldwide.</p>
-        </div>
-      </a>
-
-      <!-- 9. Devices -->
-      <a href="/devices" class="main-menu-card">
-        <span class="icon">📱</span>
-        <div class="content">
-          <h2>Supported Devices & Setup</h2>
-          <p>Learn how to install SolaraTV on Firestick, Smart TVs, Roku, MAG boxes, and iOS/Android devices effortlessly.</p>
-        </div>
-      </a>
-
-      <!-- 10. Offers -->
-      <a href="/offers" class="main-menu-card">
-        <span class="icon">🎁</span>
-        <div class="content">
-          <h2>Special Offers & Discounts</h2>
-          <p>Grab exclusive limited-time promotions, seasonal discounts, and the best value IPTV bundles available now.</p>
-        </div>
-      </a>
-
-      <!-- 11. Terms -->
-      <a href="/terms" class="main-menu-card">
-        <span class="icon">📜</span>
-        <div class="content">
-          <h2>Terms & Conditions</h2>
-          <p>Read the official terms of service, usage policies, and legal agreements for using the SolaraTV platform.</p>
-        </div>
-      </a>
-
-      <!-- 12. Privacy -->
-      <a href="/privacy" class="main-menu-card">
-        <span class="icon">🔒</span>
-        <div class="content">
-          <h2>Privacy Policy</h2>
-          <p>Understand how SolaraTV protects your data, ensures user privacy, and maintains a secure streaming environment.</p>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- الإحصائيات والأزرار القديمة -->
+    <h1>Best IPTV Service Provider 2026 | <span>UK, Europe, AUSTRALIA, USA, CANADA, GCC</span></h1>
+    <p>Watch Premier League (UK), NFL &amp; NBA (USA), AFL &amp; NRL (Australia), beIN Sports (GCC), and all your favorite sports in stunning Ultra HD quality. 25,000+ live channels, zero buffering.</p>
     <div class="stats-row">
       <div class="stat-item"><div class="stat-number">25,000+</div><div class="stat-label">Live Channels</div></div>
       <div class="stat-item"><div class="stat-number">60,000+</div><div class="stat-label">Movies &amp; Series</div></div>
@@ -645,7 +566,7 @@
     </div>
     <button class="hero-btn" onclick="window.open('https://wa.me/212600160196?text=I%20want%20a%20free%20trial','_blank')">🚀 Start Your Free Trial</button>
 
-    <div class="official-banner" style="margin-top: 30px;">
+    <div class="official-banner">
       <i class="fas fa-shield-alt"></i>
       <a href="https://www.solaratv.tv" class="big-badge">✓ Official SolaraTV Site</a>
       <span>The only official website is <strong>www.solaratv.tv</strong></span>
@@ -661,7 +582,127 @@
   </div>
 </section>
 
-<!-- ===== باقي الأقسام كما هي (المناطق، الأفلام، القنوات، الأسعار، الموزعين، الفوتر) ===== -->
+<!-- ===== MIDDLE SEO SECTION (Centralized SEO Cards with Pricing) ===== -->
+<section class="middle-seo-section">
+  <div class="container">
+    <h2 class="section-title" style="color:#FFD700; text-align:center;">Explore SolaraTV Premium Services & Pricing</h2>
+    <p class="section-desc" style="text-align:center; margin-bottom:30px; color:#ccc;">Discover the best IPTV solutions tailored for your needs. From movies and live channels to reseller programs and device setups, find everything you need to start streaming in 4K.</p>
+    
+    <div class="seo-cards-grid">
+      
+      <!-- 1. Movies -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-film"></i></div>
+        <h3>Best IPTV Movies & VOD Library 2026</h3>
+        <p>Access over 60,000 movies and series on demand in 4K Ultra HD. Watch the latest Hollywood blockbusters, Arabic classics, and exclusive originals with zero buffering and instant streaming.</p>
+        <div class="price-tag">Included in all plans</div>
+        <a href="/movies" class="seo-link">Explore Movies</a>
+      </div>
+
+      <!-- 2. Channels -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-tv"></i></div>
+        <h3>Best IPTV Live Channels & Sports 2026</h3>
+        <p>Stream 25,000+ live channels including beIN SPORTS, Sky Sports, ESPN, and global networks. Watch Premier League, NFL, NBA, and AFL in Ultra HD with anti-freeze technology.</p>
+        <div class="price-tag">Included in all plans</div>
+        <a href="/channels" class="seo-link">Explore Channels</a>
+      </div>
+
+      <!-- 3. Pricing -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-tags"></i></div>
+        <h3>Best IPTV Pricing & Subscription Plans 2026</h3>
+        <p>Choose from flexible and affordable IPTV plans starting at just <strong>€17/month</strong>. Enjoy full access to our premium servers with VIP support and zero hidden fees.</p>
+        <div class="price-tag">Starts at €17/month</div>
+        <a href="/pricing" class="seo-link">View Pricing</a>
+      </div>
+
+      <!-- 4. Reseller -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Best IPTV Reseller Program 2026</h3>
+        <p>Start your own IPTV business with our white-label reseller panel. Get instant credits starting from <strong>€135</strong>, high profit margins, and 24/7 dedicated support.</p>
+        <div class="price-tag">Starts at €135</div>
+        <a href="/reseller" class="seo-link">Become a Reseller</a>
+      </div>
+
+      <!-- 5. Devices -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Best IPTV Devices & Setup Guides 2026</h3>
+        <p>Learn how to set up SolaraTV on Firestick, Smart TVs, Roku, MAG boxes, and iOS/Android. Step-by-step guides ensure a smooth and fast installation process.</p>
+        <div class="price-tag">Free Setup Guide</div>
+        <a href="/devices" class="seo-link">View Devices</a>
+      </div>
+
+      <!-- 6. Offers -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-gift"></i></div>
+        <h3>Best IPTV Offers & Discounts 2026</h3>
+        <p>Take advantage of our limited-time offers and seasonal discounts. Get the best value IPTV bundles and save up to <strong>63%</strong> on long-term subscriptions.</p>
+        <div class="price-tag">Save up to 63%</div>
+        <a href="/offers" class="seo-link">View Offers</a>
+      </div>
+
+      <!-- 7. FAQ -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-question-circle"></i></div>
+        <h3>IPTV Frequently Asked Questions 2026</h3>
+        <p>Find instant answers about IPTV setup, billing, supported devices, and how to fix common streaming issues. Our FAQ covers everything you need to know.</p>
+        <div class="price-tag">Help Center</div>
+        <a href="/faq" class="seo-link">Read FAQ</a>
+      </div>
+
+      <!-- 8. Contact -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-headset"></i></div>
+        <h3>24/7 IPTV Customer Support</h3>
+        <p>Our dedicated support team is available around the clock via WhatsApp and email. Get instant help with your subscription, setup, or any technical issues.</p>
+        <div class="price-tag">24/7 Support</div>
+        <a href="/contact" class="seo-link">Contact Us</a>
+      </div>
+
+      <!-- 9. Blog -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+        <h3>IPTV Blog & Streaming Guides 2026</h3>
+        <p>Read the latest tutorials, device setup guides, and industry news to optimize your IPTV viewing experience. Stay updated with the latest streaming trends.</p>
+        <div class="price-tag">Latest News</div>
+        <a href="/blog" class="seo-link">Read Blog</a>
+      </div>
+
+      <!-- 10. About -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+        <h3>About SolaraTV - #1 IPTV Provider 2026</h3>
+        <p>Discover the story behind the #1 rated IPTV service provider. Learn about our mission to deliver buffer-free 4K streaming to millions of users worldwide.</p>
+        <div class="price-tag">Trusted Worldwide</div>
+        <a href="/about" class="seo-link">About Us</a>
+      </div>
+
+      <!-- 11. Terms -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+        <h3>IPTV Terms & Conditions 2026</h3>
+        <p>Read the official terms of service, usage policies, and legal agreements for using the SolaraTV platform. Ensure a safe and compliant streaming experience.</p>
+        <div class="price-tag">Legal Info</div>
+        <a href="/terms" class="seo-link">Read Terms</a>
+      </div>
+
+      <!-- 12. Privacy -->
+      <div class="seo-card">
+        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>IPTV Privacy Policy 2026</h3>
+        <p>Understand how SolaraTV protects your data, ensures user privacy, and maintains a secure streaming environment. Your security is our top priority.</p>
+        <div class="price-tag">Data Protection</div>
+        <a href="/privacy" class="seo-link">Read Policy</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== باقي الأقسام كما هي ===== -->
 
 <!-- ===== REGION QUICK LINKS ===== -->
 <div class="container">

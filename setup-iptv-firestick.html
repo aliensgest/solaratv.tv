@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>How to Set Up IPTV on Firestick (2026 Guide) | SolaraTV</title>
+  <meta name="description" content="Step-by-step guide on how to install and set up IPTV on Amazon Fire TV Stick. Learn how to install IPTV Smarters Pro, use M3U playlists, and fix common errors.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Set Up IPTV on Firestick (2026 Guide)">
+  <meta property="og:description" content="The complete technical guide to installing IPTV players and setting up your Fire TV Stick.">
+  <meta property="og:type" content="article">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-color: #050505;
+      --text-main: #E0E0E0;
+      --text-muted: #9CA3AF;
+      --accent-gold: #FFD700;
+      --accent-gold-hover: #FFA500;
+      --card-bg: rgba(20, 20, 20, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      background-image: radial-gradient(circle at top right, rgba(255, 215, 0, 0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.03), transparent 40%);
+      color: var(--text-main);
+      line-height: 1.8;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Header Navigation (Breadcrumbs) */
+    .breadcrumbs {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 25px 20px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .breadcrumbs a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumbs a:hover {
+      color: #fff;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+    }
+
+    /* Article Header */
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 40px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .article-header h1 {
+      color: var(--accent-gold);
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .article-intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      text-align: justify;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Table of Contents */
+    .toc-container {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: var(--glass-shadow);
+      transition: transform 0.3s;
+    }
+
+    .toc-container:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+    }
+
+    .toc-title {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .toc-list { grid-template-columns: 1fr; }
+    }
+
+    .toc-list li a {
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .toc-list li a:hover {
+      background: rgba(255, 215, 0, 0.1);
+      border-color: rgba(255, 215, 0, 0.3);
+      color: var(--accent-gold);
+      transform: translateX(5px);
+    }
+
+    .toc-list li a::before {
+      content: '→';
+      color: var(--accent-gold);
+      font-weight: bold;
+    }
+
+    /* Content Sections */
+    .content-section {
+      margin-bottom: 60px;
+      scroll-margin-top: 30px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .content-section h2 {
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+      padding: 10px 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-gold);
+    }
+
+    .content-section p {
+      margin-bottom: 20px;
+      text-align: justify;
+      color: #d1d5db;
+    }
+
+    /* Lists inside content */
+    .content-section ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .content-section ul li {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .content-section ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--accent-gold);
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Steps List (Modern Cards) */
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .step-list li {
+      position: relative;
+      background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(10, 10, 10, 0.8));
+      padding: 25px 25px 25px 70px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .step-list li:hover {
+      border-color: rgba(255, 215, 0, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(255, 215, 0, 0.05);
+    }
+
+    .step-list li::before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-hover));
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Highlight Boxes */
+    .info-box {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-left: 4px solid var(--accent-gold);
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin: 30px 0;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-box::before {
+      content: '\f05a';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 4rem;
+      color: rgba(255, 215, 0, 0.05);
+      z-index: 0;
+    }
+
+    .warning-box {
+      background: rgba(255, 68, 68, 0.05);
+      border: 1px solid rgba(255, 68, 68, 0.2);
+      border-left: 4px solid #ff4444;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin: 30px 0;
+      color: #fca5a5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .warning-box::before {
+      content: '\f071';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 4rem;
+      color: rgba(255, 68, 68, 0.05);
+      z-index: 0;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 25px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.3s;
+    }
+    
+    .back-to-top:hover {
+      color: var(--accent-gold);
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    /* CTA Box */
+    .cta-box {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(5,5,5,0.9));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 20px;
+      padding: 50px 30px;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    }
+    
+    .cta-box h3 {
+      color: var(--accent-gold);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-hover));
+      color: #000;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-header h1 { font-size: 1.8rem; }
+      .content-section h2 { font-size: 1.4rem; }
+      .step-list li { padding: 20px 20px 20px 60px; }
+      .step-list li::before { left: 15px; width: 28px; height: 28px; font-size: 0.9rem; }
+      .info-box::before, .warning-box::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+  <a href="/"><i class="fas fa-home"></i> Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; How to Set Up IPTV on Firestick
+</div>
+
+<div class="article-container">
+  
+  <!-- Article Header -->
+  <header class="article-header" id="top">
+    <h1>How to Set Up IPTV on Amazon Fire TV Stick (2026 Guide)</h1>
+    <p class="article-intro">
+      Amazon Fire TV Stick is one of the most popular devices for streaming. In this technical guide, we will walk you through the step-by-step process of installing a compatible IPTV player, configuring your login credentials (M3U or Xtream Codes), and troubleshooting common issues. 
+    </p>
+  </header>
+
+  <!-- Table of Contents -->
+  <div class="toc-container">
+    <div class="toc-title"><i class="fas fa-list-ul"></i> Table of Contents</div>
+    <ul class="toc-list">
+      <li><a href="#prerequisites">1. Prerequisites Before You Start</a></li>
+      <li><a href="#enable-apps">2. Enable "Apps from Unknown Sources"</a></li>
+      <li><a href="#download-player">3. Download an IPTV Player (Downloader App)</a></li>
+      <li><a href="#install">4. Install and Configure Your IPTV Service</a></li>
+      <li><a href="#troubleshooting">5. Troubleshooting Common Firestick Issues</a></li>
+    </ul>
+  </div>
+
+  <!-- Section 1 -->
+  <section class="content-section" id="prerequisites">
+    <h2>1. Prerequisites Before You Start</h2>
+    <p>Before you begin the installation, ensure you have the following ready:</p>
+    <ul>
+      <li><strong>Amazon Fire TV Stick:</strong> Any generation (Firestick 4K, 4K Max, or Lite) running Fire OS.</li>
+      <li><strong>Active Internet Connection:</strong> A stable Wi-Fi connection (at least 15-25 Mbps recommended for HD/4K).</li>
+      <li><strong>Your Login Credentials:</strong> Your SolaraTV subscription details (Either an M3U URL or Xtream Codes: Username, Password, and Server URL).</li>
+      <li><strong>Downloader App:</strong> We will use this to install third-party players if they are not in the Amazon Appstore.</li>
+    </ul>
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="content-section" id="enable-apps">
+    <h2>2. Enable "Apps from Unknown Sources"</h2>
+    <p>By default, Amazon restricts installing apps from outside the Amazon Appstore. Since many IPTV players are not officially listed, you need to allow this permission.</p>
+    <ol class="step-list">
+      <li>Go to the <strong>Settings</strong> menu on your Fire TV home screen.</li>
+      <li>Select <strong>My Fire TV</strong> (or Device).</li>
+      <li>Scroll down and select <strong>Developer Options</strong>.</li>
+      <li>Turn <strong>ON</strong> the option for <strong>Install Unknown Apps</strong> (or "Apps from Unknown Sources").</li>
+    </ol>
+    <div class="warning-box">
+      <strong>Security Note:</strong> Only install applications from trusted developers and official sources. Never share your subscription credentials with unverified third-party apps.
+    </div>
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="content-section" id="download-player">
+    <h2>3. Download an IPTV Player (Using Downloader App)</h2>
+    <p>If the IPTV player you want is not in the Amazon Appstore, you can use the "Downloader" app to sideload it. We recommend <strong>IPTV Smarters Pro</strong> or <strong>XCIPTV</strong>.</p>
+    <ol class="step-list">
+      <li>Go to the Fire TV home screen and select the <strong>Search</strong> icon.</li>
+      <li>Type <strong>Downloader</strong> and select the orange app with a house icon.</li>
+      <li>Click <strong>Get</strong> or <strong>Download</strong> to install it.</li>
+      <li>Open the Downloader app. If prompted, allow it to access files on your device.</li>
+      <li>In the URL bar, type the official download link for your chosen IPTV player (e.g., the official IPTV Smarters website).</li>
+      <li>Click <strong>Go</strong> and wait for the download to complete.</li>
+      <li>When prompted, click <strong>Install</strong>. Once finished, you can delete the installation file.</li>
+    </ol>
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="content-section" id="install">
+    <h2>4. Install and Configure Your IPTV Service</h2>
+    <p>Now that the player is installed, you need to enter your SolaraTV credentials.</p>
+    <ol class="step-list">
+      <li>Open your installed IPTV Player (e.g., IPTV Smarters Pro).</li>
+      <li>Select the login method: <strong>Login with Xtream Codes API</strong> (Recommended) or <strong>Load Your Playlist or File/URL</strong> (M3U).</li>
+      <li>Enter a name for your profile (e.g., SolaraTV).</li>
+      <li>Enter the <strong>Username</strong>, <strong>Password</strong>, and <strong>Server URL</strong> exactly as provided by your SolaraTV support team. (If using M3U, paste the full M3U link).</li>
+      <li>Click <strong>Add User</strong> or <strong>Login</strong>.</li>
+      <li>Wait a few moments for the app to download the EPG (TV Guide) and channel list.</li>
+    </ol>
+    <div class="info-box">
+      <strong>Pro Tip:</strong> Xtream Codes is generally faster and less prone to errors than M3U links, especially for large channel lists.
+    </div>
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="content-section" id="troubleshooting">
+    <h2>5. Troubleshooting Common Firestick Issues</h2>
+    <p>If you encounter issues, here are the most common fixes:</p>
+    <ul>
+      <li><strong>App Crashes or Freezes:</strong> Go to Fire TV Settings > Applications > Manage Installed Applications > Select your IPTV Player > <strong>Clear Cache</strong> and <strong>Force Stop</strong>.</li>
+      <li><strong>Buffering:</strong> Check your internet speed. If you are using Wi-Fi, try moving the Firestick closer to the router, or use an Ethernet adapter for a wired connection.</li>
+      <li><strong>"Failed to Authorize" Error:</strong> Double-check that your Username, Password, and Server URL are typed correctly without any extra spaces.</li>
+      <li><strong>Playlist Not Loading:</strong> Ensure your subscription is still active and that the M3U link or Xtream Codes are not expired. Contact SolaraTV support to verify your account status.</li>
+    </ul>
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+  </section>
+
+  <!-- CTA Box -->
+  <div class="cta-box">
+    <h3>Need a Compatible IPTV Service?</h3>
+    <p>SolaraTV provides reliable access credentials for Firestick, Smart TVs, and more. Test our technical infrastructure with a free trial.</p>
+    <a href="https://wa.me/212600160196" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> Request a Free Trial</a>
+  </div>
+
+</div>
+
+</body>
+</html>
